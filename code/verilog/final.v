@@ -1,6 +1,5 @@
-
+// 除以四次減法
 module Graphic_3Dto2D_top
-
 (
   input clk,
   input srst_n,
@@ -20,7 +19,7 @@ module Graphic_3Dto2D_top
   input [19:0] face_v1,  //20 bit
   input [19:0] face_v2,
   input [19:0] face_v3,
-  input [7:0] Color_v,
+  input [23:0] Color_v, // should be RGB 8*3 = 24
   input [20:0] num_of_faces,
   input [335:0] depth_org,                          // pixel depth store in sram, 21*16 = 336 bit
   output [15:0] address_sram_CW,                    // address for Color and Weight SRAM
@@ -37,7 +36,6 @@ module Graphic_3Dto2D_top
   output [15:0] write_wordmask_sram_CW;
   output [15:0] write_wordmask_sram_get_vertice_info,  //16'b1111111111111111
   output [15:0] write_wordmask_sram_get_face           //16'b1111111111111111
-  
 );
 
 
@@ -57,7 +55,7 @@ reg [23:0] vertice_z_reg;  //4Q20
 reg [19:0] face_v1_reg;  //20 bit
 reg [19:0] face_v2_reg;
 reg [19:0] face_v3_reg;
-reg [7:0] Color_v_reg;
+reg [23:0] Color_v_reg;
 reg [335:0] depth_org_reg;
 reg [20:0] num_of_faces_reg;
 
@@ -69,9 +67,9 @@ wire start_doing_shading;
 wire [20:0] vertice1_depth_update;
 wire [20:0] vertice2_depth_update;
 wire [20:0] vertice3_depth_update;
-wire [7:0] vertice1_color_update;
-wire [7:0] vertice2_color_update;
-wire [7:0] vertice3_color_update;
+wire [23:0] vertice1_color_update;
+wire [23:0] vertice2_color_update;
+wire [23:0] vertice3_color_update;
 wire [11:0] screen_x1_update;     //12Q0
 wire [11:0] screen_y1_update;
 wire [11:0] screen_x2_update;
@@ -83,9 +81,9 @@ wire  data_ready;
 wire [20:0] vertice1_depth_use;
 wire [20:0] vertice2_depth_use;
 wire [20:0] vertice3_depth_use;
-wire [7:0] vertice1_color_use;
-wire [7:0] vertice2_color_use;
-wire [7:0] vertice3_color_use;
+wire [23:0] vertice1_color_use;
+wire [23:0] vertice2_color_use;
+wire [23:0] vertice3_color_use;
 wire [11:0] screen_x1_use;     //12Q0
 wire [11:0] screen_y1_use;
 wire [11:0] screen_x2_use;
@@ -149,7 +147,7 @@ wire get_next_triangle;
 
     controller  controller
 	(
-	
+
 	//input
 	
 	// from top
