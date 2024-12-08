@@ -180,7 +180,7 @@ always @ * begin
 			// counter
 			get_face_cnt_next = get_face_cnt + 1;
 
-			case(counter) // synopsys parallel_case
+			case(get_face_cnt) // synopsys parallel_case
 				0, 1: begin
 					// wait for sram data
 				end
