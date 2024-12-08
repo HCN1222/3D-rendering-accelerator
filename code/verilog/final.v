@@ -1,5 +1,3 @@
-// Data ready use not declared
-
 module Graphic_3Dto2D_top
 (
   input clk,
@@ -30,9 +28,8 @@ module Graphic_3Dto2D_top
   output [335:0] depth_after,
   output finish,
   
-  output write_enable_sram_CD;
+  output write_enable_sram_CD,
   output write_enable_sram_get_vertice_info,    //1'b1
-  output address_sram_get_face  //1'b1
   
   output [15:0] write_wordmask_sram_CD,
   output [15:0] write_wordmask_sram_get_vertice_info,  //16'b1111111111111111
