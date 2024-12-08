@@ -1,4 +1,5 @@
-// 除以四次減法
+// Data ready use not declared
+
 module Graphic_3Dto2D_top
 (
   input clk,
@@ -160,18 +161,21 @@ wire get_next_triangle;
 	.num_of_faces(num_of_faces_reg),
 	
 	// from vertice_shader
+	.vertice1_x_update(screen_x1_update),
+	.vertice1_y_update(screen_y1_update),
 	.vertice1_depth_update(vertice1_depth_update),  // when the current use calculate done, then updated by this value 
-	.vertice2_depth_update(vertice2_depth_update),
-	.vertice3_depth_update(vertice3_depth_update),
 	.vertice1_color_update(vertice1_color_update),
+
+	.vertice2_x_update(screen_x2_update),
+	.vertice2_y_update(screen_y2_update),
+	.vertice2_depth_update(vertice2_depth_update),
 	.vertice2_color_update(vertice2_color_update),
+
+	.vertice3_x_update(screen_x3_update),
+	.vertice3_y_update(screen_y3_update),
+	.vertice3_depth_update(vertice3_depth_update),
 	.vertice3_color_update(vertice3_color_update),
-	.screen_x1_update(screen_x1_update),
-	.screen_y1_update(screen_y1_update),
-	.screen_x2_update(screen_x2_update),
-	.screen_y2_update(screen_y2_update),
-	.screen_x3_update(screen_x3_update),
-	.screen_y3_update(screen_y3_update),
+
 	.data_ready(data_ready),
 	
 	//from Rasterization
@@ -184,23 +188,27 @@ wire get_next_triangle;
 	.finish(finish),
 	
 	// to vertice_shader
-	.controller_signal_get(controller_signal_get),
-	.controller_which_vertice(controller_which_vertice),
-	.start_doing_shading(start_doing_shading),
+	.to_shader_valid(controller_signal_get),
+	.to_shader_vertice_info(controller_which_vertice),
+	// commented due to redundancy
+	// .start_doing_shading(start_doing_shading),
 	
 	// to Rasterization
+	.vertice1_x_use(screen_x1_use),
+	.vertice1_y_use(screen_y1_use),
 	.vertice1_depth_use(vertice1_depth_use),  // the current use information
-	.vertice2_depth_use(vertice2_depth_use),
-	.vertice3_depth_use(vertice3_depth_use),
 	.vertice1_color_use(vertice1_color_use),
+
+	.vertice2_x_use(screen_x2_use),
+	.vertice2_y_use(screen_y2_use),
+	.vertice2_depth_use(vertice2_depth_use),
 	.vertice2_color_use(vertice2_color_use),
+
+	.vertice3_x_use(screen_x3_use),
+	.vertice3_y_use(screen_y3_use),
+	.vertice3_depth_use(vertice3_depth_use),
 	.vertice3_color_use(vertice3_color_use),
-	.screen_x1_use(screen_x1_use),
-	.screen_y1_use(screen_y1_use),
-	.screen_x2_use(screen_x2_use),
-	.screen_y2_use(screen_y2_use),
-	.screen_x3_use(screen_x3_use),
-	.screen_y3_use(screen_y3_use),
+
 	.data_ready_use(data_ready_use)
 	
 	);
