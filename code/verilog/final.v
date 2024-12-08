@@ -194,22 +194,22 @@ wire get_next_triangle;
 	// .start_doing_shading(start_doing_shading),
 	
 	// to Rasterization
-	.vertice1_x_use(screen_x1_use),
-	.vertice1_y_use(screen_y1_use),
-	.vertice1_depth_use(vertice1_depth_use),  // the current use information
-	.vertice1_color_use(vertice1_color_use),
+	.vertice1_x(screen_x1_use),
+	.vertice1_y(screen_y1_use),
+	.vertice1_depth(vertice1_depth_use),  // the current use information
+	.vertice1_color(vertice1_color_use),
 
-	.vertice2_x_use(screen_x2_use),
-	.vertice2_y_use(screen_y2_use),
-	.vertice2_depth_use(vertice2_depth_use),
-	.vertice2_color_use(vertice2_color_use),
+	.vertice2_x(screen_x2_use),
+	.vertice2_y(screen_y2_use),
+	.vertice2_depth(vertice2_depth_use),
+	.vertice2_color(vertice2_color_use),
 
-	.vertice3_x_use(screen_x3_use),
-	.vertice3_y_use(screen_y3_use),
-	.vertice3_depth_use(vertice3_depth_use),
-	.vertice3_color_use(vertice3_color_use),
+	.vertice3_x(screen_x3_use),
+	.vertice3_y(screen_y3_use),
+	.vertice3_depth(vertice3_depth_use),
+	.vertice3_color(vertice3_color_use),
 
-	.data_ready_use(data_ready_use)
+	.vertice_ready(data_ready_use)
 	
 	);
 	
