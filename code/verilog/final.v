@@ -23,18 +23,18 @@ module Graphic_3Dto2D_top
   input [23:0] Color_v, // should be RGB 8*3 = 24
   input [20:0] num_of_faces,
   input [335:0] depth_org,                          // pixel depth store in sram, 21*16 = 336 bit
-  output [15:0] address_sram_CW,                    // address for Color and Weight SRAM
+  output [15:0] address_sram_CD,                    // address for Color and Weight SRAM
   output [19:0] address_sram_get_vertice_info,      // address for vertice position and its color
   output [19:0] address_sram_get_face,              // address for faces information
   output [383:0] Color_RGB_combine,                 // 8*3 = 24 bit, 24*16 = 384 bit
   output [335:0] depth_after,
   output finish,
   
-  output write_enable_sram_CW;
+  output write_enable_sram_CD;
   output write_enable_sram_get_vertice_info,    //1'b1
   output address_sram_get_face  //1'b1
   
-  output [15:0] write_wordmask_sram_CW;
+  output [15:0] write_wordmask_sram_CD,
   output [15:0] write_wordmask_sram_get_vertice_info,  //16'b1111111111111111
   output [15:0] write_wordmask_sram_get_face           //16'b1111111111111111
 );
@@ -242,10 +242,10 @@ wire get_next_triangle;
 	//output
 	
 	// to top
-	.address_sram_CW(address_sram_CW),
+	.address_sram_CD(address_sram_CD),
 	.Color_RGB_combine(Color_RGB_combine),
-	.write_enable_sram_CW(write_enable_sram_CW),
-	.write_wordmask_sram_CW(write_wordmask_sram_CW),
+	.write_enable_sram_CD(write_enable_sram_CD),
+	.write_wordmask_sram_CD(write_wordmask_sram_CD),
 	.depth_after(depth_after),
 	
 	// to controller

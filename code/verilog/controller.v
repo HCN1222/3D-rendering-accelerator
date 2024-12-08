@@ -7,7 +7,7 @@ module controller(
 	// input
 	// from top
 	input clk,
-    input srst_n
+    input srst_n,
 	input enable,
 	input [19:0] face_v1,
 	input [19:0] face_v2,
