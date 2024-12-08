@@ -93,10 +93,10 @@ reg [23:0] vertice3_color_wire;
 reg vertice_ready_wire;
 
 // FSM
-localparam IDLE = 0;
-localparam GET_FACE = 1;
-localparam WAITING = 2;
-localparam FINISH = 3;
+localparam IDLE = 2'd0;
+localparam GET_FACE = 2'd1;
+localparam WAITING = 2'd2;
+localparam FINISH = 2'd3;
 
 reg [1:0] state, state_next;
 
