@@ -1,5 +1,5 @@
 module inv_sqrt_LUT(
-    input [7:0] IN,
+    input [8:0] IN,
     output reg [24:0] OUT
 );
 
