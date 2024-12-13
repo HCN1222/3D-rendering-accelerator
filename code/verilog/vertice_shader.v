@@ -37,6 +37,7 @@ module vertice_shader(
 	output [11:0] screen_y2_update,
 	output [11:0] screen_x3_update,
 	output [11:0] screen_y3_update,
+	output MVP_ready,
 	output data_ready,
 	
 	//to top
@@ -50,7 +51,7 @@ module vertice_shader(
 	// input:
 	// x, y, z: 4Q20
 	// output:
-	// out: 0Q24
+	// out: 1Q24
 	// ******************************
 	inv_sqrt inv_sqrt(
 		/*input*/ .clk(clk),
@@ -58,33 +59,59 @@ module vertice_shader(
 		/*output*/ .out( )
 	);
 
-    GetMVP GetMVP(
-	
-	
-	
-	);
-	
-	
-	matrix_multiplication matrix_multiplication(
-	
-	
-	
-	);
-	
-	
-	DO_NDC DO_NDC(
-	
-	
-	
-	
-	);
-	
-	ChangeToScreen ChangeToScreen(
-	
-	
-	
-	);
+	// FSM
+	localparam IDLE = 4'd0;
+	localparam GET_CAMZ = 4'd1;
+	localparam GET_CAMX = 4'd2;
+	localparam GET_CAMY = 4'd3;
+	localparam GET_MVP = 4'd4;
+	localparam TRANSFORM = 4'd5;
+	localparam DONE = 4'd6;
 
+	reg [3:0] state, state_next;
+	reg [4:0] cnt, cnt_next;
+
+	// get camera Z
+	reg []
+
+	always @ (*) begin
+		state_next = state;
+		cnt_next = cnt;
+		case (state)
+			IDLE: begin
+				cnt_next = 0;
+				state_next = (enable) ? CALC_VIEW : IDLE;
+			end
+			GET_CAMZ: begin
+				// ********** Summary ***********
+				// 1. get Z = eye - center (1 cycle)
+				// 2. get 1 / |z| (12 cycle)
+				// 3. get Z * 1/|z| (1cycle)
+				// ******************************
+
+				// counter
+				cnt_next = cnt + 1;
+				case(cnt)
+					
+					0: begin
+					
+					end
+				endcase
+			end
+			
+		endcase
+	end
+
+	always @ (posedge clk) begin
+		if (~srst_n) begin
+			state <= IDLE;
+		end
+		else begin
+			state <= state_next;
+		end
+		
+		cnt <= cnt_next;
+	end
 
 endmodule
 

@@ -4,7 +4,7 @@ module(
 );
 
 always@(*) begin
-    case(IN):
+    case(IN) // synopsys parallel_case
         3: OUT = 9686330;
         4: OUT = 8388608;
         5: OUT = 7502999;

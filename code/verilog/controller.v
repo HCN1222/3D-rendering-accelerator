@@ -30,6 +30,7 @@ module controller(
 	input [20:0] vertice3_depth_update,
 	input [23:0] vertice3_color_update,
 
+	input MVP_ready,
 	input data_ready,
 	
 	//from Rasterization
@@ -159,7 +160,7 @@ always @ * begin
 			to_shader_valid_wire = 0;
 			vertice_ready_wire = 0;
 
-			if(enable) begin
+			if(enable && MVP_ready) begin
 				state_next = GET_FACE;
 				get_face_cnt_next = 0;
 				address_sram_get_face_wire = 0;

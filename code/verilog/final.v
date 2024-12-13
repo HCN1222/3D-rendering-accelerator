@@ -74,6 +74,7 @@ wire [11:0] screen_x2_update;
 wire [11:0] screen_y2_update;
 wire [11:0] screen_x3_update;
 wire [11:0] screen_y3_update;
+wire MVP_ready;
 wire  data_ready;
 
 wire [20:0] vertice1_depth_use;
@@ -134,6 +135,7 @@ wire get_next_triangle;
 	.screen_y2_update(screen_y2_update),
 	.screen_x3_update(screen_x3_update),
 	.screen_y3_update(screen_y3_update),
+	.MVP_ready(MVP_ready),
 	.data_ready(data_ready),
 	
 	//to top
@@ -173,6 +175,7 @@ wire get_next_triangle;
 	.vertice3_depth_update(vertice3_depth_update),
 	.vertice3_color_update(vertice3_color_update),
 
+	.MVP_ready(MVP_ready),
 	.data_ready(data_ready),
 	
 	//from Rasterization
