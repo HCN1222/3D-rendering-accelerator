@@ -1,4 +1,4 @@
-module(
+module inv_sqrt_LUT(
     input [8:0] IN,
     output [24:0] OUT
 );

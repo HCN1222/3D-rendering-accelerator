@@ -4,7 +4,7 @@ module inv_sqrt
     input  [23:0] x,
     input  [23:0] y,
     input  [23:0] z,
-    output reg [20:0] out,
+    output reg [24:0] out
 );
 
     // ********** Summary ***********
@@ -37,8 +37,6 @@ module inv_sqrt
 
     // 6 7 8 9 10 11
     // Repeat 3-5 for 2 times
-
-    // Not that for X3, we quantize the value to 1Q20
     // Last assign out_wire = abs( X3 )
 
     // 12
@@ -114,10 +112,10 @@ module inv_sqrt
     // Newton-Raphson iteration 3-3
     reg signed [53:0] X3; // 4Q48
     reg signed [48:0] X3_trunc; // 1Q48
-    reg signed [20:0] X3_quant, X3_quant_next; // 1Q24
+    reg signed [24:0] X3_quant, X3_quant_next; // 1Q24
 
     // output
-    reg signed [20:0] out_wire;
+    reg signed [24:0] out_wire;
 
     // combinational logic
     always @(*) begin
@@ -210,8 +208,8 @@ module inv_sqrt
         X3 = X2 * coeff_2_quant;
         // truncate: 4Q48 -> 1Q48
         X3_trunc = X3[48:0];
-        // quantized: 1Q48 -> 1Q20
-        X3_quant_next = (X3_trunc + {1'b0, 20'b0, 1'b1, 27'b0}) >> 28;
+        // quantized: 1Q48 -> 1Q24
+        X3_quant_next = (X3_trunc + {1'b0, 24'b0, 1'b1, 23'b0}) >> 24;
 
         out_wire = (X3_quant_next > 0) ? X3_quant_next : -X3_quant_next;
 
