@@ -113,7 +113,7 @@ module inv_sqrt
     // Newton-Raphson iteration 3-3
     reg signed [53:0] X3; // 4Q48
     reg signed [48:0] X3_trunc; // 1Q48
-    reg signed [24:0] X3_quant, X3_quant_next; // 1Q24
+    reg signed [24:0] /*X3_quant,*/ X3_quant_next; // 1Q24
 
     // output
     reg signed [24:0] out_wire;
@@ -241,7 +241,7 @@ module inv_sqrt
         // ***************** step 10 *******************
         coeff_2_quant <= coeff_2_quant_next;
         // ***************** step 11 *******************
-        X3_quant <= X3_quant_next;
+        //X3_quant <= X3_quant_next;
         out <= out_wire;
     end
 
