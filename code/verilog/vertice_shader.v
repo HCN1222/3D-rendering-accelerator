@@ -75,8 +75,8 @@ module vertice_shader(
 	reg [4:0] cnt, cnt_next;
 
 	// Camera coordinates
-	reg [23:0] CamZ [0:2]; //4Q20
-	reg [23:0] CamZ_next [0:2]; //4Q20
+	reg signed [23:0] CamZ [0:2]; //4Q20
+	reg signed [23:0] CamZ_next [0:2]; //4Q20
 
 
 	integer i;

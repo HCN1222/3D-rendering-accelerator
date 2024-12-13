@@ -49,9 +49,9 @@ module inv_sqrt
     reg signed [47:0] x_2, y_2, z_2;
 
     // quantized the value of x_2, y_2, and z_2 to 8Q24
-    reg signed [23:0] x_2_quant, x_2_quant_next;
-    reg signed [23:0] y_2_quant, y_2_quant_next;
-    reg signed [23:0] z_2_quant, z_2_quant_next;
+    reg signed [33:0] x_2_quant, x_2_quant_next;
+    reg signed [33:0] y_2_quant, y_2_quant_next;
+    reg signed [33:0] z_2_quant, z_2_quant_next;
 
     // ************** step 2 *******************
     // SUM
@@ -164,7 +164,7 @@ module inv_sqrt
 
         // ************** step 6 *******************
         // Newton-Raphson iteration 2-1
-        X1_2 = X1 * X1;
+        X1_2 = X1_quant * X1_quant;
         // truncation: 2Q48 -> 1Q48
         X1_2_trunc = X1_2[48:0];
         // quantized: 1Q48 -> 1Q24
@@ -181,7 +181,7 @@ module inv_sqrt
 
         // ************** step 8 *******************
         // Newton-Raphson iteration 2-3
-        X2 = X1 * coeff_1_quant;
+        X2 = X1_quant * coeff_1_quant;
         // truncate: 4Q48 -> 1Q48
         X2_trunc = X2[48:0];
         // quantized: 1Q48 -> 1Q24
@@ -189,7 +189,7 @@ module inv_sqrt
 
         // ************** step 9 *******************
         // Newton-Raphson iteration 3-1
-        X2_2 = X2 * X2;
+        X2_2 = X2_quant * X2_quant;
         // truncation: 2Q48 -> 1Q48
         X2_2_trunc = X2_2[48:0];
         // quantized: 1Q48 -> 1Q24
@@ -206,7 +206,7 @@ module inv_sqrt
 
         // ************** step 11 *******************
         // Newton-Raphson iteration 3-3
-        X3 = X2 * coeff_2_quant;
+        X3 = X2_quant * coeff_2_quant;
         // truncate: 4Q48 -> 1Q48
         X3_trunc = X3[48:0];
         // quantized: 1Q48 -> 1Q24
