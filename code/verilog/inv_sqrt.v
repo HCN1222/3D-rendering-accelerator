@@ -127,11 +127,10 @@ module inv_sqrt
         x_2 = x * x;
         y_2 = y * y;
         z_2 = z * z;
-        // quantized: 8Q48 -> 8Q24
-        //          8Q25   +     1
-        x_2_quant_next = (x_2 + {8'b0, 1'b1, 47'b0}) >> 24;
-        y_2_quant_next = (y_2 + {8'b0, 1'b1, 47'b0}) >> 24;
-        z_2_quant_next = (z_2 + {8'b0, 1'b1, 47'b0}) >> 24;
+        // quantized: 8Q40 -> 8Q24
+        x_2_quant_next = (x_2 + {8'b0, 24'b0, 1'b1, 15'b0}) >> 16;
+        y_2_quant_next = (y_2 + {8'b0, 24'b0, 1'b1, 15'b0}) >> 16;
+        z_2_quant_next = (z_2 + {8'b0, 24'b0, 1'b1, 15'b0}) >> 16;
 
         // ************** step 2 *******************
         // Calculate SUM
