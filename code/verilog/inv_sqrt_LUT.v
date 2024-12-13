@@ -4,6 +4,7 @@ module inv_sqrt_LUT(
 );
 
 always@(*) begin
+    OUT = 0;
     case(IN) // synopsys parallel_case
         3: OUT = 9686330;
         4: OUT = 8388608;

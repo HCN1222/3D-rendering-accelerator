@@ -57,8 +57,8 @@ module inv_sqrt
     // SUM
     reg signed [33:0] SUM, SUM_next;
     // LUT
-    reg signed [24:0] X0, X_next;
-    inv_sqrt_LUT LUT( .IN(SUM_next[32:0]), .OUT(X0_next) );
+    reg signed [24:0] X0, X0_next;
+    inv_sqrt_LUT LUT( .IN(SUM_next[32:25]), .OUT(X0_next) );
 
     // ************** step 3 *******************
     // Newton-Raphson iteration 1-1
