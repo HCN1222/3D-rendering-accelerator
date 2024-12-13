@@ -120,10 +120,12 @@ module vertice_shader(
 						// IDLE
 					end
 					12: begin // get Z * 1/|z|
-						// 4Q20         4Q20         1Q24
-						CamZ_next[0] = ( CamZ[0] * inv_sqrt_out + {15,b0,1'b1,23'b0} ) >> 24;
-						CamZ_next[1] = ( CamZ[1] * inv_sqrt_out + {15,b0,1'b1,23'b0} ) >> 24;
-						CamZ_next[2] = ( CamZ[2] * inv_sqrt_out + {15,b0,1'b1,23'b0} ) >> 24;
+						//   1Q23         4Q20         1Q24
+						CamZ_next[0] = ( CamZ[0] * inv_sqrt_out + {15,b0,1'b1,23'b0} ) >> 19;
+						CamZ_next[1] = ( CamZ[1] * inv_sqrt_out + {15,b0,1'b1,23'b0} ) >> 19;
+						CamZ_next[2] = ( CamZ[2] * inv_sqrt_out + {15,b0,1'b1,23'b0} ) >> 19;
+					
+						next_state = GET_CAMX;
 					end
 				endcase
 			end
