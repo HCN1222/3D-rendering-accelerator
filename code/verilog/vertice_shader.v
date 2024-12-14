@@ -46,7 +46,7 @@ module vertex_shader(
 	// Model matrix: skipped
 	// View matrix: 2Q24, 2Q24, 2Q24, 7Q17
 	// Projection matrix: 3Q21
-	// MVP matrix: 8Q16
+	// MVP matrix: 11Q13
 
 	// output wire
 	reg [20:0] vertex1_depth_update_wire;

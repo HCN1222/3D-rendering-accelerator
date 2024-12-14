@@ -59,8 +59,11 @@ reg [20:0] num_of_faces_reg;
 
 
 wire controller_signal_get;
-wire [19:0] controller_which_vertice;
+// wire [19:0] controller_which_vertice;
 wire start_doing_shading;
+wire [19:0] controller_vertex_x;
+wire [19:0] controller_vertex_y;
+wire [19:0] controller_vertex_z;
 
 wire [20:0] vertice1_depth_update;
 wire [20:0] vertice2_depth_update;
@@ -110,15 +113,15 @@ wire get_next_triangle;
 	.up_x(up_x_reg),
 	.up_y(up_y_reg),
 	.up_z(up_z_reg),
-	.vertice_x(vertice_x_reg),
-	.vertice_y(vertice_y_reg),
-	.vertice_z(vertice_z_reg),
-	.Color_v(Color_v_reg),
 	
 	//from controller
-	.controller_signal_get(controller_signal_get),
-	.controller_which_vertice(controller_which_vertice),
+	// .controller_signal_get(controller_signal_get),
+	// .controller_which_vertice(controller_which_vertice),
 	.start_doing_shading(start_doing_shading),
+	.vertice_x(controller_vertex_x),
+	.vertice_y(controller_vertex_y),
+	.vertice_z(controller_vertex_z),
+	// .Color_v(Color_v_reg),
 	
 	//output
 	
@@ -126,9 +129,9 @@ wire get_next_triangle;
 	.vertice1_depth_update(vertice1_depth_update),
 	.vertice2_depth_update(vertice2_depth_update),
 	.vertice3_depth_update(vertice3_depth_update),
-	.vertice1_color_update(vertice1_color_update),
-	.vertice2_color_update(vertice2_color_update),
-	.vertice3_color_update(vertice3_color_update),
+	// .vertice1_color_update(vertice1_color_update),
+	// .vertice2_color_update(vertice2_color_update),
+	// .vertice3_color_update(vertice3_color_update),
 	.screen_x1_update(screen_x1_update),
 	.screen_y1_update(screen_y1_update),
 	.screen_x2_update(screen_x2_update),
@@ -139,7 +142,7 @@ wire get_next_triangle;
 	.data_ready(data_ready),
 	
 	//to top
-	.address_sram_get_vertice_info(address_sram_get_vertice_info)
+	// .address_sram_get_vertice_info(address_sram_get_vertice_info)
 	
 	
 	);
@@ -157,23 +160,28 @@ wire get_next_triangle;
 	.face_v1(face_v1_reg),
 	.face_v2(face_v2_reg),
 	.face_v3(face_v3_reg),
+	.sram_vertex_x(vertice_x_reg)
+	.sram_vertex_y(vertice_y_reg)
+	.sram_vertex_z(vertice_z_reg)
 	.num_of_faces(num_of_faces_reg),
+	.Color_v(Color_v_reg),
+
 	
 	// from vertice_shader
 	.vertice1_x_update(screen_x1_update),
 	.vertice1_y_update(screen_y1_update),
 	.vertice1_depth_update(vertice1_depth_update),  // when the current use calculate done, then updated by this value 
-	.vertice1_color_update(vertice1_color_update),
+	// .vertice1_color_update(vertice1_color_update),
 
 	.vertice2_x_update(screen_x2_update),
 	.vertice2_y_update(screen_y2_update),
 	.vertice2_depth_update(vertice2_depth_update),
-	.vertice2_color_update(vertice2_color_update),
+	// .vertice2_color_update(vertice2_color_update),
 
 	.vertice3_x_update(screen_x3_update),
 	.vertice3_y_update(screen_y3_update),
 	.vertice3_depth_update(vertice3_depth_update),
-	.vertice3_color_update(vertice3_color_update),
+	// .vertice3_color_update(vertice3_color_update),
 
 	.MVP_ready(MVP_ready),
 	.data_ready(data_ready),
@@ -186,12 +194,15 @@ wire get_next_triangle;
 	// to top
 	.address_sram_get_face(address_sram_get_face),
 	.finish(finish),
-	
+	.address_sram_get_vertice_info(address_sram_get_vertice_info)
+
 	// to vertice_shader
 	.to_shader_valid(controller_signal_get),
-	.to_shader_vertice_info(controller_which_vertice),
-	// commented due to redundancy
-	// .start_doing_shading(start_doing_shading),
+	// .to_shader_vertice_info(controller_which_vertice),
+	.start_doing_shading(start_doing_shading),
+	.to_shader_vertex_x(controller_vertex_x),
+	.to_shader_vertex_y(controller_vertex_y),
+	.to_shader_vertex_z(controller_vertex_z),
 	
 	// to Rasterization
 	.vertice1_x(screen_x1_use),
