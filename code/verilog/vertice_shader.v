@@ -12,15 +12,15 @@ module vertex_shader(
 	input [23:0] up_x,      // 4Q20
 	input [23:0] up_y,      // 4Q20
 	input [23:0] up_z,      // 4Q20
+	
+	//from controller
+	input start_doing_shading,
+	// input controller_signal_get,
+	// input [19:0] controller_which_vertex,
 	input [23:0] vertex_x, // 4Q20
 	input [23:0] vertex_y, // 4Q20
 	input [23:0] vertex_z, // 4Q20
-	input [23:0] Color_v,   // 4Q20
-	
-	//from controller
-	input controller_signal_get,
-	input [19:0] controller_which_vertex,
-	input start_doing_shading,
+	// input [23:0] Color_v,   // 4Q20
 	
 	//output
 	
@@ -175,14 +175,22 @@ module vertex_shader(
 	// MVP matrix
 	reg signed [23:0] MVP [0:3][0:3];
 	reg signed [23:0] MVP_next [0:3][0:3];
+	reg signed [23:0] MVP_T [0:3][0:3];
+	always @ (*) begin
+		MVP_T[0][0] = MVP[0][0]; MVP_T[0][1] = MVP[1][0]; MVP_T[0][2] = MVP[2][0]; MVP_T[0][3] = MVP[3][0];
+		MVP_T[1][0] = MVP[0][1]; MVP_T[1][1] = MVP[1][1]; MVP_T[1][2] = MVP[2][1]; MVP_T[1][3] = MVP[3][1];
+		MVP_T[2][0] = MVP[0][2]; MVP_T[2][1] = MVP[1][2]; MVP_T[2][2] = MVP[2][2]; MVP_T[2][3] = MVP[3][2];
+		MVP_T[3][0] = MVP[0][3]; MVP_T[3][1] = MVP[1][3]; MVP_T[3][2] = MVP[2][3]; MVP_T[3][3] = MVP[3][3];
+	end
 
 	// product quantization
-	reg signed [47:0] product [0:3][0:3];
+	reg signed [46:0] product [0:3][0:3];
+	reg signed [18:0] product_round[0:3][0:3];
 	reg signed [23:0] product_quant [0:3][0:3];
 	reg signed [23:0] product_quant_next [0:3][0:3];
 	// sum quantization
-	reg signed [25:0] sum [0:3][0:3];
-	reg signed [23:0] sum_next [0:3][0:3];
+	reg signed [23:0] sum [0:3];
+	reg signed [23:0] sum_next [0:3];
 
 	// vertex matrix 4Q20
 	// create homogeneous coordinates
@@ -193,6 +201,27 @@ module vertex_shader(
 		vertex[0][2] = vertex_z;
 		vertex[0][3] = 1<<20;
 	end
+
+	// NDC
+	reg signed [13:0] ndc_x, ndc_y;
+
+	divider divider_x(
+		/*input*/ .clk(clk),
+		.dividend( sum[0] ),
+		.divisor( sum[3] ),
+		/*output*/ .quotient( ndc_x )
+	);
+	divider divider_y(
+		/*input*/ .clk(clk),
+		.dividend( sum[1] ),
+		.divisor( sum[3] ),
+		/*output*/ .quotient( ndc_y )
+	);
+
+	// screen space
+	reg [14:0]shifted_ndc_x, shifted_ndc_y;
+	reg [25:0] screen_x, screen_y;
+	reg [11:0] screen_x_quant, screen_y_quant;
 
 	integer row, col;
 	always @ (*) begin
@@ -247,11 +276,9 @@ module vertex_shader(
 				product_quant_next[row][col] = 0;
 			end
 		end
-		// sum quantization
-		for(row = 0; row < 4; row = row + 1) begin
-			for(col = 0; col < 4; col = col + 1) begin
-				sum_quant_next[row][col] = 0;
-			end
+		// sum
+		for(col = 0; col < 4; col = col + 1) begin
+			sum_next[col] = 0;
 		end
 
 		case (state)
@@ -453,29 +480,24 @@ module vertex_shader(
 					for ( col=0; col<4; col=col+1 )begin
 						for ( row=0; row<4; row=row+1 )begin
 							product[row][col] = view[cnt][row] * projection[row][col];
-							if(col == 3) begin
+							if(row == 3) begin
 								// 7Q17 * 3Q21 = 9Q38 ->9Q15
 								product_quant_next[row][col] = ( product[row][col] + {9'b0, 15'b0, 1'b1, 22'b0} ) >> 23;
 							end
 							else begin
-								// 2Q24 * 3Q21 = 4Q45 -> 4Q20
-								product_quant_next[row][col] = ( product[row][col] + {4'b0, 20'b0, 1'b1, 24'b0} ) >> 25;
+								// 2Q24 * 3Q21 = 4Q45 -> 4Q15 -> 9Q15
+								product_round = ( product[row][col] + {4'b0, 20'b0, 1'b1, 24'b0} ) >> 25;
+								product_quant_next[row][col] = {5{product_round[18]}, product_round}
 							end
 						end
 					end
 				end
 				if (cnt >= 1 && cnt <= 4) begin
 					for ( col=0; col<4; col=col+1 )begin
-						if(col==3) begin
-							// 9Q15 + 9Q15 + 9Q15 +9Q15 = 11Q15 -> 11Q13
-							MVP_next[cnt-1][col] = ( (product_quant[0][col] + product_quant[1][col] + product_quant[2][col] + product_quant[3][col])
-													+ {11'b0, 13'b0, 1'b1, 1'b0} ) >> 2;
-						end
-						else begin
-							// 4Q20 + 4Q20 + 4Q20 + 4Q20 = 6Q20 -> 6Q18
-							MVP_next[cnt-1][col] = ( (product_quant[0][col] + product_quant[1][col] + product_quant[2][col] + product_quant[3][col])
-													+ {6'b0, 18'b0, 1'b1, 1'b0} ) >> 2;
-						end
+						// 9Q15 + 9Q15 + 9Q15 +9Q15 = 11Q15 -> 11Q13
+						MVP_next[cnt-1][col] = ( (product_quant[0][col] + product_quant[1][col]
+						                        + product_quant[2][col] + product_quant[3][col])
+												+ {11'b0, 13'b0, 1'b1, 1'b0} ) >> 2;
 					end
 				end
 				if (cnt == 4) begin
@@ -493,38 +515,104 @@ module vertex_shader(
 				// 3. NDC (5 cycles)
 				// 4. clip space to screen space (1 cycle)
 				// counter
-				cnt = cnt + 1;
+				cnt_next = cnt + 1;
 
+				// stage 1
 				for ( col=0; col<4; col=col+1 )begin
 					for ( row=0; row<4; row=row+1 )begin
-						product[row][col] = vertex[0][row] * MVP[row][col];
-						if(col == 3) begin
-							// 4Q20 * 7Q17 = 10Q37 ->10Q14
-							product_quant_next[row][col] = ( product[row][col] + {10'b0, 14'b0, 1'b1, 22'b0} ) >> 23;
-						end
-						else begin
-							// 4Q20 * 2Q24 = 5Q44 -> 5Q19
-							product_quant_next[row][col] = ( product[row][col] + {5'b0, 19'b0, 1'b1, 24'b0} ) >> 25;
-						end
+						//     14Q33              4Q20             11Q13
+						product[row][col] = vertex[0][row] * MVP_T[row][col];
+						// 14Q33 -> 14Q10
+						product_quant_next[row][col] = ( product[row][col] + {14'b0, 10'b0, 1'b1, 22'b0} ) >> 23;
 					end
 				end
-
+				// stage 2
 				for ( col=0; col<4; col=col+1 )begin
-					if(col==3) begin
-						// 10Q14 +10Q14 +10Q14 +10Q14= 12Q14 -> 12Q12
-						sum_next[col] = ( (product_quant[0][col] + product_quant[1][col] + product_quant[2][col] + product_quant[3][col])
-												+ {12'b0, 12'b0, 1'b1, 1'b0} ) >> 2;
-					end
-					else begin
-						// 5Q19 +5Q19 +5Q19 +5Q19 = 7Q19 -> 7Q17
-						sum_next[col] = ( (product_quant[0][col] + product_quant[1][col] + product_quant[2][col] + product_quant[3][col])
-												+ {7'b0, 17'b0, 1'b1, 1'b0} ) >> 2;
-					end
+					// 14Q10 + 14Q10 + 14Q10 + 14Q10 = 16Q10 -> 16Q8
+					sum_next[col] = ( (product_quant[0][col] + product_quant[1][col] + product_quant[2][col] + product_quant[3][col])
+											+ {16'b0, 8'b0, 1'b1, 1'b0} ) >> 2;
 				end
+				// stage 3 4 5 6
+					// divider divider_x(
+					// 	/*input*/ .clk(clk),
+					// 	.dividend( sum[0] ),
+					// 	.divisor( sum[3] ),
+					// 	/*output*/ .quotient( ndc_x )
+					// );
+					// divider divider_y(
+					// 	/*input*/ .clk(clk),
+					// 	.dividend( sum[1] ),
+					// 	.divisor( sum[3] ),
+					// 	/*output*/ .quotient( ndc_y )
+					// );
+				// stage 7
+				// ndc_x + 1: 2Q12 + 2Q12 = 3Q12
+				// (ndc_x + 1) / 2: 3Q12 -> 2Q13
+				// (ndc_x + 1) / 2 * camera.screen_W: 1Q13 * 12Q0 = 13Q13
+				// screen_x: 13Q13 -> 12Q0
 
+				// screen_x = (ndc_x + 1) / 2 * camera.screen_W
+				//                2Q12           2Q12
+				shifted_ndc_x = (ndc_x + {1'b0, 1'b1, 12'b0}); // 3Q12
+				// divided by 2 : 3Q12 -> 2Q13
+				//                 2Q13    *     12Q0 -> 13Q13 -> 13Q0
+				screen_x = ((shifted_ndc_x[13:0] * 12'd1280) + {13'b0, 1'b1, 12'b0}) >> 13;
+				screen_x_quant = screen_x[11:0];
 
+				// screen_y = (1 - (ndc_y + 1) / 2) * camera.screen_H
+				//          = ( 1/2 - ndc_y/2 ) * camera.screen_H
+				//              2Q13 - 1Q13 
+				shifted_ndc_y = ( {2'b0, 1'b1, 13'b0} - ndc_y ); // 2Q13 -> 2Q13
+				screen_y = ((shifted_ndc_y[13:0] * 12'd720) + {13'b0, 1'b1, 12'b0}) >> 13;
+				screen_y_quant = screen_y[11:0];
 
+				// output wire
+				case(cnt)
+					1: begin
+						vertex1_depth_update_wire = sum[3];
+					end
+					2: begin
+						vertex2_depth_update_wire = sum[3];
+					end
+					3: begin
+						vertex3_depth_update_wire = sum[3];
+					end
+					6: begin
+						screen_x1_update_wire = screen_x_quant;
+						screen_y1_update_wire = screen_y_quant;
+					end
+					7: begin
+						screen_x2_update_wire = screen_x_quant;
+						screen_y2_update_wire = screen_y_quant;
+					end
+					8: begin
+						screen_x3_update_wire = screen_x_quant;
+						screen_y3_update_wire = screen_y_quant;
+					end
+					default: begin
+						vertex1_depth_update_wire = vertex1_depth_update;
+						vertex2_depth_update_wire = vertex2_depth_update;
+						vertex3_depth_update_wire = vertex3_depth_update;
+						screen_x1_update_wire = screen_x1_update;
+						screen_y1_update_wire = screen_y1_update;
+						screen_x2_update_wire = screen_x2_update;
+						screen_y2_update_wire = screen_y2_update;
+						screen_x3_update_wire = screen_x3_update;
+						screen_y3_update_wire = screen_y3_update;
+					end
+				endcase
 
+				if (cnt == 8) begin
+					data_ready_wire = 1;
+					state_next = DONE;
+					cnt_next = 0;
+				end
+			end
+			DONE: begin
+				data_ready_wire = 1;
+				if ( start_doing_shading ) begin
+					state_next = TRANSFORM;
+				end
 			end
 		endcase
 	end
@@ -586,9 +674,7 @@ module vertex_shader(
 
 		// sum
 		for (i=0; i<4; i=i+1)begin
-			for (j=0; j<4; j=j+1)begin
-				sum[i][j] <= sum_next[i][j];
-			end
+			sum[i] <= sum_next[i];
 		end
 
 	end
