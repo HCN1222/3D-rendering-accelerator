@@ -150,7 +150,7 @@ module vertex_shader(
 	reg signed [23:0] neg_X_dot_eye, neg_X_dot_eye_next; // 7Q17
 	reg signed [23:0] neg_Y_dot_eye, neg_Y_dot_eye_next; // 7Q17
 
-	reg signed [23:0] View [0:3][0:3];
+	reg signed [25:0] View [0:3][0:3];
 	always @(*) begin
 		// 2Q24                 2Q24                   2Q24                  7Q17
 		View[0][0] = CamX[0];  View[0][1] = CamY[0];  View[0][2] = CamZ[0]  View[0][3] = neg_X_dot_eye;
@@ -164,12 +164,10 @@ module vertex_shader(
 	always @(*) begin
 		// Projection matrix
 		// 3Q21
-		$display("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-		$display("Projection matrix NOT YET FILLED");
-		Projection[0][0] = 1<<21; Projection[0][1] = 0;      Projection[0][2] = 0;      Projection[0][3] = 0;
-		Projection[1][0] = 0;      Projection[1][1] = 1<<21; Projection[1][2] = 0;      Projection[1][3] = 0;
-		Projection[2][0] = 0;      Projection[2][1] = 0;      Projection[2][2] = 1<<21; Projection[2][3] = 0;
-		Projection[3][0] = 0;      Projection[3][1] = 0;      Projection[3][2] = 0;      Projection[3][3] = 1<<21;
+		Projection[0][0] = 2847922; Projection[0][1] = 0;      Projection[0][2] = 0;      Projection[0][3] = 0;
+		Projection[1][0] = 0;      Projection[1][1] = 5062973; Projection[1][2] = 0;      Projection[1][3] = 0;
+		Projection[2][0] = 0;      Projection[2][1] = 0;      Projection[2][2] = -2139518; Projection[2][3] = -423667;
+		Projection[3][0] = 0;      Projection[3][1] = 0;      Projection[3][2] = -2097152;      Projection[3][3] = 0;
 	end
 
 	// MVP matrix
@@ -203,7 +201,7 @@ module vertex_shader(
 	end
 
 	// NDC
-	reg signed [13:0] ndc_x, ndc_y;
+	reg signed [13:0] ndc_x, ndc_y, ndc_z;
 
 	divider divider_x(
 		/*input*/ .clk(clk),
@@ -216,6 +214,12 @@ module vertex_shader(
 		.dividend( sum[1] ),
 		.divisor( sum[3] ),
 		/*output*/ .quotient( ndc_y )
+	);
+	divider divider_z(
+		/*input*/ .clk(clk),
+		.dividend( sum[2] ),
+		.divisor( sum[3] ),
+		/*output*/ .quotient( ndc_z )
 	);
 
 	// screen space
@@ -312,9 +316,9 @@ module vertex_shader(
 					end
 					12: begin // get Z * 1/|z|
 						//   2Q24         (4Q20  * 1Q24) = 4Q44
-						CamZ_next[0] = ( CamZ[0] * inv_sqrt_out + {2'b0,24'b0,1'b1,21'b0} ) >> 22;
-						CamZ_next[1] = ( CamZ[1] * inv_sqrt_out + {2'b0,24'b0,1'b1,21'b0} ) >> 22;
-						CamZ_next[2] = ( CamZ[2] * inv_sqrt_out + {2'b0,24'b0,1'b1,21'b0} ) >> 22;
+						CamZ_next[0] = ( CamZ[0] * inv_sqrt_out + {4'b0,24'b0,1'b1,19'b0} ) >> 20;
+						CamZ_next[1] = ( CamZ[1] * inv_sqrt_out + {4'b0,24'b0,1'b1,19'b0} ) >> 20;
+						CamZ_next[2] = ( CamZ[2] * inv_sqrt_out + {4'b0,24'b0,1'b1,19'b0} ) >> 20;
 					
 						state_next = GET_CAMX;
 						cnt_next = 0;
@@ -346,11 +350,11 @@ module vertex_shader(
 					end
 					2: begin
 						// send signals to inv_sqrt
-						// because CamX is a 1Q23, and inv_sqrt is a 4Q20
-						// we take the 0Q23 of CamX shift left by 4 bits(* 2^4) to make it 4Q20
-						inv_sqrt_x = {CamX[0][22:0], 1'b0, 4'b0};
-						inv_sqrt_y = {CamX[1][22:0], 1'b0, 4'b0};
-						inv_sqrt_z = {CamX[2][22:0], 1'b0, 4'b0};
+						// because CamX is a 2Q24, and inv_sqrt is a 4Q20
+						// we shift 2Q24 left by modifying fl to 4Q20
+						inv_sqrt_x = CamX[0][25:2];
+						inv_sqrt_y = CamX[1][25:2];
+						inv_sqrt_z = CamX[2][25:2];
 						// send signals to neg_dot_product
 						neg_dot_product_unit_x = CamZ[0];
 						neg_dot_product_unit_y = CamZ[1];
@@ -371,16 +375,17 @@ module vertex_shader(
 					end
 					13: begin
 						// get X * 1/|x|
-						//   2Q24         (4Q20  * 1Q24) = 4Q44
+						//   2Q24         (4Q20  * 4Q20) = 8Q40
 						if( CamX_next[0][24] == 1 || CamX_next[1][24] == 1 || CamX_next[2][24] == 1 ) begin
-							Cam_next[0] = Cam[0] >>> 2;
-							Cam_next[1] = Cam[1] >>> 2;
-							Cam_next[2] = Cam[2] >>> 2;
+							Cam_next[0] = Cam[0];
+							Cam_next[1] = Cam[1];
+							Cam_next[2] = Cam[2];
 						end
 						else begin
-							CamX_next[0] = ( CamX[0] * (inv_sqrt_out >>> 2) + {2'b0,24'b0,1'b1,21'b0} ) >> 22;
-							CamX_next[1] = ( CamX[1] * (inv_sqrt_out >>> 2) + {2'b0,24'b0,1'b1,21'b0} ) >> 22;
-							CamX_next[2] = ( CamX[2] * (inv_sqrt_out >>> 2) + {2'b0,24'b0,1'b1,21'b0} ) >> 22;
+							//               (4Q20          3Q21) -> 7Q41 ->2Q24
+							CamX_next[0] = ( CamX[0] * (inv_sqrt_out) + {7'b0,24'b0,1'b1,16'b0} ) >> 17;
+							CamX_next[1] = ( CamX[1] * (inv_sqrt_out) + {7'b0,24'b0,1'b1,16'b0} ) >> 17;
+							CamX_next[2] = ( CamX[2] * (inv_sqrt_out) + {7'b0,24'b0,1'b1,16'b0} ) >> 17;
 						end
 						state_next = GET_CAMY;
 						cnt_next = 0;
@@ -413,9 +418,9 @@ module vertex_shader(
 						// send signals to inv_sqrt
 						// because CamY is a 1Q23, and inv_sqrt is a 4Q20
 						// we take the 0Q23 of CamY shift left by 4 bits(* 2^4) to make it 4Q20
-						inv_sqrt_x = {CamY[0][22:0], 1'b0, 4'b0};
-						inv_sqrt_y = {CamY[1][22:0], 1'b0, 4'b0};
-						inv_sqrt_z = {CamY[2][22:0], 1'b0, 4'b0};
+						inv_sqrt_x = CamY[0][25:2];
+						inv_sqrt_y = CamY[1][25:2];
+						inv_sqrt_z = CamY[2][25:2];
 						// send signals to neg_dot_product
 						neg_dot_product_unit_x = CamX[0];
 						neg_dot_product_unit_y = CamX[1];
@@ -437,15 +442,15 @@ module vertex_shader(
 					13: begin
 						// get Y * 1/|y|
 						if ( CamY_next[0][24] == 1 || CamY_next[1][24] == 1 || CamY_next[2][24] == 1 ) begin
-							CamY_next[0] = CamY_next[0] >>> 2;
-							CamY_next[1] = CamY_next[1] >>> 2;
-							CamY_next[2] = CamY_next[2] >>> 2;
+							CamY_next[0] = CamY[0];
+							CamY_next[1] = CamY[1];
+							CamY_next[2] = CamY[2];
 						end
 						else begin
 							//   2Q24         (4Q20  * 1Q24) = 4Q44
-							CamY_next[0] = ( CamY[0] * (inv_sqrt_out >>> 2) + {2'b0,24'b0,1'b1,21'b0} ) >> 22;
-							CamY_next[1] = ( CamY[1] * (inv_sqrt_out >>> 2) + {2'b0,24'b0,1'b1,21'b0} ) >> 22;
-							CamY_next[2] = ( CamY[2] * (inv_sqrt_out >>> 2) + {2'b0,24'b0,1'b1,21'b0} ) >> 22;
+							CamY_next[0] = ( CamY[0] * (inv_sqrt_out) + {7'b0,24'b0,1'b1,16'b0} ) >> 17;
+							CamY_next[1] = ( CamY[1] * (inv_sqrt_out) + {7'b0,24'b0,1'b1,16'b0} ) >> 17;
+							CamY_next[2] = ( CamY[2] * (inv_sqrt_out) + {7'b0,24'b0,1'b1,16'b0} ) >> 17;
 						end
 					end
 					14: begin
@@ -479,7 +484,7 @@ module vertex_shader(
 				if (cnt>=0 && cnt<=3) begin
 					for ( col=0; col<4; col=col+1 )begin
 						for ( row=0; row<4; row=row+1 )begin
-							product[row][col] = view[cnt][row] * projection[row][col];
+							product[row][col] = projection[cnt][row] * view[row][col];
 							if(row == 3) begin
 								// 7Q17 * 3Q21 = 9Q38 ->9Q15
 								product_quant_next[row][col] = ( product[row][col] + {9'b0, 15'b0, 1'b1, 22'b0} ) >> 23;
@@ -545,6 +550,11 @@ module vertex_shader(
 					// 	.divisor( sum[3] ),
 					// 	/*output*/ .quotient( ndc_y )
 					// );
+					// divider divider_z(
+					// 	/*input*/ .clk(clk),
+					// 	.dividend( sum[2] ),
+					// 	.divisor( sum[3] ),
+					// 	/*output*/ .quotient( ndc_z )
 				// stage 7
 				// ndc_x + 1: 2Q12 + 2Q12 = 3Q12
 				// (ndc_x + 1) / 2: 3Q12 -> 2Q13
@@ -562,26 +572,22 @@ module vertex_shader(
 				// screen_y = (1 - (ndc_y + 1) / 2) * camera.screen_H
 				//          = ( 1/2 - ndc_y/2 ) * camera.screen_H
 				//              2Q13 - 1Q13 
-				shifted_ndc_y = ( {2'b0, 1'b1, 13'b0} - ndc_y ); // 2Q13 -> 2Q13
+				shifted_ndc_y = ( {3'b0, 1'b1, 12'b0} - ndc_y ); // 2Q13 -> 2Q13
 				screen_y = ((shifted_ndc_y[13:0] * 12'd720) + {13'b0, 1'b1, 12'b0}) >> 13;
 				screen_y_quant = screen_y[11:0];
 
 				// output wire
 				case(cnt)
-					1: begin
-						vertex1_depth_update_wire = sum[3];
-					end
-					2: begin
-						vertex2_depth_update_wire = sum[3];
-					end
-					3: begin
-						vertex3_depth_update_wire = sum[3];
+					5: begin
+						vertex1_depth_update_wire = ndc_z;
 					end
 					6: begin
+						vertex2_depth_update_wire = ndc_z;
 						screen_x1_update_wire = screen_x_quant;
 						screen_y1_update_wire = screen_y_quant;
 					end
 					7: begin
+						vertex3_depth_update_wire = ndc_z;
 						screen_x2_update_wire = screen_x_quant;
 						screen_y2_update_wire = screen_y_quant;
 					end

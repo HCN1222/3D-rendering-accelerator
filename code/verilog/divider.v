@@ -70,7 +70,7 @@ module divider(
     );
 
 
-    reg [12:0] quotient_next;
+    reg signed [12:0] quotient_next;
     always@(*) begin
         if (divisor == dividend) begin
             quotient_next = { 2{signbit_out3}, 12'b0 };
@@ -80,7 +80,7 @@ module divider(
             quotient_next  = {2'b0, remainder_out3[11:0]};
             end
             else begin
-                quotient_next = -{2'b0, remainder_out3[11:0]};
+                quotient_next = ~{2'b0, remainder_out3[11:0]}+1'b1;
             end
         end
     end

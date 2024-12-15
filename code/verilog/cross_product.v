@@ -20,9 +20,9 @@ module cross_product(
     input signed [23:0] Vz,
 
     // output 1Q23
-    output signed reg [23:0] out_x,
-    output signed reg [23:0] out_y,
-    output signed reg [23:0] out_z
+    output signed reg [25:0] out_x,
+    output signed reg [25:0] out_y,
+    output signed reg [25:0] out_z
 );
     // 1Q23 * 1Q23 = 1Q46
     reg [46:0] UyVz, UzVx, UxVy;
@@ -33,7 +33,7 @@ module cross_product(
     reg [25:0] UyVz_quant, UzVx_quant, UxVy_quant;
     reg [25:0] UzVy_quant, UxVz_quant, UyVx_quant;
 
-    reg [26:0] out_x_next, out_y_next, out_z_next;
+    reg [25:0] out_x_next, out_y_next, out_z_next;
     reg [25:0] out_x_quant_next, out_y_quant_next, out_z_quant_next;
 
     always @(*) begin
