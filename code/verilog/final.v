@@ -194,7 +194,7 @@ wire get_next_triangle;
 	// to top
 	.address_sram_get_face(address_sram_get_face),
 	.finish(finish),
-	.address_sram_get_vertice_info(address_sram_get_vertice_info)
+	.address_sram_get_vertice_info(address_sram_get_vertice_info),
 
 	// to vertice_shader
 	.to_shader_valid(controller_signal_get),
