@@ -150,42 +150,74 @@ module vertex_shader(
 	reg signed [23:0] neg_X_dot_eye, neg_X_dot_eye_next; // 7Q17
 	reg signed [23:0] neg_Y_dot_eye, neg_Y_dot_eye_next; // 7Q17
 
-	reg signed [25:0] View [0:3][0:3];
+	// reg signed [25:0] View [0:3][0:3];
+	// always @(*) begin
+	// 	// 2Q24                 2Q24                   2Q24                  7Q17
+	// 	View[0][0] = CamX[0];  View[0][1] = CamY[0];  View[0][2] = CamZ[0]  View[0][3] = neg_X_dot_eye;
+	// 	View[1][0] = CamX[1];  View[1][1] = CamY[1];  View[1][2] = CamZ[1]  View[1][3] = neg_Y_dot_eye;
+	// 	View[2][0] = CamX[2];  View[2][1] = CamY[2];  View[2][2] = CamZ[2]  View[2][3] = neg_Z_dot_eye;
+	// 	View[3][0] = 0;		   View[3][1] = 0;		  View[3][2] = 0;	    View[3][3] = 1<<17;
+	// end
+
+	reg signed [25:0] View [0:15];
 	always @(*) begin
 		// 2Q24                 2Q24                   2Q24                  7Q17
-		View[0][0] = CamX[0];  View[0][1] = CamY[0];  View[0][2] = CamZ[0]  View[0][3] = neg_X_dot_eye;
-		View[1][0] = CamX[1];  View[1][1] = CamY[1];  View[1][2] = CamZ[1]  View[1][3] = neg_Y_dot_eye;
-		View[2][0] = CamX[2];  View[2][1] = CamY[2];  View[2][2] = CamZ[2]  View[2][3] = neg_Z_dot_eye;
-		View[3][0] = 0;		   View[3][1] = 0;		  View[3][2] = 0;	    View[3][3] = 1<<17;
+		View[0] = CamX[0];  View[1] = CamY[0];  View[2] = CamZ[0];  View[3] = neg_X_dot_eye;
+		View[4] = CamX[1];  View[5] = CamY[1];  View[6] = CamZ[1];  View[7] = neg_Y_dot_eye;
+		View[8] = CamX[2];  View[9] = CamY[2];  View[10] = CamZ[2]; View[11] = neg_Z_dot_eye;
+		View[12] = 0;		View[13] = 0;		View[14] = 0;	   View[15] = 1<<17;
 	end
 	
 	// Projection matrix
-	reg signed [23:0] Projection [0:3][0:3];
+	// reg signed [23:0] Projection [0:3][0:3];
+	// always @(*) begin
+	// 	// Projection matrix
+	// 	// 3Q21
+	// 	Projection[0][0] = 2847922; Projection[0][1] = 0;      Projection[0][2] = 0;      Projection[0][3] = 0;
+	// 	Projection[1][0] = 0;      Projection[1][1] = 5062973; Projection[1][2] = 0;      Projection[1][3] = 0;
+	// 	Projection[2][0] = 0;      Projection[2][1] = 0;      Projection[2][2] = -2139518; Projection[2][3] = -423667;
+	// 	Projection[3][0] = 0;      Projection[3][1] = 0;      Projection[3][2] = -2097152;      Projection[3][3] = 0;
+	// end
+	reg signed [23:0] Projection [0:15];
 	always @(*) begin
 		// Projection matrix
 		// 3Q21
-		Projection[0][0] = 2847922; Projection[0][1] = 0;      Projection[0][2] = 0;      Projection[0][3] = 0;
-		Projection[1][0] = 0;      Projection[1][1] = 5062973; Projection[1][2] = 0;      Projection[1][3] = 0;
-		Projection[2][0] = 0;      Projection[2][1] = 0;      Projection[2][2] = -2139518; Projection[2][3] = -423667;
-		Projection[3][0] = 0;      Projection[3][1] = 0;      Projection[3][2] = -2097152;      Projection[3][3] = 0;
+		Projection[0] = 2847922; Projection[1] = 0;      Projection[2] = 0;      Projection[3] = 0;
+		Projection[4] = 0;      Projection[5] = 5062973; Projection[6] = 0;      Projection[7] = 0;
+		Projection[8] = 0;      Projection[9] = 0;      Projection[10] = -2139518; Projection[11] = -423667;
+		Projection[12] = 0;      Projection[13] = 0;      Projection[14] = -2097152;      Projection[15] = 0;
 	end
 
 	// MVP matrix
-	reg signed [23:0] MVP [0:3][0:3];
-	reg signed [23:0] MVP_next [0:3][0:3];
-	reg signed [23:0] MVP_T [0:3][0:3];
+	// reg signed [23:0] MVP [0:3][0:3];
+	// reg signed [23:0] MVP_next [0:3][0:3];
+	// reg signed [23:0] MVP_T [0:3][0:3];
+	// always @ (*) begin
+	// 	MVP_T[0][0] = MVP[0][0]; MVP_T[0][1] = MVP[1][0]; MVP_T[0][2] = MVP[2][0]; MVP_T[0][3] = MVP[3][0];
+	// 	MVP_T[1][0] = MVP[0][1]; MVP_T[1][1] = MVP[1][1]; MVP_T[1][2] = MVP[2][1]; MVP_T[1][3] = MVP[3][1];
+	// 	MVP_T[2][0] = MVP[0][2]; MVP_T[2][1] = MVP[1][2]; MVP_T[2][2] = MVP[2][2]; MVP_T[2][3] = MVP[3][2];
+	// 	MVP_T[3][0] = MVP[0][3]; MVP_T[3][1] = MVP[1][3]; MVP_T[3][2] = MVP[2][3]; MVP_T[3][3] = MVP[3][3];
+	// end
+	reg signed [23:0] MVP [0:15];
+	reg signed [23:0] MVP_next [0:15];
+	reg signed [23:0] MVP_T [0:15];
 	always @ (*) begin
-		MVP_T[0][0] = MVP[0][0]; MVP_T[0][1] = MVP[1][0]; MVP_T[0][2] = MVP[2][0]; MVP_T[0][3] = MVP[3][0];
-		MVP_T[1][0] = MVP[0][1]; MVP_T[1][1] = MVP[1][1]; MVP_T[1][2] = MVP[2][1]; MVP_T[1][3] = MVP[3][1];
-		MVP_T[2][0] = MVP[0][2]; MVP_T[2][1] = MVP[1][2]; MVP_T[2][2] = MVP[2][2]; MVP_T[2][3] = MVP[3][2];
-		MVP_T[3][0] = MVP[0][3]; MVP_T[3][1] = MVP[1][3]; MVP_T[3][2] = MVP[2][3]; MVP_T[3][3] = MVP[3][3];
+		MVP_T[0] = MVP[0]; MVP_T[1] = MVP[4]; MVP_T[2] = MVP[8]; MVP_T[3] = MVP[12];
+		MVP_T[4] = MVP[1]; MVP_T[5] = MVP[5]; MVP_T[6] = MVP[9]; MVP_T[7] = MVP[13];
+		MVP_T[8] = MVP[2]; MVP_T[9] = MVP[6]; MVP_T[10] = MVP[10]; MVP_T[11] = MVP[14];
+		MVP_T[12] = MVP[3]; MVP_T[13] = MVP[7]; MVP_T[14] = MVP[11]; MVP_T[15] = MVP[15];
 	end
 
 	// product quantization
-	reg signed [46:0] product [0:3][0:3];
-	reg signed [18:0] product_round[0:3][0:3];
-	reg signed [23:0] product_quant [0:3][0:3];
-	reg signed [23:0] product_quant_next [0:3][0:3];
+	// reg signed [46:0] product [0:3][0:3];
+	// reg signed [18:0] product_round[0:3][0:3];
+	// reg signed [23:0] product_quant [0:3][0:3];
+	// reg signed [23:0] product_quant_next [0:3][0:3];
+	reg signed [46:0] product [0:15];
+	reg signed [18:0] product_round[0:15];
+	reg signed [23:0] product_quant [0:15];
+	reg signed [23:0] product_quant_next [0:15];
+
 	// sum quantization
 	reg signed [23:0] sum [0:3];
 	reg signed [23:0] sum_next [0:3];
@@ -271,13 +303,13 @@ module vertex_shader(
 		// MVP matrix
 		for(row = 0; row < 4; row = row + 1) begin
 			for(col = 0; col < 4; col = col + 1) begin
-				MVP_next[row][col] = MVP[row][col];
+				MVP_next[row*4+col] = MVP[row*4+col];
 			end
 		end
 		// product quantization
 		for(row = 0; row < 4; row = row + 1) begin
 			for(col = 0; col < 4; col = col + 1) begin
-				product_quant_next[row][col] = 0;
+				product_quant_next[row*4+col] = 0;
 			end
 		end
 		// sum
@@ -484,15 +516,15 @@ module vertex_shader(
 				if (cnt>=0 && cnt<=3) begin
 					for ( col=0; col<4; col=col+1 )begin
 						for ( row=0; row<4; row=row+1 )begin
-							product[row][col] = projection[cnt][row] * view[row][col];
+							product[row*4+col] = projection[cnt*4+row] * view[row*4+col];
 							if(row == 3) begin
 								// 7Q17 * 3Q21 = 9Q38 ->9Q15
-								product_quant_next[row][col] = ( product[row][col] + {9'b0, 15'b0, 1'b1, 22'b0} ) >> 23;
+								product_quant_next[row*4+col] = ( product[row*4+col] + {9'b0, 15'b0, 1'b1, 22'b0} ) >> 23;
 							end
 							else begin
 								// 2Q24 * 3Q21 = 4Q45 -> 4Q15 -> 9Q15
-								product_round = ( product[row][col] + {4'b0, 20'b0, 1'b1, 24'b0} ) >> 25;
-								product_quant_next[row][col] = {5{product_round[18]}, product_round}
+								product_round = ( product[row*4+col] + {4'b0, 20'b0, 1'b1, 24'b0} ) >> 25;
+								product_quant_next[row*4+col] = {5{product_round[18]}, product_round}
 							end
 						end
 					end
@@ -526,15 +558,15 @@ module vertex_shader(
 				for ( col=0; col<4; col=col+1 )begin
 					for ( row=0; row<4; row=row+1 )begin
 						//     14Q33              4Q20             11Q13
-						product[row][col] = vertex[row] * MVP_T[row][col];
+						product[row*4+col] = vertex[row] * MVP_T[row*4+col];
 						// 14Q33 -> 14Q10
-						product_quant_next[row][col] = ( product[row][col] + {14'b0, 10'b0, 1'b1, 22'b0} ) >> 23;
+						product_quant_next[row*4+col] = ( product[row*4+col] + {14'b0, 10'b0, 1'b1, 22'b0} ) >> 23;
 					end
 				end
 				// stage 2
 				for ( col=0; col<4; col=col+1 )begin
 					// 14Q10 + 14Q10 + 14Q10 + 14Q10 = 16Q10 -> 16Q8
-					sum_next[col] = ( (product_quant[0][col] + product_quant[1][col] + product_quant[2][col] + product_quant[3][col])
+					sum_next[col] = ( (product_quant[0*4+col] + product_quant[1*4+col] + product_quant[2*4+col] + product_quant[3*4+col])
 											+ {16'b0, 8'b0, 1'b1, 1'b0} ) >> 2;
 				end
 				// stage 3 4 5 6
@@ -667,14 +699,14 @@ module vertex_shader(
 		// MVP matrix
 		for (i=0; i<4; i=i+1)begin
 			for (j=0; j<4; j=j+1)begin
-				MVP[i][j] <= MVP_next[i][j];
+				MVP[i*4+j] <= MVP_next[i*4+j];
 			end
 		end
 
 		// product quant
 		for (i=0; i<4; i=i+1)begin
 			for (j=0; j<4; j=j+1)begin
-				product_quant[i][j] <= product_quant_next[i][j];
+				product_quant[i*4+j] <= product_quant_next[i*4+j];
 			end
 		end
 
