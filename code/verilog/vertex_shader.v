@@ -611,15 +611,15 @@ module vertex_shader(
 				// output wire
 				case(cnt)
 					5: begin
-						vertex1_depth_update_wire = ndc_z;
+						vertex1_depth_update_wire = {ndc_z, 6'd0};
 					end
 					6: begin
-						vertex2_depth_update_wire = ndc_z;
+						vertex2_depth_update_wire = {ndc_z, 6'd0};
 						screen_x1_update_wire = screen_x_quant;
 						screen_y1_update_wire = screen_y_quant;
 					end
 					7: begin
-						vertex3_depth_update_wire = ndc_z;
+						vertex3_depth_update_wire = {ndc_z, 6'd0};
 						screen_x2_update_wire = screen_x_quant;
 						screen_y2_update_wire = screen_y_quant;
 					end
