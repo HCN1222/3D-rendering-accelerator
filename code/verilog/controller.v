@@ -42,7 +42,7 @@ module controller(
 	// to top
 	output reg [19:0] address_sram_get_face,
 	output reg finish,
-	output reg [19:0] address_sram_get_vertice_info;
+	output reg [19:0] address_sram_get_vertice_info,
 	
 	// to vertice_shader
 	output reg to_shader_valid,

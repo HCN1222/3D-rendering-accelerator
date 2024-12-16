@@ -16,7 +16,7 @@ module divider(
     input clk,
     input signed [23:0] dividend,
     input signed [23:0] divisor,
-    output signed reg [13:0] quotient
+    output reg signed [13:0] quotient
 );
     reg signbit;
     assign signbit = dividend[23] ^ divisor[23];

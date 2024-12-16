@@ -139,7 +139,7 @@ wire get_next_triangle;
 	.screen_x3_update(screen_x3_update),
 	.screen_y3_update(screen_y3_update),
 	.MVP_ready(MVP_ready),
-	.data_ready(data_ready),
+	.data_ready(data_ready)
 	
 	//to top
 	// .address_sram_get_vertice_info(address_sram_get_vertice_info)
