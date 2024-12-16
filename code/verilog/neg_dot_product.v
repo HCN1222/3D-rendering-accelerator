@@ -19,7 +19,7 @@ module neg_dot_product(
     input signed [23:0] y2,
     input signed [23:0] z2,
     // output: 7Q17
-    output signed reg [23:0] out
+    output reg signed [23:0] out
 );    
     // product_x = unit_x *  x
     //   5Q44    2Q24    4Q20

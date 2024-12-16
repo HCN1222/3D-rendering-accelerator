@@ -115,8 +115,6 @@ reg [23:0] VS_v1_color, VS_v2_color, VS_v3_color;
 reg [23:0] VS_v1_color_next, VS_v2_color_next, VS_v3_color_next;
 reg [23:0] buffer_v1_color, buffer_v2_color, buffer_v3_color;
 reg [23:0] buffer_v1_color_next, buffer_v2_color_next, buffer_v3_color_next;
-reg [23:0] RS_v1_color, RS_v2_color, RS_v3_color;
-reg [23:0] RS_v1_color_next, RS_v2_color_next, RS_v3_color_next;
 
 // FSM
 localparam IDLE = 3'd0;
@@ -390,7 +388,7 @@ always @ * begin
 			//        Go to VS state
 			if(get_next_triangle) begin
 				if(address_sram_get_face > num_of_faces) begin
-					state_next = FINISH;
+					state_next = DONE;
 				end
 				else begin
 					start_doing_shading_wire = 1;
@@ -398,62 +396,7 @@ always @ * begin
 				end
 			end
 		end
-
-
-
-		VS: begin
-			// ****************************************
-			// if rasterizor.get_next_triangle:
-			//   -> Rasterizor request for the next input,
-			//      a. if address_sram_get_face + 1 == number of faces:
-			//           Go to FINISH state
-			//      b. else:
-			//          b1. if shader.data_ready == 1:
-			//                1. Update the register for rasterization
-			//                2. Set vertice_ready_wire to 1
-			//                3. Get the next face info
-			//                   - address_sram_get_face += 1
-			//                   - Set GET_FACE counter to 0
-			//                   - Go to GET_FACE
-			//          b2. else:
-			//              KEEP WAITING
-			// else:
-			//    KEEP WAITING
-			// ****************************************
-
-			if( get_next_triangle ) begin
-				if( address_sram_get_face + 1 == num_of_faces ) begin
-					state_next = FINISH;
-				end
-				else begin
-					if( data_ready ) begin
-						// Update the register for rasterization
-						vertice1_x_wire = vertice1_x_update;
-						vertice1_y_wire = vertice1_y_update;
-						vertice1_depth_wire = vertice1_depth_update;
-						vertice1_color_wire = vertice1_color_update;
-
-						vertice2_x_wire = vertice2_x_update;
-						vertice2_y_wire = vertice2_y_update;
-						vertice2_depth_wire = vertice2_depth_update;
-						vertice2_color_wire = vertice2_color_update;
-
-						vertice3_x_wire = vertice3_x_update;
-						vertice3_y_wire = vertice3_y_update;
-						vertice3_depth_wire = vertice3_depth_update;
-						vertice3_color_wire = vertice3_color_update;
-
-						vertice_ready_wire = 1;
-
-						// Get the next face info
-						address_sram_get_face_wire = address_sram_get_face + 1;
-						cnt_next = 0;
-						state_next = GET_FACE;
-					end
-				end
-			end
-		end
-		FINISH: begin
+		DONE: begin
 			// ****************************************
 			// Set finish signal to 1
 			// ****************************************
@@ -514,9 +457,6 @@ always @ ( posedge clk) begin
 	buffer_v1_color <= buffer_v1_color_next;
 	buffer_v2_color <= buffer_v2_color_next;
 	buffer_v3_color <= buffer_v3_color_next;
-	RS_v1_color <= RS_v1_color_next;
-	RS_v2_color <= RS_v2_color_next;
-	RS_v3_color <= RS_v3_color_next;
 
 	// FSM
 	if( ~srst_n ) begin

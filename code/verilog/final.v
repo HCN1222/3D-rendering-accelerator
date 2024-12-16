@@ -160,9 +160,9 @@ wire get_next_triangle;
 	.face_v1(face_v1_reg),
 	.face_v2(face_v2_reg),
 	.face_v3(face_v3_reg),
-	.sram_vertex_x(vertice_x_reg)
-	.sram_vertex_y(vertice_y_reg)
-	.sram_vertex_z(vertice_z_reg)
+	.sram_vertex_x(vertice_x_reg),
+	.sram_vertex_y(vertice_y_reg),
+	.sram_vertex_z(vertice_z_reg),
 	.num_of_faces(num_of_faces_reg),
 	.Color_v(Color_v_reg),
 

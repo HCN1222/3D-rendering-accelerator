@@ -623,7 +623,7 @@ module vertex_shader(
 		endcase
 	end
 
-	integer i,j;
+	integer i, j;
 	always @ (posedge clk) begin
 		if (~srst_n) begin
 			state <= IDLE;

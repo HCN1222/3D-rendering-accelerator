@@ -18,7 +18,7 @@ module divider(
     input signed [23:0] divisor,
     output reg signed [13:0] quotient
 );
-    reg signbit;
+    wire signbit;
     assign signbit = dividend[23] ^ divisor[23];
 
     wire [35:0] remainder_out1;
