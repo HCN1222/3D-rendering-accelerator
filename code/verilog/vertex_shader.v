@@ -192,12 +192,12 @@ module vertex_shader(
 
 	// vertex matrix 4Q20
 	// create homogeneous coordinates
-	reg signed [23:0] vertex [0][0:3];
+	reg signed [23:0] vertex[0:3];
 	always @(*) begin
-		vertex[0][0] = vertex_x;
-		vertex[0][1] = vertex_y;
-		vertex[0][2] = vertex_z;
-		vertex[0][3] = 1<<20;
+		vertex[0] = vertex_x;
+		vertex[1] = vertex_y;
+		vertex[2] = vertex_z;
+		vertex[3] = 1<<20;
 	end
 
 	// NDC
@@ -526,7 +526,7 @@ module vertex_shader(
 				for ( col=0; col<4; col=col+1 )begin
 					for ( row=0; row<4; row=row+1 )begin
 						//     14Q33              4Q20             11Q13
-						product[row][col] = vertex[0][row] * MVP_T[row][col];
+						product[row][col] = vertex[row] * MVP_T[row][col];
 						// 14Q33 -> 14Q10
 						product_quant_next[row][col] = ( product[row][col] + {14'b0, 10'b0, 1'b1, 22'b0} ) >> 23;
 					end
