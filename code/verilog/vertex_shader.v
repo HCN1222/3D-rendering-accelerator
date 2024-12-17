@@ -220,6 +220,7 @@ module vertex_shader(
 	// reg signed [23:0] product_quant [0:3][0:3];
 	// reg signed [23:0] product_quant_next [0:3][0:3];
 	reg signed [46:0] product [0:15];
+	reg signed [46:0] product_tmp [0:15];
 	reg signed [18:0] product_round[0:15];
 	reg signed [23:0] product_quant [0:15];
 	reg signed [23:0] product_quant_next [0:15];
@@ -558,11 +559,13 @@ module vertex_shader(
 							product[row*4+col] = Projection[cnt*4+row] * View[row*4+col];
 							if(row == 3) begin
 								// 7Q17 * 3Q21 = 9Q38 ->9Q15
-								product_quant_next[row*4+col] = ( product[row*4+col] + {9'b0, 15'b0, 1'b1, 22'b0} ) >> 23;
+								product_tmp[row*4+col] = ( product[row*4+col] + {9'b0, 15'b0, 1'b1, 22'b0} ) >> 23;
+								product_quant_next[row*4+col] = product_tmp[row*4+col][23:0];
 							end
 							else begin
 								// 2Q24 * 3Q21 = 4Q45 -> 4Q15 -> 9Q15
-								product_round[row*4+col] = ( product[row*4+col] + {4'b0, 20'b0, 1'b1, 24'b0} ) >> 25;
+								product_tmp[row*4+col] = ( product[row*4+col] + {4'b0, 20'b0, 1'b1, 24'b0} ) >> 25;
+								product_round[row*4+col] = product_tmp[row*4+col][18:0]
 								product_quant_next[row*4+col] = {product_round[row*4+col][18],product_round[row*4+col][18],product_round[row*4+col][18],product_round[row*4+col][18],product_round[row*4+col][18], product_round[row*4+col]};
 							end
 						end

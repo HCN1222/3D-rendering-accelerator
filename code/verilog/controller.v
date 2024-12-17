@@ -154,17 +154,17 @@ always @ * begin
 	vertice1_x_wire = vertice1_x;
 	vertice1_y_wire = vertice1_y;
 	vertice1_depth_wire = vertice1_depth;
-	// vertice1_color_wire = vertice1_color;
+	vertice1_color_wire = vertice1_color;
 
 	vertice2_x_wire = vertice2_x;
 	vertice2_y_wire = vertice2_y;
 	vertice2_depth_wire = vertice2_depth;
-	// vertice2_color_wire = vertice2_color;
+	vertice2_color_wire = vertice2_color;
 
 	vertice3_x_wire = vertice3_x;
 	vertice3_y_wire = vertice3_y;
 	vertice3_depth_wire = vertice3_depth;
-	// vertice3_color_wire = vertice3_color;
+	vertice3_color_wire = vertice3_color;
 
 	vertice_ready_wire = 0;
 

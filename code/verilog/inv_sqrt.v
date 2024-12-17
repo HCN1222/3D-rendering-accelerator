@@ -9,9 +9,7 @@ module inv_sqrt
 
     // ********** Summary ***********
     // 1. find the square of x, y, and z
-    //    quantized x, y, z to 4Q13
-    //        4Q13 * 4Q13 = 8Q26
-    //    Quantized to 8Q24
+    //    4Q20 * 4Q20 = 8Q40
 
     // 2. Add the square of x_2_quant, y_2_quant, and z_2_quant
     //        SUM = 8Q24 + 8Q24 + 8Q24 = 10Q24  (0~128*3)
@@ -49,19 +47,18 @@ module inv_sqrt
     // ************** step 1 *******************
     // find the square of x, y, and z
     reg signed [47:0] x_2, y_2, z_2;
-
     // quantized the value of x_2, y_2, and z_2 to 8Q24
-    reg signed [33:0] x_2_quant, x_2_quant_next;
-    reg signed [33:0] y_2_quant, y_2_quant_next;
-    reg signed [33:0] z_2_quant, z_2_quant_next;
+    reg signed [31:0] x_2_quant, x_2_quant_next;
+    reg signed [31:0] y_2_quant, y_2_quant_next;
+    reg signed [31:0] z_2_quant, z_2_quant_next;
 
     // ************** step 2 *******************
     // SUM
-    reg signed [34:0] SUM, SUM_next;
+    reg signed [33:0] SUM, SUM_next;
     // LUT
     reg signed [24:0] X0;
     wire signed [24:0] X0_next;
-    inv_sqrt_LUT LUT( .IN(SUM_next[33:25]), .OUT(X0_next) );
+    inv_sqrt_LUT LUT( .IN(SUM_next[32:24]), .OUT(X0_next) );
 
     // ************** step 3 *******************
     // Newton-Raphson iteration 1-1
@@ -128,15 +125,15 @@ module inv_sqrt
         y_2 = y * y + {8'b0, 24'b0, 1'b1, 15'b0};
         z_2 = z * z + {8'b0, 24'b0, 1'b1, 15'b0};
         // quantized: 8Q40 -> 8Q24
-        x_2_quant_next = (x_2) >> 16;
-        y_2_quant_next = (y_2) >> 16;
-        z_2_quant_next = (z_2) >> 16;
+        x_2_quant_next = (x_2)[47:16];
+        y_2_quant_next = (y_2)[47:16];
+        z_2_quant_next = (z_2)[47:16];
 
         // ************** step 2 *******************
         // Calculate SUM
         SUM_next = x_2_quant + y_2_quant + z_2_quant;
         // Connected to LUT module
-        // .IN(SUM_next[32:0]), .OUT(X0_next)
+        // .IN(SUM_next[32:24]), .OUT(X0_next)
 
         // ************** step 3 *******************
         // Newton-Raphson iteration 1-1
@@ -144,7 +141,7 @@ module inv_sqrt
         // truncation: 2Q48 -> 1Q48
         X0_2_trunc = X0_2[48:0] + {1'b0, 24'b0, 1'b1, 23'b0};
         // quantized: 1Q48 -> 1Q24
-        X0_2_quant_next = (X0_2_trunc) >> 24;
+        X0_2_quant_next = (X0_2_trunc)[48:24];
 
         // ************** step 4 *******************
         // Newton-Raphson iteration 1-2
@@ -153,7 +150,7 @@ module inv_sqrt
         // truncation: 9Q49 -> 3Q49
         coeff_0_trunc = coeff_0[51:0] + {3'b0, 24'b0, 1'b1, 24'b0};
         // quantized: 3Q49 -> 3Q24
-        coeff_0_quant_next = (coeff_0_trunc) >> 25;
+        coeff_0_quant_next = (coeff_0_trunc)[51:25];
 
         // ************** step 5 *******************
         // Newton-Raphson iteration 1-3
@@ -161,7 +158,7 @@ module inv_sqrt
         // truncate: 4Q48 -> 1Q48
         X1_trunc = X1[48:0] + {1'b0, 24'b0, 1'b1, 23'b0};
         // quantized: 1Q48 -> 1Q24
-        X1_quant_next = (X1_trunc) >> 24;
+        X1_quant_next = (X1_trunc)[48:24];
 
         // ************** step 6 *******************
         // Newton-Raphson iteration 2-1
@@ -169,7 +166,7 @@ module inv_sqrt
         // truncation: 2Q48 -> 1Q48
         X1_2_trunc = X1_2[48:0] + {1'b0, 24'b0, 1'b1, 23'b0};
         // quantized: 1Q48 -> 1Q24
-        X1_2_quant_next = (X1_2_trunc) >> 24;
+        X1_2_quant_next = (X1_2_trunc)[48:24];
 
         // ************** step 7 *******************
         // Newton-Raphson iteration 2-2
@@ -178,7 +175,7 @@ module inv_sqrt
         // truncation: 9Q49 -> 3Q49
         coeff_1_trunc = coeff_1[51:0] + {3'b0, 24'b0, 1'b1, 24'b0};
         // quantized: 3Q49 -> 3Q24
-        coeff_1_quant_next = (coeff_1_trunc) >> 25;
+        coeff_1_quant_next = (coeff_1_trunc)[51:25];
 
         // ************** step 8 *******************
         // Newton-Raphson iteration 2-3
@@ -186,7 +183,7 @@ module inv_sqrt
         // truncate: 4Q48 -> 1Q48
         X2_trunc = X2[48:0] + {1'b0, 24'b0, 1'b1, 23'b0};
         // quantized: 1Q48 -> 1Q24
-        X2_quant_next = X2_trunc >> 24;
+        X2_quant_next = X2_trunc[48:24];
 
         // ************** step 9 *******************
         // Newton-Raphson iteration 3-1
@@ -194,7 +191,7 @@ module inv_sqrt
         // truncation: 2Q48 -> 1Q48
         X2_2_trunc = X2_2[48:0] + {1'b0, 24'b0, 1'b1, 23'b0};
         // quantized: 1Q48 -> 1Q24
-        X2_2_quant_next = (X2_2_trunc) >> 24;
+        X2_2_quant_next = (X2_2_trunc)[48:24];
 
         // ************** step 10 *******************
         // Newton-Raphson iteration 3-2
@@ -203,7 +200,7 @@ module inv_sqrt
         // truncation: 9Q49 -> 3Q49
         coeff_2_trunc = coeff_2[51:0] + {3'b0, 24'b0, 1'b1, 24'b0};
         // quantized: 3Q49 -> 3Q24
-        coeff_2_quant_next = (coeff_2_trunc) >> 25;
+        coeff_2_quant_next = (coeff_2_trunc)[51:25];
 
         // ************** step 11 *******************
         // Newton-Raphson iteration 3-3
@@ -211,7 +208,7 @@ module inv_sqrt
         // truncate: 4Q48 -> 1Q48
         X3_trunc = X3[48:0] + {1'b0, 23'b0, 1'b1, 24'b0};
         // quantized: 1Q48 -> 1Q23
-        X3_quant_next = (X3_trunc) >> 25;
+        X3_quant_next = (X3_trunc)[48:25];
 
         out_wire = (X3_quant_next > 0) ? X3_quant_next : -X3_quant_next;
 
