@@ -8,14 +8,14 @@ module divider_unit(
     output reg signbit_out
 );
 
-    reg [35:0] remainder [0:3];
+    reg [35:0] remainder;
     reg [35:0] remainder_tmp1 [0:4];
     reg [35:0] remainder_tmp2 [0:4];
 
     integer i;
     always@(*) begin
         // remainder = {dividend,13'b0}
-        remainder[0] = remainder_in;
+        remainder = remainder_in;
         for(i=1; i<5; i=i+1) begin
             if( remainder[i-1][35:12] > {1'b0, divisor_in} ) begin
                 remainder_tmp1[i] = { remainder[i-1][35:12] - {1'b0, divisor_in}, remainder[i-1][11:0] } << 1;
@@ -25,7 +25,6 @@ module divider_unit(
                 remainder_tmp1[i] = remainder[i-1] << 1;
                 remainder_tmp2[i] = { remainder_tmp1[i][35:1], 1'b0 };
             end
-            remainder[i] = remainder_tmp2[i];
         end
     end
 
