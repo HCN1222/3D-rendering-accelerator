@@ -233,7 +233,7 @@ module vertex_shader(
 	end
 
 	// NDC
-	reg signed [13:0] ndc_x, ndc_y, ndc_z;
+	wire signed [13:0] ndc_x, ndc_y, ndc_z;
 
 	divider divider_x(
 		/*input*/ .clk(clk),
