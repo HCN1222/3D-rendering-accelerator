@@ -25,20 +25,20 @@ module vertex_shader(
 	//output
 	
 	//to controllor
-	output [20:0] vertex1_depth_update,
-	output [20:0] vertex2_depth_update,
-	output [20:0] vertex3_depth_update,
-	output [11:0] screen_x1_update,
-	output [11:0] screen_y1_update,
-	output [11:0] screen_x2_update,
-	output [11:0] screen_y2_update,
-	output [11:0] screen_x3_update,
-	output [11:0] screen_y3_update,
-	output MVP_ready,
-	output data_ready,
+	output reg [20:0] vertex1_depth_update,
+	output reg [20:0] vertex2_depth_update,
+	output reg [20:0] vertex3_depth_update,
+	output reg [11:0] screen_x1_update,
+	output reg [11:0] screen_y1_update,
+	output reg [11:0] screen_x2_update,
+	output reg [11:0] screen_y2_update,
+	output reg [11:0] screen_x3_update,
+	output reg [11:0] screen_y3_update,
+	output reg MVP_ready,
+	output reg data_ready,
 	
 	//to top
-	output [19:0] address_sram_get_vertex_info
+	output reg [19:0] address_sram_get_vertex_info
 	
 );
 
@@ -71,7 +71,7 @@ module vertex_shader(
 	// out: 1Q24
 	// ******************************
 	reg [23:0] inv_sqrt_x, inv_sqrt_y, inv_sqrt_z;
-	reg [24:0] inv_sqrt_out;
+	wire [24:0] inv_sqrt_out;
 
 	inv_sqrt inv_sqrt(
 		/*input*/ .clk(clk),
