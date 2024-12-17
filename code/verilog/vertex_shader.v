@@ -140,10 +140,15 @@ module vertex_shader(
 
 	// Camera coordinates
 	reg signed [25:0] CamZ [0:2];
+	reg signed [48:0] CamZ_norm [0:2];
 	reg signed [25:0] CamZ_next [0:2];
+
 	reg signed [25:0] CamX [0:2];
+	reg signed [48:0] CamX_norm [0:2];
 	reg signed [25:0] CamX_next [0:2];
+
 	reg signed [25:0] CamY [0:2];
+	reg signed [48:0] CamY_norm [0:2];
 	reg signed [25:0] CamY_next [0:2];
 	// Dot result
 	reg signed [23:0] neg_Z_dot_eye, neg_Z_dot_eye_next; // 7Q17
@@ -199,6 +204,7 @@ module vertex_shader(
 	// 	MVP_T[3][0] = MVP[0][3]; MVP_T[3][1] = MVP[1][3]; MVP_T[3][2] = MVP[2][3]; MVP_T[3][3] = MVP[3][3];
 	// end
 	reg signed [23:0] MVP [0:15];
+	reg signed [25:0] MVP_sum [0:15];
 	reg signed [23:0] MVP_next [0:15];
 	reg signed [23:0] MVP_T [0:15];
 	always @ (*) begin
@@ -281,12 +287,23 @@ module vertex_shader(
 		CamZ_next[0] = CamZ[0];
 		CamZ_next[1] = CamZ[1];
 		CamZ_next[2] = CamZ[2];
+		CamZ_norm[0] = 0;
+		CamZ_norm[1] = 0;
+		CamZ_norm[2] = 0;
+
 		CamX_next[0] = CamX[0];
 		CamX_next[1] = CamX[1];
 		CamX_next[2] = CamX[2];
+		CamX_norm[0] = 0;
+		CamX_norm[1] = 0;
+		CamX_norm[2] = 0;
+
 		CamY_next[0] = CamY[0];
 		CamY_next[1] = CamY[1];
 		CamY_next[2] = CamY[2];
+		CamY_norm[0] = 0;
+		CamY_norm[1] = 0;
+		CamY_norm[2] = 0;
 
 		// Dot result
 		neg_Z_dot_eye_next = neg_Z_dot_eye;
@@ -314,6 +331,7 @@ module vertex_shader(
 		// MVP matrix
 		for(row = 0; row < 4; row = row + 1) begin
 			for(col = 0; col < 4; col = col + 1) begin
+				MVP_sum[row*4+col] = {MVP[row*4+col], 2'b0};
 				MVP_next[row*4+col] = MVP[row*4+col];
 			end
 		end
@@ -360,10 +378,13 @@ module vertex_shader(
 					end
 					12: begin // get Z * 1/|z|
 						//   2Q24         (4Q22  * 1Q23) = 4Q45
-						CamZ_next[0] = ( CamZ[0] * inv_sqrt_out + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
-						CamZ_next[1] = ( CamZ[1] * inv_sqrt_out + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
-						CamZ_next[2] = ( CamZ[2] * inv_sqrt_out + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
-					
+						CamZ_norm[0] = ( CamZ[0] * inv_sqrt_out + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
+						CamZ_norm[1] = ( CamZ[1] * inv_sqrt_out + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
+						CamZ_norm[2] = ( CamZ[2] * inv_sqrt_out + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
+						CamZ_next[0] = CamZ_norm[0][25:0];
+						CamZ_next[1] = CamZ_norm[1][25:0];
+						CamZ_next[2] = CamZ_norm[2][25:0];
+
 						state_next = GET_CAMX;
 						cnt_next = 0;
 					end
@@ -427,9 +448,12 @@ module vertex_shader(
 						end
 						else begin
 							//               (2Q24          3Q21) -> 4Q45 ->2Q24
-							CamX_next[0] = ( CamX[0] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
-							CamX_next[1] = ( CamX[1] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
-							CamX_next[2] = ( CamX[2] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
+							CamX_norm[0] = ( CamX[0] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
+							CamX_norm[1] = ( CamX[1] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
+							CamX_norm[2] = ( CamX[2] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
+							CamX_next[0] = CamX_norm[0][25:0];
+							CamX_next[1] = CamX_norm[1][25:0];
+							CamX_next[2] = CamX_norm[2][25:0];
 						end
 						state_next = GET_CAMY;
 						cnt_next = 0;
@@ -492,9 +516,12 @@ module vertex_shader(
 						end
 						else begin
 							//               (2Q24          3Q21) -> 4Q45 ->2Q24
-							CamY_next[0] = ( CamY[0] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
-							CamY_next[1] = ( CamY[1] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
-							CamY_next[2] = ( CamY[2] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
+							CamY_norm[0] = ( CamY[0] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
+							CamY_norm[1] = ( CamY[1] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
+							CamY_norm[2] = ( CamY[2] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
+							CamY_next[0] = CamY_norm[0][25:0];
+							CamY_next[1] = CamY_norm[1][25:0];
+							CamY_next[2] = CamY_norm[2][25:0];
 						end
 					end
 					14: begin
@@ -544,9 +571,10 @@ module vertex_shader(
 				if (cnt >= 1 && cnt <= 4) begin
 					for ( col=0; col<4; col=col+1 )begin
 						// 9Q15 + 9Q15 + 9Q15 +9Q15 = 11Q15 -> 11Q13
-						MVP_next[cnt-1][col] = ( (product_quant[0][col] + product_quant[1][col]
+						MVP_sum[(cnt-1)*4+col] = ( (product_quant[0][col] + product_quant[1][col]
 						                        + product_quant[2][col] + product_quant[3][col])
 												+ {11'b0, 13'b0, 1'b1, 1'b0} ) >> 2;
+						MVP_next[(cnt-1)*4+col] = MVP_sum[(cnt-1)*4+col];
 					end
 				end
 				if (cnt == 4) begin
