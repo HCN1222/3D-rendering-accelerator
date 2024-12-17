@@ -1,4 +1,4 @@
-
+/*
 module Graphic_3Dto2D_top
 
 (
@@ -32,9 +32,9 @@ module Graphic_3Dto2D_top
   
   output write_enable_sram_CD;
   output write_enable_sram_get_vertice_info,    //1'b1
-  output address_sram_get_face  //1'b1
+  output address_sram_get_face,  //1'b1
   
-  output [15:0] write_wordmask_sram_CD;
+  output [15:0] write_wordmask_sram_CD,
   output [15:0] write_wordmask_sram_get_vertice_info,  //16'b1111111111111111
   output [15:0] write_wordmask_sram_get_face           //16'b1111111111111111
   
@@ -332,9 +332,9 @@ module controller(
 
 
 endmodule
+*/
 
-
-module Rasterization(
+module Rasterizer(
 
 	//input
 	
@@ -416,7 +416,7 @@ reg [15:0] next_read_address_sram_CD;
 reg [15:0] next_write_address_sram_CD;
 
 reg next_write_enable_sram_CD;
-reg next_write_wordmask_sram_CD;
+reg [15:0] next_write_wordmask_sram_CD;
 
 reg [15:0] next_addr_pipe1;
 reg [15:0] addr_pipe1;
@@ -436,8 +436,8 @@ reg [15:0] record;
 
 wire not_draw_array[0:15];
 wire in_triangle_array[0:15];
-wire signed [20:0] depth_s_org [0:15];
-wire signed [20:0] depth_s_after [0:15];
+reg signed [20:0] depth_s_org [0:15];
+reg signed [20:0] depth_s_after [0:15];
 
 reg next_get_next_triangle;
 reg signed [11:0] next_current_x;
@@ -445,6 +445,55 @@ reg signed [11:0] next_current_y;
 reg signed [11:0] current_x;
 reg signed [11:0] current_y;
 
+reg signed [11:0] x_00;
+reg signed [11:0] y_00;
+
+reg signed [11:0] x_01;
+reg signed [11:0] y_01;
+
+reg signed [11:0] x_02;
+reg signed [11:0] y_02;
+
+reg signed [11:0] x_03;
+reg signed [11:0] y_03;
+
+reg signed [11:0] x_10;
+reg signed [11:0] y_10;
+
+reg signed [11:0] x_11;
+reg signed [11:0] y_11;
+
+reg signed [11:0] x_12;
+reg signed [11:0] y_12;
+
+reg signed [11:0] x_13;
+reg signed [11:0] y_13;
+
+reg signed [11:0] x_20;
+reg signed [11:0] y_20;
+
+reg signed [11:0] x_21;
+reg signed [11:0] y_21;
+
+reg signed [11:0] x_22;
+reg signed [11:0] y_22;
+
+reg signed [11:0] x_23;
+reg signed [11:0] y_23;
+
+reg signed [11:0] x_30;
+reg signed [11:0] y_30;
+
+reg signed [11:0] x_31;
+reg signed [11:0] y_31;
+
+reg signed [11:0] x_32;
+reg signed [11:0] y_32;
+
+reg signed [11:0] x_33;
+reg signed [11:0] y_33;
+
+integer i;
 
 always@(posedge clk) begin
     if(~srst_n) begin
@@ -596,7 +645,7 @@ always@* begin
 		for(i=0;i<=15;i=i+1) begin
 		    depth_s_org[i] = depth_org[i*21+:21];
 			depth_s_after[i] = depth_after[i*21+:21];
-		    if( depth_s_after[i] < depth_s_org[i] && in_triangle_array[i]==1'b1 && not_draw_array[i] == 1'b0) begin
+		    if( depth_s_after[i] <= depth_s_org[i] && in_triangle_array[i]==1'b1 && not_draw_array[i] == 1'b0) begin
 			    next_write_wordmask_sram_CD[i] = 1'b0;
 			end else begin
 			    next_write_wordmask_sram_CD[i] = 1'b1;
@@ -701,6 +750,57 @@ always@* begin
 		end		
     endcase
 end
+
+always@* begin
+	x_00 = current_x;
+	y_00 = current_y;
+
+	x_01 = current_x+1;
+	y_01 = current_y;
+
+	x_02 = current_x+2;
+	y_02 = current_y;
+
+	x_03 = current_x+3;
+	y_03 = current_y;
+
+	x_10 = current_x;
+	y_10 = current_y+1;
+
+	x_11 = current_x+1;
+	y_11 = current_y+1;
+
+	x_12 = current_x+2;
+	y_12 = current_y+1;
+
+	x_13 = current_x+3;
+	y_13 = current_y+1;
+
+	x_20 = current_x;
+	y_20 = current_y+2;
+
+	x_21 = current_x+1;
+	y_21 = current_y+2;
+
+	x_22 = current_x+2;
+	y_22 = current_y+2;
+
+	x_23 = current_x+3;
+	y_23 = current_y+2;
+
+	x_30 = current_x;
+	y_30 = current_y+3;
+
+	x_31 = current_x+1;
+	y_31 = current_y+3;
+
+	x_32 = current_x+2;
+	y_32 = current_y+3;
+
+	x_33 = current_x+3;
+	y_33 = current_y+3;
+
+end
 	
 	GetColorDepth GetColorDepth_00(    // y = 0, x = 0
 	.clk(clk),
@@ -720,8 +820,8 @@ end
 	.vertice2_color(vertice2_color),
 	.vertice3_color(vertice3_color),
 	
-	.current_x(current_x),
-    .current_y(current_y),
+	.current_x(x_00),
+    .current_y(y_00),
 	
 	.current_Color(Color_RGB_combine[383:360]),
 	.current_depth(depth_after[335:315]),
@@ -748,8 +848,8 @@ end
 	.vertice2_color(vertice2_color),
 	.vertice3_color(vertice3_color),
 	
-	.current_x(current_x + 1),
-    .current_y(current_y),
+	.current_x(x_01),
+    .current_y(y_01),
 	
 	.current_Color(Color_RGB_combine[359:336]),
 	.current_depth(depth_after[314:294]),
@@ -775,8 +875,8 @@ end
 	.vertice2_color(vertice2_color),
 	.vertice3_color(vertice3_color),
 	
-	.current_x(current_x + 2),
-    .current_y(current_y),
+	.current_x(x_02),
+    .current_y(y_02),
 	
 	.current_Color(Color_RGB_combine[335:312]),
 	.current_depth(depth_after[293:273]),
@@ -802,8 +902,8 @@ end
 	.vertice2_color(vertice2_color),
 	.vertice3_color(vertice3_color),
 	
-	.current_x(current_x + 3),
-    .current_y(current_y),
+	.current_x(x_03),
+    .current_y(y_03),
 	
 	.current_Color(Color_RGB_combine[311:288]),
 	.current_depth(depth_after[272:252]),
@@ -829,8 +929,8 @@ end
 	.vertice2_color(vertice2_color),
 	.vertice3_color(vertice3_color),
 	
-	.current_x(current_x),
-    .current_y(current_y + 1),
+	.current_x(x_10),
+    .current_y(y_10),
 	
 	.current_Color(Color_RGB_combine[287:264]),
 	.current_depth(depth_after[251:231]),
@@ -857,8 +957,8 @@ end
 	.vertice2_color(vertice2_color),
 	.vertice3_color(vertice3_color),
 	
-	.current_x(current_x + 1),
-    .current_y(current_y + 1),
+	.current_x(x_11),
+    .current_y(y_11),
 	
 	.current_Color(Color_RGB_combine[263:240]),
 	.current_depth(depth_after[230:210]),
@@ -884,8 +984,8 @@ end
 	.vertice2_color(vertice2_color),
 	.vertice3_color(vertice3_color),
 	
-	.current_x(current_x + 2),
-    .current_y(current_y + 1),
+	.current_x(x_12),
+    .current_y(y_12),
 	
 	.current_Color(Color_RGB_combine[239:216]),
 	.current_depth(depth_after[209:189]),
@@ -911,8 +1011,8 @@ end
 	.vertice2_color(vertice2_color),
 	.vertice3_color(vertice3_color),
 	
-	.current_x(current_x + 3),
-    .current_y(current_y + 1),
+	.current_x(x_13),
+    .current_y(y_13),
 	
 	.current_Color(Color_RGB_combine[215:192]),
 	.current_depth(depth_after[188:168]),
@@ -938,8 +1038,8 @@ end
 	.vertice2_color(vertice2_color),
 	.vertice3_color(vertice3_color),
 	
-	.current_x(current_x),
-    .current_y(current_y + 2),
+	.current_x(x_20),
+    .current_y(y_20),
 	
 	.current_Color(Color_RGB_combine[191:168]),
 	.current_depth(depth_after[167:147]),
@@ -966,8 +1066,8 @@ end
 	.vertice2_color(vertice2_color),
 	.vertice3_color(vertice3_color),
 	
-	.current_x(current_x + 1),
-    .current_y(current_y + 2),
+	.current_x(x_21),
+    .current_y(y_21),
 	
 	.current_Color(Color_RGB_combine[167:144]),
 	.current_depth(depth_after[146:126]),
@@ -993,8 +1093,8 @@ end
 	.vertice2_color(vertice2_color),
 	.vertice3_color(vertice3_color),
 	
-	.current_x(current_x + 2),
-    .current_y(current_y + 2),
+	.current_x(x_22),
+    .current_y(y_22),
 	
 	.current_Color(Color_RGB_combine[143:120]),
 	.current_depth(depth_after[125:105]),
@@ -1020,8 +1120,8 @@ end
 	.vertice2_color(vertice2_color),
 	.vertice3_color(vertice3_color),
 	
-	.current_x(current_x + 3),
-    .current_y(current_y + 2),
+	.current_x(x_23),
+    .current_y(y_23),
 	
 	.current_Color(Color_RGB_combine[119:96]),
 	.current_depth(depth_after[104:84]),
@@ -1047,8 +1147,8 @@ end
 	.vertice2_color(vertice2_color),
 	.vertice3_color(vertice3_color),
 	
-	.current_x(current_x),
-    .current_y(current_y + 3),
+	.current_x(x_30),
+    .current_y(y_30),
 	
 	.current_Color(Color_RGB_combine[95:72]),
 	.current_depth(depth_after[83:63]),
@@ -1075,8 +1175,8 @@ end
 	.vertice2_color(vertice2_color),
 	.vertice3_color(vertice3_color),
 	
-	.current_x(current_x + 1),
-    .current_y(current_y + 3),
+	.current_x(x_31),
+    .current_y(y_31),
 	
 	.current_Color(Color_RGB_combine[71:48]),
 	.current_depth(depth_after[62:42]),
@@ -1102,8 +1202,8 @@ end
 	.vertice2_color(vertice2_color),
 	.vertice3_color(vertice3_color),
 	
-	.current_x(current_x + 2),
-    .current_y(current_y + 3),
+	.current_x(x_32),
+    .current_y(y_32),
 	
 	.current_Color(Color_RGB_combine[47:24]),
 	.current_depth(depth_after[41:21]),
@@ -1129,8 +1229,8 @@ end
 	.vertice2_color(vertice2_color),
 	.vertice3_color(vertice3_color),
 	
-	.current_x(current_x + 3),
-    .current_y(current_y + 3),
+	.current_x(x_33),
+    .current_y(y_33),
 	
 	.current_Color(Color_RGB_combine[23:0]),
 	.current_depth(depth_after[20:0]),
