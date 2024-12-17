@@ -55,7 +55,7 @@ reg [19:0] face_v2_reg;
 reg [19:0] face_v3_reg;
 reg [23:0] Color_v_reg;
 reg [335:0] depth_org_reg;
-reg [20:0] num_of_faces_reg;
+reg [19:0] num_of_faces_reg;
 
 
 wire controller_signal_get;

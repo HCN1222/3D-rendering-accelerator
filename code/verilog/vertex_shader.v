@@ -35,10 +35,10 @@ module vertex_shader(
 	output reg [11:0] screen_x3_update,
 	output reg [11:0] screen_y3_update,
 	output reg MVP_ready,
-	output reg data_ready,
+	output reg data_ready
 	
 	//to top
-	output reg [19:0] address_sram_get_vertex_info
+	// output reg [19:0] address_sram_get_vertex_info
 	
 );
 
@@ -214,7 +214,7 @@ module vertex_shader(
 	// reg signed [23:0] product_quant [0:3][0:3];
 	// reg signed [23:0] product_quant_next [0:3][0:3];
 	reg signed [46:0] product [0:15];
-	reg signed [18:0] product_round;
+	reg signed [18:0] product_round[0:15];
 	reg signed [23:0] product_quant [0:15];
 	reg signed [23:0] product_quant_next [0:15];
 
@@ -534,8 +534,8 @@ module vertex_shader(
 							end
 							else begin
 								// 2Q24 * 3Q21 = 4Q45 -> 4Q15 -> 9Q15
-								product_round = ( product[row*4+col] + {4'b0, 20'b0, 1'b1, 24'b0} ) >> 25;
-								product_quant_next[row*4+col] = {product_round[18],product_round[18],product_round[18],product_round[18],product_round[18], product_round};
+								product_round[row*4+col] = ( product[row*4+col] + {4'b0, 20'b0, 1'b1, 24'b0} ) >> 25;
+								product_quant_next[row*4+col] = {product_round[row*4+col + 18],product_round[row*4+col+18],product_round[row*4+col+18],product_round[row*4+col+18],product_round[row*4+col+18], product_round[row*4+col]};
 							end
 						end
 					end
