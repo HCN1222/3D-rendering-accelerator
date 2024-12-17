@@ -61,9 +61,9 @@ reg [20:0] num_of_faces_reg;
 wire controller_signal_get;
 // wire [19:0] controller_which_vertice;
 wire start_doing_shading;
-wire [19:0] controller_vertex_x;
-wire [19:0] controller_vertex_y;
-wire [19:0] controller_vertex_z;
+wire [23:0] controller_vertex_x;
+wire [23:0] controller_vertex_y;
+wire [23:0] controller_vertex_z;
 
 wire [20:0] vertice1_depth_update;
 wire [20:0] vertice2_depth_update;

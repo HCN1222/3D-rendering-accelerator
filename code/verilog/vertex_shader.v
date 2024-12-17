@@ -88,7 +88,7 @@ module vertex_shader(
 	// output: - (unit dot x2, y2, z2)
 	// out: 7Q17
 	// ******************************
-	reg signed [23:0] neg_dot_product_unit_x, neg_dot_product_unit_y, neg_dot_product_unit_z;
+	reg signed [25:0] neg_dot_product_unit_x, neg_dot_product_unit_y, neg_dot_product_unit_z;
 	reg signed [23:0] neg_dot_product_x2, neg_dot_product_y2, neg_dot_product_z2;
 	wire signed [23:0] neg_dot_product_out;
 

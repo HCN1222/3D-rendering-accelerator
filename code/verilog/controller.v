@@ -81,9 +81,9 @@ reg [19:0] address_sram_get_vertice_info_wire;
 reg to_shader_valid_wire;
 // reg [19:0] to_shader_vertice_info_wire;
 reg start_doing_shading_wire;
-reg [19:0] to_shader_vertex_x_wire;
-reg [19:0] to_shader_vertex_y_wire;
-reg [19:0] to_shader_vertex_z_wire;
+reg [23:0] to_shader_vertex_x_wire;
+reg [23:0] to_shader_vertex_y_wire;
+reg [23:0] to_shader_vertex_z_wire;
 
 // To Rasterization
 reg [11:0] vertice1_x_wire;
@@ -172,6 +172,22 @@ always @ * begin
 	state_next = state;
 
 	cnt_next = cnt;
+
+	// Own memories
+	VS_v1_x_next = VS_v1_x;
+	VS_v1_y_next = VS_v1_y;
+	VS_v1_z_next = VS_v1_z;
+	VS_v2_x_next = VS_v2_x;
+	VS_v2_y_next = VS_v2_y;
+	VS_v2_z_next = VS_v2_z;
+
+	VS_v1_color_next = VS_v1_color;
+	VS_v2_color_next = VS_v2_color;
+	VS_v3_color_next = VS_v3_color;
+
+	buffer_v1_color_next = buffer_v1_color;
+	buffer_v2_color_next = buffer_v2_color;
+	buffer_v3_color_next = buffer_v3_color;
 	// ***************************************
 
 	case(state) // synopsys parallel_case
@@ -188,7 +204,7 @@ always @ * begin
 			finish_wire = 0;
 			address_sram_get_vertice_info_wire = 0;
 			// to_shader_valid_wire = 0;
-			start_doing_shading = 0;
+			start_doing_shading_wire = 0;
 			to_shader_vertex_x_wire = 0;
 			to_shader_vertex_y_wire = 0;
 			to_shader_vertex_z_wire = 0;
