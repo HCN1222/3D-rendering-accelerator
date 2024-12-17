@@ -25,6 +25,7 @@ module divider_unit(
                 remainder_tmp1[i] = remainder[i-1] << 1;
                 remainder_tmp2[i] = { remainder_tmp1[i][35:1], 1'b0 };
             end
+            remainder[i] = remainder_tmp2[i];
         end
     end
 

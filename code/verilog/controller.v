@@ -456,6 +456,9 @@ always @ ( posedge clk) begin
 	vertice3_y <= vertice3_y_wire;
 	vertice3_depth <= vertice3_depth_wire;
 
+	vertice1_color <= vertice1_color_wire;
+	vertice2_color <= vertice2_color_wire;
+	vertice3_color <= vertice3_color_wire;
 
 	vertice_ready <= vertice_ready_wire;
 

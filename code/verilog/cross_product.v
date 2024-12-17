@@ -19,7 +19,7 @@ module cross_product(
     input signed [23:0] Vy,
     input signed [23:0] Vz,
 
-    // output 1Q23
+    // output 2Q24
     output reg signed [25:0] out_x,
     output reg signed [25:0] out_y,
     output reg signed [25:0] out_z

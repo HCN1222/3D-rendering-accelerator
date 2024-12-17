@@ -345,9 +345,10 @@ module vertex_shader(
 				case(cnt)
 					
 					0: begin // get Z = eye - center
-						CamZ_next[0] = eye_x - center_x;
-						CamZ_next[1] = eye_y - center_y;
-						CamZ_next[2] = eye_z - center_z;
+						//   4Q22               4Q20
+						CamZ_next[0] = {(eye_x - center_x), 2'b0};
+						CamZ_next[1] = {(eye_y - center_y), 2'b0};
+						CamZ_next[2] = {(eye_z - center_z), 2'b0};
 					end
 					1: begin // send to inv_sqrt
 						inv_sqrt_x = CamZ[0];
@@ -358,10 +359,10 @@ module vertex_shader(
 						// IDLE
 					end
 					12: begin // get Z * 1/|z|
-						//   2Q24         (4Q20  * 1Q23) = 4Q43
-						CamZ_next[0] = ( CamZ[0] * inv_sqrt_out + {4'b0,24'b0,1'b1,18'b0} ) >> 19;
-						CamZ_next[1] = ( CamZ[1] * inv_sqrt_out + {4'b0,24'b0,1'b1,18'b0} ) >> 19;
-						CamZ_next[2] = ( CamZ[2] * inv_sqrt_out + {4'b0,24'b0,1'b1,18'b0} ) >> 19;
+						//   2Q24         (4Q22  * 1Q23) = 4Q45
+						CamZ_next[0] = ( CamZ[0] * inv_sqrt_out + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
+						CamZ_next[1] = ( CamZ[1] * inv_sqrt_out + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
+						CamZ_next[2] = ( CamZ[2] * inv_sqrt_out + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
 					
 						state_next = GET_CAMX;
 						cnt_next = 0;
@@ -425,10 +426,10 @@ module vertex_shader(
 							CamX_next[2] = CamX[2];
 						end
 						else begin
-							//               (4Q20          3Q21) -> 7Q41 ->2Q24
-							CamX_next[0] = ( CamX[0] * (inv_sqrt_out) + {7'b0,24'b0,1'b1,16'b0} ) >> 17;
-							CamX_next[1] = ( CamX[1] * (inv_sqrt_out) + {7'b0,24'b0,1'b1,16'b0} ) >> 17;
-							CamX_next[2] = ( CamX[2] * (inv_sqrt_out) + {7'b0,24'b0,1'b1,16'b0} ) >> 17;
+							//               (2Q24          3Q21) -> 4Q45 ->2Q24
+							CamX_next[0] = ( CamX[0] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
+							CamX_next[1] = ( CamX[1] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
+							CamX_next[2] = ( CamX[2] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
 						end
 						state_next = GET_CAMY;
 						cnt_next = 0;
@@ -490,10 +491,10 @@ module vertex_shader(
 							CamY_next[2] = CamY[2];
 						end
 						else begin
-							//   2Q24         (4Q20  * 1Q24) = 4Q44
-							CamY_next[0] = ( CamY[0] * (inv_sqrt_out) + {7'b0,24'b0,1'b1,16'b0} ) >> 17;
-							CamY_next[1] = ( CamY[1] * (inv_sqrt_out) + {7'b0,24'b0,1'b1,16'b0} ) >> 17;
-							CamY_next[2] = ( CamY[2] * (inv_sqrt_out) + {7'b0,24'b0,1'b1,16'b0} ) >> 17;
+							//               (2Q24          3Q21) -> 4Q45 ->2Q24
+							CamY_next[0] = ( CamY[0] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
+							CamY_next[1] = ( CamY[1] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
+							CamY_next[2] = ( CamY[2] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
 						end
 					end
 					14: begin
