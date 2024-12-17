@@ -118,17 +118,17 @@ wire get_next_triangle;
 	// .controller_signal_get(controller_signal_get),
 	// .controller_which_vertice(controller_which_vertice),
 	.start_doing_shading(start_doing_shading),
-	.vertice_x(controller_vertex_x),
-	.vertice_y(controller_vertex_y),
-	.vertice_z(controller_vertex_z),
+	.vertex_x(controller_vertex_x),
+	.vertex_y(controller_vertex_y),
+	.vertex_z(controller_vertex_z),
 	// .Color_v(Color_v_reg),
 	
 	//output
 	
 	//to controllor
-	.vertice1_depth_update(vertice1_depth_update),
-	.vertice2_depth_update(vertice2_depth_update),
-	.vertice3_depth_update(vertice3_depth_update),
+	.vertex1_depth_update(vertice1_depth_update),
+	.vertex2_depth_update(vertice2_depth_update),
+	.vertex3_depth_update(vertice3_depth_update),
 	// .vertice1_color_update(vertice1_color_update),
 	// .vertice2_color_update(vertice2_color_update),
 	// .vertice3_color_update(vertice3_color_update),
