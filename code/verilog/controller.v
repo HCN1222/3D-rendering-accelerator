@@ -126,7 +126,7 @@ localparam DONE = 3'd4;
 reg [2:0] state, state_next;
 
 // GET_FACE
-reg [2:0] cnt, cnt_next;
+reg [3:0] cnt, cnt_next;
 
 // combinational logic
 always @ * begin
