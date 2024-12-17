@@ -57,7 +57,7 @@ module divider(
     wire [22:0] divisor_out3;
     wire signbit_out3;
 
-    divider_unit divider_unit3(
+    divider_unit_last divider_unit3(
         // input
         .clk( clk ),
         .remainder_in( remainder_out2 ),
@@ -65,7 +65,6 @@ module divider(
         .signbit_in( signbit_out2 ),
         // output
         .remainder_out( remainder_out3 ),
-        .divisor_out( divisor_out3 ),
         .signbit_out( signbit_out3 )
     );
 
