@@ -19,7 +19,7 @@ module Graphic_3Dto2D_top
   input [19:0] face_v2,
   input [19:0] face_v3,
   input [23:0] Color_v, // should be RGB 8*3 = 24
-  input [20:0] num_of_faces,
+  input [19:0] num_of_faces,
   input [335:0] depth_org,                          // pixel depth store in sram, 21*16 = 336 bit
   output [15:0] address_sram_CD,                    // address for Color and Weight SRAM
   output [19:0] address_sram_get_vertice_info,      // address for vertice position and its color
@@ -197,7 +197,7 @@ wire get_next_triangle;
 	.address_sram_get_vertice_info(address_sram_get_vertice_info),
 
 	// to vertice_shader
-	.to_shader_valid(controller_signal_get),
+	// .to_shader_valid(controller_signal_get),
 	// .to_shader_vertice_info(controller_which_vertice),
 	.start_doing_shading(start_doing_shading),
 	.to_shader_vertex_x(controller_vertex_x),

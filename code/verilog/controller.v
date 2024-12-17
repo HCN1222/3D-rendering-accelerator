@@ -15,7 +15,7 @@ module controller(
 	input [23:0] sram_vertex_x,
 	input [23:0] sram_vertex_y,
 	input [23:0] sram_vertex_z,
-	input [20:0] num_of_faces,
+	input [19:0] num_of_faces,
 	input [23:0] Color_v,
 	
 	// from vertice_shader
@@ -45,7 +45,7 @@ module controller(
 	output reg [19:0] address_sram_get_vertice_info,
 	
 	// to vertice_shader
-	output reg to_shader_valid,
+	// output reg to_shader_valid,
 	// output reg [19:0] to_shader_vertice_info,
 	output reg start_doing_shading,
 	output reg [23:0] to_shader_vertex_x,
@@ -78,7 +78,7 @@ reg [19:0] address_sram_get_face_wire;
 reg finish_wire;
 reg [19:0] address_sram_get_vertice_info_wire;
 // To vertice_shader
-reg to_shader_valid_wire;
+// reg to_shader_valid_wire;
 // reg [19:0] to_shader_vertice_info_wire;
 reg start_doing_shading_wire;
 reg [23:0] to_shader_vertex_x_wire;
@@ -433,7 +433,7 @@ always @ ( posedge clk) begin
 	finish <= finish_wire;
 	address_sram_get_vertice_info <= address_sram_get_vertice_info_wire;
 	// To vertice_shader
-	to_shader_valid <= to_shader_valid_wire;
+	// to_shader_valid <= to_shader_valid_wire;
 	// to_shader_vertice_info <= to_shader_vertice_info_wire;
 	start_doing_shading <= start_doing_shading_wire;
 	to_shader_vertex_x <= to_shader_vertex_x_wire;
