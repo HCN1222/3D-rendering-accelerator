@@ -214,7 +214,7 @@ module vertex_shader(
 	// reg signed [23:0] product_quant [0:3][0:3];
 	// reg signed [23:0] product_quant_next [0:3][0:3];
 	reg signed [46:0] product [0:15];
-	reg signed [18:0] product_round[0:15];
+	reg signed [18:0] product_round;
 	reg signed [23:0] product_quant [0:15];
 	reg signed [23:0] product_quant_next [0:15];
 
@@ -320,7 +320,7 @@ module vertex_shader(
 		case (state)
 			IDLE: begin
 				cnt_next = 0;
-				state_next = (enable) ? CALC_VIEW : IDLE;
+				state_next = (enable) ? GET_CAMZ : IDLE;
 			end
 			GET_CAMZ: begin
 				// ********** Summary ***********
@@ -409,9 +409,9 @@ module vertex_shader(
 						// get X * 1/|x|
 						//   2Q24         (4Q20  * 4Q20) = 8Q40
 						if( CamX_next[0][24] == 1 || CamX_next[1][24] == 1 || CamX_next[2][24] == 1 ) begin
-							Cam_next[0] = Cam[0];
-							Cam_next[1] = Cam[1];
-							Cam_next[2] = Cam[2];
+							CamX_next[0] = CamX[0];
+							CamX_next[1] = CamX[1];
+							CamX_next[2] = CamX[2];
 						end
 						else begin
 							//               (4Q20          3Q21) -> 7Q41 ->2Q24
@@ -516,7 +516,7 @@ module vertex_shader(
 				if (cnt>=0 && cnt<=3) begin
 					for ( col=0; col<4; col=col+1 )begin
 						for ( row=0; row<4; row=row+1 )begin
-							product[row*4+col] = projection[cnt*4+row] * view[row*4+col];
+							product[row*4+col] = Projection[cnt*4+row] * View[row*4+col];
 							if(row == 3) begin
 								// 7Q17 * 3Q21 = 9Q38 ->9Q15
 								product_quant_next[row*4+col] = ( product[row*4+col] + {9'b0, 15'b0, 1'b1, 22'b0} ) >> 23;
@@ -524,7 +524,7 @@ module vertex_shader(
 							else begin
 								// 2Q24 * 3Q21 = 4Q45 -> 4Q15 -> 9Q15
 								product_round = ( product[row*4+col] + {4'b0, 20'b0, 1'b1, 24'b0} ) >> 25;
-								product_quant_next[row*4+col] = {5{product_round[18]}, product_round}
+								product_quant_next[row*4+col] = {5{product_round[18]}, product_round};
 							end
 						end
 					end
