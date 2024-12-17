@@ -73,7 +73,7 @@ module divider(
     reg signed [12:0] quotient_next;
     always@(*) begin
         if (divisor == dividend) begin
-            quotient_next = { 2'{signbit_out3}, 12'b0 };
+            quotient_next = { 2{signbit_out3}, 12'b0 };
         end
         else begin
             if (signbit_out3 == 0) begin
