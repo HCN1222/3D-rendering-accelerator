@@ -95,7 +95,7 @@ wire [11:0] screen_y3_use;
 
 wire get_next_triangle;
 
-    vertice_shader vertice_shader
+    vertex_shader vertex_shader
 	(
 	
 	//input
