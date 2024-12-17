@@ -180,6 +180,9 @@ always @ * begin
 	VS_v2_x_next = VS_v2_x;
 	VS_v2_y_next = VS_v2_y;
 	VS_v2_z_next = VS_v2_z;
+	VS_v3_x_next = VS_v3_x;
+	VS_v3_y_next = VS_v3_y;
+	VS_v3_z_next = VS_v3_z;
 
 	VS_v1_color_next = VS_v1_color;
 	VS_v2_color_next = VS_v2_color;
