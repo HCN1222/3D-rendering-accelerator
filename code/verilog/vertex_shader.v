@@ -524,7 +524,7 @@ module vertex_shader(
 							else begin
 								// 2Q24 * 3Q21 = 4Q45 -> 4Q15 -> 9Q15
 								product_round = ( product[row*4+col] + {4'b0, 20'b0, 1'b1, 24'b0} ) >> 25;
-								product_quant_next[row*4+col] = {5{product_round[18]}, product_round};
+								product_quant_next[row*4+col] = {product_round[18],product_round[18],product_round[18],product_round[18],product_round[18], product_round};
 							end
 						end
 					end
