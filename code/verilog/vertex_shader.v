@@ -268,6 +268,85 @@ module vertex_shader(
 
 	integer row, col;
 	always @ (*) begin
+		// output
+		vertex1_depth_update_wire = vertex1_depth_update;
+		vertex2_depth_update_wire = vertex2_depth_update;
+		vertex3_depth_update_wire = vertex3_depth_update;
+		screen_x1_update_wire = screen_x1_update;
+		screen_y1_update_wire = screen_y1_update;
+		screen_x2_update_wire = screen_x2_update;
+		screen_y2_update_wire = screen_y2_update;
+		screen_x3_update_wire = screen_x3_update;
+		screen_y3_update_wire = screen_y3_update;
+		MVP_ready_wire = 0;
+		data_ready_wire = 0;
+
+		state_next = state;
+		cnt_next = cnt;
+
+		// Camera coordinates
+		CamZ_next[0] = CamZ[0];
+		CamZ_next[1] = CamZ[1];
+		CamZ_next[2] = CamZ[2];
+		CamZ_norm[0] = 0;
+		CamZ_norm[1] = 0;
+		CamZ_norm[2] = 0;
+
+		CamX_next[0] = CamX[0];
+		CamX_next[1] = CamX[1];
+		CamX_next[2] = CamX[2];
+		CamX_norm[0] = 0;
+		CamX_norm[1] = 0;
+		CamX_norm[2] = 0;
+
+		CamY_next[0] = CamY[0];
+		CamY_next[1] = CamY[1];
+		CamY_next[2] = CamY[2];
+		CamY_norm[0] = 0;
+		CamY_norm[1] = 0;
+		CamY_norm[2] = 0;
+
+		// Dot result
+		neg_Z_dot_eye_next = neg_Z_dot_eye;
+		neg_X_dot_eye_next = neg_X_dot_eye;
+		neg_Y_dot_eye_next = neg_Y_dot_eye;
+		// inverse square root
+		inv_sqrt_x = 0;
+		inv_sqrt_y = 0;
+		inv_sqrt_z = 0;
+		// dot product
+		neg_dot_product_unit_x = 0;
+		neg_dot_product_unit_y = 0;
+		neg_dot_product_unit_z = 0;
+		neg_dot_product_x2 = 0;
+		neg_dot_product_y2 = 0;
+		neg_dot_product_z2 = 0;
+		// cross product
+		cross_product_Ux = 0;
+		cross_product_Uy = 0;
+		cross_product_Uz = 0;
+		cross_product_Vx = 0;
+		cross_product_Vy = 0;
+		cross_product_Vz = 0;
+
+		// MVP matrix
+		for(row = 0; row < 4; row = row + 1) begin
+			for(col = 0; col < 4; col = col + 1) begin
+				MVP_sum[row*4+col] = {MVP[row*4+col], 2'b0};
+				MVP_next[row*4+col] = MVP[row*4+col];
+			end
+		end
+		// product quantization
+		for(row = 0; row < 4; row = row + 1) begin
+			for(col = 0; col < 4; col = col + 1) begin
+				product_quant_next[row*4+col] = 0;
+			end
+		end
+		// sum
+		for(col = 0; col < 4; col = col + 1) begin
+			sum_next[col] = 0;
+		end
+
 		case (state)
 			IDLE: begin
 				cnt_next = 0;
