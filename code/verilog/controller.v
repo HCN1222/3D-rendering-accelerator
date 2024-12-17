@@ -48,9 +48,9 @@ module controller(
 	output reg to_shader_valid,
 	// output reg [19:0] to_shader_vertice_info,
 	output reg start_doing_shading,
-	output reg [19:0] to_shader_vertex_x,
-	output reg [19:0] to_shader_vertex_y,
-	output reg [19:0] to_shader_vertex_z,
+	output reg [23:0] to_shader_vertex_x,
+	output reg [23:0] to_shader_vertex_y,
+	output reg [23:0] to_shader_vertex_z,
 	
 	// to Rasterization
 	output reg [11:0] vertice1_x,
