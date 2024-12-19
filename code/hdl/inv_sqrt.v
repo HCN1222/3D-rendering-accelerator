@@ -1,10 +1,10 @@
 module inv_sqrt
 (
     input  clk,
-    input  [23:0] x,
-    input  [23:0] y,
-    input  [23:0] z,
-    output reg [23:0] out
+    input  signed [23:0] x,
+    input  signed [23:0] y,
+    input  signed [23:0] z,
+    output reg signed [23:0] out
 );
 
     // ********** Summary ***********
@@ -46,6 +46,8 @@ module inv_sqrt
 
     // ************** step 1 *******************
     // find the square of x, y, and z
+    // reg signed [23:0] abs_x, abs_y, abs_z;
+    // 8Q40
     reg signed [47:0] x_2, y_2, z_2;
     // quantized the value of x_2, y_2, and z_2 to 8Q24
     reg signed [31:0] x_2_quant, x_2_quant_next;
@@ -54,56 +56,66 @@ module inv_sqrt
 
     // ************** step 2 *******************
     // SUM
-    reg signed [33:0] SUM, SUM_next;
+    reg signed [33:0] SUM_next;
     // LUT
-    reg signed [24:0] X0;
+    reg signed [24:0] X0, X0_pipe1, X0_pipe2;
     wire signed [24:0] X0_next;
     inv_sqrt_LUT LUT( .IN(SUM_next[32:24]), .OUT(X0_next) );
 
     // ************** step 3 *******************
     // Newton-Raphson iteration 1-1
+    reg signed [33:0] SUM_3;
     reg signed [49:0] X0_2;
     reg signed [48:0] X0_2_trunc;
     reg signed [24:0] X0_2_quant, X0_2_quant_next;
 
     // ************** step 4 *******************
     // Newton-Raphson iteration 1-2
+    reg signed [33:0] SUM_4;
     reg signed [57:0] coeff_0; // 9Q49
     reg signed [51:0] coeff_0_trunc; // 3Q49
     reg signed [26:0] coeff_0_quant, coeff_0_quant_next; // 3Q24
 
     // ************** step 5 *******************
     // Newton-Raphson iteration 1-3
+    reg signed [33:0] SUM_5;
     reg signed [53:0] X1; // 4Q48
     reg signed [48:0] X1_trunc; // 1Q48
     reg signed [24:0] X1_quant, X1_quant_next; // 1Q24
+    reg signed [24:0] X1_quant_pipe1, X1_quant_pipe2;
 
     // ************** step 6 *******************
     // Newton-Raphson iteration 2-1
+    reg signed [33:0] SUM_6;
     reg signed [49:0] X1_2;
     reg signed [48:0] X1_2_trunc;
     reg signed [24:0] X1_2_quant, X1_2_quant_next;
 
     // ************** step 7 *******************
     // Newton-Raphson iteration 2-2
+    reg signed [33:0] SUM_7;
     reg signed [57:0] coeff_1; // 9Q49
     reg signed [51:0] coeff_1_trunc; // 3Q49
     reg signed [26:0] coeff_1_quant, coeff_1_quant_next; // 3Q24
 
     // ************** step 8 *******************
     // Newton-Raphson iteration 2-3
+    reg signed [33:0] SUM_8;
     reg signed [53:0] X2; // 4Q48
     reg signed [48:0] X2_trunc; // 1Q48
     reg signed [24:0] X2_quant, X2_quant_next; // 1Q24
+    reg signed [24:0] X2_quant_pipe1, X2_quant_pipe2;
 
     // ************** step 9 *******************
     // Newton-Raphson iteration 3-1
+    reg signed [33:0] SUM_9;
     reg signed [49:0] X2_2;    
     reg signed [48:0] X2_2_trunc;
     reg signed [24:0] X2_2_quant, X2_2_quant_next;
 
     // ************** step 10 *******************
     // Newton-Raphson iteration 3-2
+    reg signed [33:0] SUM_10;
     reg signed [57:0] coeff_2; // 9Q49
     reg signed [51:0] coeff_2_trunc; // 3Q49
     reg signed [26:0] coeff_2_quant, coeff_2_quant_next; // 3Q24
@@ -121,9 +133,12 @@ module inv_sqrt
     always @(*) begin
         // ***************** step 1 *******************
         // get the square of x, y, and z
-        x_2 = x * x + {8'b0, 24'b0, 1'b1, 15'b0};
-        y_2 = y * y + {8'b0, 24'b0, 1'b1, 15'b0};
-        z_2 = z * z + {8'b0, 24'b0, 1'b1, 15'b0};
+        // abs_x = (x > 0) ? x : ~x+1'b1;
+        // abs_y = (y > 0) ? y : ~y+1'b1;
+        // abs_z = (z > 0) ? z : ~z+1'b1;
+        x_2 = x * x + $signed({8'b0, 24'b0, 1'b1, 15'b0});
+        y_2 = y * y + $signed({8'b0, 24'b0, 1'b1, 15'b0});
+        z_2 = z * z + $signed({8'b0, 24'b0, 1'b1, 15'b0});
         // quantized: 8Q40 -> 8Q24
         x_2_quant_next = x_2[47:16];
         y_2_quant_next = y_2[47:16];
@@ -139,24 +154,24 @@ module inv_sqrt
         // Newton-Raphson iteration 1-1
         X0_2 = X0 * X0;
         // truncation: 2Q48 -> 1Q48
-        X0_2_trunc = X0_2[48:0] + {1'b0, 24'b0, 1'b1, 23'b0};
+        X0_2_trunc = X0_2[48:0] + $signed({1'b0, 24'b0, 1'b1, 23'b0});
         // quantized: 1Q48 -> 1Q24
         X0_2_quant_next = X0_2_trunc[48:24];
 
         // ************** step 4 *******************
         // Newton-Raphson iteration 1-2
-        coeff_0 = ( (3<<48) - (SUM * X0_2_quant) );
+        coeff_0 = ( (51'sd844424930131968) - (SUM_4 * X0_2_quant) );
         // divide by 2 -> 10Q48 -> 9Q49
         // truncation: 9Q49 -> 3Q49
-        coeff_0_trunc = coeff_0[51:0] + {3'b0, 24'b0, 1'b1, 24'b0};
+        coeff_0_trunc = coeff_0[51:0] + $signed({3'b0, 24'b0, 1'b1, 24'b0});
         // quantized: 3Q49 -> 3Q24
         coeff_0_quant_next = coeff_0_trunc[51:25];
 
         // ************** step 5 *******************
         // Newton-Raphson iteration 1-3
-        X1 = X0 * coeff_0_quant;
+        X1 = X0_pipe2 * coeff_0_quant;
         // truncate: 4Q48 -> 1Q48
-        X1_trunc = X1[48:0] + {1'b0, 24'b0, 1'b1, 23'b0};
+        X1_trunc = X1[48:0] + $signed({1'b0, 24'b0, 1'b1, 23'b0});
         // quantized: 1Q48 -> 1Q24
         X1_quant_next = X1_trunc[48:24];
 
@@ -164,24 +179,24 @@ module inv_sqrt
         // Newton-Raphson iteration 2-1
         X1_2 = X1_quant * X1_quant;
         // truncation: 2Q48 -> 1Q48
-        X1_2_trunc = X1_2[48:0] + {1'b0, 24'b0, 1'b1, 23'b0};
+        X1_2_trunc = X1_2[48:0] + $signed({1'b0, 24'b0, 1'b1, 23'b0});
         // quantized: 1Q48 -> 1Q24
         X1_2_quant_next = X1_2_trunc[48:24];
 
         // ************** step 7 *******************
         // Newton-Raphson iteration 2-2
-        coeff_1 = ( (3<<48) - (SUM * X1_2_quant) );
+        coeff_1 = ( (3<<48) - (SUM_7 * X1_2_quant) );
         // divide by 2 -> 10Q48 -> 9Q49
         // truncation: 9Q49 -> 3Q49
-        coeff_1_trunc = coeff_1[51:0] + {3'b0, 24'b0, 1'b1, 24'b0};
+        coeff_1_trunc = coeff_1[51:0] + $signed({3'b0, 24'b0, 1'b1, 24'b0});
         // quantized: 3Q49 -> 3Q24
         coeff_1_quant_next = coeff_1_trunc[51:25];
 
         // ************** step 8 *******************
         // Newton-Raphson iteration 2-3
-        X2 = X1_quant * coeff_1_quant;
+        X2 = X1_quant_pipe2 * coeff_1_quant;
         // truncate: 4Q48 -> 1Q48
-        X2_trunc = X2[48:0] + {1'b0, 24'b0, 1'b1, 23'b0};
+        X2_trunc = X2[48:0] + $signed({1'b0, 24'b0, 1'b1, 23'b0});
         // quantized: 1Q48 -> 1Q24
         X2_quant_next = X2_trunc[48:24];
 
@@ -189,28 +204,28 @@ module inv_sqrt
         // Newton-Raphson iteration 3-1
         X2_2 = X2_quant * X2_quant;
         // truncation: 2Q48 -> 1Q48
-        X2_2_trunc = X2_2[48:0] + {1'b0, 24'b0, 1'b1, 23'b0};
+        X2_2_trunc = X2_2[48:0] + $signed({1'b0, 24'b0, 1'b1, 23'b0});
         // quantized: 1Q48 -> 1Q24
         X2_2_quant_next = X2_2_trunc[48:24];
 
         // ************** step 10 *******************
         // Newton-Raphson iteration 3-2
-        coeff_2 = ( (3<<48) - (SUM * X2_2_quant) );
+        coeff_2 = ( (3<<48) - (SUM_10 * X2_2_quant) );
         // divide by 2 -> 10Q48 -> 9Q49
         // truncation: 9Q49 -> 3Q49
-        coeff_2_trunc = coeff_2[51:0] + {3'b0, 24'b0, 1'b1, 24'b0};
+        coeff_2_trunc = coeff_2[51:0] + $signed({3'b0, 24'b0, 1'b1, 24'b0});
         // quantized: 3Q49 -> 3Q24
         coeff_2_quant_next = coeff_2_trunc[51:25];
 
         // ************** step 11 *******************
         // Newton-Raphson iteration 3-3
-        X3 = X2_quant * coeff_2_quant;
+        X3 = X2_quant_pipe2 * coeff_2_quant;
         // truncate: 4Q48 -> 1Q48
-        X3_trunc = X3[48:0] + {1'b0, 23'b0, 1'b1, 24'b0};
+        X3_trunc = X3[48:0] + $signed({1'b0, 23'b0, 1'b1, 24'b0});
         // quantized: 1Q48 -> 1Q23
         X3_quant_next = X3_trunc[48:25];
 
-        out_wire = (X3_quant_next > 0) ? X3_quant_next : -X3_quant_next;
+        out_wire = (X3_quant_next > 0) ? X3_quant_next : ~X3_quant_next+1'b1;
 
     end
     // sequential logic
@@ -220,20 +235,34 @@ module inv_sqrt
         x_2_quant <= x_2_quant_next;
         z_2_quant <= z_2_quant_next;
         // ***************** step 2 *******************
-        SUM <= SUM_next;
+        SUM_3 <= SUM_next;
+        SUM_4 <= SUM_3;
+        SUM_5 <= SUM_4;
+        SUM_6 <= SUM_5;
+        SUM_7 <= SUM_6;
+        SUM_8 <= SUM_7;
+        SUM_9 <= SUM_8;
+        SUM_10 <= SUM_9;
+
         X0 <= X0_next;
+        X0_pipe1 <= X0;
+        X0_pipe2 <= X0_pipe1;
         // ***************** step 3 *******************
         X0_2_quant <= X0_2_quant_next;
         // ***************** step 4 *******************
         coeff_0_quant <= coeff_0_quant_next;
         // ***************** step 5 *******************
         X1_quant <= X1_quant_next;
+        X1_quant_pipe1 <= X1_quant;
+        X1_quant_pipe2 <= X1_quant_pipe1;
         // ***************** step 6 *******************
         X1_2_quant <= X1_2_quant_next;
         // ***************** step 7 *******************
         coeff_1_quant <= coeff_1_quant_next;
         // ***************** step 8 *******************
         X2_quant <= X2_quant_next;
+        X2_quant_pipe1 <= X2_quant;
+        X2_quant_pipe2 <= X2_quant_pipe1;
         // ***************** step 9 *******************
         X2_2_quant <= X2_2_quant_next;
         // ***************** step 10 *******************
