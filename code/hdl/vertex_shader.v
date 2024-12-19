@@ -557,22 +557,7 @@ module vertex_shader(
 						cross_product_Vx = CamX[0];
 						cross_product_Vy = CamX[1];
 						cross_product_Vz = CamX[2];
-					end
-					// 1: begin
-					// end
-					2: begin
-						// get Y = Z X X
-						CamY_next[0] = cross_product_out_x;
-						CamY_next[1] = cross_product_out_y;
-						CamY_next[2] = cross_product_out_z;
-						// send signals to inv_sqrt
-						// because CamY is a 2Q24, and inv_sqrt is a 4Q20
-						// we first let CamY // 4 by taking [25:2] 2Q24 -> 0Q24
-						// then, shift left by 4 0Q24 -> 4Q20
-						// to sum up, we let the input be 4 * CamY[25:2]	
-						inv_sqrt_x = cross_product_out_x[25:2];
-						inv_sqrt_y = cross_product_out_y[25:2];
-						inv_sqrt_z = cross_product_out_z[25:2];
+						
 						// send signals to neg_dot_product
 						neg_dot_product_unit_x = CamX[0];
 						neg_dot_product_unit_y = CamX[1];
@@ -581,50 +566,31 @@ module vertex_shader(
 						neg_dot_product_y2 = eye_y;
 						neg_dot_product_z2 = eye_z;
 					end
-					3: begin
-						//IDLE
-					end
-					4: begin
+					// 1: begin
+					// end
+					2: begin
+						// get Y = Z X X
+						// CamY is already a unit vector
+						// because CamZ and CamX are unit vectors and orthogonal
+						CamY_next[0] = cross_product_out_x;
+						CamY_next[1] = cross_product_out_y;
+						CamY_next[2] = cross_product_out_z;
+
 						// Update negative X dot eye
 						neg_X_dot_eye_next = neg_dot_product_out;
-					end
-					5, 6, 7, 8, 9, 10, 11, 12: begin
-						// IDLE
-					end
-					13: begin
-						// same as in GET_CAMX
-						// get Y * 1/|y|
-						if( CamY[0] == {2'b01, 24'b0} || CamY[0] == {2'b11, 24'b0}
-						 || CamY[1] == {2'b01, 24'b0} || CamY[1] == {2'b11, 24'b0}
-						 || CamY[2] == {2'b01, 24'b0} || CamY[2] == {2'b11, 24'b0} ) begin
-							CamY_next[0] = CamY[0];
-							CamY_next[1] = CamY[1];
-							CamY_next[2] = CamY[2];
-						end
-						else begin
-							//               (2Q24          3Q21) -> 5Q45 -> 5Q24
-							CamY_norm[0] = ( CamY[0] * (inv_sqrt_out) + $signed({5'b0,24'b0,1'b1,20'b0}) ) >>> 21;
-							CamY_norm[1] = ( CamY[1] * (inv_sqrt_out) + $signed({5'b0,24'b0,1'b1,20'b0}) ) >>> 21;
-							CamY_norm[2] = ( CamY[2] * (inv_sqrt_out) + $signed({5'b0,24'b0,1'b1,20'b0}) ) >>> 21;
-							// 5Q24 -> 2Q24
-							CamY_next[0] = CamY_norm[0][25:0];
-							CamY_next[1] = CamY_norm[1][25:0];
-							CamY_next[2] = CamY_norm[2][25:0];
-						end
-					end
-					14: begin
+
 						// send signals to neg_dot_product
-						neg_dot_product_unit_x = CamY[0];
-						neg_dot_product_unit_y = CamY[1];
-						neg_dot_product_unit_z = CamY[2];
+						neg_dot_product_unit_x = cross_product_out_x;
+						neg_dot_product_unit_y = cross_product_out_y;
+						neg_dot_product_unit_z = cross_product_out_z;
 						neg_dot_product_x2 = eye_x;
 						neg_dot_product_y2 = eye_y;
 						neg_dot_product_z2 = eye_z;
 					end
-					15: begin
-						// IDLE
+					3: begin
+						//IDLE
 					end
-					16: begin
+					4: begin
 						// Update negative Y dot eye
 						neg_Y_dot_eye_next = neg_dot_product_out;
 
