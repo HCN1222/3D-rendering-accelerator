@@ -636,9 +636,11 @@ module vertex_shader(
 					end
 				end
 				if (cnt == 4) begin
+					MVP_ready_wire = 1;
+				end
+				if (cnt == 5) begin
 					state_next = TRANSFORM;
 					cnt_next = 0;
-					MVP_ready_wire = 1;
 				end
 			end
 			TRANSFORM: begin
@@ -650,7 +652,7 @@ module vertex_shader(
 				// 3. NDC (5 cycles)
 				// 4. clip space to screen space (1 cycle)
 				// counter
-				cnt_next = (~start_doing_shading && cnt == 0)? 0:cnt + 1;
+				cnt_next = cnt + 1;
 
 				// stage 1
 				for ( col=0; col<4; col=col+1 )begin
@@ -712,17 +714,17 @@ module vertex_shader(
 				// output wire
 				case(cnt)
 					7: begin
-						vertex1_depth_update_wire = {ndc_z, 6'd0};
+						vertex1_depth_update_wire = {ndc_z, 8'd0};
 						screen_x1_update_wire = screen_x_quant;
 						screen_y1_update_wire = screen_y_quant;
 					end
 					8: begin
-						vertex2_depth_update_wire = {ndc_z, 6'd0};
+						vertex2_depth_update_wire = {ndc_z, 8'd0};
 						screen_x2_update_wire = screen_x_quant;
 						screen_y2_update_wire = screen_y_quant;
 					end
 					9: begin
-						vertex3_depth_update_wire = {ndc_z, 6'd0};
+						vertex3_depth_update_wire = {ndc_z, 8'd0};
 						screen_x3_update_wire = screen_x_quant;
 						screen_y3_update_wire = screen_y_quant;
 					end

@@ -363,10 +363,10 @@ module Rasterizer(
 	output reg  [15:0] read_address_sram_CD,
 	output reg  [15:0] write_address_sram_CD, 
 	
-	output  [383:0] Color_RGB_combine,
+	output  reg [383:0] Color_RGB_combine,
 	output reg  write_enable_sram_CD,
 	output reg [15:0] write_wordmask_sram_CD,
-	output  [335:0] depth_after,
+	output  reg [335:0] depth_after,
 	
 	// to controller
 	output reg get_next_triangle
@@ -377,6 +377,9 @@ parameter initial_or_finish_triangle = 2'b00;
 parameter set = 2'b01;
 parameter compute = 2'b10;
 parameter wait_pipeline_result = 2'b11;
+
+wire [383:0] Color_RGB_combine_n;
+wire [335:0] depth_after_n;
 	
 reg [1:0] state;
 reg [1:0] next_state;
@@ -398,6 +401,9 @@ reg signed [11:0] start_y;
 
 reg signed [11:0] end_x;
 reg signed [11:0] end_y;
+
+reg signed [11:0] minus_x;
+reg signed [11:0] next_minus_x;
 
 reg [3:0] next_counter;
 reg [3:0] counter;
@@ -532,9 +538,12 @@ always@(posedge clk) begin
 	write_wordmask_sram_CD <= next_write_wordmask_sram_CD;
 	start_x <= next_start_x;
 	start_y <= next_start_y;
+	minus_x <= next_minus_x;
 	end_x <= next_end_x;
 	end_y <= next_end_y;
 	get_next_triangle <= next_get_next_triangle;
+	Color_RGB_combine <= Color_RGB_combine_n;
+	depth_after <= depth_after_n;
 end
 
 always@* begin
@@ -610,6 +619,8 @@ always@* begin
 	
 	next_end_x = (temp_end_x[11:2])*4;
 	next_end_y = (temp_end_y[11:2])*4;
+	
+	next_minus_x = (end_x - start_x)/4;
 
 end
 
@@ -644,7 +655,7 @@ always@* begin
 		next_write_enable_sram_CD = 1'b0;
 		for(i=0;i<=15;i=i+1) begin
 		    depth_s_org[i] = depth_org[i*21+:21];
-			depth_s_after[i] = depth_after[i*21+:21];
+			depth_s_after[i] = depth_after_n[i*21+:21];
 		    if( depth_s_after[i] <= depth_s_org[i] && in_triangle_array[i]==1'b1 && not_draw_array[i] == 1'b0) begin
 			    next_write_wordmask_sram_CD[i] = 1'b0;
 			end else begin
@@ -664,6 +675,7 @@ always@* begin
     next_addr_pipe1 = temp_address;
 end
 
+
 always@* begin
     
     case(state)
@@ -671,7 +683,7 @@ always@* begin
 		
 		    if(data_ready) begin
 			    next_get_next_triangle = 1'b0;
-				next_state = compute;
+				next_state = set;
 			end else begin
 		        next_get_next_triangle = 1'b1;
 				next_state = state;
@@ -706,8 +718,8 @@ always@* begin
 			    next_state = state;
 				next_current_x = start_x;
 				next_current_y = current_y + 4;
-				temp_address = record + 320;
-				next_record = record + 320;
+				temp_address = record - minus_x + 320;
+				next_record = record - minus_x + 320;
 			end else begin
 			    next_state = state;
 				next_current_x = current_x + 4;
@@ -823,8 +835,8 @@ end
 	.current_x(x_00),
     .current_y(y_00),
 	
-	.current_Color(Color_RGB_combine[383:360]),
-	.current_depth(depth_after[335:315]),
+	.current_Color(Color_RGB_combine_n[383:360]),
+	.current_depth(depth_after_n[335:315]),
 	.not_draw(not_draw_array[15]),
 	.in_triangle(in_triangle_array[15])
 	);
@@ -851,8 +863,8 @@ end
 	.current_x(x_01),
     .current_y(y_01),
 	
-	.current_Color(Color_RGB_combine[359:336]),
-	.current_depth(depth_after[314:294]),
+	.current_Color(Color_RGB_combine_n[359:336]),
+	.current_depth(depth_after_n[314:294]),
 	.not_draw(not_draw_array[14]),
 	.in_triangle(in_triangle_array[14])
 	);
@@ -878,8 +890,8 @@ end
 	.current_x(x_02),
     .current_y(y_02),
 	
-	.current_Color(Color_RGB_combine[335:312]),
-	.current_depth(depth_after[293:273]),
+	.current_Color(Color_RGB_combine_n[335:312]),
+	.current_depth(depth_after_n[293:273]),
 	.not_draw(not_draw_array[13]),
 	.in_triangle(in_triangle_array[13])
 	);
@@ -905,8 +917,8 @@ end
 	.current_x(x_03),
     .current_y(y_03),
 	
-	.current_Color(Color_RGB_combine[311:288]),
-	.current_depth(depth_after[272:252]),
+	.current_Color(Color_RGB_combine_n[311:288]),
+	.current_depth(depth_after_n[272:252]),
 	.not_draw(not_draw_array[12]),
 	.in_triangle(in_triangle_array[12])
 	);
@@ -932,8 +944,8 @@ end
 	.current_x(x_10),
     .current_y(y_10),
 	
-	.current_Color(Color_RGB_combine[287:264]),
-	.current_depth(depth_after[251:231]),
+	.current_Color(Color_RGB_combine_n[287:264]),
+	.current_depth(depth_after_n[251:231]),
 	.not_draw(not_draw_array[11]),
 	.in_triangle(in_triangle_array[11])
 	);
@@ -960,8 +972,8 @@ end
 	.current_x(x_11),
     .current_y(y_11),
 	
-	.current_Color(Color_RGB_combine[263:240]),
-	.current_depth(depth_after[230:210]),
+	.current_Color(Color_RGB_combine_n[263:240]),
+	.current_depth(depth_after_n[230:210]),
 	.not_draw(not_draw_array[10]),
 	.in_triangle(in_triangle_array[10])
 	);
@@ -987,8 +999,8 @@ end
 	.current_x(x_12),
     .current_y(y_12),
 	
-	.current_Color(Color_RGB_combine[239:216]),
-	.current_depth(depth_after[209:189]),
+	.current_Color(Color_RGB_combine_n[239:216]),
+	.current_depth(depth_after_n[209:189]),
 	.not_draw(not_draw_array[9]),
 	.in_triangle(in_triangle_array[9])
 	);
@@ -1014,8 +1026,8 @@ end
 	.current_x(x_13),
     .current_y(y_13),
 	
-	.current_Color(Color_RGB_combine[215:192]),
-	.current_depth(depth_after[188:168]),
+	.current_Color(Color_RGB_combine_n[215:192]),
+	.current_depth(depth_after_n[188:168]),
 	.not_draw(not_draw_array[8]),
 	.in_triangle(in_triangle_array[8])
 	);
@@ -1041,8 +1053,8 @@ end
 	.current_x(x_20),
     .current_y(y_20),
 	
-	.current_Color(Color_RGB_combine[191:168]),
-	.current_depth(depth_after[167:147]),
+	.current_Color(Color_RGB_combine_n[191:168]),
+	.current_depth(depth_after_n[167:147]),
 	.not_draw(not_draw_array[7]),
 	.in_triangle(in_triangle_array[7])
 	);
@@ -1069,8 +1081,8 @@ end
 	.current_x(x_21),
     .current_y(y_21),
 	
-	.current_Color(Color_RGB_combine[167:144]),
-	.current_depth(depth_after[146:126]),
+	.current_Color(Color_RGB_combine_n[167:144]),
+	.current_depth(depth_after_n[146:126]),
 	.not_draw(not_draw_array[6]),
 	.in_triangle(in_triangle_array[6])
 	);
@@ -1096,8 +1108,8 @@ end
 	.current_x(x_22),
     .current_y(y_22),
 	
-	.current_Color(Color_RGB_combine[143:120]),
-	.current_depth(depth_after[125:105]),
+	.current_Color(Color_RGB_combine_n[143:120]),
+	.current_depth(depth_after_n[125:105]),
 	.not_draw(not_draw_array[5]),
 	.in_triangle(in_triangle_array[5])
 	);
@@ -1123,8 +1135,8 @@ end
 	.current_x(x_23),
     .current_y(y_23),
 	
-	.current_Color(Color_RGB_combine[119:96]),
-	.current_depth(depth_after[104:84]),
+	.current_Color(Color_RGB_combine_n[119:96]),
+	.current_depth(depth_after_n[104:84]),
 	.not_draw(not_draw_array[4]),
 	.in_triangle(in_triangle_array[4])
 	);
@@ -1150,8 +1162,8 @@ end
 	.current_x(x_30),
     .current_y(y_30),
 	
-	.current_Color(Color_RGB_combine[95:72]),
-	.current_depth(depth_after[83:63]),
+	.current_Color(Color_RGB_combine_n[95:72]),
+	.current_depth(depth_after_n[83:63]),
 	.not_draw(not_draw_array[3]),
 	.in_triangle(in_triangle_array[3])
 	);
@@ -1178,8 +1190,8 @@ end
 	.current_x(x_31),
     .current_y(y_31),
 	
-	.current_Color(Color_RGB_combine[71:48]),
-	.current_depth(depth_after[62:42]),
+	.current_Color(Color_RGB_combine_n[71:48]),
+	.current_depth(depth_after_n[62:42]),
 	.not_draw(not_draw_array[2]),
 	.in_triangle(in_triangle_array[2])
 	);
@@ -1205,8 +1217,8 @@ end
 	.current_x(x_32),
     .current_y(y_32),
 	
-	.current_Color(Color_RGB_combine[47:24]),
-	.current_depth(depth_after[41:21]),
+	.current_Color(Color_RGB_combine_n[47:24]),
+	.current_depth(depth_after_n[41:21]),
 	.not_draw(not_draw_array[1]),
 	.in_triangle(in_triangle_array[1])
 	);
@@ -1232,8 +1244,8 @@ end
 	.current_x(x_33),
     .current_y(y_33),
 	
-	.current_Color(Color_RGB_combine[23:0]),
-	.current_depth(depth_after[20:0]),
+	.current_Color(Color_RGB_combine_n[23:0]),
+	.current_depth(depth_after_n[20:0]),
 	.not_draw(not_draw_array[0]),
 	.in_triangle(in_triangle_array[0])
 	);

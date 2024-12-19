@@ -64,10 +64,16 @@ task compare_act(
 	output reg same_or_not
 );
 
+    integer a;
+
     if(golden_data === mem[index]) begin
 	    same_or_not = 1'b1;
 	end else begin
 	    same_or_not = 1'b0;
+		for(a=0;a<16;a=a+1) begin
+		    $display("k = %d golden RGB:%d,%d,%d",a,golden_data[(a*24+16)+:8],golden_data[(a*24+8)+:8],golden_data[a*24+:8]);
+			$display("k = %d My design RGB: %d %d %d",a,mem[index][(a*24+16)+:8],mem[index][(a*24+8)+:8],mem[index][a*24+:8]);
+		end
 	end
 
 endtask
