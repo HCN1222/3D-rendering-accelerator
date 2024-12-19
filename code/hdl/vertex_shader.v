@@ -174,7 +174,7 @@ module vertex_shader(
 	// end
 
 	wire signed [25:0] View [0:15];
-	// 2Q24                 2Q24                   2Q24                  7Q17
+	// 2Q24                 2Q24                   2Q24                  9Q17
 	assign View[0] = CamX[0];
 	assign View[1] = CamY[0];
 	assign View[2] = CamZ[0];
@@ -252,6 +252,7 @@ module vertex_shader(
 	// end
 	reg signed [23:0] MVP [0:15];
 	reg signed [25:0] MVP_sum [0:15];
+	reg signed [25:0] MVP_sum_round [0:15];
 	reg signed [23:0] MVP_next [0:15];
 	// reg signed [23:0] MVP_T [0:15];
 	// always @ (*) begin
@@ -283,18 +284,14 @@ module vertex_shader(
 
 
 	// product quantization
-	// reg signed [46:0] product [0:3][0:3];
-	// reg signed [18:0] product_round[0:3][0:3];
-	// reg signed [23:0] product_quant [0:3][0:3];
-	// reg signed [23:0] product_quant_next [0:3][0:3];
-	reg signed [46:0] product [0:15];
-	reg signed [50:0] product_tmp [0:15];
-	reg signed [18:0] product_round[0:15];
+	reg signed [49:0] product [0:15];
+	reg signed [49:0] product_round [0:15];
 	reg signed [23:0] product_quant [0:15];
 	reg signed [23:0] product_quant_next [0:15];
 
 	// sum quantization
 	reg signed [23:0] sum [0:3];
+	reg signed [23:0] sum_quant_next [0:3];
 	reg signed [23:0] sum_next [0:3];
 
 	// vertex matrix 4Q20
@@ -332,6 +329,7 @@ module vertex_shader(
 	// screen space
 	reg [14:0]shifted_ndc_x, shifted_ndc_y;
 	reg [25:0] screen_x, screen_y;
+	reg [25:0] screen_x_round, screen_y_round;
 	reg [11:0] screen_x_quant, screen_y_quant;
 
 	integer row, col;
@@ -400,7 +398,8 @@ module vertex_shader(
 		// MVP matrix
 		for(row = 0; row < 4; row = row + 1) begin
 			for(col = 0; col < 4; col = col + 1) begin
-				MVP_sum[row*4+col] = {MVP[row*4+col], 2'b0};
+				MVP_sum[row*4+col] = 0;
+				MVP_sum_round[row*4+col] = 0;
 				MVP_next[row*4+col] = MVP[row*4+col];
 			end
 		end
@@ -412,6 +411,7 @@ module vertex_shader(
 		end
 		// sum
 		for(col = 0; col < 4; col = col + 1) begin
+			sum_quant_next[col] = 0;
 			sum_next[col] = 0;
 		end
 
@@ -609,28 +609,30 @@ module vertex_shader(
 				if (cnt>=0 && cnt<=3) begin
 					for ( col=0; col<4; col=col+1 )begin
 						for ( row=0; row<4; row=row+1 )begin
+							// 5Q45            = 3Q21 * 2Q24 or 12Q38 = 3Q21 * 9Q17
 							product[row*4+col] = Projection[cnt*4+row] * View[row*4+col];
-							if(row == 3) begin
-								// 3Q21 * 9Q17 = 12Q38 ->9Q15
-								product_tmp[row*4+col] = ( product[row*4+col] + {9'b0, 15'b0, 1'b1, 22'b0} ) >> 23;
-								product_quant_next[row*4+col] = product_tmp[row*4+col][23:0];
+							if(col == 3) begin
+								// 3Q21 * 9Q17 = 12Q38 ->10Q14
+								product_round[row*4+col] = (product[row*4+col] + {12'sb0, 15'sb0, 1'sb1, 22'sb0});
+								product_quant_next[row*4+col] = product_round[row*4+col][47:24];
 							end
 							else begin
-								// 3Q21 * 2Q24 = 5Q45 -> 5Q15 -> 9Q15
-								product_tmp[row*4+col] = ( product[row*4+col] + {5'b0, 15'b0, 1'b1, 29'b0} ) >> 30;
-								product_round[row*4+col] = product_tmp[row*4+col][18:0];
-								product_quant_next[row*4+col] = {product_round[row*4+col][18],product_round[row*4+col][18],product_round[row*4+col][18],product_round[row*4+col][18],product_round[row*4+col][18], product_round[row*4+col]};
+								// 3Q21 * 2Q24 = 5Q45 -> 5Q14 -> 10Q14
+								product_round[row*4+col] = product[row*4+col] + {5'sb0, 15'sb0, 1'sb1, 30'sb0};
+								product_quant_next[row*4+col] = { product_round[row*4+col][49], product_round[row*4+col][49], 
+									product_round[row*4+col][49], product_round[row*4+col][49], product_round[row*4+col][49],
+									product_round[row*4+col][49:31]};
 							end
 						end
 					end
 				end
 				if (cnt >= 1 && cnt <= 4) begin
 					for ( col=0; col<4; col=col+1 )begin
-						// 9Q15 + 9Q15 + 9Q15 +9Q15 = 11Q15 -> 11Q13
-						MVP_sum[(cnt-1)*4+col] = ( (product_quant[0][col] + product_quant[1][col]
-						                        + product_quant[2][col] + product_quant[3][col])
-												+ {11'b0, 13'b0, 1'b1, 1'b0} ) >> 2;
-						MVP_next[(cnt-1)*4+col] = MVP_sum[(cnt-1)*4+col];
+						// 10Q14 + 10Q14 + 10Q14 + 10Q14 = 12Q14 -> 12Q12
+						MVP_sum[(cnt-1)*4+col] = ( product_quant[0*4+col] + product_quant[1*4+col]
+						                        + product_quant[2*4+col] + product_quant[3*4+col]);
+						MVP_sum_round[(cnt-1)*4+col] = ( MVP_sum[(cnt-1)*4+col] + 2'b10 );
+						MVP_next[(cnt-1)*4+col] = MVP_sum_round[(cnt-1)*4+col][25:2];
 					end
 				end
 				if (cnt == 4) begin
@@ -648,22 +650,23 @@ module vertex_shader(
 				// 3. NDC (5 cycles)
 				// 4. clip space to screen space (1 cycle)
 				// counter
-				cnt_next = cnt + 1;
+				cnt_next = (~start_doing_shading && cnt == 0)? 0:cnt + 1;
 
 				// stage 1
 				for ( col=0; col<4; col=col+1 )begin
 					for ( row=0; row<4; row=row+1 )begin
-						//     14Q33              4Q20             11Q13
+						//     18Q32              4Q20             12Q12
 						product[row*4+col] = vertex[row] * MVP_T[row*4+col];
-						// 14Q33 -> 14Q10
-						product_quant_next[row*4+col] = ( product[row*4+col] + {14'b0, 10'b0, 1'b1, 22'b0} ) >> 23;
+						// 18Q32 -> 14Q10
+						product_quant_next[row*4+col] = ( product[row*4+col] + {14'b0, 10'b0, 1'b1, 21'b0} ) >>> 22;
 					end
 				end
 				// stage 2
 				for ( col=0; col<4; col=col+1 )begin
 					// 14Q10 + 14Q10 + 14Q10 + 14Q10 = 16Q10 -> 16Q8
-					sum_next[col] = ( (product_quant[0*4+col] + product_quant[1*4+col] + product_quant[2*4+col] + product_quant[3*4+col])
-											+ {16'b0, 8'b0, 1'b1, 1'b0} ) >> 2;
+					sum_quant_next[col] = (product_quant[0*4+col] + product_quant[1*4+col] + product_quant[2*4+col] + product_quant[3*4+col]);
+											
+					sum_next[col] = ( sum_quant_next[col]+ 2'b10 ) >>> 2;
 				end
 				// stage 3 4 5 6
 					// divider divider_x(
@@ -694,32 +697,32 @@ module vertex_shader(
 				shifted_ndc_x = (ndc_x + {1'b0, 1'b1, 12'b0}); // 3Q12
 				// divided by 2 : 3Q12 -> 2Q13
 				//                 2Q13    *     12Q0 -> 13Q13 -> 13Q0
-				screen_x = ((shifted_ndc_x[13:0] * 12'd1280) + {13'b0, 1'b1, 12'b0}) >> 13;
-				screen_x_quant = screen_x[11:0];
+				screen_x = (shifted_ndc_x[13:0] * 12'sd1280);
+				screen_x_round = (screen_x  + {13'b0, 1'b1, 12'b0} ) >>> 13;
+				screen_x_quant = screen_x_round;
 
 				// screen_y = (1 - (ndc_y + 1) / 2) * camera.screen_H
 				//          = ( 1/2 - ndc_y/2 ) * camera.screen_H
 				//              2Q13 - 1Q13 
 				shifted_ndc_y = ( {3'b0, 1'b1, 12'b0} - ndc_y ); // 2Q13 -> 2Q13
-				screen_y = ((shifted_ndc_y[13:0] * 12'd720) + {13'b0, 1'b1, 12'b0}) >> 13;
-				screen_y_quant = screen_y[11:0];
+				screen_y = (shifted_ndc_y[13:0] * 12'd720);
+				screen_y_round = (screen_y  + {13'b0, 1'b1, 12'b0} ) >>> 13;
+				screen_y_quant = screen_y_round;
 
 				// output wire
 				case(cnt)
-					5: begin
+					7: begin
 						vertex1_depth_update_wire = {ndc_z, 6'd0};
-					end
-					6: begin
-						vertex2_depth_update_wire = {ndc_z, 6'd0};
 						screen_x1_update_wire = screen_x_quant;
 						screen_y1_update_wire = screen_y_quant;
 					end
-					7: begin
-						vertex3_depth_update_wire = {ndc_z, 6'd0};
+					8: begin
+						vertex2_depth_update_wire = {ndc_z, 6'd0};
 						screen_x2_update_wire = screen_x_quant;
 						screen_y2_update_wire = screen_y_quant;
 					end
-					8: begin
+					9: begin
+						vertex3_depth_update_wire = {ndc_z, 6'd0};
 						screen_x3_update_wire = screen_x_quant;
 						screen_y3_update_wire = screen_y_quant;
 					end
@@ -736,7 +739,7 @@ module vertex_shader(
 					end
 				endcase
 
-				if (cnt == 8) begin
+				if (cnt == 9) begin
 					data_ready_wire = 1;
 					state_next = DONE;
 					cnt_next = 0;
@@ -825,7 +828,7 @@ module vertex_shader(
 				end
 				// sum
 				for(col = 0; col < 4; col = col + 1) begin
-					sum_next[col] = 0;
+					sum_quant_next[col] = 0;
 				end
 
 			end
