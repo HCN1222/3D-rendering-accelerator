@@ -70,8 +70,8 @@ module vertex_shader(
 	// output:
 	// out: 1Q24
 	// ******************************
-	reg [23:0] inv_sqrt_x, inv_sqrt_y, inv_sqrt_z;
-	wire [23:0] inv_sqrt_out;
+	reg signed [23:0] inv_sqrt_x, inv_sqrt_y, inv_sqrt_z;
+	wire signed [23:0] inv_sqrt_out;
 
 	inv_sqrt inv_sqrt(
 		/*input*/ .clk(clk),
@@ -109,7 +109,7 @@ module vertex_shader(
 	// out_x, out_y, out_z: 2Q24
 	// ******************************
 	reg signed [23:0] cross_product_Ux, cross_product_Uy, cross_product_Uz;
-	reg signed [23:0] cross_product_Vx, cross_product_Vy, cross_product_Vz;
+	reg signed [25:0] cross_product_Vx, cross_product_Vy, cross_product_Vz;
 	wire signed [25:0] cross_product_out_x, cross_product_out_y, cross_product_out_z;
 
 	cross_product cross_product(
@@ -140,15 +140,15 @@ module vertex_shader(
 
 	// Camera coordinates
 	reg signed [25:0] CamZ [0:2];
-	reg signed [48:0] CamZ_norm [0:2];
+	reg signed [49:0] CamZ_norm [0:2];
 	reg signed [25:0] CamZ_next [0:2];
 
 	reg signed [25:0] CamX [0:2];
-	reg signed [48:0] CamX_norm [0:2];
+	reg signed [49:0] CamX_norm [0:2];
 	reg signed [25:0] CamX_next [0:2];
 
 	reg signed [25:0] CamY [0:2];
-	reg signed [48:0] CamY_norm [0:2];
+	reg signed [49:0] CamY_norm [0:2];
 	reg signed [25:0] CamY_next [0:2];
 	// Dot result
 	reg signed [23:0] neg_Z_dot_eye, neg_Z_dot_eye_next; // 7Q17
@@ -164,14 +164,37 @@ module vertex_shader(
 	// 	View[3][0] = 0;		   View[3][1] = 0;		  View[3][2] = 0;	    View[3][3] = 1<<17;
 	// end
 
-	reg signed [25:0] View [0:15];
-	always @(*) begin
-		// 2Q24                 2Q24                   2Q24                  7Q17
-		View[0] = CamX[0];  View[1] = CamY[0];  View[2] = CamZ[0];  View[3] = neg_X_dot_eye;
-		View[4] = CamX[1];  View[5] = CamY[1];  View[6] = CamZ[1];  View[7] = neg_Y_dot_eye;
-		View[8] = CamX[2];  View[9] = CamY[2];  View[10] = CamZ[2]; View[11] = neg_Z_dot_eye;
-		View[12] = 0;		View[13] = 0;		View[14] = 0;	   View[15] = 1<<17;
-	end
+	// reg signed [25:0] View [0:15];
+	// always @(*) begin
+	// 	// 2Q24                 2Q24                   2Q24                  7Q17
+	// 	View[0] = CamX[0];  View[1] = CamY[0];  View[2] = CamZ[0];  View[3] = neg_X_dot_eye;
+	// 	View[4] = CamX[1];  View[5] = CamY[1];  View[6] = CamZ[1];  View[7] = neg_Y_dot_eye;
+	// 	View[8] = CamX[2];  View[9] = CamY[2];  View[10] = CamZ[2]; View[11] = neg_Z_dot_eye;
+	// 	View[12] = 0;		View[13] = 0;		View[14] = 0;	   View[15] = 1<<17;
+	// end
+
+	wire signed [25:0] View [0:15];
+	// 2Q24                 2Q24                   2Q24                  7Q17
+	assign View[0] = CamX[0];
+	assign View[1] = CamY[0];
+	assign View[2] = CamZ[0];
+	assign View[3] = neg_X_dot_eye;
+
+	assign View[4] = CamX[1];
+	assign View[5] = CamY[1];
+	assign View[6] = CamZ[1];
+	assign View[7] = neg_Y_dot_eye;
+
+	assign View[8] = CamX[2];
+	assign View[9] = CamY[2];
+	assign View[10] = CamZ[2];
+	assign View[11] = neg_Z_dot_eye;
+
+	assign View[12] = 0;
+	assign View[13] = 0;
+	assign View[14] = 0;
+	assign View[15] = 1<<17;
+
 	
 	// Projection matrix
 	// reg signed [23:0] Projection [0:3][0:3];
@@ -183,15 +206,39 @@ module vertex_shader(
 	// 	Projection[2][0] = 0;      Projection[2][1] = 0;      Projection[2][2] = -2139518; Projection[2][3] = -423667;
 	// 	Projection[3][0] = 0;      Projection[3][1] = 0;      Projection[3][2] = -2097152;      Projection[3][3] = 0;
 	// end
-	reg signed [23:0] Projection [0:15];
-	always @(*) begin
-		// Projection matrix
-		// 3Q21
-		Projection[0] = 2847922; Projection[1] = 0;      Projection[2] = 0;      Projection[3] = 0;
-		Projection[4] = 0;      Projection[5] = 5062973; Projection[6] = 0;      Projection[7] = 0;
-		Projection[8] = 0;      Projection[9] = 0;      Projection[10] = -2139518; Projection[11] = -423667;
-		Projection[12] = 0;      Projection[13] = 0;      Projection[14] = -2097152;      Projection[15] = 0;
-	end
+	// reg signed [23:0] Projection [0:15];
+	// always @(*) begin
+	// 	// Projection matrix
+	// 	// 3Q21
+	// 	Projection[0] = 2847922; Projection[1] = 0;      Projection[2] = 0;      Projection[3] = 0;
+	// 	Projection[4] = 0;      Projection[5] = 5062973; Projection[6] = 0;      Projection[7] = 0;
+	// 	Projection[8] = 0;      Projection[9] = 0;      Projection[10] = -2139518; Projection[11] = -423667;
+	// 	Projection[12] = 0;      Projection[13] = 0;      Projection[14] = -2097152;      Projection[15] = 0;
+	// end
+
+	wire signed [23:0] Projection [0:15];
+	// Projection matrix
+	// 3Q21
+	assign Projection[0] = 2847922;
+	assign Projection[1] = 0;
+	assign Projection[2] = 0;
+	assign Projection[3] = 0;
+
+	assign Projection[4] = 0;
+	assign Projection[5] = 5062973;
+	assign Projection[6] = 0;
+	assign Projection[7] = 0;
+
+	assign Projection[8] = 0;
+	assign Projection[9] = 0;
+	assign Projection[10] = -2139518;
+	assign Projection[11] = -423667;
+
+	assign Projection[12] = 0;
+	assign Projection[13] = 0;
+	assign Projection[14] = -2097152;
+	assign Projection[15] = 0;
+
 
 	// MVP matrix
 	// reg signed [23:0] MVP [0:3][0:3];
@@ -206,13 +253,34 @@ module vertex_shader(
 	reg signed [23:0] MVP [0:15];
 	reg signed [25:0] MVP_sum [0:15];
 	reg signed [23:0] MVP_next [0:15];
-	reg signed [23:0] MVP_T [0:15];
-	always @ (*) begin
-		MVP_T[0] = MVP[0]; MVP_T[1] = MVP[4]; MVP_T[2] = MVP[8]; MVP_T[3] = MVP[12];
-		MVP_T[4] = MVP[1]; MVP_T[5] = MVP[5]; MVP_T[6] = MVP[9]; MVP_T[7] = MVP[13];
-		MVP_T[8] = MVP[2]; MVP_T[9] = MVP[6]; MVP_T[10] = MVP[10]; MVP_T[11] = MVP[14];
-		MVP_T[12] = MVP[3]; MVP_T[13] = MVP[7]; MVP_T[14] = MVP[11]; MVP_T[15] = MVP[15];
-	end
+	// reg signed [23:0] MVP_T [0:15];
+	// always @ (*) begin
+	// 	MVP_T[0] = MVP[0]; MVP_T[1] = MVP[4]; MVP_T[2] = MVP[8]; MVP_T[3] = MVP[12];
+	// 	MVP_T[4] = MVP[1]; MVP_T[5] = MVP[5]; MVP_T[6] = MVP[9]; MVP_T[7] = MVP[13];
+	// 	MVP_T[8] = MVP[2]; MVP_T[9] = MVP[6]; MVP_T[10] = MVP[10]; MVP_T[11] = MVP[14];
+	// 	MVP_T[12] = MVP[3]; MVP_T[13] = MVP[7]; MVP_T[14] = MVP[11]; MVP_T[15] = MVP[15];
+	// end
+	wire signed [23:0] MVP_T [0:15];
+	assign MVP_T[0] = MVP[0];
+	assign MVP_T[1] = MVP[4];
+	assign MVP_T[2] = MVP[8];
+	assign MVP_T[3] = MVP[12];
+
+	assign MVP_T[4] = MVP[1];
+	assign MVP_T[5] = MVP[5];
+	assign MVP_T[6] = MVP[9];
+	assign MVP_T[7] = MVP[13];
+
+	assign MVP_T[8] = MVP[2];
+	assign MVP_T[9] = MVP[6];
+	assign MVP_T[10] = MVP[10];
+	assign MVP_T[11] = MVP[14];
+
+	assign MVP_T[12] = MVP[3];
+	assign MVP_T[13] = MVP[7];
+	assign MVP_T[14] = MVP[11];
+	assign MVP_T[15] = MVP[15];
+
 
 	// product quantization
 	// reg signed [46:0] product [0:3][0:3];
@@ -365,9 +433,9 @@ module vertex_shader(
 					
 					0: begin // get Z = eye - center
 						//   4Q22               4Q20
-						CamZ_next[0] = {(eye_x - center_x), 2'b0};
-						CamZ_next[1] = {(eye_y - center_y), 2'b0};
-						CamZ_next[2] = {(eye_z - center_z), 2'b0};
+						CamZ_next[0] = (eye_x - center_x);
+						CamZ_next[1] = (eye_y - center_y);
+						CamZ_next[2] = (eye_z - center_z);
 					end
 					1: begin // send to inv_sqrt
 						inv_sqrt_x = CamZ[0];
@@ -378,10 +446,10 @@ module vertex_shader(
 						// IDLE
 					end
 					12: begin // get Z * 1/|z|
-						//   2Q24         (4Q22  * 1Q23) = 4Q45
-						CamZ_norm[0] = ( CamZ[0] * inv_sqrt_out + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
-						CamZ_norm[1] = ( CamZ[1] * inv_sqrt_out + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
-						CamZ_norm[2] = ( CamZ[2] * inv_sqrt_out + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
+						//   2Q24         (4Q20  * 1Q23) = 5Q43 -> 2Q24
+						CamZ_norm[0] = ( CamZ[0] * inv_sqrt_out + {5'b0,24'b0,1'b1,18'b0} ) >> 19;
+						CamZ_norm[1] = ( CamZ[1] * inv_sqrt_out + {5'b0,24'b0,1'b1,18'b0} ) >> 19;
+						CamZ_norm[2] = ( CamZ[2] * inv_sqrt_out + {5'b0,24'b0,1'b1,18'b0} ) >> 19;
 						CamZ_next[0] = CamZ_norm[0][25:0];
 						CamZ_next[1] = CamZ_norm[1][25:0];
 						CamZ_next[2] = CamZ_norm[2][25:0];
@@ -409,18 +477,25 @@ module vertex_shader(
 						cross_product_Vy = CamZ[1];
 						cross_product_Vz = CamZ[2];
 					end
-					1: begin // get X = up X Z
+					// 1: begin // get X = up X Z
+					// 	CamX_next[0] = cross_product_out_x;
+					// 	CamX_next[1] = cross_product_out_y;
+					// 	CamX_next[2] = cross_product_out_z;
+					// end
+					2: begin
+						 // get X = up X Z
 						CamX_next[0] = cross_product_out_x;
 						CamX_next[1] = cross_product_out_y;
 						CamX_next[2] = cross_product_out_z;
-					end
-					2: begin
+
 						// send signals to inv_sqrt
 						// because CamX is a 2Q24, and inv_sqrt is a 4Q20
-						// we shift 2Q24 left by modifying fl to 4Q20
-						inv_sqrt_x = CamX[0][25:2];
-						inv_sqrt_y = CamX[1][25:2];
-						inv_sqrt_z = CamX[2][25:2];
+						// we first let CamX // 4 by taking [25:2] 2Q24 -> 0Q24
+						// then, shift left by 4 0Q24 -> 4Q20
+						// to sum up, we let the input be 4 * CamX[25:2]
+						inv_sqrt_x = cross_product_out_x[25:2];
+						inv_sqrt_y = cross_product_out_y[25:2];
+						inv_sqrt_z = cross_product_out_z[25:2];
 						// send signals to neg_dot_product
 						neg_dot_product_unit_x = CamZ[0];
 						neg_dot_product_unit_y = CamZ[1];
@@ -442,16 +517,19 @@ module vertex_shader(
 					13: begin
 						// get X * 1/|x|
 						//   2Q24         (4Q20  * 4Q20) = 8Q40
-						if( CamX_next[0][24] == 1 || CamX_next[1][24] == 1 || CamX_next[2][24] == 1 ) begin
+						if( CamX[0] == {2'b01, 24'b0} || CamX[0] == {2'b11, 24'b0}
+						 || CamX[1] == {2'b01, 24'b0} || CamX[1] == {2'b11, 24'b0}
+						 || CamX[2] == {2'b01, 24'b0} || CamX[2] == {2'b11, 24'b0} ) begin
 							CamX_next[0] = CamX[0];
 							CamX_next[1] = CamX[1];
 							CamX_next[2] = CamX[2];
 						end
 						else begin
-							//               (2Q24          3Q21) -> 4Q45 ->2Q24
-							CamX_norm[0] = ( CamX[0] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
-							CamX_norm[1] = ( CamX[1] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
-							CamX_norm[2] = ( CamX[2] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
+							//               (2Q24          3Q21) -> 5Q45 -> 5Q24
+							CamX_norm[0] = ( CamX[0] * (inv_sqrt_out) + $signed({5'b0,24'b0,1'b1,20'b0}) ) >>> 21;
+							CamX_norm[1] = ( CamX[1] * (inv_sqrt_out) + $signed({5'b0,24'b0,1'b1,20'b0}) ) >>> 21;
+							CamX_norm[2] = ( CamX[2] * (inv_sqrt_out) + $signed({5'b0,24'b0,1'b1,20'b0}) ) >>> 21;
+							// 5Q24 -> 2Q24
 							CamX_next[0] = CamX_norm[0][25:0];
 							CamX_next[1] = CamX_norm[1][25:0];
 							CamX_next[2] = CamX_norm[2][25:0];
@@ -471,25 +549,30 @@ module vertex_shader(
 				cnt_next = cnt + 1;
 				case(cnt)
 					0: begin // assign values for Y = Z X X
-						cross_product_Ux = CamZ[0];
-						cross_product_Uy = CamZ[1];
-						cross_product_Uz = CamZ[2];
+						// we are treating CamZ(2Q24) as 4Q20
+						// so we need to take [25:4] to fit into 4Q20
+						cross_product_Ux = CamZ[0][25:4];
+						cross_product_Uy = CamZ[1][25:4];
+						cross_product_Uz = CamZ[2][25:4];
 						cross_product_Vx = CamX[0];
 						cross_product_Vy = CamX[1];
 						cross_product_Vz = CamX[2];
 					end
-					1: begin // get Y = Z X X
+					// 1: begin
+					// end
+					2: begin
+						// get Y = Z X X
 						CamY_next[0] = cross_product_out_x;
 						CamY_next[1] = cross_product_out_y;
 						CamY_next[2] = cross_product_out_z;
-					end
-					2: begin
 						// send signals to inv_sqrt
-						// because CamY is a 1Q23, and inv_sqrt is a 4Q20
-						// we take the 0Q23 of CamY shift left by 4 bits(* 2^4) to make it 4Q20
-						inv_sqrt_x = CamY[0][25:2];
-						inv_sqrt_y = CamY[1][25:2];
-						inv_sqrt_z = CamY[2][25:2];
+						// because CamY is a 2Q24, and inv_sqrt is a 4Q20
+						// we first let CamY // 4 by taking [25:2] 2Q24 -> 0Q24
+						// then, shift left by 4 0Q24 -> 4Q20
+						// to sum up, we let the input be 4 * CamY[25:2]	
+						inv_sqrt_x = cross_product_out_x[25:2];
+						inv_sqrt_y = cross_product_out_y[25:2];
+						inv_sqrt_z = cross_product_out_z[25:2];
 						// send signals to neg_dot_product
 						neg_dot_product_unit_x = CamX[0];
 						neg_dot_product_unit_y = CamX[1];
@@ -509,17 +592,21 @@ module vertex_shader(
 						// IDLE
 					end
 					13: begin
+						// same as in GET_CAMX
 						// get Y * 1/|y|
-						if ( CamY_next[0][24] == 1 || CamY_next[1][24] == 1 || CamY_next[2][24] == 1 ) begin
+						if( CamY[0] == {2'b01, 24'b0} || CamY[0] == {2'b11, 24'b0}
+						 || CamY[1] == {2'b01, 24'b0} || CamY[1] == {2'b11, 24'b0}
+						 || CamY[2] == {2'b01, 24'b0} || CamY[2] == {2'b11, 24'b0} ) begin
 							CamY_next[0] = CamY[0];
 							CamY_next[1] = CamY[1];
 							CamY_next[2] = CamY[2];
 						end
 						else begin
-							//               (2Q24          3Q21) -> 4Q45 ->2Q24
-							CamY_norm[0] = ( CamY[0] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
-							CamY_norm[1] = ( CamY[1] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
-							CamY_norm[2] = ( CamY[2] * (inv_sqrt_out) + {4'b0,23'b0,1'b1,21'b0} ) >> 22;
+							//               (2Q24          3Q21) -> 5Q45 -> 5Q24
+							CamY_norm[0] = ( CamY[0] * (inv_sqrt_out) + $signed({5'b0,24'b0,1'b1,20'b0}) ) >>> 21;
+							CamY_norm[1] = ( CamY[1] * (inv_sqrt_out) + $signed({5'b0,24'b0,1'b1,20'b0}) ) >>> 21;
+							CamY_norm[2] = ( CamY[2] * (inv_sqrt_out) + $signed({5'b0,24'b0,1'b1,20'b0}) ) >>> 21;
+							// 5Q24 -> 2Q24
 							CamY_next[0] = CamY_norm[0][25:0];
 							CamY_next[1] = CamY_norm[1][25:0];
 							CamY_next[2] = CamY_norm[2][25:0];
