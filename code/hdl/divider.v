@@ -20,12 +20,12 @@ module divider(
 );
     reg signbit, signbit_next;
 
-    reg [22:0] abs_dividend, abs_divisor;
-    reg [22:0] abs_dividend_next, abs_divisor_next;
+    reg [23:0] abs_dividend, abs_divisor;
+    reg [23:0] abs_dividend_next, abs_divisor_next;
     always@(*) begin
-        signbit_next = dividend[23] ^ divisor[23];
-        abs_dividend_next = dividend[23] ? ~dividend[22:0] + 1'b1 : dividend[22:0];
-        abs_divisor_next = divisor[23] ? ~divisor[22:0] + 1'b1 : divisor[22:0];
+        signbit_next = dividend[23] ^ divisor[23];                                   
+        abs_dividend_next = dividend[23] ? ~dividend[23:0] + 1'b1 : dividend[23:0];
+        abs_divisor_next = divisor[23] ? ~divisor[23:0] + 1'b1 : divisor[23:0];
     end
     always @(posedge clk) begin
         signbit <= signbit_next;
@@ -84,7 +84,7 @@ module divider(
     reg signed [13:0] quotient_next;
     always@(*) begin
         if (divisor == dividend) begin
-            quotient_next = { signbit_out3, signbit_out3, 12'b0 };
+            quotient_next = { signbit_out3, 1'b1, 12'b0 };
         end
         else begin
             if (signbit_out3 == 0) begin

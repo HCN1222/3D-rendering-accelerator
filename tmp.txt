@@ -1,0 +1,5000 @@
+...
+P1_color:[71, 227, 78]
+P2_color:[240, 30, 78]
+P3_color:[95, 218, 185]
+start_x:680
+start_y:64
+end_x:692
+end_y:76
+finish this face
+185
+[109 108 115]
+(x1,y1):678, 75
+(x2,y2):681, 77
+(x3,y3):693, 67
+x1_depth:1039104
+x2_depth:1039104
+x3_depth:1039872
+P1_color:[66, 48, 232]
+P2_color:[71, 227, 78]
+P3_color:[95, 218, 185]
+start_x:676
+start_y:64
+end_x:692
+end_y:76
+finish this face
+186
+[109 115 116]
+(x1,y1):678, 75
+(x2,y2):693, 67
+(x3,y3):690, 65
+x1_depth:1039104
+x2_depth:1039872
+x3_depth:1040384
+P1_color:[66, 48, 232]
+P2_color:[95, 218, 185]
+P3_color:[184, 152, 122]
+start_x:676
+start_y:64
+end_x:692
+end_y:72
+finish this face
+187
+[110 109 116]
+(x1,y1):672, 76
+(x2,y2):678, 75
+(x3,y3):690, 65
+x1_depth:1039104
+x2_depth:1039104
+x3_depth:1040384
+P1_color:[69, 150, 27]
+P2_color:[66, 48, 232]
+P3_color:[184, 152, 122]
+start_x:672
+start_y:64
+end_x:688
+end_y:76
+finish this face
+188
+[110 116 117]
+(x1,y1):672, 76
+(x2,y2):690, 65
+(x3,y3):685, 65
+x1_depth:1039104
+x2_depth:1040384
+x3_depth:1040640
+P1_color:[69, 150, 27]
+P2_color:[184, 152, 122]
+P3_color:[177, 176, 221]
+start_x:672
+start_y:64
+end_x:688
+end_y:76
+finish this face
+189
+[111 110 117]
+(x1,y1):665, 78
+(x2,y2):672, 76
+(x3,y3):685, 65
+x1_depth:1039104
+x2_depth:1039104
+x3_depth:1040640
+P1_color:[148, 232, 25]
+P2_color:[69, 150, 27]
+P3_color:[177, 176, 221]
+start_x:664
+start_y:64
+end_x:684
+end_y:76
+finish this face
+190
+[111 117 118]
+(x1,y1):665, 78
+(x2,y2):685, 65
+(x3,y3):678, 68
+x1_depth:1039104
+x2_depth:1040640
+x3_depth:1040640
+P1_color:[148, 232, 25]
+P2_color:[177, 176, 221]
+P3_color:[171, 2, 145]
+start_x:664
+start_y:64
+end_x:684
+end_y:76
+finish this face
+191
+[113 112 119]
+(x1,y1):692, 73
+(x2,y2):686, 76
+(x3,y3):705, 74
+x1_depth:1040640
+x2_depth:1040640
+x3_depth:1041408
+P1_color:[252, 117, 128]
+P2_color:[212, 86, 238]
+P3_color:[32, 71, 95]
+start_x:684
+start_y:72
+end_x:704
+end_y:76
+finish this face
+192
+[113 119 120]
+(x1,y1):692, 73
+(x2,y2):705, 74
+(x3,y3):710, 71
+x1_depth:1040640
+x2_depth:1041408
+x3_depth:1041920
+P1_color:[252, 117, 128]
+P2_color:[32, 71, 95]
+P3_color:[45, 253, 18]
+start_x:692
+start_y:68
+end_x:708
+end_y:72
+finish this face
+193
+[114 113 120]
+(x1,y1):694, 69
+(x2,y2):692, 73
+(x3,y3):710, 71
+x1_depth:1040384
+x2_depth:1040640
+x3_depth:1041920
+P1_color:[240, 30, 78]
+P2_color:[252, 117, 128]
+P3_color:[45, 253, 18]
+start_x:692
+start_y:68
+end_x:708
+end_y:72
+finish this face
+194
+[114 120 121]
+(x1,y1):694, 69
+(x2,y2):710, 71
+(x3,y3):713, 68
+x1_depth:1040384
+x2_depth:1041920
+x3_depth:1041408
+P1_color:[240, 30, 78]
+P2_color:[45, 253, 18]
+P3_color:[31, 232, 143]
+start_x:692
+start_y:68
+end_x:712
+end_y:68
+finish this face
+195
+[115 114 121]
+(x1,y1):693, 67
+(x2,y2):694, 69
+(x3,y3):713, 68
+x1_depth:1039872
+x2_depth:1040384
+x3_depth:1041408
+P1_color:[95, 218, 185]
+P2_color:[240, 30, 78]
+P3_color:[31, 232, 143]
+start_x:692
+start_y:64
+end_x:712
+end_y:68
+finish this face
+196
+[115 121 122]
+(x1,y1):693, 67
+(x2,y2):713, 68
+(x3,y3):712, 65
+x1_depth:1039872
+x2_depth:1041408
+x3_depth:1041408
+P1_color:[95, 218, 185]
+P2_color:[31, 232, 143]
+P3_color:[123, 39, 214]
+start_x:692
+start_y:64
+end_x:712
+end_y:68
+finish this face
+197
+[116 115 122]
+(x1,y1):690, 65
+(x2,y2):693, 67
+(x3,y3):712, 65
+x1_depth:1040384
+x2_depth:1039872
+x3_depth:1041408
+P1_color:[184, 152, 122]
+P2_color:[95, 218, 185]
+P3_color:[123, 39, 214]
+start_x:688
+start_y:64
+end_x:712
+end_y:64
+finish this face
+198
+[116 122 123]
+(x1,y1):690, 65
+(x2,y2):712, 65
+(x3,y3):709, 63
+x1_depth:1040384
+x2_depth:1041408
+x3_depth:1041920
+P1_color:[184, 152, 122]
+P2_color:[123, 39, 214]
+P3_color:[202, 47, 82]
+start_x:688
+start_y:60
+end_x:712
+end_y:64
+finish this face
+199
+[117 116 123]
+(x1,y1):685, 65
+(x2,y2):690, 65
+(x3,y3):709, 63
+x1_depth:1040640
+x2_depth:1040384
+x3_depth:1041920
+P1_color:[177, 176, 221]
+P2_color:[184, 152, 122]
+P3_color:[202, 47, 82]
+start_x:684
+start_y:60
+end_x:708
+end_y:64
+finish this face
+200
+[117 123 124]
+(x1,y1):685, 65
+(x2,y2):709, 63
+(x3,y3):705, 64
+x1_depth:1040640
+x2_depth:1041920
+x3_depth:1041408
+P1_color:[177, 176, 221]
+P2_color:[202, 47, 82]
+P3_color:[198, 145, 223]
+start_x:684
+start_y:60
+end_x:708
+end_y:64
+finish this face
+201
+[118 117 124]
+(x1,y1):678, 68
+(x2,y2):685, 65
+(x3,y3):705, 64
+x1_depth:1040640
+x2_depth:1040640
+x3_depth:1041408
+P1_color:[171, 2, 145]
+P2_color:[177, 176, 221]
+P3_color:[198, 145, 223]
+start_x:676
+start_y:64
+end_x:704
+end_y:68
+finish this face
+202
+[118 124 125]
+(x1,y1):678, 68
+(x2,y2):705, 64
+(x3,y3):698, 66
+x1_depth:1040640
+x2_depth:1041408
+x3_depth:1041408
+P1_color:[171, 2, 145]
+P2_color:[198, 145, 223]
+P3_color:[187, 150, 78]
+start_x:676
+start_y:64
+end_x:704
+end_y:68
+finish this face
+203
+[120 119 126]
+(x1,y1):710, 71
+(x2,y2):705, 74
+(x3,y3):730, 80
+x1_depth:1041920
+x2_depth:1041408
+x3_depth:1042688
+P1_color:[45, 253, 18]
+P2_color:[32, 71, 95]
+P3_color:[45, 21, 104]
+start_x:704
+start_y:68
+end_x:728
+end_y:80
+finish this face
+204
+[120 126 127]
+(x1,y1):710, 71
+(x2,y2):730, 80
+(x3,y3):735, 77
+x1_depth:1041920
+x2_depth:1042688
+x3_depth:1042688
+P1_color:[45, 253, 18]
+P2_color:[45, 21, 104]
+P3_color:[47, 73, 108]
+start_x:708
+start_y:68
+end_x:732
+end_y:80
+finish this face
+205
+[121 120 127]
+(x1,y1):713, 68
+(x2,y2):710, 71
+(x3,y3):735, 77
+x1_depth:1041408
+x2_depth:1041920
+x3_depth:1042688
+P1_color:[31, 232, 143]
+P2_color:[45, 253, 18]
+P3_color:[47, 73, 108]
+start_x:708
+start_y:68
+end_x:732
+end_y:76
+finish this face
+206
+[121 127 128]
+(x1,y1):713, 68
+(x2,y2):735, 77
+(x3,y3):737, 74
+x1_depth:1041408
+x2_depth:1042688
+x3_depth:1042688
+P1_color:[31, 232, 143]
+P2_color:[47, 73, 108]
+P3_color:[177, 246, 221]
+start_x:712
+start_y:68
+end_x:736
+end_y:76
+finish this face
+207
+[122 121 128]
+(x1,y1):712, 65
+(x2,y2):713, 68
+(x3,y3):737, 74
+x1_depth:1041408
+x2_depth:1041408
+x3_depth:1042688
+P1_color:[123, 39, 214]
+P2_color:[31, 232, 143]
+P3_color:[177, 246, 221]
+start_x:712
+start_y:64
+end_x:736
+end_y:72
+finish this face
+208
+[122 128 129]
+(x1,y1):712, 65
+(x2,y2):737, 74
+(x3,y3):737, 71
+x1_depth:1041408
+x2_depth:1042688
+x3_depth:1042176
+P1_color:[123, 39, 214]
+P2_color:[177, 246, 221]
+P3_color:[6, 93, 134]
+start_x:712
+start_y:64
+end_x:736
+end_y:72
+finish this face
+209
+[123 122 129]
+(x1,y1):709, 63
+(x2,y2):712, 65
+(x3,y3):737, 71
+x1_depth:1041920
+x2_depth:1041408
+x3_depth:1042176
+P1_color:[202, 47, 82]
+P2_color:[123, 39, 214]
+P3_color:[6, 93, 134]
+start_x:708
+start_y:60
+end_x:736
+end_y:68
+finish this face
+210
+[123 129 130]
+(x1,y1):709, 63
+(x2,y2):737, 71
+(x3,y3):735, 70
+x1_depth:1041920
+x2_depth:1042176
+x3_depth:1042688
+P1_color:[202, 47, 82]
+P2_color:[6, 93, 134]
+P3_color:[208, 113, 44]
+start_x:708
+start_y:60
+end_x:736
+end_y:68
+finish this face
+211
+[124 123 130]
+(x1,y1):705, 64
+(x2,y2):709, 63
+(x3,y3):735, 70
+x1_depth:1041408
+x2_depth:1041920
+x3_depth:1042688
+P1_color:[198, 145, 223]
+P2_color:[202, 47, 82]
+P3_color:[208, 113, 44]
+start_x:704
+start_y:60
+end_x:732
+end_y:68
+finish this face
+212
+[124 130 131]
+(x1,y1):705, 64
+(x2,y2):735, 70
+(x3,y3):731, 70
+x1_depth:1041408
+x2_depth:1042688
+x3_depth:1042688
+P1_color:[198, 145, 223]
+P2_color:[208, 113, 44]
+P3_color:[205, 231, 145]
+start_x:704
+start_y:64
+end_x:732
+end_y:68
+finish this face
+213
+[125 124 131]
+(x1,y1):698, 66
+(x2,y2):705, 64
+(x3,y3):731, 70
+x1_depth:1041408
+x2_depth:1041408
+x3_depth:1042688
+P1_color:[187, 150, 78]
+P2_color:[198, 145, 223]
+P3_color:[205, 231, 145]
+start_x:696
+start_y:64
+end_x:728
+end_y:68
+finish this face
+214
+[125 131 132]
+(x1,y1):698, 66
+(x2,y2):731, 70
+(x3,y3):725, 72
+x1_depth:1041408
+x2_depth:1042688
+x3_depth:1043200
+P1_color:[187, 150, 78]
+P2_color:[205, 231, 145]
+P3_color:[207, 233, 233]
+start_x:696
+start_y:64
+end_x:728
+end_y:72
+finish this face
+215
+[127 126 133]
+(x1,y1):735, 77
+(x2,y2):730, 80
+(x3,y3):758, 93
+x1_depth:1042688
+x2_depth:1042688
+x3_depth:1043456
+P1_color:[47, 73, 108]
+P2_color:[45, 21, 104]
+P3_color:[204, 63, 124]
+start_x:728
+start_y:76
+end_x:756
+end_y:92
+finish this face
+216
+[127 133 134]
+(x1,y1):735, 77
+(x2,y2):758, 93
+(x3,y3):763, 90
+x1_depth:1042688
+x2_depth:1043456
+x3_depth:1043456
+P1_color:[47, 73, 108]
+P2_color:[204, 63, 124]
+P3_color:[146, 244, 66]
+start_x:732
+start_y:76
+end_x:760
+end_y:92
+finish this face
+217
+[128 127 134]
+(x1,y1):737, 74
+(x2,y2):735, 77
+(x3,y3):763, 90
+x1_depth:1042688
+x2_depth:1042688
+x3_depth:1043456
+P1_color:[177, 246, 221]
+P2_color:[47, 73, 108]
+P3_color:[146, 244, 66]
+start_x:732
+start_y:72
+end_x:760
+end_y:88
+finish this face
+218
+[128 134 135]
+(x1,y1):737, 74
+(x2,y2):763, 90
+(x3,y3):765, 87
+x1_depth:1042688
+x2_depth:1043456
+x3_depth:1043968
+P1_color:[177, 246, 221]
+P2_color:[146, 244, 66]
+P3_color:[193, 20, 240]
+start_x:736
+start_y:72
+end_x:764
+end_y:88
+finish this face
+219
+[129 128 135]
+(x1,y1):737, 71
+(x2,y2):737, 74
+(x3,y3):765, 87
+x1_depth:1042176
+x2_depth:1042688
+x3_depth:1043968
+P1_color:[6, 93, 134]
+P2_color:[177, 246, 221]
+P3_color:[193, 20, 240]
+start_x:736
+start_y:68
+end_x:764
+end_y:84
+finish this face
+220
+[129 135 136]
+(x1,y1):737, 71
+(x2,y2):765, 87
+(x3,y3):765, 85
+x1_depth:1042176
+x2_depth:1043968
+x3_depth:1042944
+P1_color:[6, 93, 134]
+P2_color:[193, 20, 240]
+P3_color:[238, 232, 47]
+start_x:736
+start_y:68
+end_x:764
+end_y:84
+finish this face
+221
+[130 129 136]
+(x1,y1):735, 70
+(x2,y2):737, 71
+(x3,y3):765, 85
+x1_depth:1042688
+x2_depth:1042176
+x3_depth:1042944
+P1_color:[208, 113, 44]
+P2_color:[6, 93, 134]
+P3_color:[238, 232, 47]
+start_x:732
+start_y:68
+end_x:764
+end_y:84
+finish this face
+222
+[130 136 137]
+(x1,y1):735, 70
+(x2,y2):765, 85
+(x3,y3):763, 83
+x1_depth:1042688
+x2_depth:1042944
+x3_depth:1043968
+P1_color:[208, 113, 44]
+P2_color:[238, 232, 47]
+P3_color:[85, 4, 227]
+start_x:732
+start_y:68
+end_x:764
+end_y:84
+finish this face
+223
+[131 130 137]
+(x1,y1):731, 70
+(x2,y2):735, 70
+(x3,y3):763, 83
+x1_depth:1042688
+x2_depth:1042688
+x3_depth:1043968
+P1_color:[205, 231, 145]
+P2_color:[208, 113, 44]
+P3_color:[85, 4, 227]
+start_x:728
+start_y:68
+end_x:760
+end_y:80
+finish this face
+224
+[131 137 138]
+(x1,y1):731, 70
+(x2,y2):763, 83
+(x3,y3):760, 84
+x1_depth:1042688
+x2_depth:1043968
+x3_depth:1043968
+P1_color:[205, 231, 145]
+P2_color:[85, 4, 227]
+P3_color:[86, 192, 254]
+start_x:728
+start_y:68
+end_x:760
+end_y:84
+finish this face
+225
+[132 131 138]
+(x1,y1):725, 72
+(x2,y2):731, 70
+(x3,y3):760, 84
+x1_depth:1043200
+x2_depth:1042688
+x3_depth:1043968
+P1_color:[207, 233, 233]
+P2_color:[205, 231, 145]
+P3_color:[86, 192, 254]
+start_x:724
+start_y:68
+end_x:760
+end_y:84
+finish this face
+226
+[132 138 139]
+(x1,y1):725, 72
+(x2,y2):760, 84
+(x3,y3):755, 86
+x1_depth:1043200
+x2_depth:1043968
+x3_depth:1043456
+P1_color:[207, 233, 233]
+P2_color:[86, 192, 254]
+P3_color:[168, 23, 254]
+start_x:724
+start_y:72
+end_x:760
+end_y:84
+finish this face
+227
+[134 133 140]
+(x1,y1):763, 90
+(x2,y2):758, 93
+(x3,y3):786, 111
+x1_depth:1043456
+x2_depth:1043456
+x3_depth:1043968
+P1_color:[146, 244, 66]
+P2_color:[204, 63, 124]
+P3_color:[169, 153, 250]
+start_x:756
+start_y:88
+end_x:784
+end_y:108
+finish this face
+228
+[134 140 141]
+(x1,y1):763, 90
+(x2,y2):786, 111
+(x3,y3):791, 107
+x1_depth:1043456
+x2_depth:1043968
+x3_depth:1044480
+P1_color:[146, 244, 66]
+P2_color:[169, 153, 250]
+P3_color:[216, 91, 124]
+start_x:760
+start_y:88
+end_x:788
+end_y:108
+finish this face
+229
+[135 134 141]
+(x1,y1):765, 87
+(x2,y2):763, 90
+(x3,y3):791, 107
+x1_depth:1043968
+x2_depth:1043456
+x3_depth:1044480
+P1_color:[193, 20, 240]
+P2_color:[146, 244, 66]
+P3_color:[216, 91, 124]
+start_x:760
+start_y:84
+end_x:788
+end_y:104
+finish this face
+230
+[135 141 142]
+(x1,y1):765, 87
+(x2,y2):791, 107
+(x3,y3):793, 105
+x1_depth:1043968
+x2_depth:1044480
+x3_depth:1043968
+P1_color:[193, 20, 240]
+P2_color:[216, 91, 124]
+P3_color:[96, 54, 91]
+start_x:764
+start_y:84
+end_x:792
+end_y:104
+finish this face
+231
+[136 135 142]
+(x1,y1):765, 85
+(x2,y2):765, 87
+(x3,y3):793, 105
+x1_depth:1042944
+x2_depth:1043968
+x3_depth:1043968
+P1_color:[238, 232, 47]
+P2_color:[193, 20, 240]
+P3_color:[96, 54, 91]
+start_x:764
+start_y:84
+end_x:792
+end_y:104
+finish this face
+232
+[136 142 143]
+(x1,y1):765, 85
+(x2,y2):793, 105
+(x3,y3):794, 103
+x1_depth:1042944
+x2_depth:1043968
+x3_depth:1043968
+P1_color:[238, 232, 47]
+P2_color:[96, 54, 91]
+P3_color:[68, 179, 201]
+start_x:764
+start_y:84
+end_x:792
+end_y:104
+finish this face
+233
+[137 136 143]
+(x1,y1):763, 83
+(x2,y2):765, 85
+(x3,y3):794, 103
+x1_depth:1043968
+x2_depth:1042944
+x3_depth:1043968
+P1_color:[85, 4, 227]
+P2_color:[238, 232, 47]
+P3_color:[68, 179, 201]
+start_x:760
+start_y:80
+end_x:792
+end_y:100
+finish this face
+234
+[137 143 144]
+(x1,y1):763, 83
+(x2,y2):794, 103
+(x3,y3):792, 102
+x1_depth:1043968
+x2_depth:1043968
+x3_depth:1043968
+P1_color:[85, 4, 227]
+P2_color:[68, 179, 201]
+P3_color:[103, 173, 231]
+start_x:760
+start_y:80
+end_x:792
+end_y:100
+finish this face
+235
+[138 137 144]
+(x1,y1):760, 84
+(x2,y2):763, 83
+(x3,y3):792, 102
+x1_depth:1043968
+x2_depth:1043968
+x3_depth:1043968
+P1_color:[86, 192, 254]
+P2_color:[85, 4, 227]
+P3_color:[103, 173, 231]
+start_x:760
+start_y:80
+end_x:792
+end_y:100
+finish this face
+236
+[138 144 145]
+(x1,y1):760, 84
+(x2,y2):792, 102
+(x3,y3):790, 103
+x1_depth:1043968
+x2_depth:1043968
+x3_depth:1043968
+P1_color:[86, 192, 254]
+P2_color:[103, 173, 231]
+P3_color:[115, 82, 67]
+start_x:760
+start_y:84
+end_x:792
+end_y:100
+finish this face
+237
+[139 138 145]
+(x1,y1):755, 86
+(x2,y2):760, 84
+(x3,y3):790, 103
+x1_depth:1043456
+x2_depth:1043968
+x3_depth:1043968
+P1_color:[168, 23, 254]
+P2_color:[86, 192, 254]
+P3_color:[115, 82, 67]
+start_x:752
+start_y:84
+end_x:788
+end_y:100
+finish this face
+238
+[139 145 146]
+(x1,y1):755, 86
+(x2,y2):790, 103
+(x3,y3):785, 105
+x1_depth:1043456
+x2_depth:1043968
+x3_depth:1044480
+P1_color:[168, 23, 254]
+P2_color:[115, 82, 67]
+P3_color:[40, 130, 111]
+start_x:752
+start_y:84
+end_x:788
+end_y:104
+finish this face
+239
+[141 140 147]
+(x1,y1):791, 107
+(x2,y2):786, 111
+(x3,y3):814, 132
+x1_depth:1044480
+x2_depth:1043968
+x3_depth:1044480
+P1_color:[216, 91, 124]
+P2_color:[169, 153, 250]
+P3_color:[115, 138, 123]
+start_x:784
+start_y:104
+end_x:812
+end_y:132
+finish this face
+240
+[141 147 148]
+(x1,y1):791, 107
+(x2,y2):814, 132
+(x3,y3):818, 129
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[216, 91, 124]
+P2_color:[115, 138, 123]
+P3_color:[63, 149, 116]
+start_x:788
+start_y:104
+end_x:816
+end_y:132
+finish this face
+241
+[142 141 148]
+(x1,y1):793, 105
+(x2,y2):791, 107
+(x3,y3):818, 129
+x1_depth:1043968
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[96, 54, 91]
+P2_color:[216, 91, 124]
+P3_color:[63, 149, 116]
+start_x:788
+start_y:104
+end_x:816
+end_y:128
+finish this face
+242
+[142 148 149]
+(x1,y1):793, 105
+(x2,y2):818, 129
+(x3,y3):820, 126
+x1_depth:1043968
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[96, 54, 91]
+P2_color:[63, 149, 116]
+P3_color:[104, 19, 197]
+start_x:792
+start_y:104
+end_x:820
+end_y:128
+finish this face
+243
+[143 142 149]
+(x1,y1):794, 103
+(x2,y2):793, 105
+(x3,y3):820, 126
+x1_depth:1043968
+x2_depth:1043968
+x3_depth:1044480
+P1_color:[68, 179, 201]
+P2_color:[96, 54, 91]
+P3_color:[104, 19, 197]
+start_x:792
+start_y:100
+end_x:820
+end_y:124
+finish this face
+244
+[143 149 150]
+(x1,y1):794, 103
+(x2,y2):820, 126
+(x3,y3):822, 125
+x1_depth:1043968
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[68, 179, 201]
+P2_color:[104, 19, 197]
+P3_color:[93, 177, 171]
+start_x:792
+start_y:100
+end_x:820
+end_y:124
+finish this face
+245
+[144 143 150]
+(x1,y1):792, 102
+(x2,y2):794, 103
+(x3,y3):822, 125
+x1_depth:1043968
+x2_depth:1043968
+x3_depth:1044480
+P1_color:[103, 173, 231]
+P2_color:[68, 179, 201]
+P3_color:[93, 177, 171]
+start_x:792
+start_y:100
+end_x:820
+end_y:124
+finish this face
+246
+[144 150 151]
+(x1,y1):792, 102
+(x2,y2):822, 125
+(x3,y3):821, 124
+x1_depth:1043968
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[103, 173, 231]
+P2_color:[93, 177, 171]
+P3_color:[39, 19, 221]
+start_x:792
+start_y:100
+end_x:820
+end_y:124
+finish this face
+247
+[145 144 151]
+(x1,y1):790, 103
+(x2,y2):792, 102
+(x3,y3):821, 124
+x1_depth:1043968
+x2_depth:1043968
+x3_depth:1044480
+P1_color:[115, 82, 67]
+P2_color:[103, 173, 231]
+P3_color:[39, 19, 221]
+start_x:788
+start_y:100
+end_x:820
+end_y:124
+finish this face
+248
+[145 151 152]
+(x1,y1):790, 103
+(x2,y2):821, 124
+(x3,y3):819, 126
+x1_depth:1043968
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[115, 82, 67]
+P2_color:[39, 19, 221]
+P3_color:[239, 220, 124]
+start_x:788
+start_y:100
+end_x:820
+end_y:124
+finish this face
+249
+[146 145 152]
+(x1,y1):785, 105
+(x2,y2):790, 103
+(x3,y3):819, 126
+x1_depth:1044480
+x2_depth:1043968
+x3_depth:1044480
+P1_color:[40, 130, 111]
+P2_color:[115, 82, 67]
+P3_color:[239, 220, 124]
+start_x:784
+start_y:100
+end_x:816
+end_y:124
+finish this face
+250
+[146 152 153]
+(x1,y1):785, 105
+(x2,y2):819, 126
+(x3,y3):815, 128
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044992
+P1_color:[40, 130, 111]
+P2_color:[239, 220, 124]
+P3_color:[14, 33, 184]
+start_x:784
+start_y:104
+end_x:816
+end_y:128
+finish this face
+251
+[148 147 154]
+(x1,y1):818, 129
+(x2,y2):814, 132
+(x3,y3):841, 157
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[63, 149, 116]
+P2_color:[115, 138, 123]
+P3_color:[54, 59, 88]
+start_x:812
+start_y:128
+end_x:840
+end_y:156
+finish this face
+252
+[148 154 155]
+(x1,y1):818, 129
+(x2,y2):841, 157
+(x3,y3):845, 154
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[63, 149, 116]
+P2_color:[54, 59, 88]
+P3_color:[113, 41, 95]
+start_x:816
+start_y:128
+end_x:844
+end_y:156
+finish this face
+253
+[149 148 155]
+(x1,y1):820, 126
+(x2,y2):818, 129
+(x3,y3):845, 154
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[104, 19, 197]
+P2_color:[63, 149, 116]
+P3_color:[113, 41, 95]
+start_x:816
+start_y:124
+end_x:844
+end_y:152
+finish this face
+254
+[149 155 156]
+(x1,y1):820, 126
+(x2,y2):845, 154
+(x3,y3):848, 151
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[104, 19, 197]
+P2_color:[113, 41, 95]
+P3_color:[68, 40, 241]
+start_x:820
+start_y:124
+end_x:848
+end_y:152
+finish this face
+255
+[150 149 156]
+(x1,y1):822, 125
+(x2,y2):820, 126
+(x3,y3):848, 151
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[93, 177, 171]
+P2_color:[104, 19, 197]
+P3_color:[68, 40, 241]
+start_x:820
+start_y:124
+end_x:848
+end_y:148
+finish this face
+256
+[150 156 157]
+(x1,y1):822, 125
+(x2,y2):848, 151
+(x3,y3):849, 150
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[93, 177, 171]
+P2_color:[68, 40, 241]
+P3_color:[56, 181, 54]
+start_x:820
+start_y:124
+end_x:848
+end_y:148
+finish this face
+257
+[151 150 157]
+(x1,y1):821, 124
+(x2,y2):822, 125
+(x3,y3):849, 150
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[39, 19, 221]
+P2_color:[93, 177, 171]
+P3_color:[56, 181, 54]
+start_x:820
+start_y:124
+end_x:848
+end_y:148
+finish this face
+258
+[151 157 158]
+(x1,y1):821, 124
+(x2,y2):849, 150
+(x3,y3):849, 150
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[39, 19, 221]
+P2_color:[56, 181, 54]
+P3_color:[203, 152, 21]
+start_x:820
+start_y:124
+end_x:848
+end_y:148
+finish this face
+259
+[152 151 158]
+(x1,y1):819, 126
+(x2,y2):821, 124
+(x3,y3):849, 150
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[239, 220, 124]
+P2_color:[39, 19, 221]
+P3_color:[203, 152, 21]
+start_x:816
+start_y:124
+end_x:848
+end_y:148
+finish this face
+260
+[152 158 159]
+(x1,y1):819, 126
+(x2,y2):849, 150
+(x3,y3):847, 152
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[239, 220, 124]
+P2_color:[203, 152, 21]
+P3_color:[212, 207, 217]
+start_x:816
+start_y:124
+end_x:848
+end_y:152
+finish this face
+261
+[153 152 159]
+(x1,y1):815, 128
+(x2,y2):819, 126
+(x3,y3):847, 152
+x1_depth:1044992
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[14, 33, 184]
+P2_color:[239, 220, 124]
+P3_color:[212, 207, 217]
+start_x:812
+start_y:124
+end_x:844
+end_y:152
+finish this face
+262
+[153 159 160]
+(x1,y1):815, 128
+(x2,y2):847, 152
+(x3,y3):844, 155
+x1_depth:1044992
+x2_depth:1044480
+x3_depth:1044992
+P1_color:[14, 33, 184]
+P2_color:[212, 207, 217]
+P3_color:[189, 153, 201]
+start_x:812
+start_y:128
+end_x:844
+end_y:152
+finish this face
+263
+[155 154 161]
+(x1,y1):845, 154
+(x2,y2):841, 157
+(x3,y3):867, 185
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[113, 41, 95]
+P2_color:[54, 59, 88]
+P3_color:[229, 139, 51]
+start_x:840
+start_y:152
+end_x:864
+end_y:184
+finish this face
+264
+[155 161 162]
+(x1,y1):845, 154
+(x2,y2):867, 185
+(x3,y3):870, 181
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[113, 41, 95]
+P2_color:[229, 139, 51]
+P3_color:[85, 202, 158]
+start_x:844
+start_y:152
+end_x:868
+end_y:184
+finish this face
+265
+[156 155 162]
+(x1,y1):848, 151
+(x2,y2):845, 154
+(x3,y3):870, 181
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[68, 40, 241]
+P2_color:[113, 41, 95]
+P3_color:[85, 202, 158]
+start_x:844
+start_y:148
+end_x:868
+end_y:180
+finish this face
+266
+[156 162 163]
+(x1,y1):848, 151
+(x2,y2):870, 181
+(x3,y3):873, 178
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[68, 40, 241]
+P2_color:[85, 202, 158]
+P3_color:[136, 105, 149]
+start_x:848
+start_y:148
+end_x:872
+end_y:180
+finish this face
+267
+[157 156 163]
+(x1,y1):849, 150
+(x2,y2):848, 151
+(x3,y3):873, 178
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[56, 181, 54]
+P2_color:[68, 40, 241]
+P3_color:[136, 105, 149]
+start_x:848
+start_y:148
+end_x:872
+end_y:176
+finish this face
+268
+[157 163 164]
+(x1,y1):849, 150
+(x2,y2):873, 178
+(x3,y3):874, 177
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[56, 181, 54]
+P2_color:[136, 105, 149]
+P3_color:[241, 52, 34]
+start_x:848
+start_y:148
+end_x:872
+end_y:176
+finish this face
+269
+[158 157 164]
+(x1,y1):849, 150
+(x2,y2):849, 150
+(x3,y3):874, 177
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[203, 152, 21]
+P2_color:[56, 181, 54]
+P3_color:[241, 52, 34]
+start_x:848
+start_y:148
+end_x:872
+end_y:176
+finish this face
+270
+[158 164 165]
+(x1,y1):849, 150
+(x2,y2):874, 177
+(x3,y3):875, 178
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[203, 152, 21]
+P2_color:[241, 52, 34]
+P3_color:[131, 132, 8]
+start_x:848
+start_y:148
+end_x:872
+end_y:176
+finish this face
+271
+[159 158 165]
+(x1,y1):847, 152
+(x2,y2):849, 150
+(x3,y3):875, 178
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[212, 207, 217]
+P2_color:[203, 152, 21]
+P3_color:[131, 132, 8]
+start_x:844
+start_y:148
+end_x:872
+end_y:176
+finish this face
+272
+[159 165 166]
+(x1,y1):847, 152
+(x2,y2):875, 178
+(x3,y3):873, 180
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[212, 207, 217]
+P2_color:[131, 132, 8]
+P3_color:[232, 125, 176]
+start_x:844
+start_y:152
+end_x:872
+end_y:180
+finish this face
+273
+[160 159 166]
+(x1,y1):844, 155
+(x2,y2):847, 152
+(x3,y3):873, 180
+x1_depth:1044992
+x2_depth:1044480
+x3_depth:1044480
+P1_color:[189, 153, 201]
+P2_color:[212, 207, 217]
+P3_color:[232, 125, 176]
+start_x:844
+start_y:152
+end_x:872
+end_y:180
+finish this face
+274
+[160 166 167]
+(x1,y1):844, 155
+(x2,y2):873, 180
+(x3,y3):870, 184
+x1_depth:1044992
+x2_depth:1044480
+x3_depth:1044992
+P1_color:[189, 153, 201]
+P2_color:[232, 125, 176]
+P3_color:[116, 137, 130]
+start_x:844
+start_y:152
+end_x:872
+end_y:184
+finish this face
+275
+[162 161   1]
+(x1,y1):870, 181
+(x2,y2):867, 185
+(x3,y3):890, 214
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1043968
+P1_color:[85, 202, 158]
+P2_color:[229, 139, 51]
+P3_color:[109, 171, 94]
+start_x:864
+start_y:180
+end_x:888
+end_y:212
+finish this face
+276
+[162   1   0]
+(x1,y1):870, 181
+(x2,y2):890, 214
+(x3,y3):893, 210
+x1_depth:1044480
+x2_depth:1043968
+x3_depth:1043968
+P1_color:[85, 202, 158]
+P2_color:[109, 171, 94]
+P3_color:[79, 193, 113]
+start_x:868
+start_y:180
+end_x:892
+end_y:212
+finish this face
+277
+[163 162   0]
+(x1,y1):873, 178
+(x2,y2):870, 181
+(x3,y3):893, 210
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1043968
+P1_color:[136, 105, 149]
+P2_color:[85, 202, 158]
+P3_color:[79, 193, 113]
+start_x:868
+start_y:176
+end_x:892
+end_y:208
+finish this face
+278
+[163   0   4]
+(x1,y1):873, 178
+(x2,y2):893, 210
+(x3,y3):896, 208
+x1_depth:1044480
+x2_depth:1043968
+x3_depth:1043968
+P1_color:[136, 105, 149]
+P2_color:[79, 193, 113]
+P3_color:[220, 16, 139]
+start_x:872
+start_y:176
+end_x:896
+end_y:208
+finish this face
+279
+[164 163   4]
+(x1,y1):874, 177
+(x2,y2):873, 178
+(x3,y3):896, 208
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1043968
+P1_color:[241, 52, 34]
+P2_color:[136, 105, 149]
+P3_color:[220, 16, 139]
+start_x:872
+start_y:176
+end_x:896
+end_y:208
+finish this face
+280
+[164   4   6]
+(x1,y1):874, 177
+(x2,y2):896, 208
+(x3,y3):898, 207
+x1_depth:1044480
+x2_depth:1043968
+x3_depth:1043968
+P1_color:[241, 52, 34]
+P2_color:[220, 16, 139]
+P3_color:[221, 217, 33]
+start_x:872
+start_y:176
+end_x:896
+end_y:208
+finish this face
+281
+[165 164   6]
+(x1,y1):875, 178
+(x2,y2):874, 177
+(x3,y3):898, 207
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1043968
+P1_color:[131, 132, 8]
+P2_color:[241, 52, 34]
+P3_color:[221, 217, 33]
+start_x:872
+start_y:176
+end_x:896
+end_y:204
+finish this face
+282
+[165   6   8]
+(x1,y1):875, 178
+(x2,y2):898, 207
+(x3,y3):898, 208
+x1_depth:1044480
+x2_depth:1043968
+x3_depth:1043968
+P1_color:[131, 132, 8]
+P2_color:[221, 217, 33]
+P3_color:[86, 139, 211]
+start_x:872
+start_y:176
+end_x:896
+end_y:208
+finish this face
+283
+[166 165   8]
+(x1,y1):873, 180
+(x2,y2):875, 178
+(x3,y3):898, 208
+x1_depth:1044480
+x2_depth:1044480
+x3_depth:1043968
+P1_color:[232, 125, 176]
+P2_color:[131, 132, 8]
+P3_color:[86, 139, 211]
+start_x:872
+start_y:176
+end_x:896
+end_y:208
+finish this face
+284
+[166   8  10]
+(x1,y1):873, 180
+(x2,y2):898, 208
+(x3,y3):898, 211
+x1_depth:1044480
+x2_depth:1043968
+x3_depth:1043968
+P1_color:[232, 125, 176]
+P2_color:[86, 139, 211]
+P3_color:[166, 123, 239]
+start_x:872
+start_y:180
+end_x:896
+end_y:208
+finish this face
+285
+[167 166  10]
+(x1,y1):870, 184
+(x2,y2):873, 180
+(x3,y3):898, 211
+x1_depth:1044992
+x2_depth:1044480
+x3_depth:1043968
+P1_color:[116, 137, 130]
+P2_color:[232, 125, 176]
+P3_color:[166, 123, 239]
+start_x:868
+start_y:180
+end_x:896
+end_y:208
+finish this face
+286
+[167  10  12]
+(x1,y1):870, 184
+(x2,y2):898, 211
+(x3,y3):895, 216
+x1_depth:1044992
+x2_depth:1043968
+x3_depth:1044480
+P1_color:[116, 137, 130]
+P2_color:[166, 123, 239]
+P3_color:[202, 2, 6]
+start_x:868
+start_y:184
+end_x:896
+end_y:216
+finish this face
+287
+[168  12  13]
+(x1,y1):882, 235
+(x2,y2):895, 216
+(x3,y3):915, 247
+x1_depth:1044992
+x2_depth:1044480
+x3_depth:1043968
+P1_color:[169, 243, 240]
+P2_color:[202, 2, 6]
+P3_color:[68, 63, 94]
+start_x:880
+start_y:216
+end_x:912
+end_y:244
+finish this face
+288
+[168  13 169]
+(x1,y1):882, 235
+(x2,y2):915, 247
+(x3,y3):902, 269
+x1_depth:1044992
+x2_depth:1043968
+x3_depth:1044480
+P1_color:[169, 243, 240]
+P2_color:[68, 63, 94]
+P3_color:[28, 142, 127]
+start_x:880
+start_y:232
+end_x:912
+end_y:268
+finish this face
+289
+[170 168 169]
+(x1,y1):868, 253
+(x2,y2):882, 235
+(x3,y3):902, 269
+x1_depth:1045760
+x2_depth:1044992
+x3_depth:1044480
+P1_color:[166, 50, 91]
+P2_color:[169, 243, 240]
+P3_color:[28, 142, 127]
+start_x:868
+start_y:232
+end_x:900
+end_y:268
+finish this face
+290
+[170 169 171]
+(x1,y1):868, 253
+(x2,y2):902, 269
+(x3,y3):890, 289
+x1_depth:1045760
+x2_depth:1044480
+x3_depth:1044992
+P1_color:[166, 50, 91]
+P2_color:[28, 142, 127]
+P3_color:[32, 71, 247]
+start_x:868
+start_y:252
+end_x:900
+end_y:288
+finish this face
+291
+[172 170 171]
+(x1,y1):856, 270
+(x2,y2):868, 253
+(x3,y3):890, 289
+x1_depth:1046272
+x2_depth:1045760
+x3_depth:1044992
+P1_color:[52, 71, 50]
+P2_color:[166, 50, 91]
+P3_color:[32, 71, 247]
+start_x:856
+start_y:252
+end_x:888
+end_y:288
+finish this face
+292
+[172 171 173]
+(x1,y1):856, 270
+(x2,y2):890, 289
+(x3,y3):877, 307
+x1_depth:1046272
+x2_depth:1044992
+x3_depth:1045760
+P1_color:[52, 71, 50]
+P2_color:[32, 71, 247]
+P3_color:[188, 183, 86]
+start_x:856
+start_y:268
+end_x:888
+end_y:304
+finish this face
+293
+[174 172 173]
+(x1,y1):843, 285
+(x2,y2):856, 270
+(x3,y3):877, 307
+x1_depth:1046784
+x2_depth:1046272
+x3_depth:1045760
+P1_color:[252, 46, 8]
+P2_color:[52, 71, 50]
+P3_color:[188, 183, 86]
+start_x:840
+start_y:268
+end_x:876
+end_y:304
+finish this face
+294
+[174 173 175]
+(x1,y1):843, 285
+(x2,y2):877, 307
+(x3,y3):865, 324
+x1_depth:1046784
+x2_depth:1045760
+x3_depth:1046272
+P1_color:[252, 46, 8]
+P2_color:[188, 183, 86]
+P3_color:[15, 64, 155]
+start_x:840
+start_y:284
+end_x:876
+end_y:324
+finish this face
+295
+[176 174 175]
+(x1,y1):830, 300
+(x2,y2):843, 285
+(x3,y3):865, 324
+x1_depth:1047552
+x2_depth:1046784
+x3_depth:1046272
+P1_color:[197, 12, 213]
+P2_color:[252, 46, 8]
+P3_color:[15, 64, 155]
+start_x:828
+start_y:284
+end_x:864
+end_y:324
+finish this face
+296
+[176 175 177]
+(x1,y1):830, 300
+(x2,y2):865, 324
+(x3,y3):851, 339
+x1_depth:1047552
+x2_depth:1046272
+x3_depth:1046528
+P1_color:[197, 12, 213]
+P2_color:[15, 64, 155]
+P3_color:[92, 156, 232]
+start_x:828
+start_y:300
+end_x:864
+end_y:336
+finish this face
+297
+[178 176 177]
+(x1,y1):816, 313
+(x2,y2):830, 300
+(x3,y3):851, 339
+x1_depth:1047552
+x2_depth:1047552
+x3_depth:1046528
+P1_color:[224, 154, 19]
+P2_color:[197, 12, 213]
+P3_color:[92, 156, 232]
+start_x:816
+start_y:300
+end_x:848
+end_y:336
+finish this face
+298
+[178 177 179]
+(x1,y1):816, 313
+(x2,y2):851, 339
+(x3,y3):837, 352
+x1_depth:1047552
+x2_depth:1046528
+x3_depth:1047040
+P1_color:[224, 154, 19]
+P2_color:[92, 156, 232]
+P3_color:[169, 74, 82]
+start_x:816
+start_y:312
+end_x:848
+end_y:352
+finish this face
+299
+[169  13  20]
+(x1,y1):902, 269
+(x2,y2):915, 247
+(x3,y3):928, 276
+x1_depth:1044480
+x2_depth:1043968
+x3_depth:1042688
+P1_color:[28, 142, 127]
+P2_color:[68, 63, 94]
+P3_color:[189, 108, 147]
+start_x:900
+start_y:244
+end_x:928
+end_y:276
+finish this face
+300
+[169  20 180]
+(x1,y1):902, 269
+(x2,y2):928, 276
+(x3,y3):916, 300
+x1_depth:1044480
+x2_depth:1042688
+x3_depth:1043968
+P1_color:[28, 142, 127]
+P2_color:[189, 108, 147]
+P3_color:[3, 236, 95]
+start_x:900
+start_y:268
+end_x:928
+end_y:300
+finish this face
+301
+[171 169 180]
+(x1,y1):890, 289
+(x2,y2):902, 269
+(x3,y3):916, 300
+x1_depth:1044992
+x2_depth:1044480
+x3_depth:1043968
+P1_color:[32, 71, 247]
+P2_color:[28, 142, 127]
+P3_color:[3, 236, 95]
+start_x:888
+start_y:268
+end_x:916
+end_y:300
+finish this face
+302
+[171 180 181]
+(x1,y1):890, 289
+(x2,y2):916, 300
+(x3,y3):903, 322
+x1_depth:1044992
+x2_depth:1043968
+x3_depth:1043968
+P1_color:[32, 71, 247]
+P2_color:[3, 236, 95]
+P3_color:[50, 215, 1]
+start_x:888
+start_y:288
+end_x:916
+end_y:320
+finish this face
+303
+[173 171 181]
+(x1,y1):877, 307
+(x2,y2):890, 289
+(x3,y3):903, 322
+x1_depth:1045760
+x2_depth:1044992
+x3_depth:1043968
+P1_color:[188, 183, 86]
+P2_color:[32, 71, 247]
+P3_color:[50, 215, 1]
+start_x:876
+start_y:288
+end_x:900
+end_y:320
+finish this face
+304
+[173 181 182]
+(x1,y1):877, 307
+(x2,y2):903, 322
+(x3,y3):891, 342
+x1_depth:1045760
+x2_depth:1043968
+x3_depth:1044480
+P1_color:[188, 183, 86]
+P2_color:[50, 215, 1]
+P3_color:[92, 45, 24]
+start_x:876
+start_y:304
+end_x:900
+end_y:340
+finish this face
+305
+[175 173 182]
+(x1,y1):865, 324
+(x2,y2):877, 307
+(x3,y3):891, 342
+x1_depth:1046272
+x2_depth:1045760
+x3_depth:1044480
+P1_color:[15, 64, 155]
+P2_color:[188, 183, 86]
+P3_color:[92, 45, 24]
+start_x:864
+start_y:304
+end_x:888
+end_y:340
+finish this face
+306
+[175 182 183]
+(x1,y1):865, 324
+(x2,y2):891, 342
+(x3,y3):878, 361
+x1_depth:1046272
+x2_depth:1044480
+x3_depth:1045248
+P1_color:[15, 64, 155]
+P2_color:[92, 45, 24]
+P3_color:[220, 63, 176]
+start_x:864
+start_y:324
+end_x:888
+end_y:360
+finish this face
+307
+[177 175 183]
+(x1,y1):851, 339
+(x2,y2):865, 324
+(x3,y3):878, 361
+x1_depth:1046528
+x2_depth:1046272
+x3_depth:1045248
+P1_color:[92, 156, 232]
+P2_color:[15, 64, 155]
+P3_color:[220, 63, 176]
+start_x:848
+start_y:324
+end_x:876
+end_y:360
+finish this face
+308
+[177 183 184]
+(x1,y1):851, 339
+(x2,y2):878, 361
+(x3,y3):864, 377
+x1_depth:1046528
+x2_depth:1045248
+x3_depth:1045760
+P1_color:[92, 156, 232]
+P2_color:[220, 63, 176]
+P3_color:[198, 70, 5]
+start_x:848
+start_y:336
+end_x:876
+end_y:376
+finish this face
+309
+[179 177 184]
+(x1,y1):837, 352
+(x2,y2):851, 339
+(x3,y3):864, 377
+x1_depth:1047040
+x2_depth:1046528
+x3_depth:1045760
+P1_color:[169, 74, 82]
+P2_color:[92, 156, 232]
+P3_color:[198, 70, 5]
+start_x:836
+start_y:336
+end_x:864
+end_y:376
+finish this face
+310
+[179 184 185]
+(x1,y1):837, 352
+(x2,y2):864, 377
+(x3,y3):849, 390
+x1_depth:1047040
+x2_depth:1045760
+x3_depth:1046272
+P1_color:[169, 74, 82]
+P2_color:[198, 70, 5]
+P3_color:[136, 129, 225]
+start_x:836
+start_y:352
+end_x:864
+end_y:388
+finish this face
+311
+[180  20  27]
+(x1,y1):916, 300
+(x2,y2):928, 276
+(x3,y3):935, 301
+x1_depth:1043968
+x2_depth:1042688
+x3_depth:1041920
+P1_color:[3, 236, 95]
+P2_color:[189, 108, 147]
+P3_color:[91, 50, 180]
+start_x:916
+start_y:276
+end_x:932
+end_y:300
+finish this face
+312
+[180  27 186]
+(x1,y1):916, 300
+(x2,y2):935, 301
+(x3,y3):922, 327
+x1_depth:1043968
+x2_depth:1041920
+x3_depth:1042688
+P1_color:[3, 236, 95]
+P2_color:[91, 50, 180]
+P3_color:[98, 116, 178]
+start_x:916
+start_y:300
+end_x:932
+end_y:324
+finish this face
+313
+[181 180 186]
+(x1,y1):903, 322
+(x2,y2):916, 300
+(x3,y3):922, 327
+x1_depth:1043968
+x2_depth:1043968
+x3_depth:1042688
+P1_color:[50, 215, 1]
+P2_color:[3, 236, 95]
+P3_color:[98, 116, 178]
+start_x:900
+start_y:300
+end_x:920
+end_y:324
+finish this face
+314
+[181 186 187]
+(x1,y1):903, 322
+(x2,y2):922, 327
+(x3,y3):909, 352
+x1_depth:1043968
+x2_depth:1042688
+x3_depth:1043200
+P1_color:[50, 215, 1]
+P2_color:[98, 116, 178]
+P3_color:[88, 80, 188]
+start_x:900
+start_y:320
+end_x:920
+end_y:352
+finish this face
+315
+[182 181 187]
+(x1,y1):891, 342
+(x2,y2):903, 322
+(x3,y3):909, 352
+x1_depth:1044480
+x2_depth:1043968
+x3_depth:1043200
+P1_color:[92, 45, 24]
+P2_color:[50, 215, 1]
+P3_color:[88, 80, 188]
+start_x:888
+start_y:320
+end_x:908
+end_y:352
+finish this face
+316
+[182 187 188]
+(x1,y1):891, 342
+(x2,y2):909, 352
+(x3,y3):896, 374
+x1_depth:1044480
+x2_depth:1043200
+x3_depth:1043456
+P1_color:[92, 45, 24]
+P2_color:[88, 80, 188]
+P3_color:[98, 0, 85]
+start_x:888
+start_y:340
+end_x:908
+end_y:372
+finish this face
+317
+[183 182 188]
+(x1,y1):878, 361
+(x2,y2):891, 342
+(x3,y3):896, 374
+x1_depth:1045248
+x2_depth:1044480
+x3_depth:1043456
+P1_color:[220, 63, 176]
+P2_color:[92, 45, 24]
+P3_color:[98, 0, 85]
+start_x:876
+start_y:340
+end_x:896
+end_y:372
+finish this face
+318
+[183 188 189]
+(x1,y1):878, 361
+(x2,y2):896, 374
+(x3,y3):883, 394
+x1_depth:1045248
+x2_depth:1043456
+x3_depth:1043968
+P1_color:[220, 63, 176]
+P2_color:[98, 0, 85]
+P3_color:[181, 33, 15]
+start_x:876
+start_y:360
+end_x:896
+end_y:392
+finish this face
+319
+[184 183 189]
+(x1,y1):864, 377
+(x2,y2):878, 361
+(x3,y3):883, 394
+x1_depth:1045760
+x2_depth:1045248
+x3_depth:1043968
+P1_color:[198, 70, 5]
+P2_color:[220, 63, 176]
+P3_color:[181, 33, 15]
+start_x:864
+start_y:360
+end_x:880
+end_y:392
+finish this face
+320
+[184 189 190]
+(x1,y1):864, 377
+(x2,y2):883, 394
+(x3,y3):869, 411
+x1_depth:1045760
+x2_depth:1043968
+x3_depth:1044992
+P1_color:[198, 70, 5]
+P2_color:[181, 33, 15]
+P3_color:[83, 199, 215]
+start_x:864
+start_y:376
+end_x:880
+end_y:408
+finish this face
+321
+[185 184 190]
+(x1,y1):849, 390
+(x2,y2):864, 377
+(x3,y3):869, 411
+x1_depth:1046272
+x2_depth:1045760
+x3_depth:1044992
+P1_color:[136, 129, 225]
+P2_color:[198, 70, 5]
+P3_color:[83, 199, 215]
+start_x:848
+start_y:376
+end_x:868
+end_y:408
+finish this face
+322
+[185 190 191]
+(x1,y1):849, 390
+(x2,y2):869, 411
+(x3,y3):853, 425
+x1_depth:1046272
+x2_depth:1044992
+x3_depth:1044736
+P1_color:[136, 129, 225]
+P2_color:[83, 199, 215]
+P3_color:[211, 124, 106]
+start_x:848
+start_y:388
+end_x:868
+end_y:424
+finish this face
+323
+[186  27  34]
+(x1,y1):922, 327
+(x2,y2):935, 301
+(x3,y3):933, 321
+x1_depth:1042688
+x2_depth:1041920
+x3_depth:1040640
+P1_color:[98, 116, 178]
+P2_color:[91, 50, 180]
+P3_color:[145, 243, 4]
+start_x:920
+start_y:300
+end_x:932
+end_y:324
+finish this face
+324
+[186  34 192]
+(x1,y1):922, 327
+(x2,y2):933, 321
+(x3,y3):920, 350
+x1_depth:1042688
+x2_depth:1040640
+x3_depth:1041408
+P1_color:[98, 116, 178]
+P2_color:[145, 243, 4]
+P3_color:[236, 114, 55]
+start_x:920
+start_y:320
+end_x:932
+end_y:348
+finish this face
+325
+[187 186 192]
+(x1,y1):909, 352
+(x2,y2):922, 327
+(x3,y3):920, 350
+x1_depth:1043200
+x2_depth:1042688
+x3_depth:1041408
+P1_color:[88, 80, 188]
+P2_color:[98, 116, 178]
+P3_color:[236, 114, 55]
+start_x:908
+start_y:324
+end_x:920
+end_y:352
+finish this face
+326
+[187 192 193]
+(x1,y1):909, 352
+(x2,y2):920, 350
+(x3,y3):906, 377
+x1_depth:1043200
+x2_depth:1041408
+x3_depth:1041920
+P1_color:[88, 80, 188]
+P2_color:[236, 114, 55]
+P3_color:[233, 240, 242]
+start_x:904
+start_y:348
+end_x:920
+end_y:376
+finish this face
+327
+[188 187 193]
+(x1,y1):896, 374
+(x2,y2):909, 352
+(x3,y3):906, 377
+x1_depth:1043456
+x2_depth:1043200
+x3_depth:1041920
+P1_color:[98, 0, 85]
+P2_color:[88, 80, 188]
+P3_color:[233, 240, 242]
+start_x:896
+start_y:352
+end_x:908
+end_y:376
+finish this face
+328
+[188 193 194]
+(x1,y1):896, 374
+(x2,y2):906, 377
+(x3,y3):893, 401
+x1_depth:1043456
+x2_depth:1041920
+x3_depth:1042688
+P1_color:[98, 0, 85]
+P2_color:[233, 240, 242]
+P3_color:[200, 138, 137]
+start_x:892
+start_y:372
+end_x:904
+end_y:400
+finish this face
+329
+[189 188 194]
+(x1,y1):883, 394
+(x2,y2):896, 374
+(x3,y3):893, 401
+x1_depth:1043968
+x2_depth:1043456
+x3_depth:1042688
+P1_color:[181, 33, 15]
+P2_color:[98, 0, 85]
+P3_color:[200, 138, 137]
+start_x:880
+start_y:372
+end_x:896
+end_y:400
+finish this face
+330
+[189 194 195]
+(x1,y1):883, 394
+(x2,y2):893, 401
+(x3,y3):879, 423
+x1_depth:1043968
+x2_depth:1042688
+x3_depth:1043200
+P1_color:[181, 33, 15]
+P2_color:[200, 138, 137]
+P3_color:[51, 255, 69]
+start_x:876
+start_y:392
+end_x:892
+end_y:420
+finish this face
+331
+[190 189 195]
+(x1,y1):869, 411
+(x2,y2):883, 394
+(x3,y3):879, 423
+x1_depth:1044992
+x2_depth:1043968
+x3_depth:1043200
+P1_color:[83, 199, 215]
+P2_color:[181, 33, 15]
+P3_color:[51, 255, 69]
+start_x:868
+start_y:392
+end_x:880
+end_y:420
+finish this face
+332
+[190 195 196]
+(x1,y1):869, 411
+(x2,y2):879, 423
+(x3,y3):864, 441
+x1_depth:1044992
+x2_depth:1043200
+x3_depth:1043456
+P1_color:[83, 199, 215]
+P2_color:[51, 255, 69]
+P3_color:[215, 221, 19]
+start_x:864
+start_y:408
+end_x:876
+end_y:440
+finish this face
+333
+[191 190 196]
+(x1,y1):853, 425
+(x2,y2):869, 411
+(x3,y3):864, 441
+x1_depth:1044736
+x2_depth:1044992
+x3_depth:1043456
+P1_color:[211, 124, 106]
+P2_color:[83, 199, 215]
+P3_color:[215, 221, 19]
+start_x:852
+start_y:408
+end_x:868
+end_y:440
+finish this face
+334
+[191 196 197]
+(x1,y1):853, 425
+(x2,y2):864, 441
+(x3,y3):847, 455
+x1_depth:1044736
+x2_depth:1043456
+x3_depth:1043968
+P1_color:[211, 124, 106]
+P2_color:[215, 221, 19]
+P3_color:[96, 94, 11]
+start_x:844
+start_y:424
+end_x:864
+end_y:452
+finish this face
+335
+[192  34  41]
+(x1,y1):920, 350
+(x2,y2):933, 321
+(x3,y3):922, 335
+x1_depth:1041408
+x2_depth:1040640
+x3_depth:1039616
+P1_color:[236, 114, 55]
+P2_color:[145, 243, 4]
+P3_color:[220, 10, 116]
+start_x:920
+start_y:320
+end_x:932
+end_y:348
+finish this face
+336
+[192  41 198]
+(x1,y1):920, 350
+(x2,y2):922, 335
+(x3,y3):907, 366
+x1_depth:1041408
+x2_depth:1039616
+x3_depth:1040384
+P1_color:[236, 114, 55]
+P2_color:[220, 10, 116]
+P3_color:[198, 253, 222]
+start_x:904
+start_y:332
+end_x:920
+end_y:364
+finish this face
+337
+[193 192 198]
+(x1,y1):906, 377
+(x2,y2):920, 350
+(x3,y3):907, 366
+x1_depth:1041920
+x2_depth:1041408
+x3_depth:1040384
+P1_color:[233, 240, 242]
+P2_color:[236, 114, 55]
+P3_color:[198, 253, 222]
+start_x:904
+start_y:348
+end_x:920
+end_y:376
+finish this face
+338
+[193 198 199]
+(x1,y1):906, 377
+(x2,y2):907, 366
+(x3,y3):893, 394
+x1_depth:1041920
+x2_depth:1040384
+x3_depth:1040384
+P1_color:[233, 240, 242]
+P2_color:[198, 253, 222]
+P3_color:[166, 78, 167]
+start_x:892
+start_y:364
+end_x:904
+end_y:392
+finish this face
+339
+[194 193 199]
+(x1,y1):893, 401
+(x2,y2):906, 377
+(x3,y3):893, 394
+x1_depth:1042688
+x2_depth:1041920
+x3_depth:1040384
+P1_color:[200, 138, 137]
+P2_color:[233, 240, 242]
+P3_color:[166, 78, 167]
+start_x:892
+start_y:376
+end_x:904
+end_y:400
+finish this face
+340
+[194 199 200]
+(x1,y1):893, 401
+(x2,y2):893, 394
+(x3,y3):878, 421
+x1_depth:1042688
+x2_depth:1040384
+x3_depth:1041152
+P1_color:[200, 138, 137]
+P2_color:[166, 78, 167]
+P3_color:[161, 99, 47]
+start_x:876
+start_y:392
+end_x:892
+end_y:420
+finish this face
+341
+[195 194 200]
+(x1,y1):879, 423
+(x2,y2):893, 401
+(x3,y3):878, 421
+x1_depth:1043200
+x2_depth:1042688
+x3_depth:1041152
+P1_color:[51, 255, 69]
+P2_color:[200, 138, 137]
+P3_color:[161, 99, 47]
+start_x:876
+start_y:400
+end_x:892
+end_y:420
+finish this face
+342
+[195 200 201]
+(x1,y1):879, 423
+(x2,y2):878, 421
+(x3,y3):863, 444
+x1_depth:1043200
+x2_depth:1041152
+x3_depth:1041408
+P1_color:[51, 255, 69]
+P2_color:[161, 99, 47]
+P3_color:[213, 198, 130]
+start_x:860
+start_y:420
+end_x:876
+end_y:444
+finish this face
+343
+[196 195 201]
+(x1,y1):864, 441
+(x2,y2):879, 423
+(x3,y3):863, 444
+x1_depth:1043456
+x2_depth:1043200
+x3_depth:1041408
+P1_color:[215, 221, 19]
+P2_color:[51, 255, 69]
+P3_color:[213, 198, 130]
+start_x:860
+start_y:420
+end_x:876
+end_y:444
+finish this face
+344
+[196 201 202]
+(x1,y1):864, 441
+(x2,y2):863, 444
+(x3,y3):847, 464
+x1_depth:1043456
+x2_depth:1041408
+x3_depth:1041920
+P1_color:[215, 221, 19]
+P2_color:[213, 198, 130]
+P3_color:[180, 3, 15]
+start_x:844
+start_y:440
+end_x:864
+end_y:464
+finish this face
+345
+[197 196 202]
+(x1,y1):847, 455
+(x2,y2):864, 441
+(x3,y3):847, 464
+x1_depth:1043968
+x2_depth:1043456
+x3_depth:1041920
+P1_color:[96, 94, 11]
+P2_color:[215, 221, 19]
+P3_color:[180, 3, 15]
+start_x:844
+start_y:440
+end_x:864
+end_y:464
+finish this face
+346
+[197 202 203]
+(x1,y1):847, 455
+(x2,y2):847, 464
+(x3,y3):830, 478
+x1_depth:1043968
+x2_depth:1041920
+x3_depth:1042176
+P1_color:[96, 94, 11]
+P2_color:[180, 3, 15]
+P3_color:[59, 51, 243]
+start_x:828
+start_y:452
+end_x:844
+end_y:476
+finish this face
+347
+[198  41  48]
+(x1,y1):907, 366
+(x2,y2):922, 335
+(x3,y3):901, 339
+x1_depth:1040384
+x2_depth:1039616
+x3_depth:1038080
+P1_color:[198, 253, 222]
+P2_color:[220, 10, 116]
+P3_color:[59, 187, 72]
+start_x:900
+start_y:332
+end_x:920
+end_y:364
+finish this face
+348
+[198  48 204]
+(x1,y1):907, 366
+(x2,y2):901, 339
+(x3,y3):884, 372
+x1_depth:1040384
+x2_depth:1038080
+x3_depth:1038848
+P1_color:[198, 253, 222]
+P2_color:[59, 187, 72]
+P3_color:[38, 42, 236]
+start_x:884
+start_y:336
+end_x:904
+end_y:372
+finish this face
+349
+[199 198 204]
+(x1,y1):893, 394
+(x2,y2):907, 366
+(x3,y3):884, 372
+x1_depth:1040384
+x2_depth:1040384
+x3_depth:1038848
+P1_color:[166, 78, 167]
+P2_color:[198, 253, 222]
+P3_color:[38, 42, 236]
+start_x:884
+start_y:364
+end_x:904
+end_y:392
+finish this face
+350
+[199 204 205]
+(x1,y1):893, 394
+(x2,y2):884, 372
+(x3,y3):867, 403
+x1_depth:1040384
+x2_depth:1038848
+x3_depth:1038848
+P1_color:[166, 78, 167]
+P2_color:[38, 42, 236]
+P3_color:[179, 207, 103]
+start_x:864
+start_y:372
+end_x:892
+end_y:400
+finish this face
+351
+[200 199 205]
+(x1,y1):878, 421
+(x2,y2):893, 394
+(x3,y3):867, 403
+x1_depth:1041152
+x2_depth:1040384
+x3_depth:1038848
+P1_color:[161, 99, 47]
+P2_color:[166, 78, 167]
+P3_color:[179, 207, 103]
+start_x:864
+start_y:392
+end_x:892
+end_y:420
+finish this face
+352
+[200 205 206]
+(x1,y1):878, 421
+(x2,y2):867, 403
+(x3,y3):850, 431
+x1_depth:1041152
+x2_depth:1038848
+x3_depth:1039104
+P1_color:[161, 99, 47]
+P2_color:[179, 207, 103]
+P3_color:[98, 156, 75]
+start_x:848
+start_y:400
+end_x:876
+end_y:428
+finish this face
+353
+[201 200 206]
+(x1,y1):863, 444
+(x2,y2):878, 421
+(x3,y3):850, 431
+x1_depth:1041408
+x2_depth:1041152
+x3_depth:1039104
+P1_color:[213, 198, 130]
+P2_color:[161, 99, 47]
+P3_color:[98, 156, 75]
+start_x:848
+start_y:420
+end_x:876
+end_y:444
+finish this face
+354
+[201 206 207]
+(x1,y1):863, 444
+(x2,y2):850, 431
+(x3,y3):834, 456
+x1_depth:1041408
+x2_depth:1039104
+x3_depth:1039872
+P1_color:[213, 198, 130]
+P2_color:[98, 156, 75]
+P3_color:[146, 208, 197]
+start_x:832
+start_y:428
+end_x:860
+end_y:456
+finish this face
+355
+[202 201 207]
+(x1,y1):847, 464
+(x2,y2):863, 444
+(x3,y3):834, 456
+x1_depth:1041920
+x2_depth:1041408
+x3_depth:1039872
+P1_color:[180, 3, 15]
+P2_color:[213, 198, 130]
+P3_color:[146, 208, 197]
+start_x:832
+start_y:444
+end_x:860
+end_y:464
+finish this face
+356
+[202 207 208]
+(x1,y1):847, 464
+(x2,y2):834, 456
+(x3,y3):816, 476
+x1_depth:1041920
+x2_depth:1039872
+x3_depth:1040384
+P1_color:[180, 3, 15]
+P2_color:[146, 208, 197]
+P3_color:[40, 19, 247]
+start_x:816
+start_y:456
+end_x:844
+end_y:476
+finish this face
+357
+[203 202 208]
+(x1,y1):830, 478
+(x2,y2):847, 464
+(x3,y3):816, 476
+x1_depth:1042176
+x2_depth:1041920
+x3_depth:1040384
+P1_color:[59, 51, 243]
+P2_color:[180, 3, 15]
+P3_color:[40, 19, 247]
+start_x:816
+start_y:464
+end_x:844
+end_y:476
+finish this face
+358
+[203 208 209]
+(x1,y1):830, 478
+(x2,y2):816, 476
+(x3,y3):799, 492
+x1_depth:1042176
+x2_depth:1040384
+x3_depth:1040640
+P1_color:[59, 51, 243]
+P2_color:[40, 19, 247]
+P3_color:[64, 101, 135]
+start_x:796
+start_y:476
+end_x:828
+end_y:492
+finish this face
+359
+[204  48  55]
+(x1,y1):884, 372
+(x2,y2):901, 339
+(x3,y3):870, 332
+x1_depth:1038848
+x2_depth:1038080
+x3_depth:1036800
+P1_color:[38, 42, 236]
+P2_color:[59, 187, 72]
+P3_color:[158, 14, 200]
+start_x:868
+start_y:332
+end_x:900
+end_y:372
+finish this face
+360
+[204  55 210]
+(x1,y1):884, 372
+(x2,y2):870, 332
+(x3,y3):850, 366
+x1_depth:1038848
+x2_depth:1036800
+x3_depth:1037824
+P1_color:[38, 42, 236]
+P2_color:[158, 14, 200]
+P3_color:[150, 166, 236]
+start_x:848
+start_y:332
+end_x:884
+end_y:372
+finish this face
+361
+[205 204 210]
+(x1,y1):867, 403
+(x2,y2):884, 372
+(x3,y3):850, 366
+x1_depth:1038848
+x2_depth:1038848
+x3_depth:1037824
+P1_color:[179, 207, 103]
+P2_color:[38, 42, 236]
+P3_color:[150, 166, 236]
+start_x:848
+start_y:364
+end_x:884
+end_y:400
+finish this face
+362
+[205 210 211]
+(x1,y1):867, 403
+(x2,y2):850, 366
+(x3,y3):831, 398
+x1_depth:1038848
+x2_depth:1037824
+x3_depth:1037312
+P1_color:[179, 207, 103]
+P2_color:[150, 166, 236]
+P3_color:[11, 207, 184]
+start_x:828
+start_y:364
+end_x:864
+end_y:400
+finish this face
+363
+[206 205 211]
+(x1,y1):850, 431
+(x2,y2):867, 403
+(x3,y3):831, 398
+x1_depth:1039104
+x2_depth:1038848
+x3_depth:1037312
+P1_color:[98, 156, 75]
+P2_color:[179, 207, 103]
+P3_color:[11, 207, 184]
+start_x:828
+start_y:396
+end_x:864
+end_y:428
+finish this face
+364
+[206 211 212]
+(x1,y1):850, 431
+(x2,y2):831, 398
+(x3,y3):811, 427
+x1_depth:1039104
+x2_depth:1037312
+x3_depth:1038080
+P1_color:[98, 156, 75]
+P2_color:[11, 207, 184]
+P3_color:[210, 159, 141]
+start_x:808
+start_y:396
+end_x:848
+end_y:428
+finish this face
+365
+[207 206 212]
+(x1,y1):834, 456
+(x2,y2):850, 431
+(x3,y3):811, 427
+x1_depth:1039872
+x2_depth:1039104
+x3_depth:1038080
+P1_color:[146, 208, 197]
+P2_color:[98, 156, 75]
+P3_color:[210, 159, 141]
+start_x:808
+start_y:424
+end_x:848
+end_y:456
+finish this face
+366
+[207 212 213]
+(x1,y1):834, 456
+(x2,y2):811, 427
+(x3,y3):793, 453
+x1_depth:1039872
+x2_depth:1038080
+x3_depth:1038080
+P1_color:[146, 208, 197]
+P2_color:[210, 159, 141]
+P3_color:[53, 69, 163]
+start_x:792
+start_y:424
+end_x:832
+end_y:456
+finish this face
+367
+[208 207 213]
+(x1,y1):816, 476
+(x2,y2):834, 456
+(x3,y3):793, 453
+x1_depth:1040384
+x2_depth:1039872
+x3_depth:1038080
+P1_color:[40, 19, 247]
+P2_color:[146, 208, 197]
+P3_color:[53, 69, 163]
+start_x:792
+start_y:452
+end_x:832
+end_y:476
+finish this face
+368
+[208 213 214]
+(x1,y1):816, 476
+(x2,y2):793, 453
+(x3,y3):774, 475
+x1_depth:1040384
+x2_depth:1038080
+x3_depth:1038848
+P1_color:[40, 19, 247]
+P2_color:[53, 69, 163]
+P3_color:[175, 215, 31]
+start_x:772
+start_y:452
+end_x:816
+end_y:476
+finish this face
+369
+[209 208 214]
+(x1,y1):799, 492
+(x2,y2):816, 476
+(x3,y3):774, 475
+x1_depth:1040640
+x2_depth:1040384
+x3_depth:1038848
+P1_color:[64, 101, 135]
+P2_color:[40, 19, 247]
+P3_color:[175, 215, 31]
+start_x:772
+start_y:472
+end_x:816
+end_y:492
+finish this face
+370
+[209 214 215]
+(x1,y1):799, 492
+(x2,y2):774, 475
+(x3,y3):756, 491
+x1_depth:1040640
+x2_depth:1038848
+x3_depth:1039616
+P1_color:[64, 101, 135]
+P2_color:[175, 215, 31]
+P3_color:[12, 1, 217]
+start_x:756
+start_y:472
+end_x:796
+end_y:492
+finish this face
+371
+[210  55  62]
+(x1,y1):850, 366
+(x2,y2):870, 332
+(x3,y3):833, 314
+x1_depth:1037824
+x2_depth:1036800
+x3_depth:1035264
+P1_color:[150, 166, 236]
+P2_color:[158, 14, 200]
+P3_color:[8, 237, 170]
+start_x:832
+start_y:312
+end_x:868
+end_y:364
+finish this face
+372
+[210  62 216]
+(x1,y1):850, 366
+(x2,y2):833, 314
+(x3,y3):810, 348
+x1_depth:1037824
+x2_depth:1035264
+x3_depth:1036032
+P1_color:[150, 166, 236]
+P2_color:[8, 237, 170]
+P3_color:[252, 13, 94]
+start_x:808
+start_y:312
+end_x:848
+end_y:364
+finish this face
+373
+[211 210 216]
+(x1,y1):831, 398
+(x2,y2):850, 366
+(x3,y3):810, 348
+x1_depth:1037312
+x2_depth:1037824
+x3_depth:1036032
+P1_color:[11, 207, 184]
+P2_color:[150, 166, 236]
+P3_color:[252, 13, 94]
+start_x:808
+start_y:348
+end_x:848
+end_y:396
+finish this face
+374
+[211 216 217]
+(x1,y1):831, 398
+(x2,y2):810, 348
+(x3,y3):787, 380
+x1_depth:1037312
+x2_depth:1036032
+x3_depth:1036800
+P1_color:[11, 207, 184]
+P2_color:[252, 13, 94]
+P3_color:[181, 79, 242]
+start_x:784
+start_y:348
+end_x:828
+end_y:396
+finish this face
+375
+[212 211 217]
+(x1,y1):811, 427
+(x2,y2):831, 398
+(x3,y3):787, 380
+x1_depth:1038080
+x2_depth:1037312
+x3_depth:1036800
+P1_color:[210, 159, 141]
+P2_color:[11, 207, 184]
+P3_color:[181, 79, 242]
+start_x:784
+start_y:380
+end_x:828
+end_y:424
+finish this face
+376
+[212 217 218]
+(x1,y1):811, 427
+(x2,y2):787, 380
+(x3,y3):765, 410
+x1_depth:1038080
+x2_depth:1036800
+x3_depth:1037056
+P1_color:[210, 159, 141]
+P2_color:[181, 79, 242]
+P3_color:[101, 185, 252]
+start_x:764
+start_y:380
+end_x:808
+end_y:424
+finish this face
+377
+[213 212 218]
+(x1,y1):793, 453
+(x2,y2):811, 427
+(x3,y3):765, 410
+x1_depth:1038080
+x2_depth:1038080
+x3_depth:1037056
+P1_color:[53, 69, 163]
+P2_color:[210, 159, 141]
+P3_color:[101, 185, 252]
+start_x:764
+start_y:408
+end_x:808
+end_y:452
+finish this face
+378
+[213 218 219]
+(x1,y1):793, 453
+(x2,y2):765, 410
+(x3,y3):745, 436
+x1_depth:1038080
+x2_depth:1037056
+x3_depth:1037056
+P1_color:[53, 69, 163]
+P2_color:[101, 185, 252]
+P3_color:[233, 19, 170]
+start_x:744
+start_y:408
+end_x:792
+end_y:452
+finish this face
+379
+[214 213 219]
+(x1,y1):774, 475
+(x2,y2):793, 453
+(x3,y3):745, 436
+x1_depth:1038848
+x2_depth:1038080
+x3_depth:1037056
+P1_color:[175, 215, 31]
+P2_color:[53, 69, 163]
+P3_color:[233, 19, 170]
+start_x:744
+start_y:436
+end_x:792
+end_y:472
+finish this face
+380
+[214 219 220]
+(x1,y1):774, 475
+(x2,y2):745, 436
+(x3,y3):724, 458
+x1_depth:1038848
+x2_depth:1037056
+x3_depth:1037312
+P1_color:[175, 215, 31]
+P2_color:[233, 19, 170]
+P3_color:[208, 240, 124]
+start_x:724
+start_y:436
+end_x:772
+end_y:472
+finish this face
+381
+[215 214 220]
+(x1,y1):756, 491
+(x2,y2):774, 475
+(x3,y3):724, 458
+x1_depth:1039616
+x2_depth:1038848
+x3_depth:1037312
+P1_color:[12, 1, 217]
+P2_color:[175, 215, 31]
+P3_color:[208, 240, 124]
+start_x:724
+start_y:456
+end_x:772
+end_y:488
+finish this face
+382
+[215 220 221]
+(x1,y1):756, 491
+(x2,y2):724, 458
+(x3,y3):706, 476
+x1_depth:1039616
+x2_depth:1037312
+x3_depth:1038080
+P1_color:[12, 1, 217]
+P2_color:[208, 240, 124]
+P3_color:[181, 11, 112]
+start_x:704
+start_y:456
+end_x:756
+end_y:488
+finish this face
+383
+[216  62  69]
+(x1,y1):810, 348
+(x2,y2):833, 314
+(x3,y3):792, 286
+x1_depth:1036032
+x2_depth:1035264
+x3_depth:1035008
+P1_color:[252, 13, 94]
+P2_color:[8, 237, 170]
+P3_color:[48, 23, 130]
+start_x:792
+start_y:284
+end_x:832
+end_y:348
+finish this face
+384
+[216  69 222]
+(x1,y1):810, 348
+(x2,y2):792, 286
+(x3,y3):766, 319
+x1_depth:1036032
+x2_depth:1035008
+x3_depth:1035008
+P1_color:[252, 13, 94]
+P2_color:[48, 23, 130]
+P3_color:[183, 59, 85]
+start_x:764
+start_y:284
+end_x:808
+end_y:348
+finish this face
+385
+[217 216 222]
+(x1,y1):787, 380
+(x2,y2):810, 348
+(x3,y3):766, 319
+x1_depth:1036800
+x2_depth:1036032
+x3_depth:1035008
+P1_color:[181, 79, 242]
+P2_color:[252, 13, 94]
+P3_color:[183, 59, 85]
+start_x:764
+start_y:316
+end_x:808
+end_y:380
+finish this face
+386
+[217 222 223]
+(x1,y1):787, 380
+(x2,y2):766, 319
+(x3,y3):740, 350
+x1_depth:1036800
+x2_depth:1035008
+x3_depth:1035264
+P1_color:[181, 79, 242]
+P2_color:[183, 59, 85]
+P3_color:[2, 164, 198]
+start_x:740
+start_y:316
+end_x:784
+end_y:380
+finish this face
+387
+[218 217 223]
+(x1,y1):765, 410
+(x2,y2):787, 380
+(x3,y3):740, 350
+x1_depth:1037056
+x2_depth:1036800
+x3_depth:1035264
+P1_color:[101, 185, 252]
+P2_color:[181, 79, 242]
+P3_color:[2, 164, 198]
+start_x:740
+start_y:348
+end_x:784
+end_y:408
+finish this face
+388
+[218 223 224]
+(x1,y1):765, 410
+(x2,y2):740, 350
+(x3,y3):716, 378
+x1_depth:1037056
+x2_depth:1035264
+x3_depth:1036032
+P1_color:[101, 185, 252]
+P2_color:[2, 164, 198]
+P3_color:[153, 58, 62]
+start_x:716
+start_y:348
+end_x:764
+end_y:408
+finish this face
+389
+[219 218 224]
+(x1,y1):745, 436
+(x2,y2):765, 410
+(x3,y3):716, 378
+x1_depth:1037056
+x2_depth:1037056
+x3_depth:1036032
+P1_color:[233, 19, 170]
+P2_color:[101, 185, 252]
+P3_color:[153, 58, 62]
+start_x:716
+start_y:376
+end_x:764
+end_y:436
+finish this face
+390
+[219 224 225]
+(x1,y1):745, 436
+(x2,y2):716, 378
+(x3,y3):692, 404
+x1_depth:1037056
+x2_depth:1036032
+x3_depth:1036288
+P1_color:[233, 19, 170]
+P2_color:[153, 58, 62]
+P3_color:[58, 190, 80]
+start_x:692
+start_y:376
+end_x:744
+end_y:436
+finish this face
+391
+[220 219 225]
+(x1,y1):724, 458
+(x2,y2):745, 436
+(x3,y3):692, 404
+x1_depth:1037312
+x2_depth:1037056
+x3_depth:1036288
+P1_color:[208, 240, 124]
+P2_color:[233, 19, 170]
+P3_color:[58, 190, 80]
+start_x:692
+start_y:404
+end_x:744
+end_y:456
+finish this face
+392
+[220 225 226]
+(x1,y1):724, 458
+(x2,y2):692, 404
+(x3,y3):671, 427
+x1_depth:1037312
+x2_depth:1036288
+x3_depth:1037056
+P1_color:[208, 240, 124]
+P2_color:[58, 190, 80]
+P3_color:[208, 254, 119]
+start_x:668
+start_y:404
+end_x:724
+end_y:456
+finish this face
+393
+[221 220 226]
+(x1,y1):706, 476
+(x2,y2):724, 458
+(x3,y3):671, 427
+x1_depth:1038080
+x2_depth:1037312
+x3_depth:1037056
+P1_color:[181, 11, 112]
+P2_color:[208, 240, 124]
+P3_color:[208, 254, 119]
+start_x:668
+start_y:424
+end_x:724
+end_y:476
+finish this face
+394
+[221 226 227]
+(x1,y1):706, 476
+(x2,y2):671, 427
+(x3,y3):653, 445
+x1_depth:1038080
+x2_depth:1037056
+x3_depth:1037312
+P1_color:[181, 11, 112]
+P2_color:[208, 254, 119]
+P3_color:[214, 214, 44]
+start_x:652
+start_y:424
+end_x:704
+end_y:476
+finish this face
+395
+[222  69  76]
+(x1,y1):766, 319
+(x2,y2):792, 286
+(x3,y3):752, 250
+x1_depth:1035008
+x2_depth:1035008
+x3_depth:1035008
+P1_color:[183, 59, 85]
+P2_color:[48, 23, 130]
+P3_color:[23, 225, 202]
+start_x:752
+start_y:248
+end_x:792
+end_y:316
+finish this face
+396
+[222  76 228]
+(x1,y1):766, 319
+(x2,y2):752, 250
+(x3,y3):722, 280
+x1_depth:1035008
+x2_depth:1035008
+x3_depth:1035008
+P1_color:[183, 59, 85]
+P2_color:[23, 225, 202]
+P3_color:[149, 208, 3]
+start_x:720
+start_y:248
+end_x:764
+end_y:316
+finish this face
+397
+[223 222 228]
+(x1,y1):740, 350
+(x2,y2):766, 319
+(x3,y3):722, 280
+x1_depth:1035264
+x2_depth:1035008
+x3_depth:1035008
+P1_color:[2, 164, 198]
+P2_color:[183, 59, 85]
+P3_color:[149, 208, 3]
+start_x:720
+start_y:280
+end_x:764
+end_y:348
+finish this face
+398
+[223 228 229]
+(x1,y1):740, 350
+(x2,y2):722, 280
+(x3,y3):694, 309
+x1_depth:1035264
+x2_depth:1035008
+x3_depth:1035008
+P1_color:[2, 164, 198]
+P2_color:[149, 208, 3]
+P3_color:[134, 214, 126]
+start_x:692
+start_y:280
+end_x:740
+end_y:348
+finish this face
+399
+[224 223 229]
+(x1,y1):716, 378
+(x2,y2):740, 350
+(x3,y3):694, 309
+x1_depth:1036032
+x2_depth:1035264
+x3_depth:1035008
+P1_color:[153, 58, 62]
+P2_color:[2, 164, 198]
+P3_color:[134, 214, 126]
+start_x:692
+start_y:308
+end_x:740
+end_y:376
+finish this face
+400
+[224 229 230]
+(x1,y1):716, 378
+(x2,y2):694, 309
+(x3,y3):667, 336
+x1_depth:1036032
+x2_depth:1035008
+x3_depth:1035264
+P1_color:[153, 58, 62]
+P2_color:[134, 214, 126]
+P3_color:[169, 136, 113]
+start_x:664
+start_y:308
+end_x:716
+end_y:376
+finish this face
+401
+[225 224 230]
+(x1,y1):692, 404
+(x2,y2):716, 378
+(x3,y3):667, 336
+x1_depth:1036288
+x2_depth:1036032
+x3_depth:1035264
+P1_color:[58, 190, 80]
+P2_color:[153, 58, 62]
+P3_color:[169, 136, 113]
+start_x:664
+start_y:336
+end_x:716
+end_y:404
+finish this face
+402
+[225 230 231]
+(x1,y1):692, 404
+(x2,y2):667, 336
+(x3,y3):642, 361
+x1_depth:1036288
+x2_depth:1035264
+x3_depth:1036032
+P1_color:[58, 190, 80]
+P2_color:[169, 136, 113]
+P3_color:[11, 146, 182]
+start_x:640
+start_y:336
+end_x:692
+end_y:404
+finish this face
+403
+[226 225 231]
+(x1,y1):671, 427
+(x2,y2):692, 404
+(x3,y3):642, 361
+x1_depth:1037056
+x2_depth:1036288
+x3_depth:1036032
+P1_color:[208, 254, 119]
+P2_color:[58, 190, 80]
+P3_color:[11, 146, 182]
+start_x:640
+start_y:360
+end_x:692
+end_y:424
+finish this face
+404
+[226 231 232]
+(x1,y1):671, 427
+(x2,y2):642, 361
+(x3,y3):620, 383
+x1_depth:1037056
+x2_depth:1036032
+x3_depth:1036288
+P1_color:[208, 254, 119]
+P2_color:[11, 146, 182]
+P3_color:[35, 246, 200]
+start_x:620
+start_y:360
+end_x:668
+end_y:424
+finish this face
+405
+[227 226 232]
+(x1,y1):653, 445
+(x2,y2):671, 427
+(x3,y3):620, 383
+x1_depth:1037312
+x2_depth:1037056
+x3_depth:1036288
+P1_color:[214, 214, 44]
+P2_color:[208, 254, 119]
+P3_color:[35, 246, 200]
+start_x:620
+start_y:380
+end_x:668
+end_y:444
+finish this face
+406
+[227 232 233]
+(x1,y1):653, 445
+(x2,y2):620, 383
+(x3,y3):602, 401
+x1_depth:1037312
+x2_depth:1036288
+x3_depth:1037056
+P1_color:[214, 214, 44]
+P2_color:[35, 246, 200]
+P3_color:[20, 215, 224]
+start_x:600
+start_y:380
+end_x:652
+end_y:444
+finish this face
+407
+[228  76  83]
+(x1,y1):722, 280
+(x2,y2):752, 250
+(x3,y3):715, 209
+x1_depth:1035008
+x2_depth:1035008
+x3_depth:1035008
+P1_color:[149, 208, 3]
+P2_color:[23, 225, 202]
+P3_color:[16, 135, 76]
+start_x:712
+start_y:208
+end_x:752
+end_y:280
+finish this face
+408
+[228  83 234]
+(x1,y1):722, 280
+(x2,y2):715, 209
+(x3,y3):683, 236
+x1_depth:1035008
+x2_depth:1035008
+x3_depth:1035008
+P1_color:[149, 208, 3]
+P2_color:[16, 135, 76]
+P3_color:[68, 9, 182]
+start_x:680
+start_y:208
+end_x:720
+end_y:280
+finish this face
+409
+[229 228 234]
+(x1,y1):694, 309
+(x2,y2):722, 280
+(x3,y3):683, 236
+x1_depth:1035008
+x2_depth:1035008
+x3_depth:1035008
+P1_color:[134, 214, 126]
+P2_color:[149, 208, 3]
+P3_color:[68, 9, 182]
+start_x:680
+start_y:236
+end_x:720
+end_y:308
+finish this face
+410
+[229 234 235]
+(x1,y1):694, 309
+(x2,y2):683, 236
+(x3,y3):653, 262
+x1_depth:1035008
+x2_depth:1035008
+x3_depth:1035264
+P1_color:[134, 214, 126]
+P2_color:[68, 9, 182]
+P3_color:[6, 96, 19]
+start_x:652
+start_y:236
+end_x:692
+end_y:308
+finish this face
+411
+[230 229 235]
+(x1,y1):667, 336
+(x2,y2):694, 309
+(x3,y3):653, 262
+x1_depth:1035264
+x2_depth:1035008
+x3_depth:1035264
+P1_color:[169, 136, 113]
+P2_color:[134, 214, 126]
+P3_color:[6, 96, 19]
+start_x:652
+start_y:260
+end_x:692
+end_y:336
+finish this face
+412
+[230 235 236]
+(x1,y1):667, 336
+(x2,y2):653, 262
+(x3,y3):624, 286
+x1_depth:1035264
+x2_depth:1035264
+x3_depth:1036032
+P1_color:[169, 136, 113]
+P2_color:[6, 96, 19]
+P3_color:[86, 198, 189]
+start_x:624
+start_y:260
+end_x:664
+end_y:336
+finish this face
+413
+[231 230 236]
+(x1,y1):642, 361
+(x2,y2):667, 336
+(x3,y3):624, 286
+x1_depth:1036032
+x2_depth:1035264
+x3_depth:1036032
+P1_color:[11, 146, 182]
+P2_color:[169, 136, 113]
+P3_color:[86, 198, 189]
+start_x:624
+start_y:284
+end_x:664
+end_y:360
+finish this face
+414
+[231 236 237]
+(x1,y1):642, 361
+(x2,y2):624, 286
+(x3,y3):598, 309
+x1_depth:1036032
+x2_depth:1036032
+x3_depth:1036288
+P1_color:[11, 146, 182]
+P2_color:[86, 198, 189]
+P3_color:[54, 5, 147]
+start_x:596
+start_y:284
+end_x:640
+end_y:360
+finish this face
+415
+[232 231 237]
+(x1,y1):620, 383
+(x2,y2):642, 361
+(x3,y3):598, 309
+x1_depth:1036288
+x2_depth:1036032
+x3_depth:1036288
+P1_color:[35, 246, 200]
+P2_color:[11, 146, 182]
+P3_color:[54, 5, 147]
+start_x:596
+start_y:308
+end_x:640
+end_y:380
+finish this face
+416
+[232 237 238]
+(x1,y1):620, 383
+(x2,y2):598, 309
+(x3,y3):575, 331
+x1_depth:1036288
+x2_depth:1036288
+x3_depth:1036288
+P1_color:[35, 246, 200]
+P2_color:[54, 5, 147]
+P3_color:[9, 131, 85]
+start_x:572
+start_y:308
+end_x:620
+end_y:380
+finish this face
+417
+[233 232 238]
+(x1,y1):602, 401
+(x2,y2):620, 383
+(x3,y3):575, 331
+x1_depth:1037056
+x2_depth:1036288
+x3_depth:1036288
+P1_color:[20, 215, 224]
+P2_color:[35, 246, 200]
+P3_color:[9, 131, 85]
+start_x:572
+start_y:328
+end_x:620
+end_y:400
+finish this face
+418
+[233 238 239]
+(x1,y1):602, 401
+(x2,y2):575, 331
+(x3,y3):557, 349
+x1_depth:1037056
+x2_depth:1036288
+x3_depth:1037312
+P1_color:[20, 215, 224]
+P2_color:[9, 131, 85]
+P3_color:[229, 44, 142]
+start_x:556
+start_y:328
+end_x:600
+end_y:400
+finish this face
+419
+[234  83  90]
+(x1,y1):683, 236
+(x2,y2):715, 209
+(x3,y3):685, 166
+x1_depth:1035008
+x2_depth:1035008
+x3_depth:1036032
+P1_color:[68, 9, 182]
+P2_color:[16, 135, 76]
+P3_color:[112, 84, 246]
+start_x:680
+start_y:164
+end_x:712
+end_y:236
+finish this face
+420
+[234  90 240]
+(x1,y1):683, 236
+(x2,y2):685, 166
+(x3,y3):652, 189
+x1_depth:1035008
+x2_depth:1036032
+x3_depth:1036032
+P1_color:[68, 9, 182]
+P2_color:[112, 84, 246]
+P3_color:[90, 194, 62]
+start_x:652
+start_y:164
+end_x:684
+end_y:236
+finish this face
+421
+[235 234 240]
+(x1,y1):653, 262
+(x2,y2):683, 236
+(x3,y3):652, 189
+x1_depth:1035264
+x2_depth:1035008
+x3_depth:1036032
+P1_color:[6, 96, 19]
+P2_color:[68, 9, 182]
+P3_color:[90, 194, 62]
+start_x:652
+start_y:188
+end_x:680
+end_y:260
+finish this face
+422
+[235 240 241]
+(x1,y1):653, 262
+(x2,y2):652, 189
+(x3,y3):620, 212
+x1_depth:1035264
+x2_depth:1036032
+x3_depth:1036288
+P1_color:[6, 96, 19]
+P2_color:[90, 194, 62]
+P3_color:[143, 206, 6]
+start_x:620
+start_y:188
+end_x:652
+end_y:260
+finish this face
+423
+[236 235 241]
+(x1,y1):624, 286
+(x2,y2):653, 262
+(x3,y3):620, 212
+x1_depth:1036032
+x2_depth:1035264
+x3_depth:1036288
+P1_color:[86, 198, 189]
+P2_color:[6, 96, 19]
+P3_color:[143, 206, 6]
+start_x:620
+start_y:212
+end_x:652
+end_y:284
+finish this face
+424
+[236 241 242]
+(x1,y1):624, 286
+(x2,y2):620, 212
+(x3,y3):590, 233
+x1_depth:1036032
+x2_depth:1036288
+x3_depth:1036288
+P1_color:[86, 198, 189]
+P2_color:[143, 206, 6]
+P3_color:[197, 17, 193]
+start_x:588
+start_y:212
+end_x:624
+end_y:284
+finish this face
+425
+[237 236 242]
+(x1,y1):598, 309
+(x2,y2):624, 286
+(x3,y3):590, 233
+x1_depth:1036288
+x2_depth:1036032
+x3_depth:1036288
+P1_color:[54, 5, 147]
+P2_color:[86, 198, 189]
+P3_color:[197, 17, 193]
+start_x:588
+start_y:232
+end_x:624
+end_y:308
+finish this face
+426
+[237 242 243]
+(x1,y1):598, 309
+(x2,y2):590, 233
+(x3,y3):564, 254
+x1_depth:1036288
+x2_depth:1036288
+x3_depth:1037056
+P1_color:[54, 5, 147]
+P2_color:[197, 17, 193]
+P3_color:[162, 55, 95]
+start_x:564
+start_y:232
+end_x:596
+end_y:308
+finish this face
+427
+[238 237 243]
+(x1,y1):575, 331
+(x2,y2):598, 309
+(x3,y3):564, 254
+x1_depth:1036288
+x2_depth:1036288
+x3_depth:1037056
+P1_color:[9, 131, 85]
+P2_color:[54, 5, 147]
+P3_color:[162, 55, 95]
+start_x:564
+start_y:252
+end_x:596
+end_y:328
+finish this face
+428
+[238 243 244]
+(x1,y1):575, 331
+(x2,y2):564, 254
+(x3,y3):542, 274
+x1_depth:1036288
+x2_depth:1037056
+x3_depth:1037824
+P1_color:[9, 131, 85]
+P2_color:[162, 55, 95]
+P3_color:[227, 5, 137]
+start_x:540
+start_y:252
+end_x:572
+end_y:328
+finish this face
+429
+[239 238 244]
+(x1,y1):557, 349
+(x2,y2):575, 331
+(x3,y3):542, 274
+x1_depth:1037312
+x2_depth:1036288
+x3_depth:1037824
+P1_color:[229, 44, 142]
+P2_color:[9, 131, 85]
+P3_color:[227, 5, 137]
+start_x:540
+start_y:272
+end_x:572
+end_y:348
+finish this face
+430
+[239 244 245]
+(x1,y1):557, 349
+(x2,y2):542, 274
+(x3,y3):525, 293
+x1_depth:1037312
+x2_depth:1037824
+x3_depth:1038080
+P1_color:[229, 44, 142]
+P2_color:[227, 5, 137]
+P3_color:[20, 134, 188]
+start_x:524
+start_y:272
+end_x:556
+end_y:348
+finish this face
+431
+[240  90  97]
+(x1,y1):652, 189
+(x2,y2):685, 166
+(x3,y3):667, 128
+x1_depth:1036032
+x2_depth:1036032
+x3_depth:1037056
+P1_color:[90, 194, 62]
+P2_color:[112, 84, 246]
+P3_color:[31, 94, 138]
+start_x:652
+start_y:128
+end_x:684
+end_y:188
+finish this face
+432
+[240  97 246]
+(x1,y1):652, 189
+(x2,y2):667, 128
+(x3,y3):633, 147
+x1_depth:1036032
+x2_depth:1037056
+x3_depth:1037056
+P1_color:[90, 194, 62]
+P2_color:[31, 94, 138]
+P3_color:[116, 153, 146]
+start_x:632
+start_y:128
+end_x:664
+end_y:188
+finish this face
+433
+[241 240 246]
+(x1,y1):620, 212
+(x2,y2):652, 189
+(x3,y3):633, 147
+x1_depth:1036288
+x2_depth:1036032
+x3_depth:1037056
+P1_color:[143, 206, 6]
+P2_color:[90, 194, 62]
+P3_color:[116, 153, 146]
+start_x:620
+start_y:144
+end_x:652
+end_y:212
+finish this face
+434
+[241 246 247]
+(x1,y1):620, 212
+(x2,y2):633, 147
+(x3,y3):601, 166
+x1_depth:1036288
+x2_depth:1037056
+x3_depth:1037824
+P1_color:[143, 206, 6]
+P2_color:[116, 153, 146]
+P3_color:[53, 67, 72]
+start_x:600
+start_y:144
+end_x:632
+end_y:212
+finish this face
+435
+[242 241 247]
+(x1,y1):590, 233
+(x2,y2):620, 212
+(x3,y3):601, 166
+x1_depth:1036288
+x2_depth:1036288
+x3_depth:1037824
+P1_color:[197, 17, 193]
+P2_color:[143, 206, 6]
+P3_color:[53, 67, 72]
+start_x:588
+start_y:164
+end_x:620
+end_y:232
+finish this face
+436
+[242 247 248]
+(x1,y1):590, 233
+(x2,y2):601, 166
+(x3,y3):572, 185
+x1_depth:1036288
+x2_depth:1037824
+x3_depth:1038080
+P1_color:[197, 17, 193]
+P2_color:[53, 67, 72]
+P3_color:[196, 144, 3]
+start_x:572
+start_y:164
+end_x:600
+end_y:232
+finish this face
+437
+[243 242 248]
+(x1,y1):564, 254
+(x2,y2):590, 233
+(x3,y3):572, 185
+x1_depth:1037056
+x2_depth:1036288
+x3_depth:1038080
+P1_color:[162, 55, 95]
+P2_color:[197, 17, 193]
+P3_color:[196, 144, 3]
+start_x:564
+start_y:184
+end_x:588
+end_y:252
+finish this face
+438
+[243 248 249]
+(x1,y1):564, 254
+(x2,y2):572, 185
+(x3,y3):546, 204
+x1_depth:1037056
+x2_depth:1038080
+x3_depth:1038848
+P1_color:[162, 55, 95]
+P2_color:[196, 144, 3]
+P3_color:[61, 136, 250]
+start_x:544
+start_y:184
+end_x:572
+end_y:252
+finish this face
+439
+[244 243 249]
+(x1,y1):542, 274
+(x2,y2):564, 254
+(x3,y3):546, 204
+x1_depth:1037824
+x2_depth:1037056
+x3_depth:1038848
+P1_color:[227, 5, 137]
+P2_color:[162, 55, 95]
+P3_color:[61, 136, 250]
+start_x:540
+start_y:204
+end_x:564
+end_y:272
+finish this face
+440
+[244 249 250]
+(x1,y1):542, 274
+(x2,y2):546, 204
+(x3,y3):524, 223
+x1_depth:1037824
+x2_depth:1038848
+x3_depth:1038848
+P1_color:[227, 5, 137]
+P2_color:[61, 136, 250]
+P3_color:[212, 79, 237]
+start_x:524
+start_y:204
+end_x:544
+end_y:272
+finish this face
+441
+[245 244 250]
+(x1,y1):525, 293
+(x2,y2):542, 274
+(x3,y3):524, 223
+x1_depth:1038080
+x2_depth:1037824
+x3_depth:1038848
+P1_color:[20, 134, 188]
+P2_color:[227, 5, 137]
+P3_color:[212, 79, 237]
+start_x:524
+start_y:220
+end_x:540
+end_y:292
+finish this face
+442
+[245 250 251]
+(x1,y1):525, 293
+(x2,y2):524, 223
+(x3,y3):508, 241
+x1_depth:1038080
+x2_depth:1038848
+x3_depth:1039104
+P1_color:[20, 134, 188]
+P2_color:[212, 79, 237]
+P3_color:[127, 88, 108]
+start_x:508
+start_y:220
+end_x:524
+end_y:292
+finish this face
+443
+[246  97 104]
+(x1,y1):633, 147
+(x2,y2):667, 128
+(x3,y3):660, 98
+x1_depth:1037056
+x2_depth:1037056
+x3_depth:1038080
+P1_color:[116, 153, 146]
+P2_color:[31, 94, 138]
+P3_color:[184, 168, 193]
+start_x:632
+start_y:96
+end_x:664
+end_y:144
+finish this face
+444
+[246 104 252]
+(x1,y1):633, 147
+(x2,y2):660, 98
+(x3,y3):628, 115
+x1_depth:1037056
+x2_depth:1038080
+x3_depth:1038848
+P1_color:[116, 153, 146]
+P2_color:[184, 168, 193]
+P3_color:[80, 33, 170]
+start_x:628
+start_y:96
+end_x:660
+end_y:144
+finish this face
+445
+[247 246 252]
+(x1,y1):601, 166
+(x2,y2):633, 147
+(x3,y3):628, 115
+x1_depth:1037824
+x2_depth:1037056
+x3_depth:1038848
+P1_color:[53, 67, 72]
+P2_color:[116, 153, 146]
+P3_color:[80, 33, 170]
+start_x:600
+start_y:112
+end_x:632
+end_y:164
+finish this face
+446
+[247 252 253]
+(x1,y1):601, 166
+(x2,y2):628, 115
+(x3,y3):597, 132
+x1_depth:1037824
+x2_depth:1038848
+x3_depth:1038336
+P1_color:[53, 67, 72]
+P2_color:[80, 33, 170]
+P3_color:[88, 223, 18]
+start_x:596
+start_y:112
+end_x:628
+end_y:164
+finish this face
+447
+[248 247 253]
+(x1,y1):572, 185
+(x2,y2):601, 166
+(x3,y3):597, 132
+x1_depth:1038080
+x2_depth:1037824
+x3_depth:1038336
+P1_color:[196, 144, 3]
+P2_color:[53, 67, 72]
+P3_color:[88, 223, 18]
+start_x:572
+start_y:132
+end_x:600
+end_y:184
+finish this face
+448
+[248 253 254]
+(x1,y1):572, 185
+(x2,y2):597, 132
+(x3,y3):569, 148
+x1_depth:1038080
+x2_depth:1038336
+x3_depth:1039104
+P1_color:[196, 144, 3]
+P2_color:[88, 223, 18]
+P3_color:[26, 195, 27]
+start_x:568
+start_y:132
+end_x:596
+end_y:184
+finish this face
+449
+[249 248 254]
+(x1,y1):546, 204
+(x2,y2):572, 185
+(x3,y3):569, 148
+x1_depth:1038848
+x2_depth:1038080
+x3_depth:1039104
+P1_color:[61, 136, 250]
+P2_color:[196, 144, 3]
+P3_color:[26, 195, 27]
+start_x:544
+start_y:148
+end_x:572
+end_y:204
+finish this face
+450
+[249 254 255]
+(x1,y1):546, 204
+(x2,y2):569, 148
+(x3,y3):544, 165
+x1_depth:1038848
+x2_depth:1039104
+x3_depth:1039872
+P1_color:[61, 136, 250]
+P2_color:[26, 195, 27]
+P3_color:[88, 152, 42]
+start_x:544
+start_y:148
+end_x:568
+end_y:204
+finish this face
+451
+[250 249 255]
+(x1,y1):524, 223
+(x2,y2):546, 204
+(x3,y3):544, 165
+x1_depth:1038848
+x2_depth:1038848
+x3_depth:1039872
+P1_color:[212, 79, 237]
+P2_color:[61, 136, 250]
+P3_color:[88, 152, 42]
+start_x:524
+start_y:164
+end_x:544
+end_y:220
+finish this face
+452
+[250 255 256]
+(x1,y1):524, 223
+(x2,y2):544, 165
+(x3,y3):523, 182
+x1_depth:1038848
+x2_depth:1039872
+x3_depth:1040384
+P1_color:[212, 79, 237]
+P2_color:[88, 152, 42]
+P3_color:[38, 246, 179]
+start_x:520
+start_y:164
+end_x:544
+end_y:220
+finish this face
+453
+[251 250 256]
+(x1,y1):508, 241
+(x2,y2):524, 223
+(x3,y3):523, 182
+x1_depth:1039104
+x2_depth:1038848
+x3_depth:1040384
+P1_color:[127, 88, 108]
+P2_color:[212, 79, 237]
+P3_color:[38, 246, 179]
+start_x:508
+start_y:180
+end_x:524
+end_y:240
+finish this face
+454
+[251 256 257]
+(x1,y1):508, 241
+(x2,y2):523, 182
+(x3,y3):508, 200
+x1_depth:1039104
+x2_depth:1040384
+x3_depth:1040640
+P1_color:[127, 88, 108]
+P2_color:[38, 246, 179]
+P3_color:[152, 243, 229]
+start_x:508
+start_y:180
+end_x:520
+end_y:240
+finish this face
+455
+[252 104 111]
+(x1,y1):628, 115
+(x2,y2):660, 98
+(x3,y3):665, 78
+x1_depth:1038848
+x2_depth:1038080
+x3_depth:1039104
+P1_color:[80, 33, 170]
+P2_color:[184, 168, 193]
+P3_color:[148, 232, 25]
+start_x:628
+start_y:76
+end_x:664
+end_y:112
+finish this face
+456
+[252 111 258]
+(x1,y1):628, 115
+(x2,y2):665, 78
+(x3,y3):634, 93
+x1_depth:1038848
+x2_depth:1039104
+x3_depth:1039872
+P1_color:[80, 33, 170]
+P2_color:[148, 232, 25]
+P3_color:[124, 40, 12]
+start_x:628
+start_y:76
+end_x:664
+end_y:112
+finish this face
+457
+[253 252 258]
+(x1,y1):597, 132
+(x2,y2):628, 115
+(x3,y3):634, 93
+x1_depth:1038336
+x2_depth:1038848
+x3_depth:1039872
+P1_color:[88, 223, 18]
+P2_color:[80, 33, 170]
+P3_color:[124, 40, 12]
+start_x:596
+start_y:92
+end_x:632
+end_y:132
+finish this face
+458
+[253 258 259]
+(x1,y1):597, 132
+(x2,y2):634, 93
+(x3,y3):605, 108
+x1_depth:1038336
+x2_depth:1039872
+x3_depth:1040384
+P1_color:[88, 223, 18]
+P2_color:[124, 40, 12]
+P3_color:[220, 145, 34]
+start_x:596
+start_y:92
+end_x:632
+end_y:132
+finish this face
+459
+[254 253 259]
+(x1,y1):569, 148
+(x2,y2):597, 132
+(x3,y3):605, 108
+x1_depth:1039104
+x2_depth:1038336
+x3_depth:1040384
+P1_color:[26, 195, 27]
+P2_color:[88, 223, 18]
+P3_color:[220, 145, 34]
+start_x:568
+start_y:108
+end_x:604
+end_y:148
+finish this face
+460
+[254 259 260]
+(x1,y1):569, 148
+(x2,y2):605, 108
+(x3,y3):578, 122
+x1_depth:1039104
+x2_depth:1040384
+x3_depth:1041152
+P1_color:[26, 195, 27]
+P2_color:[220, 145, 34]
+P3_color:[148, 137, 167]
+start_x:568
+start_y:108
+end_x:604
+end_y:148
+finish this face
+461
+[255 254 260]
+(x1,y1):544, 165
+(x2,y2):569, 148
+(x3,y3):578, 122
+x1_depth:1039872
+x2_depth:1039104
+x3_depth:1041152
+P1_color:[88, 152, 42]
+P2_color:[26, 195, 27]
+P3_color:[148, 137, 167]
+start_x:544
+start_y:120
+end_x:576
+end_y:164
+finish this face
+462
+[255 260 261]
+(x1,y1):544, 165
+(x2,y2):578, 122
+(x3,y3):555, 138
+x1_depth:1039872
+x2_depth:1041152
+x3_depth:1041408
+P1_color:[88, 152, 42]
+P2_color:[148, 137, 167]
+P3_color:[152, 193, 244]
+start_x:544
+start_y:120
+end_x:576
+end_y:164
+finish this face
+463
+[256 255 261]
+(x1,y1):523, 182
+(x2,y2):544, 165
+(x3,y3):555, 138
+x1_depth:1040384
+x2_depth:1039872
+x3_depth:1041408
+P1_color:[38, 246, 179]
+P2_color:[88, 152, 42]
+P3_color:[152, 193, 244]
+start_x:520
+start_y:136
+end_x:552
+end_y:180
+finish this face
+464
+[256 261 262]
+(x1,y1):523, 182
+(x2,y2):555, 138
+(x3,y3):535, 154
+x1_depth:1040384
+x2_depth:1041408
+x3_depth:1041920
+P1_color:[38, 246, 179]
+P2_color:[152, 193, 244]
+P3_color:[183, 7, 106]
+start_x:520
+start_y:136
+end_x:552
+end_y:180
+finish this face
+465
+[257 256 262]
+(x1,y1):508, 200
+(x2,y2):523, 182
+(x3,y3):535, 154
+x1_depth:1040640
+x2_depth:1040384
+x3_depth:1041920
+P1_color:[152, 243, 229]
+P2_color:[38, 246, 179]
+P3_color:[183, 7, 106]
+start_x:508
+start_y:152
+end_x:532
+end_y:200
+finish this face
+466
+[257 262 263]
+(x1,y1):508, 200
+(x2,y2):535, 154
+(x3,y3):520, 171
+x1_depth:1040640
+x2_depth:1041920
+x3_depth:1042176
+P1_color:[152, 243, 229]
+P2_color:[183, 7, 106]
+P3_color:[36, 13, 209]
+start_x:508
+start_y:152
+end_x:532
+end_y:200
+finish this face
+467
+[258 111 118]
+(x1,y1):634, 93
+(x2,y2):665, 78
+(x3,y3):678, 68
+x1_depth:1039872
+x2_depth:1039104
+x3_depth:1040640
+P1_color:[124, 40, 12]
+P2_color:[148, 232, 25]
+P3_color:[171, 2, 145]
+start_x:632
+start_y:68
+end_x:676
+end_y:92
+finish this face
+468
+[258 118 264]
+(x1,y1):634, 93
+(x2,y2):678, 68
+(x3,y3):649, 81
+x1_depth:1039872
+x2_depth:1040640
+x3_depth:1040640
+P1_color:[124, 40, 12]
+P2_color:[171, 2, 145]
+P3_color:[161, 151, 172]
+start_x:632
+start_y:68
+end_x:676
+end_y:92
+finish this face
+469
+[259 258 264]
+(x1,y1):605, 108
+(x2,y2):634, 93
+(x3,y3):649, 81
+x1_depth:1040384
+x2_depth:1039872
+x3_depth:1040640
+P1_color:[220, 145, 34]
+P2_color:[124, 40, 12]
+P3_color:[161, 151, 172]
+start_x:604
+start_y:80
+end_x:648
+end_y:108
+finish this face
+470
+[259 264 265]
+(x1,y1):605, 108
+(x2,y2):649, 81
+(x3,y3):622, 94
+x1_depth:1040384
+x2_depth:1040640
+x3_depth:1041920
+P1_color:[220, 145, 34]
+P2_color:[161, 151, 172]
+P3_color:[17, 17, 66]
+start_x:604
+start_y:80
+end_x:648
+end_y:108
+finish this face
+471
+[260 259 265]
+(x1,y1):578, 122
+(x2,y2):605, 108
+(x3,y3):622, 94
+x1_depth:1041152
+x2_depth:1040384
+x3_depth:1041920
+P1_color:[148, 137, 167]
+P2_color:[220, 145, 34]
+P3_color:[17, 17, 66]
+start_x:576
+start_y:92
+end_x:620
+end_y:120
+finish this face
+472
+[260 265 266]
+(x1,y1):578, 122
+(x2,y2):622, 94
+(x3,y3):598, 108
+x1_depth:1041152
+x2_depth:1041920
+x3_depth:1042176
+P1_color:[148, 137, 167]
+P2_color:[17, 17, 66]
+P3_color:[220, 138, 73]
+start_x:576
+start_y:92
+end_x:620
+end_y:120
+finish this face
+473
+[261 260 266]
+(x1,y1):555, 138
+(x2,y2):578, 122
+(x3,y3):598, 108
+x1_depth:1041408
+x2_depth:1041152
+x3_depth:1042176
+P1_color:[152, 193, 244]
+P2_color:[148, 137, 167]
+P3_color:[220, 138, 73]
+start_x:552
+start_y:108
+end_x:596
+end_y:136
+finish this face
+474
+[261 266 267]
+(x1,y1):555, 138
+(x2,y2):598, 108
+(x3,y3):576, 122
+x1_depth:1041408
+x2_depth:1042176
+x3_depth:1043200
+P1_color:[152, 193, 244]
+P2_color:[220, 138, 73]
+P3_color:[13, 40, 197]
+start_x:552
+start_y:108
+end_x:596
+end_y:136
+finish this face
+475
+[262 261 267]
+(x1,y1):535, 154
+(x2,y2):555, 138
+(x3,y3):576, 122
+x1_depth:1041920
+x2_depth:1041408
+x3_depth:1043200
+P1_color:[183, 7, 106]
+P2_color:[152, 193, 244]
+P3_color:[13, 40, 197]
+start_x:532
+start_y:120
+end_x:576
+end_y:152
+finish this face
+476
+[262 267 268]
+(x1,y1):535, 154
+(x2,y2):576, 122
+(x3,y3):558, 137
+x1_depth:1041920
+x2_depth:1043200
+x3_depth:1043200
+P1_color:[183, 7, 106]
+P2_color:[13, 40, 197]
+P3_color:[243, 173, 240]
+start_x:532
+start_y:120
+end_x:576
+end_y:152
+finish this face
+477
+[263 262 268]
+(x1,y1):520, 171
+(x2,y2):535, 154
+(x3,y3):558, 137
+x1_depth:1042176
+x2_depth:1041920
+x3_depth:1043200
+P1_color:[36, 13, 209]
+P2_color:[183, 7, 106]
+P3_color:[243, 173, 240]
+start_x:520
+start_y:136
+end_x:556
+end_y:168
+finish this face
+478
+[263 268 269]
+(x1,y1):520, 171
+(x2,y2):558, 137
+(x3,y3):543, 153
+x1_depth:1042176
+x2_depth:1043200
+x3_depth:1043456
+P1_color:[36, 13, 209]
+P2_color:[243, 173, 240]
+P3_color:[72, 190, 176]
+start_x:520
+start_y:136
+end_x:556
+end_y:168
+finish this face
+479
+[264 118 125]
+(x1,y1):649, 81
+(x2,y2):678, 68
+(x3,y3):698, 66
+x1_depth:1040640
+x2_depth:1040640
+x3_depth:1041408
+P1_color:[161, 151, 172]
+P2_color:[171, 2, 145]
+P3_color:[187, 150, 78]
+start_x:648
+start_y:64
+end_x:696
+end_y:80
+finish this face
+480
+[264 125 270]
+(x1,y1):649, 81
+(x2,y2):698, 66
+(x3,y3):672, 79
+x1_depth:1040640
+x2_depth:1041408
+x3_depth:1042688
+P1_color:[161, 151, 172]
+P2_color:[187, 150, 78]
+P3_color:[147, 71, 177]
+start_x:648
+start_y:64
+end_x:696
+end_y:80
+finish this face
+481
+[265 264 270]
+(x1,y1):622, 94
+(x2,y2):649, 81
+(x3,y3):672, 79
+x1_depth:1041920
+x2_depth:1040640
+x3_depth:1042688
+P1_color:[17, 17, 66]
+P2_color:[161, 151, 172]
+P3_color:[147, 71, 177]
+start_x:620
+start_y:76
+end_x:672
+end_y:92
+finish this face
+482
+[265 270 271]
+(x1,y1):622, 94
+(x2,y2):672, 79
+(x3,y3):648, 91
+x1_depth:1041920
+x2_depth:1042688
+x3_depth:1042688
+P1_color:[17, 17, 66]
+P2_color:[147, 71, 177]
+P3_color:[117, 36, 227]
+start_x:620
+start_y:76
+end_x:672
+end_y:92
+finish this face
+483
+[266 265 271]
+(x1,y1):598, 108
+(x2,y2):622, 94
+(x3,y3):648, 91
+x1_depth:1042176
+x2_depth:1041920
+x3_depth:1042688
+P1_color:[220, 138, 73]
+P2_color:[17, 17, 66]
+P3_color:[117, 36, 227]
+start_x:596
+start_y:88
+end_x:648
+end_y:108
+finish this face
+484
+[266 271 272]
+(x1,y1):598, 108
+(x2,y2):648, 91
+(x3,y3):625, 104
+x1_depth:1042176
+x2_depth:1042688
+x3_depth:1043456
+P1_color:[220, 138, 73]
+P2_color:[117, 36, 227]
+P3_color:[228, 134, 108]
+start_x:596
+start_y:88
+end_x:648
+end_y:108
+finish this face
+485
+[267 266 272]
+(x1,y1):576, 122
+(x2,y2):598, 108
+(x3,y3):625, 104
+x1_depth:1043200
+x2_depth:1042176
+x3_depth:1043456
+P1_color:[13, 40, 197]
+P2_color:[220, 138, 73]
+P3_color:[228, 134, 108]
+start_x:576
+start_y:104
+end_x:624
+end_y:120
+finish this face
+486
+[267 272 273]
+(x1,y1):576, 122
+(x2,y2):625, 104
+(x3,y3):605, 117
+x1_depth:1043200
+x2_depth:1043456
+x3_depth:1043968
+P1_color:[13, 40, 197]
+P2_color:[228, 134, 108]
+P3_color:[137, 108, 54]
+start_x:576
+start_y:104
+end_x:624
+end_y:120
+finish this face
+487
+[268 267 273]
+(x1,y1):558, 137
+(x2,y2):576, 122
+(x3,y3):605, 117
+x1_depth:1043200
+x2_depth:1043200
+x3_depth:1043968
+P1_color:[243, 173, 240]
+P2_color:[13, 40, 197]
+P3_color:[137, 108, 54]
+start_x:556
+start_y:116
+end_x:604
+end_y:136
+finish this face
+488
+[268 273 274]
+(x1,y1):558, 137
+(x2,y2):605, 117
+(x3,y3):588, 131
+x1_depth:1043200
+x2_depth:1043968
+x3_depth:1044480
+P1_color:[243, 173, 240]
+P2_color:[137, 108, 54]
+P3_color:[237, 192, 95]
+start_x:556
+start_y:116
+end_x:604
+end_y:136
+finish this face
+489
+[269 268 274]
+(x1,y1):543, 153
+(x2,y2):558, 137
+(x3,y3):588, 131
+x1_depth:1043456
+x2_depth:1043200
+x3_depth:1044480
+P1_color:[72, 190, 176]
+P2_color:[243, 173, 240]
+P3_color:[237, 192, 95]
+start_x:540
+start_y:128
+end_x:588
+end_y:152
+finish this face
+490
+[269 274 275]
+(x1,y1):543, 153
+(x2,y2):588, 131
+(x3,y3):574, 147
+x1_depth:1043456
+x2_depth:1044480
+x3_depth:1044736
+P1_color:[72, 190, 176]
+P2_color:[237, 192, 95]
+P3_color:[169, 34, 243]
+start_x:540
+start_y:128
+end_x:588
+end_y:152
+finish this face
+491
+[270 125 132]
+(x1,y1):672, 79
+(x2,y2):698, 66
+(x3,y3):725, 72
+x1_depth:1042688
+x2_depth:1041408
+x3_depth:1043200
+P1_color:[147, 71, 177]
+P2_color:[187, 150, 78]
+P3_color:[207, 233, 233]
+start_x:672
+start_y:64
+end_x:724
+end_y:76
+finish this face
+492
+[270 132 276]
+(x1,y1):672, 79
+(x2,y2):725, 72
+(x3,y3):701, 85
+x1_depth:1042688
+x2_depth:1043200
+x3_depth:1043456
+P1_color:[147, 71, 177]
+P2_color:[207, 233, 233]
+P3_color:[152, 172, 6]
+start_x:672
+start_y:72
+end_x:724
+end_y:84
+finish this face
+493
+[271 270 276]
+(x1,y1):648, 91
+(x2,y2):672, 79
+(x3,y3):701, 85
+x1_depth:1042688
+x2_depth:1042688
+x3_depth:1043456
+P1_color:[117, 36, 227]
+P2_color:[147, 71, 177]
+P3_color:[152, 172, 6]
+start_x:648
+start_y:76
+end_x:700
+end_y:88
+finish this face
+494
+[271 276 277]
+(x1,y1):648, 91
+(x2,y2):701, 85
+(x3,y3):679, 97
+x1_depth:1042688
+x2_depth:1043456
+x3_depth:1043968
+P1_color:[117, 36, 227]
+P2_color:[152, 172, 6]
+P3_color:[214, 191, 136]
+start_x:648
+start_y:84
+end_x:700
+end_y:96
+finish this face
+495
+[272 271 277]
+(x1,y1):625, 104
+(x2,y2):648, 91
+(x3,y3):679, 97
+x1_depth:1043456
+x2_depth:1042688
+x3_depth:1043968
+P1_color:[228, 134, 108]
+P2_color:[117, 36, 227]
+P3_color:[214, 191, 136]
+start_x:624
+start_y:88
+end_x:676
+end_y:104
+finish this face
+496
+[272 277 278]
+(x1,y1):625, 104
+(x2,y2):679, 97
+(x3,y3):659, 110
+x1_depth:1043456
+x2_depth:1043968
+x3_depth:1044480
+P1_color:[228, 134, 108]
+P2_color:[214, 191, 136]
+P3_color:[40, 166, 55]
+start_x:624
+start_y:96
+end_x:676
+end_y:108

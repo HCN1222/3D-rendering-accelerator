@@ -712,17 +712,17 @@ module vertex_shader(
 				// output wire
 				case(cnt)
 					7: begin
-						vertex1_depth_update_wire = {ndc_z, 8'd0};
+						vertex1_depth_update_wire = {ndc_z, 7'd0};
 						screen_x1_update_wire = screen_x_quant;
 						screen_y1_update_wire = screen_y_quant;
 					end
 					8: begin
-						vertex2_depth_update_wire = {ndc_z, 8'd0};
+						vertex2_depth_update_wire = {ndc_z, 7'd0};
 						screen_x2_update_wire = screen_x_quant;
 						screen_y2_update_wire = screen_y_quant;
 					end
 					9: begin
-						vertex3_depth_update_wire = {ndc_z, 8'd0};
+						vertex3_depth_update_wire = {ndc_z, 7'd0};
 						screen_x3_update_wire = screen_x_quant;
 						screen_y3_update_wire = screen_y_quant;
 					end
