@@ -698,16 +698,16 @@ module vertex_shader(
 				// divided by 2 : 4Q12 -> 3Q13
 				//                 3Q13    *     12Q0 -> 15Q13 -> 15Q0
 				screen_x = (shifted_ndc_x * 12'sd1280);
-				screen_x_round = (screen_x  + {13'b0, 1'b1, 12'b0} );
-				screen_x_quant = screen_x_round >>> 13;
+				screen_x_round = (screen_x  + 26'sb0_0000_0000_0000_1_0000_0000_0000) >>> 13;
+				screen_x_quant = screen_x_round;
 
 				// screen_y = (1 - (ndc_y + 1) / 2) * camera.screen_H
 				//          = ( 1/2 - ndc_y/2 ) * camera.screen_H
 				//              2Q13 - 1Q13 
 				shifted_ndc_y = ( 16'sb000_1_0000_0000_0000 - ndc_y ); // 2Q13 -> 2Q13
 				screen_y = (shifted_ndc_y[13:0] * 12'd720);
-				screen_y_round = (screen_y  + {13'b0, 1'b1, 12'b0} );
-				screen_y_quant = screen_y_round >>> 13;
+				screen_y_round = (screen_y  + 26'sb0_0000_0000_0000_1_0000_0000_0000 ) >>> 13;
+				screen_y_quant = screen_y_round;
 
 				// output wire
 				case(cnt)

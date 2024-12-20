@@ -564,16 +564,16 @@ always@* begin
 
 end
 
-reg [7:0] current_R;
-reg [7:0] current_G;
-reg [7:0] current_B;
+// reg [7:0] current_R;
+// reg [7:0] current_G;
+// reg [7:0] current_B;
 
-always@* begin
-    current_R = current_Color[23:16];
-	current_G = current_Color[15:8];
-	current_B = current_Color[7:0];
+// always@* begin
+//     current_R = current_Color[23:16];
+// 	current_G = current_Color[15:8];
+// 	current_B = current_Color[7:0];
 
-end
+// end
 
 always@(posedge clk) begin
 
