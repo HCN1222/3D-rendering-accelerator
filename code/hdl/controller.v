@@ -315,8 +315,6 @@ always @ * begin
 			// counter 9
 			//   - stop counter
 			//   - if(data_ready == 1):
-			//		 signal set vertice_ready_wire to 1
-			//       update x, y, z, color
 			//       Go to RS state
 			// ****************************************
 			cnt_next = cnt + 1;
@@ -370,27 +368,27 @@ always @ * begin
 					VS_v3_color_next = Color_v;
 				end
 				9: begin
-					vertice1_x_wire = vertice1_x_update;
-					vertice1_y_wire = vertice1_y_update;
-					vertice1_depth_wire = vertice1_depth_update;
-					vertice1_color_wire = buffer_v1_color;
+					// vertice1_x_wire = vertice1_x_update;
+					// vertice1_y_wire = vertice1_y_update;
+					// vertice1_depth_wire = vertice1_depth_update;
+					// vertice1_color_wire = buffer_v1_color;
 
-					vertice2_x_wire = vertice2_x_update;
-					vertice2_y_wire = vertice2_y_update;
-					vertice2_depth_wire = vertice2_depth_update;
-					vertice2_color_wire = buffer_v2_color;
+					// vertice2_x_wire = vertice2_x_update;
+					// vertice2_y_wire = vertice2_y_update;
+					// vertice2_depth_wire = vertice2_depth_update;
+					// vertice2_color_wire = buffer_v2_color;
 
-					vertice3_x_wire = vertice3_x_update;
-					vertice3_y_wire = vertice3_y_update;
-					vertice3_depth_wire = vertice3_depth_update;
-					vertice3_color_wire = buffer_v3_color;
+					// vertice3_x_wire = vertice3_x_update;
+					// vertice3_y_wire = vertice3_y_update;
+					// vertice3_depth_wire = vertice3_depth_update;
+					// vertice3_color_wire = buffer_v3_color;
 					if (data_ready) begin
-						vertice_ready_wire = 1;
+						// vertice_ready_wire = 1;
 						state_next = RS;
 						cnt_next = 0;
 					end
 					else begin
-						vertice_ready_wire = 0;
+						// vertice_ready_wire = 0;
 						state_next = VS;
 						cnt_next = 9;
 					end
@@ -410,6 +408,23 @@ always @ * begin
 					state_next = DONE;
 				end
 				else begin
+					// update vertice info
+					vertice1_x_wire = vertice1_x_update;
+					vertice1_y_wire = vertice1_y_update;
+					vertice1_depth_wire = vertice1_depth_update;
+					vertice1_color_wire = buffer_v1_color;
+
+					vertice2_x_wire = vertice2_x_update;
+					vertice2_y_wire = vertice2_y_update;
+					vertice2_depth_wire = vertice2_depth_update;
+					vertice2_color_wire = buffer_v2_color;
+
+					vertice3_x_wire = vertice3_x_update;
+					vertice3_y_wire = vertice3_y_update;
+					vertice3_depth_wire = vertice3_depth_update;
+					vertice3_color_wire = buffer_v3_color;
+
+					vertice_ready_wire = 1;
 					start_doing_shading_wire = 1;
 					state_next = VS;
 				end

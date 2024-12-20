@@ -18,8 +18,20 @@ module divider(
     input signed [23:0] divisor,
     output reg signed [13:0] quotient
 );
-    wire signbit;
-    assign signbit = dividend[23] ^ divisor[23];
+    reg signbit, signbit_next;
+
+    reg [22:0] abs_dividend, abs_divisor;
+    reg [22:0] abs_dividend_next, abs_divisor_next;
+    always@(*) begin
+        signbit_next = dividend[23] ^ divisor[23];
+        abs_dividend_next = dividend[23] ? ~dividend[22:0] + 1'b1 : dividend[22:0];
+        abs_divisor_next = divisor[23] ? ~divisor[22:0] + 1'b1 : divisor[22:0];
+    end
+    always @(posedge clk) begin
+        signbit <= signbit_next;
+        abs_dividend <= abs_dividend_next;
+        abs_divisor <= abs_divisor_next;
+    end
 
     wire [35:0] remainder_out1;
     wire [22:0] divisor_out1;
@@ -28,8 +40,8 @@ module divider(
     divider_unit divider_unit1(
         // input
         .clk( clk ),
-        .remainder_in( {dividend[22:0],13'b0} ),
-        .divisor_in( divisor[22:0] ),
+        .remainder_in( {abs_dividend[22:0],13'b0} ),
+        .divisor_in( abs_divisor[22:0] ),
         .signbit_in( signbit ),
         // output
         .remainder_out( remainder_out1 ),
@@ -69,14 +81,14 @@ module divider(
     );
 
 
-    reg signed [12:0] quotient_next;
+    reg signed [13:0] quotient_next;
     always@(*) begin
         if (divisor == dividend) begin
             quotient_next = { signbit_out3, signbit_out3, 12'b0 };
         end
         else begin
             if (signbit_out3 == 0) begin
-            quotient_next  = {2'b0, remainder_out3[11:0]};
+                quotient_next  = {2'b0, remainder_out3[11:0]};
             end
             else begin
                 quotient_next = ~{2'b0, remainder_out3[11:0]}+1'b1;

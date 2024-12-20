@@ -148,7 +148,6 @@ module vertex_shader(
 	reg signed [25:0] CamX_next [0:2];
 
 	reg signed [25:0] CamY [0:2];
-	reg signed [49:0] CamY_norm [0:2];
 	reg signed [25:0] CamY_next [0:2];
 	// Dot result
 	reg signed [23:0] neg_Z_dot_eye, neg_Z_dot_eye_next; // 7Q17
@@ -291,7 +290,7 @@ module vertex_shader(
 
 	// sum quantization
 	reg signed [23:0] sum [0:3];
-	reg signed [23:0] sum_quant_next [0:3];
+	reg signed [25:0] sum_quant_next [0:3];
 	reg signed [23:0] sum_next [0:3];
 
 	// vertex matrix 4Q20
@@ -327,9 +326,9 @@ module vertex_shader(
 	);
 
 	// screen space
-	reg [14:0]shifted_ndc_x, shifted_ndc_y;
-	reg [25:0] screen_x, screen_y;
-	reg [25:0] screen_x_round, screen_y_round;
+	reg [15:0]shifted_ndc_x, shifted_ndc_y;
+	reg [27:0] screen_x, screen_y;
+	reg [27:0] screen_x_round, screen_y_round;
 	reg [11:0] screen_x_quant, screen_y_quant;
 
 	integer row, col;
@@ -368,9 +367,6 @@ module vertex_shader(
 		CamY_next[0] = CamY[0];
 		CamY_next[1] = CamY[1];
 		CamY_next[2] = CamY[2];
-		CamY_norm[0] = 0;
-		CamY_norm[1] = 0;
-		CamY_norm[2] = 0;
 
 		// Dot result
 		neg_Z_dot_eye_next = neg_Z_dot_eye;
@@ -407,6 +403,7 @@ module vertex_shader(
 		for(row = 0; row < 4; row = row + 1) begin
 			for(col = 0; col < 4; col = col + 1) begin
 				product_quant_next[row*4+col] = 0;
+				product_round[row*4+col] = 0;
 			end
 		end
 		// sum
@@ -638,7 +635,7 @@ module vertex_shader(
 				if (cnt == 4) begin
 					MVP_ready_wire = 1;
 				end
-				if (cnt == 5) begin
+				if (start_doing_shading) begin
 					state_next = TRANSFORM;
 					cnt_next = 0;
 				end
@@ -660,15 +657,16 @@ module vertex_shader(
 						//     18Q32              4Q20             12Q12
 						product[row*4+col] = vertex[row] * MVP_T[row*4+col];
 						// 18Q32 -> 14Q10
-						product_quant_next[row*4+col] = ( product[row*4+col] + {14'b0, 10'b0, 1'b1, 21'b0} ) >>> 22;
+						product_round[row*4+col] = ( product[row*4+col] + {14'b0, 10'b0, 1'b1, 21'b0} ) >>> 22;
+						product_quant_next[row*4+col] = product_round[row*4+col];
 					end
 				end
 				// stage 2
 				for ( col=0; col<4; col=col+1 )begin
-					// 14Q10 + 14Q10 + 14Q10 + 14Q10 = 16Q10 -> 16Q8
+					// 14Q10 + 14Q10 + 14Q10 + 14Q10 = 16Q10
 					sum_quant_next[col] = (product_quant[0*4+col] + product_quant[1*4+col] + product_quant[2*4+col] + product_quant[3*4+col]);
-											
-					sum_next[col] = ( sum_quant_next[col]+ 2'b10 ) >>> 2;
+					// 16Q10 -> 16Q8
+					sum_next[col] = ( sum_quant_next[col] + 2'b10 ) >>> 2;
 				end
 				// stage 3 4 5 6
 					// divider divider_x(
@@ -689,27 +687,27 @@ module vertex_shader(
 					// 	.divisor( sum[3] ),
 					// 	/*output*/ .quotient( ndc_z )
 				// stage 7
-				// ndc_x + 1: 2Q12 + 2Q12 = 3Q12
-				// (ndc_x + 1) / 2: 3Q12 -> 2Q13
-				// (ndc_x + 1) / 2 * camera.screen_W: 1Q13 * 12Q0 = 13Q13
-				// screen_x: 13Q13 -> 12Q0
+				// ndc_x + 1: 2Q12 + 2Q12 = 4Q12
+				// (ndc_x + 1) / 2: 4Q12 -> 3Q13
+				// (ndc_x + 1) / 2 * camera.screen_W: 3Q13 * 12Q0 = 15Q13
+				// screen_x: 15Q13 -> 15Q0
 
 				// screen_x = (ndc_x + 1) / 2 * camera.screen_W
 				//                2Q12           2Q12
-				shifted_ndc_x = (ndc_x + {1'b0, 1'b1, 12'b0}); // 3Q12
-				// divided by 2 : 3Q12 -> 2Q13
-				//                 2Q13    *     12Q0 -> 13Q13 -> 13Q0
-				screen_x = (shifted_ndc_x[13:0] * 12'sd1280);
-				screen_x_round = (screen_x  + {13'b0, 1'b1, 12'b0} ) >>> 13;
-				screen_x_quant = screen_x_round;
+				shifted_ndc_x = (ndc_x + 14'sb01_0000_0000_0000); // 4Q12
+				// divided by 2 : 4Q12 -> 3Q13
+				//                 3Q13    *     12Q0 -> 15Q13 -> 15Q0
+				screen_x = (shifted_ndc_x * 12'sd1280);
+				screen_x_round = (screen_x  + {13'b0, 1'b1, 12'b0} );
+				screen_x_quant = screen_x_round >>> 13;
 
 				// screen_y = (1 - (ndc_y + 1) / 2) * camera.screen_H
 				//          = ( 1/2 - ndc_y/2 ) * camera.screen_H
 				//              2Q13 - 1Q13 
-				shifted_ndc_y = ( {3'b0, 1'b1, 12'b0} - ndc_y ); // 2Q13 -> 2Q13
+				shifted_ndc_y = ( 16'sb000_1_0000_0000_0000 - ndc_y ); // 2Q13 -> 2Q13
 				screen_y = (shifted_ndc_y[13:0] * 12'd720);
-				screen_y_round = (screen_y  + {13'b0, 1'b1, 12'b0} ) >>> 13;
-				screen_y_quant = screen_y_round;
+				screen_y_round = (screen_y  + {13'b0, 1'b1, 12'b0} );
+				screen_y_quant = screen_y_round >>> 13;
 
 				// output wire
 				case(cnt)
@@ -751,6 +749,7 @@ module vertex_shader(
 				data_ready_wire = 1;
 				if ( start_doing_shading ) begin
 					state_next = TRANSFORM;
+					cnt_next = 0;
 				end
 			end
 			default: begin
@@ -788,9 +787,6 @@ module vertex_shader(
 				CamY_next[0] = CamY[0];
 				CamY_next[1] = CamY[1];
 				CamY_next[2] = CamY[2];
-				CamY_norm[0] = 0;
-				CamY_norm[1] = 0;
-				CamY_norm[2] = 0;
 
 				// Dot result
 				neg_Z_dot_eye_next = neg_Z_dot_eye;
