@@ -8,5 +8,3 @@ code/sim/sim_Graphic.log
 *.key
 code/sim/simv
 /mesh/others
-.venv
-.vs
