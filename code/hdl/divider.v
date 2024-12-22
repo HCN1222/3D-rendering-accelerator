@@ -18,6 +18,8 @@ module divider(
     input signed [23:0] divisor,
     output reg signed [13:0] quotient
 );
+
+    // =========== stage 0 ============================
     reg signbit, signbit_next;
 
     reg [23:0] abs_dividend, abs_divisor;
@@ -33,9 +35,17 @@ module divider(
         abs_divisor <= abs_divisor_next;
     end
 
+    // ============== stage 1 ==============================
     wire [35:0] remainder_out1;
     wire [22:0] divisor_out1;
     wire signbit_out1;
+
+    reg [23:0] abs_dividend_pipe1, abs_divisor_pipe1;
+    always @(posedge clk) begin
+        signbit <= signbit_next;
+        abs_dividend_pipe1 <= abs_dividend;
+        abs_divisor_pipe1 <= abs_divisor;
+    end
 
     divider_unit divider_unit1(
         // input
@@ -49,9 +59,17 @@ module divider(
         .signbit_out( signbit_out1 )
     );
 
+    // ============== stage 2 ==============================
     wire [35:0] remainder_out2;
     wire [22:0] divisor_out2;
     wire signbit_out2;
+
+    reg [23:0] abs_dividend_pipe2, abs_divisor_pipe2;
+    always @(posedge clk) begin
+        signbit <= signbit_next;
+        abs_dividend_pipe2 <= abs_dividend_pipe1;
+        abs_divisor_pipe2 <= abs_divisor_pipe1;
+    end
 
     divider_unit divider_unit2(
         // input
@@ -65,9 +83,18 @@ module divider(
         .signbit_out( signbit_out2 )
     );
 
+    // ============== stage 3 ==============================
     wire [35:0] remainder_out3;
     wire [22:0] divisor_out3;
     wire signbit_out3;
+
+    reg [23:0] abs_dividend_pipe3, abs_divisor_pipe3;
+    always @(posedge clk) begin
+        signbit <= signbit_next;
+        abs_dividend_pipe3 <= abs_dividend_pipe2;
+        abs_divisor_pipe3 <= abs_divisor_pipe2;
+    end
+
 
     divider_unit_last divider_unit3(
         // input
@@ -80,10 +107,10 @@ module divider(
         .signbit_out( signbit_out3 )
     );
 
-
+    // ============== stage 4 ==============================
     reg signed [13:0] quotient_next;
     always@(*) begin
-        if (divisor == dividend) begin
+        if (abs_dividend_pipe3 >= abs_divisor_pipe3) begin
             quotient_next = { signbit_out3, 1'b1, 12'b0 };
         end
         else begin
@@ -96,6 +123,7 @@ module divider(
         end
     end
 
+    // ============== stage 5 ==============================
     always@(posedge clk) begin
         quotient <= quotient_next;
     end
