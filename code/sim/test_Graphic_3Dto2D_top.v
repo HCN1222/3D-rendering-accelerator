@@ -5,7 +5,7 @@
 module test_Graphic_3Dto2D_top;
 
 `define CYCLE 10
-`define END_CYCLES 200000
+`define END_CYCLES 20000000
 
 reg clk;
 reg srst_n;
@@ -152,9 +152,43 @@ integer k;
 
 task initialize_sram_data;
     begin
-	    $readmemb("sw/faces_array.dat", faces_array);
-	    $readmemb("sw/vertices_position_array.dat", vertices_position_array);
-		$readmemb("sw/vertices_color_array.dat", vertices_color_array);
+	
+		`ifdef BOX
+			$readmemb("sw/TP/faces_array.dat", faces_array);
+			$readmemb("sw/TP/vertices_position_array.dat", vertices_position_array);
+			$readmemb("sw/TP/vertices_color_array.dat", vertices_color_array);
+		`endif
+		
+		`ifdef ELEPHANT
+			$readmemb("sw/TP/faces_array.dat", faces_array);
+			$readmemb("sw/TP/vertices_position_array.dat", vertices_position_array);
+			$readmemb("sw/TP/vertices_color_array.dat", vertices_color_array);
+		`endif
+		
+		`ifdef DRAGON
+			$readmemb("sw/TP/faces_array.dat", faces_array);
+			$readmemb("sw/TP/vertices_position_array.dat", vertices_position_array);
+			$readmemb("sw/TP/vertices_color_array.dat", vertices_color_array);
+		`endif
+		
+		`ifdef TEAPOT
+			$readmemb("sw/TP/faces_array.dat", faces_array);
+			$readmemb("sw/TP/vertices_position_array.dat", vertices_position_array);
+			$readmemb("sw/TP/vertices_color_array.dat", vertices_color_array);
+		`endif
+		
+		`ifdef BUNNY
+			$readmemb("sw/TP/faces_array.dat", faces_array);
+			$readmemb("sw/TP/vertices_position_array.dat", vertices_position_array);
+			$readmemb("sw/TP/vertices_color_array.dat", vertices_color_array);
+		`endif
+		
+        `ifdef ATHENA
+			$readmemb("sw/TP/faces_array.dat", faces_array);
+			$readmemb("sw/TP/vertices_position_array.dat", vertices_position_array);
+			$readmemb("sw/TP/vertices_color_array.dat", vertices_color_array);
+		`endif
+	
 		
 		sram_depth.reset_sram;
 		sram_screen_buffer_color.reset_sram;
@@ -182,17 +216,49 @@ reg [383:0] screen_space_array[0:57599];
 
 task verification;
     begin
-		$readmemb("sw/screen_space.dat", screen_space_array);
+	
+		`ifdef BOX
+			$readmemb("sw/TP/screen_space_tt.dat", screen_space_array);
+		`endif
+		
+		`ifdef ELEPHANT
+			$readmemb("sw/TP/screen_space_tt.dat", screen_space_array);
+		`endif
+		
+		`ifdef DRAGON
+			$readmemb("sw/TP/screen_space_tt.dat", screen_space_array);
+		`endif
+		
+		`ifdef TEAPOT
+			$readmemb("sw/TP/screen_space_tt.dat", screen_space_array);
+		`endif
+		
+		`ifdef BUNNY
+			$readmemb("sw/TP/screen_space_tt.dat", screen_space_array);
+		`endif
+		
+        `ifdef ATHENA
+			$readmemb("sw/TP/screen_space_tt.dat", screen_space_array);
+		`endif
 		
 		for(k=0;k<57600;k=k+1) begin
 			sram_screen_buffer_color.compare_act(k,screen_space_array[k],same_or_not_o[k]);
 			if(same_or_not_o[k] !== 1'b1) begin
-				$display("address %d false",k);
+				$display("Error, address %d false",k);
 				$finish;
+			end else begin
+			    $display("address %d pass",k);
 			end
 		end
+		
+		`ifdef POSTSIM
+            $display("POSTSIM_PASS: HA HA HA, 3D Model mesh to 2D screen buffer success!!");
+		`elsif GATESIM
+		    $display("GATESIM_PASS: HA HA HA, 3D Model mesh to 2D screen buffer success!!");
+		`else
+		    $display("PRESIM_PASS:  HA HA HA, 3D Model mesh to 2D screen buffer success!!");
+		`endif
 
-		$display("success!");
     end
 endtask
 
@@ -200,6 +266,8 @@ initial begin
     clk = 0;
     while(1) #(`CYCLE/2) clk = ~clk;
 end
+
+//always #(`CYCLE/2) clk = ~clk;
 
 initial begin
 
@@ -210,16 +278,140 @@ initial begin
 	    srst_n = 1'b1;
         enable = 0;
 		
-	    eye_x = 24'd4194304;
-		eye_y = 24'd4194304;
-		eye_z = 24'd4194304;
+		`ifdef BOX
+		
+			num_of_faces = 20'd12;
+			
+			`ifdef PAT1
+				eye_x = 24'd5242880;
+				eye_y = 24'd5242880;
+				eye_z = 24'd5242880;
+			`elsif PAT2
+				eye_x = 24'd5242880;
+				eye_y = 24'd5242880;
+				eye_z = 24'd5242880;
+			`else
+				eye_x = 24'd0;
+				eye_y = 24'd0;
+				eye_z = 24'd0;
+				$display("You need to define PAT1 or PAT2, test finish");
+				$finish;
+			`endif
+		`endif
+		
+		`ifdef ELEPHANT
+		
+			num_of_faces = 20'd1148;
+			
+			`ifdef PAT1
+				eye_x = 24'd5242880;
+				eye_y = 24'd5242880;
+				eye_z = 24'd5242880;
+			`elsif PAT2
+				eye_x = 24'd5242880;
+				eye_y = 24'd5242880;
+				eye_z = 24'd5242880;
+			`else
+				eye_x = 24'd0;
+				eye_y = 24'd0;
+				eye_z = 24'd0;
+				$display("You need to define PAT1 or PAT2, test finish");
+				$finish;
+			`endif
+		`endif
+		
+		`ifdef DRAGON
+		
+			num_of_faces = 20'd2730;
+			
+			`ifdef PAT1
+				eye_x = 24'd5242880;
+				eye_y = 24'd5242880;
+				eye_z = 24'd5242880;
+			`elsif PAT2
+				eye_x = 24'd5242880;
+				eye_y = 24'd5242880;
+				eye_z = 24'd5242880;
+			`else
+				eye_x = 24'd0;
+				eye_y = 24'd0;
+				eye_z = 24'd0;
+				$display("You need to define PAT1 or PAT2, test finish");
+				$finish;
+			`endif
+		`endif
+		
+		`ifdef TEAPOT
+		
+			num_of_faces = 20'd2256;
+			
+			`ifdef PAT1
+				eye_x = 24'd5242880;
+				eye_y = 24'd5242880;
+				eye_z = 24'd5242880;
+			`elsif PAT2
+				eye_x = 24'd5242880;
+				eye_y = 24'd5242880;
+				eye_z = 24'd5242880;
+			`else
+				eye_x = 24'd0;
+				eye_y = 24'd0;
+				eye_z = 24'd0;
+				$display("You need to define PAT1 or PAT2, test finish");
+				$finish;
+			`endif
+		`endif
+		
+		`ifdef BUNNY
+		
+			num_of_faces = 20'd2915;
+			
+			`ifdef PAT1
+				eye_x = 24'd5242880;
+				eye_y = 24'd5242880;
+				eye_z = 24'd5242880;
+			`elsif PAT2
+				eye_x = 24'd5242880;
+				eye_y = 24'd5242880;
+				eye_z = 24'd5242880;
+			`else
+				eye_x = 24'd0;
+				eye_y = 24'd0;
+				eye_z = 24'd0;
+				$display("You need to define PAT1 or PAT2, test finish");
+				$finish;
+			`endif
+		`endif
+		
+        `ifdef ATHENA
+		
+			num_of_faces = 20'd1121;
+			
+			`ifdef PAT1
+				eye_x = 24'd5242880;
+				eye_y = 24'd5242880;
+				eye_z = 24'd5242880;
+			`elsif PAT2
+				eye_x = 24'd5242880;
+				eye_y = 24'd5242880;
+				eye_z = 24'd5242880;
+			`else
+				eye_x = 24'd0;
+				eye_y = 24'd0;
+				eye_z = 24'd0;
+				$display("You need to define PAT1 or PAT2, test finish");
+				$finish;
+			`endif
+		`endif
+		
+	    
 		center_x = 24'd0;
 		center_y = 24'd0;
 		center_z = 24'd0;
 		up_x = 24'd0;
 		up_y = 24'd1048576;
 		up_z = 24'd0;
-	    num_of_faces = 20'd12;
+	    
 		
         @(negedge clk); srst_n = 1'b0;
         @(negedge clk); srst_n = 1'b1; enable = 1'b1;
@@ -249,8 +441,34 @@ initial begin
 end
 
 initial begin
-	$fsdbDumpfile("final_sim.fsdb");
-	$fsdbDumpvars("+mda");
+
+    `ifdef POSTSIM
+	
+		`ifdef BUNNY
+			$fsdbDumpfile("postsim.fsdb");
+			$fsdbDumpvars("+mda", Graphic_3Dto2D_top_U0);
+		`endif
+		
+		$sdf_annotate("../innovus/post_layout/CHIP.sdf", Graphic_3Dto2D_top_U0);
+		
+	`elsif GATESIM
+	
+		`ifdef BUNNY
+			$fsdbDumpfile("gatesim.fsdb");
+			$fsdbDumpvars("+mda", Graphic_3Dto2D_top_U0);
+		`endif
+		
+		 $sdf_annotate("../syn/netlist/Graphic_3Dto2D_top_syn.sdf",Graphic_3Dto2D_top_U0);
+		 
+	`else
+	
+		`ifdef BUNNY
+			$fsdbDumpfile("presim.fsdb");
+			$fsdbDumpvars("+mda",Graphic_3Dto2D_top_U0);
+		`endif
+		
+	`endif
+
 end
 
 endmodule
