@@ -154,39 +154,39 @@ task initialize_sram_data;
     begin
 	
 		`ifdef BOX
-			$readmemb("sw/TP/faces_array.dat", faces_array);
-			$readmemb("sw/TP/vertices_position_array.dat", vertices_position_array);
-			$readmemb("sw/TP/vertices_color_array.dat", vertices_color_array);
+			$readmemb("sw/TP/BOX_0_faces_array.dat", faces_array);
+			$readmemb("sw/TP/BOX_0_vertices_position_array.dat", vertices_position_array);
+			$readmemb("sw/TP/BOX_0_vertices_color_array.dat", vertices_color_array);
 		`endif
 		
 		`ifdef ELEPHANT
-			$readmemb("sw/TP/faces_array.dat", faces_array);
-			$readmemb("sw/TP/vertices_position_array.dat", vertices_position_array);
-			$readmemb("sw/TP/vertices_color_array.dat", vertices_color_array);
+			$readmemb("sw/TP/elephant_0_faces_array.dat", faces_array);
+			$readmemb("sw/TP/elephant_0_vertices_position_array.dat", vertices_position_array);
+			$readmemb("sw/TP/elephant_0_vertices_color_array.dat", vertices_color_array);
 		`endif
 		
 		`ifdef DRAGON
-			$readmemb("sw/TP/faces_array.dat", faces_array);
-			$readmemb("sw/TP/vertices_position_array.dat", vertices_position_array);
-			$readmemb("sw/TP/vertices_color_array.dat", vertices_color_array);
+			$readmemb("sw/TP/dragon_0_faces_array.dat", faces_array);
+			$readmemb("sw/TP/dragon_0_vertices_position_array.dat", vertices_position_array);
+			$readmemb("sw/TP/dragon_0_vertices_color_array.dat", vertices_color_array);
 		`endif
 		
 		`ifdef TEAPOT
-			$readmemb("sw/TP/faces_array.dat", faces_array);
-			$readmemb("sw/TP/vertices_position_array.dat", vertices_position_array);
-			$readmemb("sw/TP/vertices_color_array.dat", vertices_color_array);
+			$readmemb("sw/TP/teapot_0_faces_array.dat", faces_array);
+			$readmemb("sw/TP/teapot_0_vertices_position_array.dat", vertices_position_array);
+			$readmemb("sw/TP/teapot_0_vertices_color_array.dat", vertices_color_array);
 		`endif
 		
 		`ifdef BUNNY
-			$readmemb("sw/TP/faces_array.dat", faces_array);
-			$readmemb("sw/TP/vertices_position_array.dat", vertices_position_array);
-			$readmemb("sw/TP/vertices_color_array.dat", vertices_color_array);
+			$readmemb("sw/TP/bunny_0_faces_array.dat", faces_array);
+			$readmemb("sw/TP/bunny_0_vertices_position_array.dat", vertices_position_array);
+			$readmemb("sw/TP/bunny_0_vertices_color_array.dat", vertices_color_array);
 		`endif
 		
         `ifdef ATHENA
-			$readmemb("sw/TP/faces_array.dat", faces_array);
-			$readmemb("sw/TP/vertices_position_array.dat", vertices_position_array);
-			$readmemb("sw/TP/vertices_color_array.dat", vertices_color_array);
+			$readmemb("sw/TP/athena_0_faces_array.dat", faces_array);
+			$readmemb("sw/TP/athena_0_vertices_position_array.dat", vertices_position_array);
+			$readmemb("sw/TP/athena_0_vertices_color_array.dat", vertices_color_array);
 		`endif
 	
 		
@@ -215,32 +215,56 @@ reg same_or_not_o [0:57599];
 reg [383:0] screen_space_array[0:57599]; 
 
 task verification;
-    begin
-	
-		`ifdef BOX
-			$readmemb("sw/TP/screen_space_tt.dat", screen_space_array);
-		`endif
-		
-		`ifdef ELEPHANT
-			$readmemb("sw/TP/screen_space_tt.dat", screen_space_array);
-		`endif
-		
-		`ifdef DRAGON
-			$readmemb("sw/TP/screen_space_tt.dat", screen_space_array);
-		`endif
-		
-		`ifdef TEAPOT
-			$readmemb("sw/TP/screen_space_tt.dat", screen_space_array);
-		`endif
-		
-		`ifdef BUNNY
-			$readmemb("sw/TP/screen_space_tt.dat", screen_space_array);
-		`endif
-		
-        `ifdef ATHENA
-			$readmemb("sw/TP/screen_space_tt.dat", screen_space_array);
-		`endif
-		
+	begin
+			
+			`ifdef ATHENA
+				`ifdef PAT1
+					$readmemb("sw/TP/athena_0_screen_space_pat1.dat", screen_space_array);
+				`elsif PAT2
+					$readmemb("sw/TP/athena_1_screen_space_pat2.dat", screen_space_array);
+				`endif
+			`endif
+
+			`ifdef BOX
+				`ifdef PAT1
+					$readmemb("sw/TP/box_0_screen_space_pat1.dat", screen_space_array);
+				`elsif PAT2
+					$readmemb("sw/TP/box_1_screen_space_pat2.dat", screen_space_array);
+				`endif
+			`endif
+
+			`ifdef BUNNY
+				`ifdef PAT1
+					$readmemb("sw/TP/bunny_0_screen_space_pat1.dat", screen_space_array);
+				`elsif PAT2
+					$readmemb("sw/TP/bunny_1_screen_space_pat2.dat", screen_space_array);
+				`endif
+			`endif 
+			
+			`ifdef DRAGON
+				`ifdef PAT1
+					$readmemb("sw/TP/dragon_0_screen_space_pat1.dat", screen_space_array);
+				`elsif PAT2
+					$readmemb("sw/TP/dragon_1_screen_space_pat2.dat", screen_space_array);
+				`endif
+			`endif
+
+			`ifdef ELEPHANT
+				`ifdef PAT1
+					$readmemb("sw/TP/elephant_0_screen_space_pat1.dat", screen_space_array);
+				`elsif PAT2
+					$readmemb("sw/TP/elephant_1_screen_space_pat2.dat", screen_space_array);
+				`endif
+			`endif
+
+			`ifdef TEAPOT
+				`ifdef PAT1
+					$readmemb("sw/TP/teapot_0_screen_space_pat1.dat", screen_space_array);
+				`elsif PAT2
+					$readmemb("sw/TP/teapot_1_screen_space_pat2.dat", screen_space_array);
+				`endif
+			`endif
+				
 		for(k=0;k<57600;k=k+1) begin
 			sram_screen_buffer_color.compare_act(k,screen_space_array[k],same_or_not_o[k]);
 			if(same_or_not_o[k] !== 1'b1) begin
@@ -277,132 +301,131 @@ initial begin
 		
 	    srst_n = 1'b1;
         enable = 0;
-		
-		`ifdef BOX
-		
-			num_of_faces = 20'd12;
+		`ifdef ATHENA
 			
-			`ifdef PAT1
-				eye_x = 24'd5242880;
-				eye_y = 24'd5242880;
-				eye_z = 24'd5242880;
-			`elsif PAT2
-				eye_x = 24'd5242880;
-				eye_y = 24'd5242880;
-				eye_z = 24'd5242880;
-			`else
-				eye_x = 24'd0;
-				eye_y = 24'd0;
-				eye_z = 24'd0;
-				$display("You need to define PAT1 or PAT2, test finish");
-				$finish;
+				num_of_faces = 20'd1121;
+				
+				`ifdef PAT1
+					eye_x = 24'd373293;
+					eye_y = 24'd365953;
+					eye_z = 24'd6520046;
+				`elsif PAT2
+					eye_x = 24'd5376049;
+					eye_y = 24'd6645875;
+					eye_z = 24'd5682233;
+				`else
+					eye_x = 24'd0;
+					eye_y = 24'd0;
+					eye_z = 24'd0;
+					$display("You need to define PAT1 or PAT2, test finish");
+					$finish;
+				`endif
 			`endif
-		`endif
-		
-		`ifdef ELEPHANT
-		
-			num_of_faces = 20'd1148;
 			
-			`ifdef PAT1
-				eye_x = 24'd5242880;
-				eye_y = 24'd5242880;
-				eye_z = 24'd5242880;
-			`elsif PAT2
-				eye_x = 24'd5242880;
-				eye_y = 24'd5242880;
-				eye_z = 24'd5242880;
-			`else
-				eye_x = 24'd0;
-				eye_y = 24'd0;
-				eye_z = 24'd0;
-				$display("You need to define PAT1 or PAT2, test finish");
-				$finish;
-			`endif
-		`endif
-		
-		`ifdef DRAGON
-		
-			num_of_faces = 20'd2730;
+			`ifdef BOX
 			
-			`ifdef PAT1
-				eye_x = 24'd5242880;
-				eye_y = 24'd5242880;
-				eye_z = 24'd5242880;
-			`elsif PAT2
-				eye_x = 24'd5242880;
-				eye_y = 24'd5242880;
-				eye_z = 24'd5242880;
-			`else
-				eye_x = 24'd0;
-				eye_y = 24'd0;
-				eye_z = 24'd0;
-				$display("You need to define PAT1 or PAT2, test finish");
-				$finish;
+				num_of_faces = 20'd12;
+				
+				`ifdef PAT1
+					eye_x = 24'd6137315;
+					eye_y = 24'd5480907;
+					eye_z = 24'd5888803;
+				`elsif PAT2
+					eye_x = 24'd5176820;
+					eye_y = 24'd4633657;
+					eye_z = 24'd4442817;
+				`else
+					eye_x = 24'd0;
+					eye_y = 24'd0;
+					eye_z = 24'd0;
+					$display("You need to define PAT1 or PAT2, test finish");
+					$finish;
+				`endif
 			`endif
-		`endif
-		
-		`ifdef TEAPOT
-		
-			num_of_faces = 20'd2256;
 			
-			`ifdef PAT1
-				eye_x = 24'd5242880;
-				eye_y = 24'd5242880;
-				eye_z = 24'd5242880;
-			`elsif PAT2
-				eye_x = 24'd5242880;
-				eye_y = 24'd5242880;
-				eye_z = 24'd5242880;
-			`else
-				eye_x = 24'd0;
-				eye_y = 24'd0;
-				eye_z = 24'd0;
-				$display("You need to define PAT1 or PAT2, test finish");
-				$finish;
-			`endif
-		`endif
-		
-		`ifdef BUNNY
-		
-			num_of_faces = 20'd2915;
+			`ifdef BUNNY
 			
-			`ifdef PAT1
-				eye_x = 24'd5242880;
-				eye_y = 24'd5242880;
-				eye_z = 24'd5242880;
-			`elsif PAT2
-				eye_x = 24'd5242880;
-				eye_y = 24'd5242880;
-				eye_z = 24'd5242880;
-			`else
-				eye_x = 24'd0;
-				eye_y = 24'd0;
-				eye_z = 24'd0;
-				$display("You need to define PAT1 or PAT2, test finish");
-				$finish;
+				num_of_faces = 20'd2915;
+				
+				`ifdef PAT1
+					eye_x = 24'd5242880;
+					eye_y = 24'd5242880;
+					eye_z = 24'd5242880;
+				`elsif PAT2
+					eye_x = 24'd5242880;
+					eye_y = 24'd5242880;
+					eye_z = 24'd5242880;
+				`else
+					eye_x = 24'd0;
+					eye_y = 24'd0;
+					eye_z = 24'd0;
+					$display("You need to define PAT1 or PAT2, test finish");
+					$finish;
+				`endif
 			`endif
-		`endif
-		
-        `ifdef ATHENA
-		
-			num_of_faces = 20'd1121;
 			
-			`ifdef PAT1
-				eye_x = 24'd5242880;
-				eye_y = 24'd5242880;
-				eye_z = 24'd5242880;
-			`elsif PAT2
-				eye_x = 24'd5242880;
-				eye_y = 24'd5242880;
-				eye_z = 24'd5242880;
-			`else
-				eye_x = 24'd0;
-				eye_y = 24'd0;
-				eye_z = 24'd0;
-				$display("You need to define PAT1 or PAT2, test finish");
-				$finish;
+			`ifdef DRAGON
+			
+				num_of_faces = 20'd2730;
+				
+				`ifdef PAT1
+					eye_x = 24'd5242880;
+					eye_y = 24'd5242880;
+					eye_z = 24'd5242880;
+				`elsif PAT2
+					eye_x = 24'd5242880;
+					eye_y = 24'd5242880;
+					eye_z = 24'd5242880;
+				`else
+					eye_x = 24'd0;
+					eye_y = 24'd0;
+					eye_z = 24'd0;
+					$display("You need to define PAT1 or PAT2, test finish");
+					$finish;
+				`endif
 			`endif
-		`endif
+			
+			`ifdef ELEPHANT
+			
+				num_of_faces = 20'd1148;
+				
+				`ifdef PAT1
+					eye_x = 24'd5242880;
+					eye_y = 24'd5242880;
+					eye_z = 24'd5242880;
+				`elsif PAT2
+					eye_x = 24'd5242880;
+					eye_y = 24'd5242880;
+					eye_z = 24'd5242880;
+				`else
+					eye_x = 24'd0;
+					eye_y = 24'd0;
+					eye_z = 24'd0;
+					$display("You need to define PAT1 or PAT2, test finish");
+					$finish;
+				`endif
+			`endif
+			
+			`ifdef TEAPOT
+			
+				num_of_faces = 20'd2256;
+				
+				`ifdef PAT1
+					eye_x = 24'd5242880;
+					eye_y = 24'd5242880;
+					eye_z = 24'd5242880;
+				`elsif PAT2
+					eye_x = 24'd5242880;
+					eye_y = 24'd5242880;
+					eye_z = 24'd5242880;
+				`else
+					eye_x = 24'd0;
+					eye_y = 24'd0;
+					eye_z = 24'd0;
+					$display("You need to define PAT1 or PAT2, test finish");
+					$finish;
+				`endif
+			`endif
 		
 	    
 		center_x = 24'd0;
