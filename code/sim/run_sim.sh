@@ -13,11 +13,11 @@ for model in ATHENA BOX BUNNY DRAGON ELEPHANT TEAPOT; do
                 if [ "$model" == "BOX" ]; then
                     vcs -R +v2k -full64 -f sim.f -debug_acc -l sim_${model}_${pattern}_${sim}.log\
                     +define+${model} +define+${pattern} +define+${sim} +define+DUMPFILE\
-                    +warn=noSDFCOM_CFIIS
+                    +warn=none
                 else
                     vcs -R +v2k -full64 -f sim.f -debug_acc -l sim_${model}_${pattern}_${sim}.log\
                     +define+${model} +define+${pattern} +define+${sim}\
-                    +warn=noSDFCOM_CFIIS
+                    +warn=none
                 fi
             fi
         done

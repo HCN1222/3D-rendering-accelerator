@@ -1,7 +1,7 @@
 #@ # 
 #@ # Running dc_shell Version R-2020.09-SP5 for linux64 -- Apr 23, 2021
-#@ # Date:   Sat Dec 21 02:00:27 2024
-#@ # Run by: u110060021@ws28
+#@ # Date:   Mon Dec 23 05:00:32 2024
+#@ # Run by: u110060035@ws28
 #@ 
 
 source /usr/cad/synopsys/synthesis/cur/admin/setup/.synopsys_dc.setup
@@ -6811,8 +6811,8 @@ source /usr/cad/synopsys/synthesis/cur/admin/setup/.synopsys_dc.setup
 
 #@ # -- End source /usr/cad/synopsys/synthesis/cur/admin/setup/.synopsys_dc.setup
 
-source /home/u110/u110060021/Final_project/Graphic/syn/.synopsys_dc.setup
-#@ # -- Starting source /home/u110/u110060021/Final_project/Graphic/syn/.synopsys_dc.setup
+source /home/u110/u110060035/ICLAB/final_project/3D-rendering-accelerator/code/syn/.synopsys_dc.setup
+#@ # -- Starting source /home/u110/u110060035/ICLAB/final_project/3D-rendering-accelerator/code/syn/.synopsys_dc.setup
 
 #@ set search_path ".                  /usr/cadtool/GPDK45/gsclib045_svt_v4.4/gsclib045/db/                  $search_path                 "
 #@ 
@@ -6841,13 +6841,13 @@ source /home/u110/u110060021/Final_project/Graphic/syn/.synopsys_dc.setup
 #@ 
 #@ # Suppress known warning
 #@ suppress_message UID-401
-#@ # -- End source /home/u110/u110060021/Final_project/Graphic/syn/.synopsys_dc.setup
+#@ # -- End source /home/u110/u110060035/ICLAB/final_project/3D-rendering-accelerator/code/syn/.synopsys_dc.setup
 
-source -echo -verbose /home/u110/u110060021/Final_project/Graphic/syn/synthesis.tcl
-#@ # -- Starting source /home/u110/u110060021/Final_project/Graphic/syn/synthesis.tcl
+source -echo -verbose /home/u110/u110060035/ICLAB/final_project/3D-rendering-accelerator/code/syn/synthesis.tcl
+#@ # -- Starting source /home/u110/u110060035/ICLAB/final_project/3D-rendering-accelerator/code/syn/synthesis.tcl
 
 #@ # Set your TOPLEVEL here
-#@ set TOPLEVEL "Rasterization"
+#@ set TOPLEVEL "Graphic_3Dto2D_top"
 #@ 
 #@ # Change your timing constraint here
 #@ set TEST_CYCLE 8.0
@@ -6916,8 +6916,8 @@ source -echo -verbose /home/u110/u110060021/Final_project/Graphic/syn/synthesis.
 #@ set_ideal_network      [get_ports clk]
 #@ set_dont_touch_network [all_clocks]
 #@ #-- set I/O delay
-#@ #set_input_delay  [expr $TEST_CYCLE*0.7] -clock clk [remove_from_collection [all_inputs] [get_ports clk]]
-#@ set_output_delay [expr $TEST_CYCLE*0.7] -clock clk [all_outputs]
+#@ set_input_delay  [expr $TEST_CYCLE*0.5] -clock clk [remove_from_collection [all_inputs] [get_ports clk]]
+#@ set_output_delay [expr $TEST_CYCLE*0.5] -clock clk [all_outputs]
 #@ 
 #@ # Set DRC constraint
 #@ # Defensive setting: default fanout_load 1.0 and our target max fanout # 20 => 1.0*20 = 20.0
@@ -6941,6 +6941,10 @@ source -echo -verbose /home/u110/u110060021/Final_project/Graphic/syn/synthesis.
 #@ 
 #@ set_clock_gating_style -max_fanout 10
 #@ 
+#@ set compile_enable_register_merging false
+#@ set compile_seqmap_propagate_constants false
+#@ # set compile_ultra_dw_ungroup false
+#@ 
 #@ # Synthesis all design (using : compile_ultra)
 #@ compile_ultra -gate_clock -exact_map -no_autoungroup -no_seq_output_inversion -no_boundary_optimization
 #@ compile_ultra -incremental -exact_map -no_autoungroup -no_seq_output_inversion -no_boundary_optimization
@@ -6953,7 +6957,7 @@ source -echo -verbose /home/u110/u110060021/Final_project/Graphic/syn/synthesis.
 #@ source -echo -verbose 3_report.tcl 
 #@ # -- Starting source 3_report.tcl
 
-#@ #------------------------------ Naming Rules ------------------------------
+#@ ###-----------------------------Naming Rules----------------------------
 #@ set bus_inference_style {%s[%d]}
 #@ set bus_naming_style {%s[%d]}
 #@ set hdlout_internal_busses true
@@ -6964,25 +6968,33 @@ source -echo -verbose /home/u110/u110060021/Final_project/Graphic/syn/synthesis.
 #@ define_name_rules name_rule -case_insensitive
 #@ change_names -hierarchy -rules name_rule
 #@ 
-#@ #------------------------------ Netlist-related ------------------------------
+#@ ###--------------------------Netlist-related------------------------------------
 #@ write -format ddc     -hierarchy -output ./netlist/${TOPLEVEL}_syn.ddc
 #@ write -format verilog -hierarchy -output ./netlist/${TOPLEVEL}_syn.v
-#@ write_sdf -version 2.1 -significant_digits 4 -context verilog ./netlist/${TOPLEVEL}_syn.sdf
+#@ write_sdf -version 1.0  -context verilog ./netlist/${TOPLEVEL}_syn.sdf
 #@ write_sdc ./netlist/${TOPLEVEL}_syn.sdc
 #@ write_saif -output ./netlist/${TOPLEVEL}_syn.saif 
 #@ 
-#@ #------------------------------ Synthesis result reports ------------------------------
-#@ # Timing report
+#@ ###---------------------------Syntheis result reports----------------------------
+#@ # ===== Timing report =====
 #@ report_timing -delay min -max_paths 4 > ./report/report_hold_${TOPLEVEL}.out
 #@ report_timing -delay max -max_paths 4 > ./report/report_setup_${TOPLEVEL}.out
-#@ report_timing -path full -delay max -max_paths 1 -nworst 1 -significant_digits 4 > ./report/report_time_${TOPLEVEL}.out
-#@ # Area report
-#@ report_area -hier > ./report/report_area_${TOPLEVEL}.out
-#@ # Power report
+#@ report_timing -path full -delay max -max_paths 4 -nworst 2 -significant_digits 4 > ./report/report_time_${TOPLEVEL}.out
+#@ 
+#@ # ===== Area report =====
+#@ report_area -hier  > ./report/report_area_${TOPLEVEL}.out
+#@ 
+#@ # ===== Power report =====
 #@ report_power -hier > ./report/report_power_${TOPLEVEL}.out
-#@ # Violation report
+#@ 
+#@ # ===== violations =====
 #@ report_constraint -all_violators > ./report/report_violation_${TOPLEVEL}.out
+#@ 
+#@ # ===== resources =====
+#@ report_resources -hierarchy > ./report/report_resources_${TOPLEVEL}.out
 #@ # -- End source 3_report.tcl
 
+#@ 
+#@ 
 #@ 
 #@ exit

@@ -14,7 +14,7 @@ set compile_seqmap_propagate_constants false
 
 # Synthesis all design (using : compile_ultra)
 compile_ultra -gate_clock -exact_map -no_autoungroup -no_seq_output_inversion -no_boundary_optimization
-# compile_ultra -incremental -exact_map -no_autoungroup -no_seq_output_inversion -no_boundary_optimization
+compile_ultra -incremental -exact_map -no_autoungroup -no_seq_output_inversion -no_boundary_optimization
 
 # Remove dummy ports
 remove_unconnected_ports [get_cells -hierarchical *]

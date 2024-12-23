@@ -14,3 +14,6 @@ code/sim/simv
 /code/SW/TP
 /code/SW/TPOLD
 /code/SW/TP_FIND
+/code/syn
+code/syn/synopsys_dc.setup
+code/syn/default.svf

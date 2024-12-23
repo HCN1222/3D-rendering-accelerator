@@ -16,8 +16,8 @@ create_clock -name clk -period $TEST_CYCLE [get_ports clk]
 set_ideal_network      [get_ports clk]
 set_dont_touch_network [all_clocks]
 #-- set I/O delay
-#set_input_delay  [expr $TEST_CYCLE*0.7] -clock clk [remove_from_collection [all_inputs] [get_ports clk]]
-set_output_delay [expr $TEST_CYCLE*0.7] -clock clk [all_outputs]
+set_input_delay  [expr $TEST_CYCLE*0.5] -clock clk [remove_from_collection [all_inputs] [get_ports clk]]
+set_output_delay [expr $TEST_CYCLE*0.5] -clock clk [all_outputs]
 
 # Set DRC constraint
 # Defensive setting: default fanout_load 1.0 and our target max fanout # 20 => 1.0*20 = 20.0
