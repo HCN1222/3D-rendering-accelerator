@@ -42,7 +42,6 @@ module divider(
 
     reg [23:0] abs_dividend_pipe1, abs_divisor_pipe1;
     always @(posedge clk) begin
-        signbit <= signbit_next;
         abs_dividend_pipe1 <= abs_dividend;
         abs_divisor_pipe1 <= abs_divisor;
     end
@@ -66,7 +65,6 @@ module divider(
 
     reg [23:0] abs_dividend_pipe2, abs_divisor_pipe2;
     always @(posedge clk) begin
-        signbit <= signbit_next;
         abs_dividend_pipe2 <= abs_dividend_pipe1;
         abs_divisor_pipe2 <= abs_divisor_pipe1;
     end
@@ -90,7 +88,6 @@ module divider(
 
     reg [23:0] abs_dividend_pipe3, abs_divisor_pipe3;
     always @(posedge clk) begin
-        signbit <= signbit_next;
         abs_dividend_pipe3 <= abs_dividend_pipe2;
         abs_divisor_pipe3 <= abs_divisor_pipe2;
     end

@@ -8,9 +8,13 @@ check_timing > ./$RPT_DIR/check_timing.log
 
 set_clock_gating_style -max_fanout 10
 
+set compile_enable_register_merging false
+set compile_seqmap_propagate_constants false
+# set compile_ultra_dw_ungroup false
+
 # Synthesis all design (using : compile_ultra)
 compile_ultra -gate_clock -exact_map -no_autoungroup -no_seq_output_inversion -no_boundary_optimization
-compile_ultra -incremental -exact_map -no_autoungroup -no_seq_output_inversion -no_boundary_optimization
+# compile_ultra -incremental -exact_map -no_autoungroup -no_seq_output_inversion -no_boundary_optimization
 
 # Remove dummy ports
 remove_unconnected_ports [get_cells -hierarchical *]

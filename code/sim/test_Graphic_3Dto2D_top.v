@@ -271,7 +271,7 @@ task verification;
 				$display("Error, address %d false",k);
 				$finish;
 			end else begin
-			    //$display("address %d pass",k);
+			    $display("address %d pass",k);
 			end
 		end
 		
@@ -348,9 +348,9 @@ initial begin
 				num_of_faces = 20'd2915;
 				
 				`ifdef PAT1
-					eye_x = 24'd6855590;
-					eye_y = 24'd3396338;
-					eye_z = 24'd5784994;
+					eye_x = 24'd7065305;
+					eye_y = 24'd4348445;
+					eye_z = 24'd6628049;
 				`elsif PAT2
 					eye_x = 24'd5807014;
 					eye_y = 24'd3396338;
@@ -390,13 +390,13 @@ initial begin
 				num_of_faces = 20'd1148;
 				
 				`ifdef PAT1
+					eye_x = 24'd5627707;
+					eye_y = 24'd3280994;
+					eye_z = 24'd4752146;
+				`elsif PAT2
 					eye_x = 24'd4653580;
 					eye_y = 24'd6042943;
 					eye_z = 24'd4381999;
-				`elsif PAT2
-					eye_x = 24'd4579131;
-					eye_y = 24'd3636462;
-					eye_z = 24'd4329570;
 				`else
 					eye_x = 24'd0;
 					eye_y = 24'd0;

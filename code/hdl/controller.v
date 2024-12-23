@@ -193,7 +193,7 @@ always @ * begin
 	buffer_v3_color_next = buffer_v3_color;
 	// ***************************************
 
-	case(state) // synopsys parallel_case
+	case(state)
 		IDLE: begin
 			// ****************************************
 			// Wait for enable signal
