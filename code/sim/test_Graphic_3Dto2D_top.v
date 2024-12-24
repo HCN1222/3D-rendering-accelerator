@@ -271,7 +271,7 @@ task verification;
 				$display("Error, address %d false",k);
 				$finish;
 			end else begin
-			    $display("address %d pass",k);
+			    // $display("address %d pass",k);
 			end
 		end
 		
@@ -280,7 +280,7 @@ task verification;
 		`elsif GATESIM
 		    $display("GATESIM_PASS: HA HA HA, 3D Model mesh to 2D screen buffer success!!");
 		`else
-		    $display("PRESIM_PASS:  HA HA HA, 3D Model mesh to 2D screen buffer success!!");
+		    $display("PRESIM_PASS: HA HA HA, 3D Model mesh to 2D screen buffer success!!");
 		`endif
 
     end
@@ -472,7 +472,7 @@ initial begin
 			$fsdbDumpvars("+mda", Graphic_3Dto2D_top_U0);
 		`endif
 		
-		$sdf_annotate("../innovus/post_layout/CHIP.sdf", Graphic_3Dto2D_top_U0);
+		$sdf_annotate("../APR_85/innovus/post_layout/CHIP.sdf", Graphic_3Dto2D_top_U0);
 		
 	`elsif GATESIM
 	
