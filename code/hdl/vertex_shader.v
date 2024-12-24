@@ -74,7 +74,7 @@ module vertex_shader(
 	wire signed [23:0] inv_sqrt_out;
 
 	inv_sqrt inv_sqrt(
-		/*input*/ .clk(clk),
+		/*input*/ .clk(clk), .srst_n(srst_n),
 		.x( inv_sqrt_x ), .y( inv_sqrt_y ), .z( inv_sqrt_z ),
 		/*output*/ .out( inv_sqrt_out )
 	);
@@ -93,7 +93,7 @@ module vertex_shader(
 	wire signed [23:0] neg_dot_product_out;
 
 	neg_dot_product neg_dot_product(
-		/*input*/ .clk(clk),
+		/*input*/ .clk(clk), .srst_n(srst_n),
 		.unit_x( neg_dot_product_unit_x ), .unit_y( neg_dot_product_unit_y ), .unit_z( neg_dot_product_unit_z ),
 		.x2( neg_dot_product_x2 ), .y2( neg_dot_product_y2 ), .z2( neg_dot_product_z2 ),
 		/*output*/ .out( neg_dot_product_out )
@@ -113,7 +113,7 @@ module vertex_shader(
 	wire signed [25:0] cross_product_out_x, cross_product_out_y, cross_product_out_z;
 
 	cross_product cross_product(
-		/*input*/ .clk(clk),
+		/*input*/ .clk(clk), .srst_n(srst_n),
 		.Ux( cross_product_Ux ), .Uy( cross_product_Uy ), .Uz( cross_product_Uz ),
 		.Vx( cross_product_Vx ), .Vy( cross_product_Vy ), .Vz( cross_product_Vz ),
 		/*output*/ .out_x( cross_product_out_x ), .out_y( cross_product_out_y ), .out_z( cross_product_out_z )
@@ -307,19 +307,19 @@ module vertex_shader(
 	wire signed [13:0] ndc_x, ndc_y, ndc_z;
 
 	divider divider_x(
-		/*input*/ .clk(clk),
+		/*input*/ .clk(clk), .srst_n(srst_n),
 		.dividend( sum[0] ),
 		.divisor( sum[3] ),
 		/*output*/ .quotient( ndc_x )
 	);
 	divider divider_y(
-		/*input*/ .clk(clk),
+		/*input*/ .clk(clk), .srst_n(srst_n),
 		.dividend( sum[1] ),
 		.divisor( sum[3] ),
 		/*output*/ .quotient( ndc_y )
 	);
 	divider divider_z(
-		/*input*/ .clk(clk),
+		/*input*/ .clk(clk), .srst_n(srst_n),
 		.dividend( sum[2] ),
 		.divisor( sum[3] ),
 		/*output*/ .quotient( ndc_z )
@@ -842,57 +842,110 @@ module vertex_shader(
 			state <= state_next;
 		end
 		
-		// output wire
-		vertex1_depth_update <= vertex1_depth_update_wire;
-		vertex2_depth_update <= vertex2_depth_update_wire;
-		vertex3_depth_update <= vertex3_depth_update_wire;
-		screen_x1_update <= screen_x1_update_wire;
-		screen_y1_update <= screen_y1_update_wire;
-		screen_x2_update <= screen_x2_update_wire;
-		screen_y2_update <= screen_y2_update_wire;
-		screen_x3_update <= screen_x3_update_wire;
-		screen_y3_update <= screen_y3_update_wire;
-		MVP_ready <= MVP_ready_wire;
-		data_ready <= data_ready_wire;
+		if (~srst_n) begin
+			// output wire
+			vertex1_depth_update <= 0;// vertex1_depth_update_wire;
+			vertex2_depth_update <= 0;// vertex2_depth_update_wire;
+			vertex3_depth_update <= 0;// vertex3_depth_update_wire;
+			screen_x1_update <= 0;// screen_x1_update_wire;
+			screen_y1_update <= 0;// screen_y1_update_wire;
+			screen_x2_update <= 0;// screen_x2_update_wire;
+			screen_y2_update <= 0;// screen_y2_update_wire;
+			screen_x3_update <= 0;// screen_x3_update_wire;
+			screen_y3_update <= 0;// screen_y3_update_wire;
+			MVP_ready <= 0;// MVP_ready_wire;
+			data_ready <= 0;// data_ready_wire;
 
-		// counter
-		cnt <= cnt_next;
-		// Camera axes
-		CamZ[0] <= CamZ_next[0];
-		CamZ[1] <= CamZ_next[1];
-		CamZ[2] <= CamZ_next[2];
-		
-		CamX[0] <= CamX_next[0];
-		CamX[1] <= CamX_next[1];
-		CamX[2] <= CamX_next[2];
+			// counter
+			cnt <= 0;// cnt_next;
+			// Camera axes
+			CamZ[0] <= 0;// CamZ_next[0];
+			CamZ[1] <= 0;// CamZ_next[1];
+			CamZ[2] <= 0;// CamZ_next[2];
+			
+			CamX[0] <= 0;// CamX_next[0];
+			CamX[1] <= 0;// CamX_next[1];
+			CamX[2] <= 0;// CamX_next[2];
 
-		CamY[0] <= CamY_next[0];
-		CamY[1] <= CamY_next[1];
-		CamY[2] <= CamY_next[2];
-		// Dot product
-		neg_Z_dot_eye <= neg_Z_dot_eye_next;
-		neg_X_dot_eye <= neg_X_dot_eye_next;
-		neg_Y_dot_eye <= neg_Y_dot_eye_next;
+			CamY[0] <= 0;// CamY_next[0];
+			CamY[1] <= 0;// CamY_next[1];
+			CamY[2] <= 0;// CamY_next[2];
+			// Dot product
+			neg_Z_dot_eye <= 0;// neg_Z_dot_eye_next;
+			neg_X_dot_eye <= 0;// neg_X_dot_eye_next;
+			neg_Y_dot_eye <= 0;// neg_Y_dot_eye_next;
 
-		// MVP matrix
-		for (i=0; i<4; i=i+1)begin
-			for (j=0; j<4; j=j+1)begin
-				MVP[i*4+j] <= MVP_next[i*4+j];
+			// MVP matrix
+			for (i=0; i<4; i=i+1)begin
+				for (j=0; j<4; j=j+1)begin
+					MVP[i*4+j] <= 0;// MVP_next[i*4+j];
+				end
+			end
+
+			// product quant
+			for (i=0; i<4; i=i+1)begin
+				for (j=0; j<4; j=j+1)begin
+					product_quant[i*4+j] <= 0;// product_quant_next[i*4+j];
+				end
+			end
+
+			// sum
+			for (i=0; i<4; i=i+1)begin
+				sum[i] <= 0;// sum_next[i];
 			end
 		end
+		else begin
+			// output wire
+			vertex1_depth_update <= vertex1_depth_update_wire;
+			vertex2_depth_update <= vertex2_depth_update_wire;
+			vertex3_depth_update <= vertex3_depth_update_wire;
+			screen_x1_update <= screen_x1_update_wire;
+			screen_y1_update <= screen_y1_update_wire;
+			screen_x2_update <= screen_x2_update_wire;
+			screen_y2_update <= screen_y2_update_wire;
+			screen_x3_update <= screen_x3_update_wire;
+			screen_y3_update <= screen_y3_update_wire;
+			MVP_ready <= MVP_ready_wire;
+			data_ready <= data_ready_wire;
 
-		// product quant
-		for (i=0; i<4; i=i+1)begin
-			for (j=0; j<4; j=j+1)begin
-				product_quant[i*4+j] <= product_quant_next[i*4+j];
+			// counter
+			cnt <= cnt_next;
+			// Camera axes
+			CamZ[0] <= CamZ_next[0];
+			CamZ[1] <= CamZ_next[1];
+			CamZ[2] <= CamZ_next[2];
+			
+			CamX[0] <= CamX_next[0];
+			CamX[1] <= CamX_next[1];
+			CamX[2] <= CamX_next[2];
+
+			CamY[0] <= CamY_next[0];
+			CamY[1] <= CamY_next[1];
+			CamY[2] <= CamY_next[2];
+			// Dot product
+			neg_Z_dot_eye <= neg_Z_dot_eye_next;
+			neg_X_dot_eye <= neg_X_dot_eye_next;
+			neg_Y_dot_eye <= neg_Y_dot_eye_next;
+
+			// MVP matrix
+			for (i=0; i<4; i=i+1)begin
+				for (j=0; j<4; j=j+1)begin
+					MVP[i*4+j] <= MVP_next[i*4+j];
+				end
+			end
+
+			// product quant
+			for (i=0; i<4; i=i+1)begin
+				for (j=0; j<4; j=j+1)begin
+					product_quant[i*4+j] <= product_quant_next[i*4+j];
+				end
+			end
+
+			// sum
+			for (i=0; i<4; i=i+1)begin
+				sum[i] <= sum_next[i];
 			end
 		end
-
-		// sum
-		for (i=0; i<4; i=i+1)begin
-			sum[i] <= sum_next[i];
-		end
-
 	end
 
 endmodule

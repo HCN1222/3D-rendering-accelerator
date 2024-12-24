@@ -1,6 +1,7 @@
 module GetColorDepth(
 
     input clk,
+	input srst_n,
 
     input [11:0] screen_x1,
 	input [11:0] screen_y1,
@@ -564,188 +565,356 @@ always@* begin
 
 end
 
-// reg [7:0] current_R;
-// reg [7:0] current_G;
-// reg [7:0] current_B;
+//reg [7:0] current_R;
+//reg [7:0] current_G;
+//reg [7:0] current_B;
 
-// always@* begin
-//     current_R = current_Color[23:16];
-// 	current_G = current_Color[15:8];
-// 	current_B = current_Color[7:0];
-
-// end
+//always@* begin
+//  current_R = current_Color[23:16];
+//  current_G = current_Color[15:8];
+//  current_B = current_Color[7:0];
+//end
 
 always@(posedge clk) begin
 
-    // 1st pipeline
-    temp0 <= next_temp0;
-    temp1 <= next_temp1;
-    temp2 <= next_temp2;
-    temp3 <= next_temp3;
-    temp4 <= next_temp4;
-    temp5 <= next_temp5;
-    temp6 <= next_temp6;
-    temp7 <= next_temp7;
-    temp8 <= next_temp8;
-    temp9 <= next_temp9;
-    temp10 <= next_temp10;
-    temp11 <= next_temp11;
-	
-	detect_pipe2 <= next_detect_pipe2;
-	
-	overlap_v1_pipe2 <= next_overlap_v1_pipe2;
-	overlap_v2_pipe2 <= next_overlap_v2_pipe2;
-    overlap_v3_pipe2 <= next_overlap_v3_pipe2;
-	
-    vertice1_depth_pipe2 <= vertice1_depth;
-    vertice2_depth_pipe2 <= vertice2_depth;
-    vertice3_depth_pipe2 <= vertice3_depth;
-	
-    vertice1_color_pipe2 <= vertice1_color;
-    vertice2_color_pipe2 <= vertice2_color;
-    vertice3_color_pipe2 <= vertice3_color;
-	
-	// 2nd pipeline
-	
-	A1 <= next_A1;
-	A2 <= next_A2;
-	A3 <= next_A3;
-	At <= next_At;
-	
-	detect_pipe3 <= detect_pipe2;
-	overlap_v1_pipe3 <= overlap_v1_pipe2;
-	overlap_v2_pipe3 <= overlap_v2_pipe2;
-    overlap_v3_pipe3 <= overlap_v3_pipe2;
-	
-	vertice1_depth_pipe3 <= vertice1_depth_pipe2;
-    vertice2_depth_pipe3 <= vertice2_depth_pipe2;
-    vertice3_depth_pipe3 <= vertice3_depth_pipe2;
-	
-	vertice1_color_pipe3 <= vertice1_color_pipe2;
-    vertice2_color_pipe3 <= vertice2_color_pipe2;
-    vertice3_color_pipe3 <= vertice3_color_pipe2;
-	
-	// 3rd pipeline
-	detect_pipe4 <= detect_pipe3;
-	overlap_v1_pipe4 <= overlap_v1_pipe3;
-	overlap_v2_pipe4 <= overlap_v2_pipe3;
-    overlap_v3_pipe4 <= overlap_v3_pipe3;
-	
-	vertice1_depth_pipe4 <= vertice1_depth_pipe3;
-    vertice2_depth_pipe4 <= vertice2_depth_pipe3;
-    vertice3_depth_pipe4 <= vertice3_depth_pipe3;
-	
-	vertice1_color_pipe4 <= vertice1_color_pipe3;
-    vertice2_color_pipe4 <= vertice2_color_pipe3;
-    vertice3_color_pipe4 <= vertice3_color_pipe3;
-	
-	// 4th pipeline
-	detect_pipe5 <= detect_pipe4;
-	overlap_v1_pipe5 <= overlap_v1_pipe4;
-	overlap_v2_pipe5 <= overlap_v2_pipe4;
-    overlap_v3_pipe5 <= overlap_v3_pipe4;
-	
-	vertice1_depth_pipe5 <= vertice1_depth_pipe4;
-    vertice2_depth_pipe5 <= vertice2_depth_pipe4;
-    vertice3_depth_pipe5 <= vertice3_depth_pipe4;
-	
-	vertice1_color_pipe5 <= vertice1_color_pipe4;
-    vertice2_color_pipe5 <= vertice2_color_pipe4;
-    vertice3_color_pipe5 <= vertice3_color_pipe4;
-	
-	in_triangle_pipe5 <= in_triangle_pipe4;
-	
-	// 5th pipeline
-	detect_pipe6 <= detect_pipe5;
-	overlap_v1_pipe6 <= overlap_v1_pipe5;
-	overlap_v2_pipe6 <= overlap_v2_pipe5;
-    overlap_v3_pipe6 <= overlap_v3_pipe5;
-	
-	vertice1_depth_pipe6 <= vertice1_depth_pipe5;
-    vertice2_depth_pipe6 <= vertice2_depth_pipe5;
-    vertice3_depth_pipe6 <= vertice3_depth_pipe5;
-	
-	vertice1_color_pipe6 <= vertice1_color_pipe5;
-    vertice2_color_pipe6 <= vertice2_color_pipe5;
-    vertice3_color_pipe6 <= vertice3_color_pipe5;
-	
-	in_triangle_pipe6 <= in_triangle_pipe5;
-	
-	// 6th pipeline
-	detect_pipe7 <= detect_pipe6;
-	overlap_v1_pipe7 <= overlap_v1_pipe6;
-	overlap_v2_pipe7 <= overlap_v2_pipe6;
-    overlap_v3_pipe7 <= overlap_v3_pipe6;
-	
-	vertice1_depth_pipe7 <= vertice1_depth_pipe6;
-    vertice2_depth_pipe7 <= vertice2_depth_pipe6;
-    vertice3_depth_pipe7 <= vertice3_depth_pipe6;
-	
-	vertice1_color_pipe7 <= vertice1_color_pipe6;
-    vertice2_color_pipe7 <= vertice2_color_pipe6;
-    vertice3_color_pipe7 <= vertice3_color_pipe6;
-	
-	in_triangle_pipe7 <= in_triangle_pipe6;
-	
-	// 7th pipeline
-	detect_pipe8 <= detect_pipe7;
-	overlap_v1_pipe8 <= overlap_v1_pipe7;
-	overlap_v2_pipe8 <= overlap_v2_pipe7;
-    overlap_v3_pipe8 <= overlap_v3_pipe7;
-	
-	vertice1_depth_pipe8 <= vertice1_depth_pipe7;
-    vertice2_depth_pipe8 <= vertice2_depth_pipe7;
-    vertice3_depth_pipe8 <= vertice3_depth_pipe7;
-	
-	vertice1_color_pipe8 <= vertice1_color_pipe7;
-    vertice2_color_pipe8 <= vertice2_color_pipe7;
-    vertice3_color_pipe8 <= vertice3_color_pipe7;
-	
-	in_triangle_pipe8 <= in_triangle_pipe7;
-	
-	// 8th pipeline
-	detect_pipe9 <= detect_pipe8;
-	overlap_v1_pipe9 <= overlap_v1_pipe8;
-	overlap_v2_pipe9 <= overlap_v2_pipe8;
-    overlap_v3_pipe9 <= overlap_v3_pipe8;
-	
-	vertice1_depth_pipe9 <= vertice1_depth_pipe8;
-    vertice2_depth_pipe9 <= vertice2_depth_pipe8;
-    vertice3_depth_pipe9 <= vertice3_depth_pipe8;
-	
-	vertice1_color_pipe9 <= vertice1_color_pipe8;
-    vertice2_color_pipe9 <= vertice2_color_pipe8;
-    vertice3_color_pipe9 <= vertice3_color_pipe8;
-	
-	in_triangle_pipe9 <= in_triangle_pipe8;
-	
-    p1_color_R <= next_p1_color_R;
-    p2_color_R <= next_p2_color_R;
-    p3_color_R <= next_p3_color_R;
+	if(~srst_n) begin
+				// 1st pipeline
+		temp0 <= 0;// next_temp0;
+		temp1 <= 0;// next_temp1;
+		temp2 <= 0;// next_temp2;
+		temp3 <= 0;// next_temp3;
+		temp4 <= 0;// next_temp4;
+		temp5 <= 0;// next_temp5;
+		temp6 <= 0;// next_temp6;
+		temp7 <= 0;// next_temp7;
+		temp8 <= 0;// next_temp8;
+		temp9 <= 0;// next_temp9;
+		temp10 <= 0;// next_temp10;
+		temp11 <= 0;// next_temp11;
+		
+		detect_pipe2 <= 0;// next_detect_pipe2;
+		
+		overlap_v1_pipe2 <= 0;// next_overlap_v1_pipe2;
+		overlap_v2_pipe2 <= 0;// next_overlap_v2_pipe2;
+		overlap_v3_pipe2 <= 0;// next_overlap_v3_pipe2;
+		
+		vertice1_depth_pipe2 <= 0;// vertice1_depth;
+		vertice2_depth_pipe2 <= 0;// vertice2_depth;
+		vertice3_depth_pipe2 <= 0;// vertice3_depth;
+		
+		vertice1_color_pipe2 <= 0;// vertice1_color;
+		vertice2_color_pipe2 <= 0;// vertice2_color;
+		vertice3_color_pipe2 <= 0;// vertice3_color;
+		
+		// 2nd pipeline
+		
+		A1 <= 0;// next_A1;
+		A2 <= 0;// next_A2;
+		A3 <= 0;// next_A3;
+		At <= 0;// next_At;
+		
+		detect_pipe3 <= 0;// detect_pipe2;
+		overlap_v1_pipe3 <= 0;// overlap_v1_pipe2;
+		overlap_v2_pipe3 <= 0;// overlap_v2_pipe2;
+		overlap_v3_pipe3 <= 0;// overlap_v3_pipe2;
+		
+		vertice1_depth_pipe3 <= 0;// vertice1_depth_pipe2;
+		vertice2_depth_pipe3 <= 0;// vertice2_depth_pipe2;
+		vertice3_depth_pipe3 <= 0;// vertice3_depth_pipe2;
+		
+		vertice1_color_pipe3 <= 0;// vertice1_color_pipe2;
+		vertice2_color_pipe3 <= 0;// vertice2_color_pipe2;
+		vertice3_color_pipe3 <= 0;// vertice3_color_pipe2;
+		
+		// 3rd pipeline
+		detect_pipe4 <= 0;// detect_pipe3;
+		overlap_v1_pipe4 <= 0;// overlap_v1_pipe3;
+		overlap_v2_pipe4 <= 0;// overlap_v2_pipe3;
+		overlap_v3_pipe4 <= 0;// overlap_v3_pipe3;
+		
+		vertice1_depth_pipe4 <= 0;// vertice1_depth_pipe3;
+		vertice2_depth_pipe4 <= 0;// vertice2_depth_pipe3;
+		vertice3_depth_pipe4 <= 0;// vertice3_depth_pipe3;
+		
+		vertice1_color_pipe4 <= 0;// vertice1_color_pipe3;
+		vertice2_color_pipe4 <= 0;// vertice2_color_pipe3;
+		vertice3_color_pipe4 <= 0;// vertice3_color_pipe3;
+		
+		// 4th pipeline
+		detect_pipe5 <= 0;// detect_pipe4;
+		overlap_v1_pipe5 <= 0;// overlap_v1_pipe4;
+		overlap_v2_pipe5 <= 0;// overlap_v2_pipe4;
+		overlap_v3_pipe5 <= 0;// overlap_v3_pipe4;
+		
+		vertice1_depth_pipe5 <= 0;// vertice1_depth_pipe4;
+		vertice2_depth_pipe5 <= 0;// vertice2_depth_pipe4;
+		vertice3_depth_pipe5 <= 0;// vertice3_depth_pipe4;
+		
+		vertice1_color_pipe5 <= 0;// vertice1_color_pipe4;
+		vertice2_color_pipe5 <= 0;// vertice2_color_pipe4;
+		vertice3_color_pipe5 <= 0;// vertice3_color_pipe4;
+		
+		in_triangle_pipe5 <= 0;// in_triangle_pipe4;
+		
+		// 5th pipeline
+		detect_pipe6 <= 0;// detect_pipe5;
+		overlap_v1_pipe6 <= 0;// overlap_v1_pipe5;
+		overlap_v2_pipe6 <= 0;// overlap_v2_pipe5;
+		overlap_v3_pipe6 <= 0;// overlap_v3_pipe5;
+		
+		vertice1_depth_pipe6 <= 0;// vertice1_depth_pipe5;
+		vertice2_depth_pipe6 <= 0;// vertice2_depth_pipe5;
+		vertice3_depth_pipe6 <= 0;// vertice3_depth_pipe5;
+		
+		vertice1_color_pipe6 <= 0;// vertice1_color_pipe5;
+		vertice2_color_pipe6 <= 0;// vertice2_color_pipe5;
+		vertice3_color_pipe6 <= 0;// vertice3_color_pipe5;
+		
+		in_triangle_pipe6 <= 0;// in_triangle_pipe5;
+		
+		// 6th pipeline
+		detect_pipe7 <= 0;// detect_pipe6;
+		overlap_v1_pipe7 <= 0;// overlap_v1_pipe6;
+		overlap_v2_pipe7 <= 0;// overlap_v2_pipe6;
+		overlap_v3_pipe7 <= 0;// overlap_v3_pipe6;
+		
+		vertice1_depth_pipe7 <= 0;// vertice1_depth_pipe6;
+		vertice2_depth_pipe7 <= 0;// vertice2_depth_pipe6;
+		vertice3_depth_pipe7 <= 0;// vertice3_depth_pipe6;
+		
+		vertice1_color_pipe7 <= 0;// vertice1_color_pipe6;
+		vertice2_color_pipe7 <= 0;// vertice2_color_pipe6;
+		vertice3_color_pipe7 <= 0;// vertice3_color_pipe6;
+		
+		in_triangle_pipe7 <= 0;// in_triangle_pipe6;
+		
+		// 7th pipeline
+		detect_pipe8 <= 0;// detect_pipe7;
+		overlap_v1_pipe8 <= 0;// overlap_v1_pipe7;
+		overlap_v2_pipe8 <= 0;// overlap_v2_pipe7;
+		overlap_v3_pipe8 <= 0;// overlap_v3_pipe7;
+		
+		vertice1_depth_pipe8 <= 0;// vertice1_depth_pipe7;
+		vertice2_depth_pipe8 <= 0;// vertice2_depth_pipe7;
+		vertice3_depth_pipe8 <= 0;// vertice3_depth_pipe7;
+		
+		vertice1_color_pipe8 <= 0;// vertice1_color_pipe7;
+		vertice2_color_pipe8 <= 0;// vertice2_color_pipe7;
+		vertice3_color_pipe8 <= 0;// vertice3_color_pipe7;
+		
+		in_triangle_pipe8 <= 0;// in_triangle_pipe7;
+		
+		// 8th pipeline
+		detect_pipe9 <= 0;// detect_pipe8;
+		overlap_v1_pipe9 <= 0;// overlap_v1_pipe8;
+		overlap_v2_pipe9 <= 0;// overlap_v2_pipe8;
+		overlap_v3_pipe9 <= 0;// overlap_v3_pipe8;
+		
+		vertice1_depth_pipe9 <= 0;// vertice1_depth_pipe8;
+		vertice2_depth_pipe9 <= 0;// vertice2_depth_pipe8;
+		vertice3_depth_pipe9 <= 0;// vertice3_depth_pipe8;
+		
+		vertice1_color_pipe9 <= 0;// vertice1_color_pipe8;
+		vertice2_color_pipe9 <= 0;// vertice2_color_pipe8;
+		vertice3_color_pipe9 <= 0;// vertice3_color_pipe8;
+		
+		in_triangle_pipe9 <= 0;// in_triangle_pipe8;
+		
+		p1_color_R <= 0;// next_p1_color_R;
+		p2_color_R <= 0;// next_p2_color_R;
+		p3_color_R <= 0;// next_p3_color_R;
 
-    p1_color_G <= next_p1_color_G;
-    p2_color_G <= next_p2_color_G;
-    p3_color_G <= next_p3_color_G;
+		p1_color_G <= 0;// next_p1_color_G;
+		p2_color_G <= 0;// next_p2_color_G;
+		p3_color_G <= 0;// next_p3_color_G;
 
-    p1_color_B <= next_p1_color_B;
-    p2_color_B <= next_p2_color_B;
-    p3_color_B <= next_p3_color_B;
+		p1_color_B <= 0;// next_p1_color_B;
+		p2_color_B <= 0;// next_p2_color_B;
+		p3_color_B <= 0;// next_p3_color_B;
 
-    p1_depth <= next_p1_depth;
-    p2_depth <= next_p2_depth;
-    p3_depth <= next_p3_depth;	
-	
-	// 9th pipeline
-	current_Color <= next_current_Color;
-	current_depth <= next_current_depth;
-	not_draw <= next_not_draw;
-	in_triangle <= next_in_triangle;
+		p1_depth <= 0;// next_p1_depth;
+		p2_depth <= 0;// next_p2_depth;
+		p3_depth <= 0;// next_p3_depth;	
+		
+		// 9th pipeline
+		current_Color <= 0;// next_current_Color;
+		current_depth <= 0;// next_current_depth;
+		not_draw <= 0;// next_not_draw;
+		in_triangle <= 0;// next_in_triangle;
+
+	end
+	else begin
+		// 1st pipeline
+		temp0 <= next_temp0;
+		temp1 <= next_temp1;
+		temp2 <= next_temp2;
+		temp3 <= next_temp3;
+		temp4 <= next_temp4;
+		temp5 <= next_temp5;
+		temp6 <= next_temp6;
+		temp7 <= next_temp7;
+		temp8 <= next_temp8;
+		temp9 <= next_temp9;
+		temp10 <= next_temp10;
+		temp11 <= next_temp11;
+		
+		detect_pipe2 <= next_detect_pipe2;
+		
+		overlap_v1_pipe2 <= next_overlap_v1_pipe2;
+		overlap_v2_pipe2 <= next_overlap_v2_pipe2;
+		overlap_v3_pipe2 <= next_overlap_v3_pipe2;
+		
+		vertice1_depth_pipe2 <= vertice1_depth;
+		vertice2_depth_pipe2 <= vertice2_depth;
+		vertice3_depth_pipe2 <= vertice3_depth;
+		
+		vertice1_color_pipe2 <= vertice1_color;
+		vertice2_color_pipe2 <= vertice2_color;
+		vertice3_color_pipe2 <= vertice3_color;
+		
+		// 2nd pipeline
+		
+		A1 <= next_A1;
+		A2 <= next_A2;
+		A3 <= next_A3;
+		At <= next_At;
+		
+		detect_pipe3 <= detect_pipe2;
+		overlap_v1_pipe3 <= overlap_v1_pipe2;
+		overlap_v2_pipe3 <= overlap_v2_pipe2;
+		overlap_v3_pipe3 <= overlap_v3_pipe2;
+		
+		vertice1_depth_pipe3 <= vertice1_depth_pipe2;
+		vertice2_depth_pipe3 <= vertice2_depth_pipe2;
+		vertice3_depth_pipe3 <= vertice3_depth_pipe2;
+		
+		vertice1_color_pipe3 <= vertice1_color_pipe2;
+		vertice2_color_pipe3 <= vertice2_color_pipe2;
+		vertice3_color_pipe3 <= vertice3_color_pipe2;
+		
+		// 3rd pipeline
+		detect_pipe4 <= detect_pipe3;
+		overlap_v1_pipe4 <= overlap_v1_pipe3;
+		overlap_v2_pipe4 <= overlap_v2_pipe3;
+		overlap_v3_pipe4 <= overlap_v3_pipe3;
+		
+		vertice1_depth_pipe4 <= vertice1_depth_pipe3;
+		vertice2_depth_pipe4 <= vertice2_depth_pipe3;
+		vertice3_depth_pipe4 <= vertice3_depth_pipe3;
+		
+		vertice1_color_pipe4 <= vertice1_color_pipe3;
+		vertice2_color_pipe4 <= vertice2_color_pipe3;
+		vertice3_color_pipe4 <= vertice3_color_pipe3;
+		
+		// 4th pipeline
+		detect_pipe5 <= detect_pipe4;
+		overlap_v1_pipe5 <= overlap_v1_pipe4;
+		overlap_v2_pipe5 <= overlap_v2_pipe4;
+		overlap_v3_pipe5 <= overlap_v3_pipe4;
+		
+		vertice1_depth_pipe5 <= vertice1_depth_pipe4;
+		vertice2_depth_pipe5 <= vertice2_depth_pipe4;
+		vertice3_depth_pipe5 <= vertice3_depth_pipe4;
+		
+		vertice1_color_pipe5 <= vertice1_color_pipe4;
+		vertice2_color_pipe5 <= vertice2_color_pipe4;
+		vertice3_color_pipe5 <= vertice3_color_pipe4;
+		
+		in_triangle_pipe5 <= in_triangle_pipe4;
+		
+		// 5th pipeline
+		detect_pipe6 <= detect_pipe5;
+		overlap_v1_pipe6 <= overlap_v1_pipe5;
+		overlap_v2_pipe6 <= overlap_v2_pipe5;
+		overlap_v3_pipe6 <= overlap_v3_pipe5;
+		
+		vertice1_depth_pipe6 <= vertice1_depth_pipe5;
+		vertice2_depth_pipe6 <= vertice2_depth_pipe5;
+		vertice3_depth_pipe6 <= vertice3_depth_pipe5;
+		
+		vertice1_color_pipe6 <= vertice1_color_pipe5;
+		vertice2_color_pipe6 <= vertice2_color_pipe5;
+		vertice3_color_pipe6 <= vertice3_color_pipe5;
+		
+		in_triangle_pipe6 <= in_triangle_pipe5;
+		
+		// 6th pipeline
+		detect_pipe7 <= detect_pipe6;
+		overlap_v1_pipe7 <= overlap_v1_pipe6;
+		overlap_v2_pipe7 <= overlap_v2_pipe6;
+		overlap_v3_pipe7 <= overlap_v3_pipe6;
+		
+		vertice1_depth_pipe7 <= vertice1_depth_pipe6;
+		vertice2_depth_pipe7 <= vertice2_depth_pipe6;
+		vertice3_depth_pipe7 <= vertice3_depth_pipe6;
+		
+		vertice1_color_pipe7 <= vertice1_color_pipe6;
+		vertice2_color_pipe7 <= vertice2_color_pipe6;
+		vertice3_color_pipe7 <= vertice3_color_pipe6;
+		
+		in_triangle_pipe7 <= in_triangle_pipe6;
+		
+		// 7th pipeline
+		detect_pipe8 <= detect_pipe7;
+		overlap_v1_pipe8 <= overlap_v1_pipe7;
+		overlap_v2_pipe8 <= overlap_v2_pipe7;
+		overlap_v3_pipe8 <= overlap_v3_pipe7;
+		
+		vertice1_depth_pipe8 <= vertice1_depth_pipe7;
+		vertice2_depth_pipe8 <= vertice2_depth_pipe7;
+		vertice3_depth_pipe8 <= vertice3_depth_pipe7;
+		
+		vertice1_color_pipe8 <= vertice1_color_pipe7;
+		vertice2_color_pipe8 <= vertice2_color_pipe7;
+		vertice3_color_pipe8 <= vertice3_color_pipe7;
+		
+		in_triangle_pipe8 <= in_triangle_pipe7;
+		
+		// 8th pipeline
+		detect_pipe9 <= detect_pipe8;
+		overlap_v1_pipe9 <= overlap_v1_pipe8;
+		overlap_v2_pipe9 <= overlap_v2_pipe8;
+		overlap_v3_pipe9 <= overlap_v3_pipe8;
+		
+		vertice1_depth_pipe9 <= vertice1_depth_pipe8;
+		vertice2_depth_pipe9 <= vertice2_depth_pipe8;
+		vertice3_depth_pipe9 <= vertice3_depth_pipe8;
+		
+		vertice1_color_pipe9 <= vertice1_color_pipe8;
+		vertice2_color_pipe9 <= vertice2_color_pipe8;
+		vertice3_color_pipe9 <= vertice3_color_pipe8;
+		
+		in_triangle_pipe9 <= in_triangle_pipe8;
+		
+		p1_color_R <= next_p1_color_R;
+		p2_color_R <= next_p2_color_R;
+		p3_color_R <= next_p3_color_R;
+
+		p1_color_G <= next_p1_color_G;
+		p2_color_G <= next_p2_color_G;
+		p3_color_G <= next_p3_color_G;
+
+		p1_color_B <= next_p1_color_B;
+		p2_color_B <= next_p2_color_B;
+		p3_color_B <= next_p3_color_B;
+
+		p1_depth <= next_p1_depth;
+		p2_depth <= next_p2_depth;
+		p3_depth <= next_p3_depth;	
+		
+		// 9th pipeline
+		current_Color <= next_current_Color;
+		current_depth <= next_current_depth;
+		not_draw <= next_not_draw;
+		in_triangle <= next_in_triangle;
+	end
 
 end
 
 
 	div_pipe div_pipe_1(
 	.clk(clk),
+	.srst_n(srst_n),
 	.A(A1),
 	.At(At),
 	.L(L1)
@@ -753,6 +922,7 @@ end
 
 	div_pipe div_pipe_2(
 	.clk(clk),
+	.srst_n(srst_n),
 	.A(A2),
 	.At(At),
 	.L(L2)
@@ -760,6 +930,7 @@ end
 
 	div_pipe div_pipe_3(
 	.clk(clk),
+	.srst_n(srst_n),
 	.A(A3),
 	.At(At),
 	.L(L3)
@@ -767,6 +938,7 @@ end
 	
 	InTriangle InTriangle(
 	.clk(clk),
+	.srst_n(srst_n),
 	.screen_x1(screen_x1),
 	.screen_y1(screen_y1),
 	.screen_x2(screen_x2),
@@ -784,6 +956,7 @@ endmodule
 
 module div_pipe(
   input clk,
+  input srst_n,
   input [26:0] A,
   input [26:0] At,
   output reg [20:0] L
@@ -1102,24 +1275,44 @@ end
 
 always@(posedge clk) begin
 
-    Apipe2 <= next_Apipe2;
-    Lpipe2 <= next_Lpipe2;
-	Atpipe2 <= next_Atpipe2;
+	if(~srst_n) begin
+		Apipe2 <= 0;
+		Lpipe2 <= 0;
+		Atpipe2 <= 0;
+		
+		Apipe3 <= 0;
+		Lpipe3 <= 0;
+		Atpipe3 <= 0;
+		
+		Apipe4 <= 0;
+		Lpipe4 <= 0;
+		Atpipe4 <= 0;
+		
+		Apipe5 <= 0;
+		Lpipe5 <= 0;
+		Atpipe5 <= 0;
+		
+		L <= 0;
+	end
+	else begin
+		Apipe2 <= next_Apipe2;
+		Lpipe2 <= next_Lpipe2;
+		Atpipe2 <= next_Atpipe2;
 
-    Apipe3 <= next_Apipe3;
-	Lpipe3 <= next_Lpipe3;
-	Atpipe3 <= next_Atpipe3;
-	
-	Apipe4 <= next_Apipe4;
-	Lpipe4 <= next_Lpipe4;
-	Atpipe4 <= next_Atpipe4;
-	
-	Apipe5 <= next_Apipe5;
-	Lpipe5 <= next_Lpipe5;
-	Atpipe5 <= next_Atpipe5;
+		Apipe3 <= next_Apipe3;
+		Lpipe3 <= next_Lpipe3;
+		Atpipe3 <= next_Atpipe3;
+		
+		Apipe4 <= next_Apipe4;
+		Lpipe4 <= next_Lpipe4;
+		Atpipe4 <= next_Atpipe4;
+		
+		Apipe5 <= next_Apipe5;
+		Lpipe5 <= next_Lpipe5;
+		Atpipe5 <= next_Atpipe5;
 
-	L <= next_L;
-
+		L <= next_L;
+	end
 end
 
 endmodule
@@ -1128,6 +1321,7 @@ endmodule
 module InTriangle(
 
     input clk,
+	input srst_n,
     input [11:0] screen_x1,
 	input [11:0] screen_y1,
 	input [11:0] screen_x2,
@@ -1211,19 +1405,34 @@ end
 
 always@(posedge clk) begin
 
-    temp1 <= next_temp1;
-    temp2 <= next_temp2;
-    temp3 <= next_temp3;
-    temp4 <= next_temp4;
-    temp5 <= next_temp5;
-    temp6 <= next_temp6;    
+	if(~srst_n) begin
+		temp1 <= 0;
+		temp2 <= 0;
+		temp3 <= 0;
+		temp4 <= 0;
+		temp5 <= 0;
+		temp6 <= 0;
 
-    cross1 <= next_cross1;
-	cross2 <= next_cross2;
-	cross3 <= next_cross3;
-	
-	in_triangle_flag <= next_in_triangle_flag;
+		cross1 <= 0;
+		cross2 <= 0;
+		cross3 <= 0;
 
+		in_triangle_flag <= 0;
+	end
+	else begin
+		temp1 <= next_temp1;
+		temp2 <= next_temp2;
+		temp3 <= next_temp3;
+		temp4 <= next_temp4;
+		temp5 <= next_temp5;
+		temp6 <= next_temp6;    
+
+		cross1 <= next_cross1;
+		cross2 <= next_cross2;
+		cross3 <= next_cross3;
+		
+		in_triangle_flag <= next_in_triangle_flag;
+	end
 end
 
 

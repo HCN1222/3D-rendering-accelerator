@@ -9,7 +9,7 @@
 
 module cross_product(
     input clk,
-
+    input srst_n,
     // input: 4Q20
     input signed [23:0] Ux,
     input signed [23:0] Uy,
@@ -79,16 +79,30 @@ module cross_product(
     end    
 
     always @(posedge clk) begin
-        UyVz_quant <= UyVz_quant_next;
-        UzVx_quant <= UzVx_quant_next;
-        UxVy_quant <= UxVy_quant_next;
-        UzVy_quant <= UzVy_quant_next;
-        UxVz_quant <= UxVz_quant_next;
-        UyVx_quant <= UyVx_quant_next;
+        if(~srst_n) begin
+            UyVz_quant <= 0;// UyVz_quant_next;
+            UzVx_quant <= 0;// UzVx_quant_next;
+            UxVy_quant <= 0;// UxVy_quant_next;
+            UzVy_quant <= 0;// UzVy_quant_next;
+            UxVz_quant <= 0;// UxVz_quant_next;
+            UyVx_quant <= 0;// UyVx_quant_next;
 
-        out_x <= out_x_quant_next;
-        out_y <= out_y_quant_next;
-        out_z <= out_z_quant_next;
+            out_x <= 0;// out_x_quant_next;
+            out_y <= 0;// out_y_quant_next;
+            out_z <= 0;// out_z_quant_next;
+        end
+        else begin
+            UyVz_quant <= UyVz_quant_next;
+            UzVx_quant <= UzVx_quant_next;
+            UxVy_quant <= UxVy_quant_next;
+            UzVy_quant <= UzVy_quant_next;
+            UxVz_quant <= UxVz_quant_next;
+            UyVx_quant <= UyVx_quant_next;
+
+            out_x <= out_x_quant_next;
+            out_y <= out_y_quant_next;
+            out_z <= out_z_quant_next;
+        end
     end
 
 endmodule

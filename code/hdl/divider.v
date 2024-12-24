@@ -14,6 +14,7 @@
 //     - 1Q12
 module divider(
     input clk,
+    input srst_n,
     input signed [23:0] dividend,
     input signed [23:0] divisor,
     output reg signed [13:0] quotient
@@ -30,9 +31,16 @@ module divider(
         abs_divisor_next = divisor[23] ? ~divisor[23:0] + 1'b1 : divisor[23:0];
     end
     always @(posedge clk) begin
-        signbit <= signbit_next;
-        abs_dividend <= abs_dividend_next;
-        abs_divisor <= abs_divisor_next;
+        if (~srst_n) begin
+            signbit <= 0;
+            abs_dividend <= 0;
+            abs_divisor <= 0;
+        end
+        else begin
+            signbit <= signbit_next;
+            abs_dividend <= abs_dividend_next;
+            abs_divisor <= abs_divisor_next;
+        end
     end
 
     // ============== stage 1 ==============================
@@ -42,13 +50,19 @@ module divider(
 
     reg [23:0] abs_dividend_pipe1, abs_divisor_pipe1;
     always @(posedge clk) begin
-        abs_dividend_pipe1 <= abs_dividend;
-        abs_divisor_pipe1 <= abs_divisor;
+        if(~srst_n) begin
+            abs_dividend_pipe1 <= 0;
+            abs_divisor_pipe1 <= 0;
+        end
+        else begin
+            abs_dividend_pipe1 <= abs_dividend;
+            abs_divisor_pipe1 <= abs_divisor;
+        end
     end
 
     divider_unit divider_unit1(
         // input
-        .clk( clk ),
+        .clk( clk ), .srst_n( srst_n ),
         .remainder_in( {abs_dividend[22:0],13'b0} ),
         .divisor_in( abs_divisor[22:0] ),
         .signbit_in( signbit ),
@@ -65,13 +79,19 @@ module divider(
 
     reg [23:0] abs_dividend_pipe2, abs_divisor_pipe2;
     always @(posedge clk) begin
-        abs_dividend_pipe2 <= abs_dividend_pipe1;
-        abs_divisor_pipe2 <= abs_divisor_pipe1;
+        if(~srst_n) begin
+            abs_dividend_pipe2 <= 0;
+            abs_divisor_pipe2 <= 0;
+        end
+        else begin
+            abs_dividend_pipe2 <= abs_dividend_pipe1;
+            abs_divisor_pipe2 <= abs_divisor_pipe1;
+        end
     end
 
     divider_unit divider_unit2(
         // input
-        .clk( clk ),
+        .clk( clk ), .srst_n( srst_n ),
         .remainder_in( remainder_out1 ),
         .divisor_in( divisor_out1 ),
         .signbit_in( signbit_out1 ),
@@ -88,14 +108,20 @@ module divider(
 
     reg [23:0] abs_dividend_pipe3, abs_divisor_pipe3;
     always @(posedge clk) begin
-        abs_dividend_pipe3 <= abs_dividend_pipe2;
-        abs_divisor_pipe3 <= abs_divisor_pipe2;
+        if(~srst_n) begin
+            abs_dividend_pipe3 <= 0;
+            abs_divisor_pipe3 <= 0;
+        end
+        else begin
+            abs_dividend_pipe3 <= abs_dividend_pipe2;
+            abs_divisor_pipe3 <= abs_divisor_pipe2;
+        end
     end
 
 
     divider_unit_last divider_unit3(
         // input
-        .clk( clk ),
+        .clk( clk ), .srst_n( srst_n ),
         .remainder_in( remainder_out2 ),
         .divisor_in( divisor_out2 ),
         .signbit_in( signbit_out2 ),
@@ -122,6 +148,11 @@ module divider(
 
     // ============== stage 5 ==============================
     always@(posedge clk) begin
-        quotient <= quotient_next;
+        if(~srst_n) begin
+            quotient <= 0;
+        end
+        else begin
+            quotient <= quotient_next;
+        end
     end
 endmodule

@@ -1,6 +1,7 @@
 module inv_sqrt
 (
     input  clk,
+    input srst_n,
     input  signed [23:0] x,
     input  signed [23:0] y,
     input  signed [23:0] z,
@@ -230,46 +231,90 @@ module inv_sqrt
     end
     // sequential logic
     always @(posedge clk) begin
-        // ***************** step 1 *******************
-        y_2_quant <= y_2_quant_next;
-        x_2_quant <= x_2_quant_next;
-        z_2_quant <= z_2_quant_next;
-        // ***************** step 2 *******************
-        SUM_3 <= SUM_next;
-        SUM_4 <= SUM_3;
-        SUM_5 <= SUM_4;
-        SUM_6 <= SUM_5;
-        SUM_7 <= SUM_6;
-        SUM_8 <= SUM_7;
-        SUM_9 <= SUM_8;
-        SUM_10 <= SUM_9;
+        if(~srst_n) begin
+            // ***************** step 1 *******************
+            y_2_quant <= 0;// y_2_quant_next;
+            x_2_quant <= 0;// x_2_quant_next;
+            z_2_quant <= 0;// z_2_quant_next;
+            // ***************** step 2 *******************
+            SUM_3 <= 0;// SUM_next;
+            SUM_4 <= 0;// SUM_3;
+            SUM_5 <= 0;// SUM_4;
+            SUM_6 <= 0;// SUM_5;
+            SUM_7 <= 0;// SUM_6;
+            SUM_8 <= 0;// SUM_7;
+            SUM_9 <= 0;// SUM_8;
+            SUM_10 <= 0;// SUM_9;
 
-        X0 <= X0_next;
-        X0_pipe1 <= X0;
-        X0_pipe2 <= X0_pipe1;
-        // ***************** step 3 *******************
-        X0_2_quant <= X0_2_quant_next;
-        // ***************** step 4 *******************
-        coeff_0_quant <= coeff_0_quant_next;
-        // ***************** step 5 *******************
-        X1_quant <= X1_quant_next;
-        X1_quant_pipe1 <= X1_quant;
-        X1_quant_pipe2 <= X1_quant_pipe1;
-        // ***************** step 6 *******************
-        X1_2_quant <= X1_2_quant_next;
-        // ***************** step 7 *******************
-        coeff_1_quant <= coeff_1_quant_next;
-        // ***************** step 8 *******************
-        X2_quant <= X2_quant_next;
-        X2_quant_pipe1 <= X2_quant;
-        X2_quant_pipe2 <= X2_quant_pipe1;
-        // ***************** step 9 *******************
-        X2_2_quant <= X2_2_quant_next;
-        // ***************** step 10 *******************
-        coeff_2_quant <= coeff_2_quant_next;
-        // ***************** step 11 *******************
-        //X3_quant <= X3_quant_next;
-        out <= out_wire;
+            X0 <= 0;// X0_next;
+            X0_pipe1 <= 0;// X0;
+            X0_pipe2 <= 0;// X0_pipe1;
+            // ***************** step 3 *******************
+            X0_2_quant <= 0;// X0_2_quant_next;
+            // ***************** step 4 *******************
+            coeff_0_quant <= 0;// coeff_0_quant_next;
+            // ***************** step 5 *******************
+            X1_quant <= 0;// X1_quant_next;
+            X1_quant_pipe1 <= 0;// X1_quant;
+            X1_quant_pipe2 <= 0;// X1_quant_pipe1;
+            // ***************** step 6 *******************
+            X1_2_quant <= 0;// X1_2_quant_next;
+            // ***************** step 7 *******************
+            coeff_1_quant <= 0;// coeff_1_quant_next;
+            // ***************** step 8 *******************
+            X2_quant <= 0;// X2_quant_next;
+            X2_quant_pipe1 <= 0;// X2_quant;
+            X2_quant_pipe2 <= 0;// X2_quant_pipe1;
+            // ***************** step 9 *******************
+            X2_2_quant <= 0;// X2_2_quant_next;
+            // ***************** step 10 *******************
+            coeff_2_quant <= 0;// coeff_2_quant_next;
+            // ***************** step 11 *******************
+            //X3_quant <= 0;// X3_quant_next;
+            out <= 0;// out_wire;
+        end
+        else begin
+            // ***************** step 1 *******************
+            y_2_quant <= y_2_quant_next;
+            x_2_quant <= x_2_quant_next;
+            z_2_quant <= z_2_quant_next;
+            // ***************** step 2 *******************
+            SUM_3 <= SUM_next;
+            SUM_4 <= SUM_3;
+            SUM_5 <= SUM_4;
+            SUM_6 <= SUM_5;
+            SUM_7 <= SUM_6;
+            SUM_8 <= SUM_7;
+            SUM_9 <= SUM_8;
+            SUM_10 <= SUM_9;
+
+            X0 <= X0_next;
+            X0_pipe1 <= X0;
+            X0_pipe2 <= X0_pipe1;
+            // ***************** step 3 *******************
+            X0_2_quant <= X0_2_quant_next;
+            // ***************** step 4 *******************
+            coeff_0_quant <= coeff_0_quant_next;
+            // ***************** step 5 *******************
+            X1_quant <= X1_quant_next;
+            X1_quant_pipe1 <= X1_quant;
+            X1_quant_pipe2 <= X1_quant_pipe1;
+            // ***************** step 6 *******************
+            X1_2_quant <= X1_2_quant_next;
+            // ***************** step 7 *******************
+            coeff_1_quant <= coeff_1_quant_next;
+            // ***************** step 8 *******************
+            X2_quant <= X2_quant_next;
+            X2_quant_pipe1 <= X2_quant;
+            X2_quant_pipe2 <= X2_quant_pipe1;
+            // ***************** step 9 *******************
+            X2_2_quant <= X2_2_quant_next;
+            // ***************** step 10 *******************
+            coeff_2_quant <= coeff_2_quant_next;
+            // ***************** step 11 *******************
+            //X3_quant <= X3_quant_next;
+            out <= out_wire;
+        end
     end
 
 endmodule

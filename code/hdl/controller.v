@@ -442,58 +442,114 @@ end
 // sequential logic
 always @ ( posedge clk) begin
 
-	// Output wires
-	// To top
-	address_sram_get_face <= address_sram_get_face_wire;
-	finish <= finish_wire;
-	address_sram_get_vertice_info <= address_sram_get_vertice_info_wire;
-	// To vertice_shader
-	// to_shader_valid <= to_shader_valid_wire;
-	// to_shader_vertice_info <= to_shader_vertice_info_wire;
-	start_doing_shading <= start_doing_shading_wire;
-	to_shader_vertex_x <= to_shader_vertex_x_wire;
-	to_shader_vertex_y <= to_shader_vertex_y_wire;
-	to_shader_vertex_z <= to_shader_vertex_z_wire;
+	if( ~srst_n ) begin
+		// Output wires
+		// To top
+		address_sram_get_face <= 0;// address_sram_get_face_wire;
+		finish <= 0;// finish_wire;
+		address_sram_get_vertice_info <= 0;// address_sram_get_vertice_info_wire;
+		// To vertice_shader
+		// to_shader_valid <= 0;// to_shader_valid_wire;
+		// to_shader_vertice_info <= 0;// to_shader_vertice_info_wire;
+		start_doing_shading <= 0;// start_doing_shading_wire;
+		to_shader_vertex_x <= 0;// to_shader_vertex_x_wire;
+		to_shader_vertex_y <= 0;// to_shader_vertex_y_wire;
+		to_shader_vertex_z <= 0;// to_shader_vertex_z_wire;
 
-	
-	// To Rasterization
-	vertice1_x <= vertice1_x_wire;
-	vertice1_y <= vertice1_y_wire;
-	vertice1_depth <= vertice1_depth_wire;
-
-
-	vertice2_x <= vertice2_x_wire;
-	vertice2_y <= vertice2_y_wire;
-	vertice2_depth <= vertice2_depth_wire;
+		
+		// To Rasterization
+		vertice1_x <= 0;// vertice1_x_wire;
+		vertice1_y <= 0;// vertice1_y_wire;
+		vertice1_depth <= 0;// vertice1_depth_wire;
 
 
-	vertice3_x <= vertice3_x_wire;
-	vertice3_y <= vertice3_y_wire;
-	vertice3_depth <= vertice3_depth_wire;
+		vertice2_x <= 0;// vertice2_x_wire;
+		vertice2_y <= 0;// vertice2_y_wire;
+		vertice2_depth <= 0;// vertice2_depth_wire;
 
-	vertice1_color <= vertice1_color_wire;
-	vertice2_color <= vertice2_color_wire;
-	vertice3_color <= vertice3_color_wire;
 
-	vertice_ready <= vertice_ready_wire;
+		vertice3_x <= 0;// vertice3_x_wire;
+		vertice3_y <= 0;// vertice3_y_wire;
+		vertice3_depth <= 0;// vertice3_depth_wire;
 
-	// Own memories
-	VS_v1_x <= VS_v1_x_next;
-	VS_v1_y <= VS_v1_y_next;
-	VS_v1_z <= VS_v1_z_next;
-	VS_v2_x <= VS_v2_x_next;
-	VS_v2_y <= VS_v2_y_next;
-	VS_v2_z <= VS_v2_z_next;
-	VS_v3_x <= VS_v3_x_next;
-	VS_v3_y <= VS_v3_y_next;
-	VS_v3_z <= VS_v3_z_next;
+		vertice1_color <= 0;// vertice1_color_wire;
+		vertice2_color <= 0;// vertice2_color_wire;
+		vertice3_color <= 0;// vertice3_color_wire;
 
-	VS_v1_color <= VS_v1_color_next;
-	VS_v2_color <= VS_v2_color_next;
-	VS_v3_color <= VS_v3_color_next;
-	buffer_v1_color <= buffer_v1_color_next;
-	buffer_v2_color <= buffer_v2_color_next;
-	buffer_v3_color <= buffer_v3_color_next;
+		vertice_ready <= 0;// vertice_ready_wire;
+
+		// Own memories
+		VS_v1_x <= 0;// VS_v1_x_next;
+		VS_v1_y <= 0;// VS_v1_y_next;
+		VS_v1_z <= 0;// VS_v1_z_next;
+		VS_v2_x <= 0;// VS_v2_x_next;
+		VS_v2_y <= 0;// VS_v2_y_next;
+		VS_v2_z <= 0;// VS_v2_z_next;
+		VS_v3_x <= 0;// VS_v3_x_next;
+		VS_v3_y <= 0;// VS_v3_y_next;
+		VS_v3_z <= 0;// VS_v3_z_next;
+
+		VS_v1_color <= 0;// VS_v1_color_next;
+		VS_v2_color <= 0;// VS_v2_color_next;
+		VS_v3_color <= 0;// VS_v3_color_next;
+		buffer_v1_color <= 0;// buffer_v1_color_next;
+		buffer_v2_color <= 0;// buffer_v2_color_next;
+		buffer_v3_color <= 0;// buffer_v3_color_next;
+	end
+	else begin
+		// Output wires
+		// To top
+		address_sram_get_face <= address_sram_get_face_wire;
+		finish <= finish_wire;
+		address_sram_get_vertice_info <= address_sram_get_vertice_info_wire;
+		// To vertice_shader
+		// to_shader_valid <= to_shader_valid_wire;
+		// to_shader_vertice_info <= to_shader_vertice_info_wire;
+		start_doing_shading <= start_doing_shading_wire;
+		to_shader_vertex_x <= to_shader_vertex_x_wire;
+		to_shader_vertex_y <= to_shader_vertex_y_wire;
+		to_shader_vertex_z <= to_shader_vertex_z_wire;
+
+		
+		// To Rasterization
+		vertice1_x <= vertice1_x_wire;
+		vertice1_y <= vertice1_y_wire;
+		vertice1_depth <= vertice1_depth_wire;
+
+
+		vertice2_x <= vertice2_x_wire;
+		vertice2_y <= vertice2_y_wire;
+		vertice2_depth <= vertice2_depth_wire;
+
+
+		vertice3_x <= vertice3_x_wire;
+		vertice3_y <= vertice3_y_wire;
+		vertice3_depth <= vertice3_depth_wire;
+
+		vertice1_color <= vertice1_color_wire;
+		vertice2_color <= vertice2_color_wire;
+		vertice3_color <= vertice3_color_wire;
+
+		vertice_ready <= vertice_ready_wire;
+
+		// Own memories
+		VS_v1_x <= VS_v1_x_next;
+		VS_v1_y <= VS_v1_y_next;
+		VS_v1_z <= VS_v1_z_next;
+		VS_v2_x <= VS_v2_x_next;
+		VS_v2_y <= VS_v2_y_next;
+		VS_v2_z <= VS_v2_z_next;
+		VS_v3_x <= VS_v3_x_next;
+		VS_v3_y <= VS_v3_y_next;
+		VS_v3_z <= VS_v3_z_next;
+
+		VS_v1_color <= VS_v1_color_next;
+		VS_v2_color <= VS_v2_color_next;
+		VS_v3_color <= VS_v3_color_next;
+		buffer_v1_color <= buffer_v1_color_next;
+		buffer_v2_color <= buffer_v2_color_next;
+		buffer_v3_color <= buffer_v3_color_next;
+	end
 
 	// FSM
 	if( ~srst_n ) begin
@@ -504,7 +560,12 @@ always @ ( posedge clk) begin
 	end
 
 	// GET_FACE
-	cnt <= cnt_next;
+	if( ~srst_n ) begin
+		cnt <= 0;
+	end
+	else begin
+		cnt <= cnt_next;
+	end
 end
 
 endmodule

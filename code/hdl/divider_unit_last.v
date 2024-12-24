@@ -1,5 +1,6 @@
 module divider_unit_last(
     input clk,
+    input srst_n,
     input [35:0] remainder_in,
     input [22:0] divisor_in,
     input signbit_in,
@@ -29,7 +30,13 @@ module divider_unit_last(
     end
 
     always@(posedge clk) begin
-        remainder_out <= remainder_tmp2[4];
-        signbit_out <= signbit_in;
+        if(~srst_n) begin
+            remainder_out <= 0;
+            signbit_out <= 0;
+        end
+        else begin
+            remainder_out <= remainder_tmp2[4];
+            signbit_out <= signbit_in;
+        end
     end
 endmodule

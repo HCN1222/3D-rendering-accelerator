@@ -10,6 +10,7 @@
 
 module neg_dot_product(
     input clk,
+    input srst_n,
     // 2Q24
     input signed [25:0] unit_x,
     input signed [25:0] unit_y,
@@ -55,10 +56,20 @@ module neg_dot_product(
     end
 
     always @ (posedge clk) begin
-        product_x_quant <= product_x_quant_next;
-        product_y_quant <= product_y_quant_next;
-        product_z_quant <= product_z_quant_next;
+        if(~srst_n) begin
 
-        out <= out_wire;
+            product_x_quant <= 0;
+            product_y_quant <= 0;
+            product_z_quant <= 0;
+
+            out <= 0;
+        end
+        else begin
+            product_x_quant <= product_x_quant_next;
+            product_y_quant <= product_y_quant_next;
+            product_z_quant <= product_z_quant_next;
+
+            out <= out_wire;
+        end
     end
 endmodule

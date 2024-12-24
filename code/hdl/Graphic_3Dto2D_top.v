@@ -265,25 +265,48 @@ wire get_next_triangle;
 
     
 	always@(posedge clk) begin
-		enable_reg <= enable;
-		eye_x_reg  <= eye_x;
-		eye_y_reg   <= eye_y;
-		eye_z_reg    <= eye_z;
-		center_x_reg <= center_x;
-		center_y_reg <= center_y;
-		center_z_reg <= center_z;
-		up_x_reg    <= up_x;
-		up_y_reg    <= up_y;
-		up_z_reg    <= up_z;
-		vertice_x_reg<= vertice_x;
-		vertice_y_reg<= vertice_y;
-		vertice_z_reg<= vertice_z;
-		face_v1_reg <= face_v1;
-		face_v2_reg<= face_v2;
-		face_v3_reg<= face_v3;
-		Color_v_reg<= Color_v;
-		depth_org_reg<= depth_org;
-		num_of_faces_reg <= num_of_faces;
+		if(~srst_n) begin
+			enable_reg <= 1'b0;
+			eye_x_reg <= 24'b0;
+			eye_y_reg <= 24'b0;
+			eye_z_reg <= 24'b0;
+			center_x_reg <= 24'b0;
+			center_y_reg <= 24'b0;
+			center_z_reg <= 24'b0;
+			up_x_reg <= 24'b0;
+			up_y_reg <= 24'b0;
+			up_z_reg <= 24'b0;
+			vertice_x_reg <= 24'b0;
+			vertice_y_reg <= 24'b0;
+			vertice_z_reg <= 24'b0;
+			face_v1_reg <= 20'b0;
+			face_v2_reg <= 20'b0;
+			face_v3_reg <= 20'b0;
+			Color_v_reg <= 24'b0;
+			depth_org_reg <= 336'b0;
+			num_of_faces_reg <= 20'b0;
+		end
+		else begin
+			enable_reg <= enable;
+			eye_x_reg  <= eye_x;
+			eye_y_reg   <= eye_y;
+			eye_z_reg    <= eye_z;
+			center_x_reg <= center_x;
+			center_y_reg <= center_y;
+			center_z_reg <= center_z;
+			up_x_reg    <= up_x;
+			up_y_reg    <= up_y;
+			up_z_reg    <= up_z;
+			vertice_x_reg<= vertice_x;
+			vertice_y_reg<= vertice_y;
+			vertice_z_reg<= vertice_z;
+			face_v1_reg <= face_v1;
+			face_v2_reg<= face_v2;
+			face_v3_reg<= face_v3;
+			Color_v_reg<= Color_v;
+			depth_org_reg<= depth_org;
+			num_of_faces_reg <= num_of_faces;
+		end
 	end
 
 endmodule

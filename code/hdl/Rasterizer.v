@@ -185,29 +185,54 @@ end
 
 
 always@(posedge clk) begin
-
-    addr_pipe1 <= next_addr_pipe1;
-	addr_pipe2 <= addr_pipe1;
-	addr_pipe3 <= addr_pipe2;
-	addr_pipe4 <= addr_pipe3;
-	addr_pipe5 <= addr_pipe4;
-	addr_pipe6 <= addr_pipe5;
-	addr_pipe7 <= addr_pipe6;
-	addr_pipe8 <= addr_pipe7;
-	addr_pipe9 <= addr_pipe8;
-	addr_pipe10 <= addr_pipe9;
-	write_address_sram_CD <= next_write_address_sram_CD;
-	read_address_sram_CD <= next_read_address_sram_CD;
-	write_enable_sram_CD <= next_write_enable_sram_CD;
-	write_wordmask_sram_CD <= next_write_wordmask_sram_CD;
-	start_x <= next_start_x;
-	start_y <= next_start_y;
-	minus_x <= next_minus_x;
-	end_x <= next_end_x;
-	end_y <= next_end_y;
-	get_next_triangle <= next_get_next_triangle;
-	Color_RGB_combine <= Color_RGB_combine_n;
-	depth_after <= depth_after_n;
+	if(~srst_n) begin
+		addr_pipe1 <= 0;// next_addr_pipe1;
+		addr_pipe2 <= 0;// addr_pipe1;
+		addr_pipe3 <= 0;// addr_pipe2;
+		addr_pipe4 <= 0;// addr_pipe3;
+		addr_pipe5 <= 0;// addr_pipe4;
+		addr_pipe6 <= 0;// addr_pipe5;
+		addr_pipe7 <= 0;// addr_pipe6;
+		addr_pipe8 <= 0;// addr_pipe7;
+		addr_pipe9 <= 0;// addr_pipe8;
+		addr_pipe10 <= 0;// addr_pipe9;
+		write_address_sram_CD <= 0;// next_write_address_sram_CD;
+		read_address_sram_CD <= 0;// next_read_address_sram_CD;
+		write_enable_sram_CD <= 1'b1;// next_write_enable_sram_CD;
+		write_wordmask_sram_CD <= 16'b1111_1111_1111_1111;// next_write_wordmask_sram_CD;
+		start_x <= 0;// next_start_x;
+		start_y <= 0;// next_start_y;
+		minus_x <= 0;// next_minus_x;
+		end_x <= 0;// next_end_x;
+		end_y <= 0;// next_end_y;
+		get_next_triangle <= 0;// next_get_next_triangle;
+		Color_RGB_combine <= 0;// Color_RGB_combine_n;
+		depth_after <= 0;// depth_after_n;
+	end
+	else begin
+		addr_pipe1 <= next_addr_pipe1;
+		addr_pipe2 <= addr_pipe1;
+		addr_pipe3 <= addr_pipe2;
+		addr_pipe4 <= addr_pipe3;
+		addr_pipe5 <= addr_pipe4;
+		addr_pipe6 <= addr_pipe5;
+		addr_pipe7 <= addr_pipe6;
+		addr_pipe8 <= addr_pipe7;
+		addr_pipe9 <= addr_pipe8;
+		addr_pipe10 <= addr_pipe9;
+		write_address_sram_CD <= next_write_address_sram_CD;
+		read_address_sram_CD <= next_read_address_sram_CD;
+		write_enable_sram_CD <= next_write_enable_sram_CD;
+		write_wordmask_sram_CD <= next_write_wordmask_sram_CD;
+		start_x <= next_start_x;
+		start_y <= next_start_y;
+		minus_x <= next_minus_x;
+		end_x <= next_end_x;
+		end_y <= next_end_y;
+		get_next_triangle <= next_get_next_triangle;
+		Color_RGB_combine <= Color_RGB_combine_n;
+		depth_after <= depth_after_n;
+	end
 end
 
 always@* begin
@@ -479,7 +504,7 @@ always@* begin
 end
 	
 	GetColorDepth GetColorDepth_00(    // y = 0, x = 0
-	.clk(clk),
+	.clk(clk), .srst_n(srst_n),
 
     .screen_x1(screen_x1),
 	.screen_y1(screen_y1),
@@ -507,7 +532,7 @@ end
 
 
 	GetColorDepth GetColorDepth_01(      // y = 0, x = 1
-	.clk(clk),
+	.clk(clk), .srst_n(srst_n),
 
     .screen_x1(screen_x1),
 	.screen_y1(screen_y1),
@@ -534,7 +559,7 @@ end
 	);
 	
 	GetColorDepth GetColorDepth_02(   // y=0, x=2
-	.clk(clk),
+	.clk(clk), .srst_n(srst_n),
 
     .screen_x1(screen_x1),
 	.screen_y1(screen_y1),
@@ -561,7 +586,7 @@ end
 	);
 	
 	GetColorDepth GetColorDepth_03(        // y=0, x=3
-	.clk(clk),
+	.clk(clk), .srst_n(srst_n),
 
     .screen_x1(screen_x1),
 	.screen_y1(screen_y1),
@@ -588,7 +613,7 @@ end
 	);
 	
 	GetColorDepth GetColorDepth_10(    // y = 1, x = 0
-	.clk(clk),
+	.clk(clk), .srst_n(srst_n),
 
     .screen_x1(screen_x1),
 	.screen_y1(screen_y1),
@@ -616,7 +641,7 @@ end
 
 
 	GetColorDepth GetColorDepth_11(      // y = 1, x = 1
-	.clk(clk),
+	.clk(clk), .srst_n(srst_n),
 
     .screen_x1(screen_x1),
 	.screen_y1(screen_y1),
@@ -643,7 +668,7 @@ end
 	);
 	
 	GetColorDepth GetColorDepth_12(     // y = 1, x = 2
-	.clk(clk),
+	.clk(clk), .srst_n(srst_n),
 
     .screen_x1(screen_x1),
 	.screen_y1(screen_y1),
@@ -670,7 +695,7 @@ end
 	);
 	
 	GetColorDepth GetColorDepth_13(    // y=1, x=3
-	.clk(clk),
+	.clk(clk), .srst_n(srst_n),
 
     .screen_x1(screen_x1),
 	.screen_y1(screen_y1),
@@ -697,7 +722,7 @@ end
 	);
 	
 	GetColorDepth GetColorDepth_20(    // y = 2, x = 0
-	.clk(clk),
+	.clk(clk), .srst_n(srst_n),
 
     .screen_x1(screen_x1),
 	.screen_y1(screen_y1),
@@ -725,7 +750,7 @@ end
 
 
 	GetColorDepth GetColorDepth_21(      // y = 2, x = 1
-	.clk(clk),
+	.clk(clk), .srst_n(srst_n),
 
     .screen_x1(screen_x1),
 	.screen_y1(screen_y1),
@@ -752,7 +777,7 @@ end
 	);
 	
 	GetColorDepth GetColorDepth_22(   // y=2, x=2
-	.clk(clk),
+	.clk(clk), .srst_n(srst_n),
 
     .screen_x1(screen_x1),
 	.screen_y1(screen_y1),
@@ -779,7 +804,7 @@ end
 	);
 	
 	GetColorDepth GetColorDepth_23(    // y=2, x=3
-	.clk(clk),
+	.clk(clk), .srst_n(srst_n),
 
     .screen_x1(screen_x1),
 	.screen_y1(screen_y1),
@@ -806,7 +831,7 @@ end
 	);
 	
 	GetColorDepth GetColorDepth_30(    // y = 3, x = 0
-	.clk(clk),
+	.clk(clk), .srst_n(srst_n),
 
     .screen_x1(screen_x1),
 	.screen_y1(screen_y1),
@@ -834,7 +859,7 @@ end
 
 
 	GetColorDepth GetColorDepth_31(      // y = 3, x = 1
-	.clk(clk),
+	.clk(clk), .srst_n(srst_n),
 
     .screen_x1(screen_x1),
 	.screen_y1(screen_y1),
@@ -861,7 +886,7 @@ end
 	);
 	
 	GetColorDepth GetColorDepth_32(     // y = 3, x = 2
-	.clk(clk),
+	.clk(clk), .srst_n(srst_n),
 
     .screen_x1(screen_x1),
 	.screen_y1(screen_y1),
@@ -888,7 +913,7 @@ end
 	);
 	
 	GetColorDepth GetColorDepth_33(   // y = 3, x = 3
-	.clk(clk),
+	.clk(clk), .srst_n(srst_n),
 
     .screen_x1(screen_x1),
 	.screen_y1(screen_y1),
