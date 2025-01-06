@@ -1,0 +1,129 @@
+Command: vcs -R +v2k -full64 -f sim.f -debug_acc -l sim_BOX_PAT1_PRESIM.log +define+BOX \
++define+PAT1 +define+PRESIM +define+DUMPFILE
+*** Using c compiler gcc instead of cc ...
+                         Chronologic VCS (TM)
+         Version N-2017.12_Full64 -- Wed Dec 25 14:32:52 2024
+               Copyright (c) 1991-2017 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+Info: Deleting unsafed old database for incremental compilation since the previous compilation is not complete normally
+Info: deleting csrc/pre.cgincr.sdb
+Parsing design file 'test_Graphic_3Dto2D_top.v'
+Parsing design file 'sram_model/sram_depth.v'
+Parsing design file 'sram_model/sram_face.v'
+Parsing design file 'sram_model/sram_screen_buffer_color.v'
+Parsing design file 'sram_model/sram_vertex_color.v'
+Parsing design file 'sram_model/sram_vertex_position.v'
+Parsing design file '../hdl/Graphic_3Dto2D_top.v'
+Parsing design file '../hdl/controller.v'
+Parsing design file '../hdl/cross_product.v'
+Parsing design file '../hdl/divider.v'
+Parsing design file '../hdl/divider_unit.v'
+Parsing design file '../hdl/divider_unit_last.v'
+Parsing design file '../hdl/getColorDepth.v'
+Parsing design file '../hdl/inv_sqrt.v'
+Parsing design file '../hdl/inv_sqrt_LUT.v'
+Parsing design file '../hdl/neg_dot_product.v'
+Parsing design file '../hdl/Rasterizer.v'
+Parsing design file '../hdl/vertex_shader.v'
+Top Level Modules:
+       test_Graphic_3Dto2D_top
+TimeScale is 1 ns / 100 ps
+Starting vcs inline pass...
+10 modules and 0 UDP read.
+recompiling module test_Graphic_3Dto2D_top
+recompiling module Graphic_3Dto2D_top
+recompiling module controller
+recompiling module cross_product
+recompiling module divider
+recompiling module divider_unit
+recompiling module GetColorDepth
+recompiling module div_pipe
+recompiling module neg_dot_product
+recompiling module Rasterizer
+All of 10 modules done
+rm -f _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+if [ -x ../simv ]; then chmod -x ../simv; fi
+g++  -o ../simv   -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ \
+-Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -rdynamic   objs/amcQw_d.o   _12253_archive_1.so \
+SIM_l.o       rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o \
+/usr/cad/synopsys/vcs/2017.12/linux64/lib/libzerosoft_rt_stubs.so /usr/cad/synopsys/vcs/2017.12/linux64/lib/libvirsim.so \
+/usr/cad/synopsys/vcs/2017.12/linux64/lib/liberrorinf.so /usr/cad/synopsys/vcs/2017.12/linux64/lib/libsnpsmalloc.so \
+/usr/cad/synopsys/vcs/2017.12/linux64/lib/libvfs.so    /usr/cad/synopsys/vcs/2017.12/linux64/lib/libvcsnew.so \
+/usr/cad/synopsys/vcs/2017.12/linux64/lib/libsimprofile.so /usr/cad/synopsys/vcs/2017.12/linux64/lib/libuclinative.so \
+/usr/cad/synopsys/vcs/2017.12/linux64/lib/vcs_tls.o   -Wl,-whole-archive /usr/cad/synopsys/vcs/2017.12/linux64/lib/libvcsucli.so \
+-Wl,-no-whole-archive        _vcs_pli_stub_.o   /usr/cad/synopsys/vcs/2017.12/linux64/lib/vcs_save_restore_new.o \
+/usr/cad/synopsys/verdi/2019.06/share/PLI/VCS/LINUX64/pli.a -ldl  -lc -lm -lpthread \
+-ldl 
+../simv up to date
+Command: /home/u110/u110060035/ICLAB/final_project/3D-rendering-accelerator/code/sim/./simv +v2k -a sim_BOX_PAT1_PRESIM.log +define+BOX +define+PAT1 +define+PRESIM +define+DUMPFILE
+Chronologic VCS simulator copyright 1991-2017
+Contains Synopsys proprietary information.
+Compiler version N-2017.12_Full64; Runtime version N-2017.12_Full64;  Dec 25 14:33 2024
+*Verdi* Loading libsscore_vcs201712.so
+FSDB Dumper for VCS, Release Verdi_P-2019.06, Linux x86_64/64bit, 05/26/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* : Create FSDB file 'presim.fsdb'
+*Verdi* : Begin traversing the scope (test_Graphic_3Dto2D_top.Graphic_3Dto2D_top_U0), layer (0).
+*Verdi* : Enable +mda dumping.
+*Verdi* : End of traversing.
+cycle:         100, I'm still alive :). weeeeeee
+cycle:         200, I'm still alive :). weeeeeee
+cycle:         300, I'm still alive :). weeeeeee
+cycle:         400, I'm still alive :). weeeeeee
+cycle:         500, I'm still alive :). weeeeeee
+cycle:         600, I'm still alive :). weeeeeee
+cycle:         700, I'm still alive :). weeeeeee
+cycle:         800, I'm still alive :). weeeeeee
+cycle:         900, I'm still alive :). weeeeeee
+cycle:        1000, I'm still alive :). weeeeeee
+cycle:        1100, I'm still alive :). weeeeeee
+cycle:        1200, I'm still alive :). weeeeeee
+cycle:        1300, I'm still alive :). weeeeeee
+cycle:        1400, I'm still alive :). weeeeeee
+cycle:        1500, I'm still alive :). weeeeeee
+cycle:        1600, I'm still alive :). weeeeeee
+cycle:        1700, I'm still alive :). weeeeeee
+cycle:        1800, I'm still alive :). weeeeeee
+cycle:        1900, I'm still alive :). weeeeeee
+cycle:        2000, I'm still alive :). weeeeeee
+cycle:        2100, I'm still alive :). weeeeeee
+cycle:        2200, I'm still alive :). weeeeeee
+cycle:        2300, I'm still alive :). weeeeeee
+cycle:        2400, I'm still alive :). weeeeeee
+cycle:        2500, I'm still alive :). weeeeeee
+cycle:        2600, I'm still alive :). weeeeeee
+cycle:        2700, I'm still alive :). weeeeeee
+cycle:        2800, I'm still alive :). weeeeeee
+cycle:        2900, I'm still alive :). weeeeeee
+cycle:        3000, I'm still alive :). weeeeeee
+cycle:        3100, I'm still alive :). weeeeeee
+cycle:        3200, I'm still alive :). weeeeeee
+cycle:        3300, I'm still alive :). weeeeeee
+cycle:        3400, I'm still alive :). weeeeeee
+cycle:        3500, I'm still alive :). weeeeeee
+cycle:        3600, I'm still alive :). weeeeeee
+cycle:        3700, I'm still alive :). weeeeeee
+cycle:        3800, I'm still alive :). weeeeeee
+cycle:        3900, I'm still alive :). weeeeeee
+cycle:        4000, I'm still alive :). weeeeeee
+cycle:        4100, I'm still alive :). weeeeeee
+cycle:        4200, I'm still alive :). weeeeeee
+cycle:        4300, I'm still alive :). weeeeeee
+cycle:        4400, I'm still alive :). weeeeeee
+cycle:        4500, I'm still alive :). weeeeeee
+cycle:        4600, I'm still alive :). weeeeeee
+cycle:        4700, I'm still alive :). weeeeeee
+cycle:        4800, I'm still alive :). weeeeeee
+PRESIM_PASS: HA HA HA, 3D Model mesh to 2D screen buffer success!!
+$finish called from file "test_Graphic_3Dto2D_top.v", line 451.
+$finish at simulation time               487100
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 48710000 ps
+CPU Time:      2.700 seconds;       Data structure size:  45.6Mb
+Wed Dec 25 14:33:14 2024
+CPU time: .713 seconds to compile + .327 seconds to elab + .292 seconds to link + 2.737 seconds in simulation

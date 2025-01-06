@@ -1,1 +1,0 @@
-注意請將synopsys_dc.setup改名為.synopsys_dc.setup，改完以後該檔案會變為隱藏；點擊mobaxterm "顯示隱藏檔案" 的按鈕即可再次確認該檔案是位於何處。

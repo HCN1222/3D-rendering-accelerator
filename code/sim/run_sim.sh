@@ -1,4 +1,5 @@
-for sim in PRESIM GATESIM POSTSIM; do
+# for sim in PRESIM GATESIM POSTSIM; do
+for sim in PRESIM GATESIM; do
     for model in BOX ATHENA BUNNY DRAGON ELEPHANT TEAPOT; do
         for pattern in PAT1 PAT2; do
             if [ "$sim" == "PRESIM" ]; then

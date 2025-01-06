@@ -1,0 +1,395 @@
+Command: vcs -R +v2k -full64 -f sim.f -debug_acc -l sim_ATHENA_PAT2_PRESIM.log +define+ATHENA \
++define+PAT2 +define+PRESIM
+*** Using c compiler gcc instead of cc ...
+                         Chronologic VCS (TM)
+         Version N-2017.12_Full64 -- Wed Dec 25 14:33:30 2024
+               Copyright (c) 1991-2017 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+Parsing design file 'test_Graphic_3Dto2D_top.v'
+Parsing design file 'sram_model/sram_depth.v'
+Parsing design file 'sram_model/sram_face.v'
+Parsing design file 'sram_model/sram_screen_buffer_color.v'
+Parsing design file 'sram_model/sram_vertex_color.v'
+Parsing design file 'sram_model/sram_vertex_position.v'
+Parsing design file '../hdl/Graphic_3Dto2D_top.v'
+Parsing design file '../hdl/controller.v'
+Parsing design file '../hdl/cross_product.v'
+Parsing design file '../hdl/divider.v'
+Parsing design file '../hdl/divider_unit.v'
+Parsing design file '../hdl/divider_unit_last.v'
+Parsing design file '../hdl/getColorDepth.v'
+Parsing design file '../hdl/inv_sqrt.v'
+Parsing design file '../hdl/inv_sqrt_LUT.v'
+Parsing design file '../hdl/neg_dot_product.v'
+Parsing design file '../hdl/Rasterizer.v'
+Parsing design file '../hdl/vertex_shader.v'
+Top Level Modules:
+       test_Graphic_3Dto2D_top
+TimeScale is 1 ns / 100 ps
+Starting vcs inline pass...
+9 modules and 0 UDP read.
+recompiling module test_Graphic_3Dto2D_top
+	However, due to incremental compilation, only 1 module needs to be compiled. 
+rm -f _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+ld -shared  -o .//../simv.daidir//_csrc0.so objs/amcQw_d.o 
+rm -f _csrc0.so
+if [ -x ../simv ]; then chmod -x ../simv; fi
+g++  -o ../simv   -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ \
+-Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -rdynamic     _14280_archive_1.so \
+_prev_archive_1.so _csrc0.so  SIM_l.o  _csrc0.so     rmapats_mop.o rmapats.o rmar.o \
+rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o          /usr/cad/synopsys/vcs/2017.12/linux64/lib/libzerosoft_rt_stubs.so \
+/usr/cad/synopsys/vcs/2017.12/linux64/lib/libvirsim.so /usr/cad/synopsys/vcs/2017.12/linux64/lib/liberrorinf.so \
+/usr/cad/synopsys/vcs/2017.12/linux64/lib/libsnpsmalloc.so /usr/cad/synopsys/vcs/2017.12/linux64/lib/libvfs.so \
+/usr/cad/synopsys/vcs/2017.12/linux64/lib/libvcsnew.so /usr/cad/synopsys/vcs/2017.12/linux64/lib/libsimprofile.so \
+/usr/cad/synopsys/vcs/2017.12/linux64/lib/libuclinative.so /usr/cad/synopsys/vcs/2017.12/linux64/lib/vcs_tls.o \
+-Wl,-whole-archive /usr/cad/synopsys/vcs/2017.12/linux64/lib/libvcsucli.so -Wl,-no-whole-archive \
+_vcs_pli_stub_.o   /usr/cad/synopsys/vcs/2017.12/linux64/lib/vcs_save_restore_new.o \
+/usr/cad/synopsys/verdi/2019.06/share/PLI/VCS/LINUX64/pli.a -ldl  -lc -lm -lpthread \
+-ldl 
+../simv up to date
+Command: /home/u110/u110060035/ICLAB/final_project/3D-rendering-accelerator/code/sim/./simv +v2k -a sim_ATHENA_PAT2_PRESIM.log +define+ATHENA +define+PAT2 +define+PRESIM
+Chronologic VCS simulator copyright 1991-2017
+Contains Synopsys proprietary information.
+Compiler version N-2017.12_Full64; Runtime version N-2017.12_Full64;  Dec 25 14:33 2024
+cycle:         100, I'm still alive :). weeeeeee
+cycle:         200, I'm still alive :). weeeeeee
+cycle:         300, I'm still alive :). weeeeeee
+cycle:         400, I'm still alive :). weeeeeee
+cycle:         500, I'm still alive :). weeeeeee
+cycle:         600, I'm still alive :). weeeeeee
+cycle:         700, I'm still alive :). weeeeeee
+cycle:         800, I'm still alive :). weeeeeee
+cycle:         900, I'm still alive :). weeeeeee
+cycle:        1000, I'm still alive :). weeeeeee
+cycle:        1100, I'm still alive :). weeeeeee
+cycle:        1200, I'm still alive :). weeeeeee
+cycle:        1300, I'm still alive :). weeeeeee
+cycle:        1400, I'm still alive :). weeeeeee
+cycle:        1500, I'm still alive :). weeeeeee
+cycle:        1600, I'm still alive :). weeeeeee
+cycle:        1700, I'm still alive :). weeeeeee
+cycle:        1800, I'm still alive :). weeeeeee
+cycle:        1900, I'm still alive :). weeeeeee
+cycle:        2000, I'm still alive :). weeeeeee
+cycle:        2100, I'm still alive :). weeeeeee
+cycle:        2200, I'm still alive :). weeeeeee
+cycle:        2300, I'm still alive :). weeeeeee
+cycle:        2400, I'm still alive :). weeeeeee
+cycle:        2500, I'm still alive :). weeeeeee
+cycle:        2600, I'm still alive :). weeeeeee
+cycle:        2700, I'm still alive :). weeeeeee
+cycle:        2800, I'm still alive :). weeeeeee
+cycle:        2900, I'm still alive :). weeeeeee
+cycle:        3000, I'm still alive :). weeeeeee
+cycle:        3100, I'm still alive :). weeeeeee
+cycle:        3200, I'm still alive :). weeeeeee
+cycle:        3300, I'm still alive :). weeeeeee
+cycle:        3400, I'm still alive :). weeeeeee
+cycle:        3500, I'm still alive :). weeeeeee
+cycle:        3600, I'm still alive :). weeeeeee
+cycle:        3700, I'm still alive :). weeeeeee
+cycle:        3800, I'm still alive :). weeeeeee
+cycle:        3900, I'm still alive :). weeeeeee
+cycle:        4000, I'm still alive :). weeeeeee
+cycle:        4100, I'm still alive :). weeeeeee
+cycle:        4200, I'm still alive :). weeeeeee
+cycle:        4300, I'm still alive :). weeeeeee
+cycle:        4400, I'm still alive :). weeeeeee
+cycle:        4500, I'm still alive :). weeeeeee
+cycle:        4600, I'm still alive :). weeeeeee
+cycle:        4700, I'm still alive :). weeeeeee
+cycle:        4800, I'm still alive :). weeeeeee
+cycle:        4900, I'm still alive :). weeeeeee
+cycle:        5000, I'm still alive :). weeeeeee
+cycle:        5100, I'm still alive :). weeeeeee
+cycle:        5200, I'm still alive :). weeeeeee
+cycle:        5300, I'm still alive :). weeeeeee
+cycle:        5400, I'm still alive :). weeeeeee
+cycle:        5500, I'm still alive :). weeeeeee
+cycle:        5600, I'm still alive :). weeeeeee
+cycle:        5700, I'm still alive :). weeeeeee
+cycle:        5800, I'm still alive :). weeeeeee
+cycle:        5900, I'm still alive :). weeeeeee
+cycle:        6000, I'm still alive :). weeeeeee
+cycle:        6100, I'm still alive :). weeeeeee
+cycle:        6200, I'm still alive :). weeeeeee
+cycle:        6300, I'm still alive :). weeeeeee
+cycle:        6400, I'm still alive :). weeeeeee
+cycle:        6500, I'm still alive :). weeeeeee
+cycle:        6600, I'm still alive :). weeeeeee
+cycle:        6700, I'm still alive :). weeeeeee
+cycle:        6800, I'm still alive :). weeeeeee
+cycle:        6900, I'm still alive :). weeeeeee
+cycle:        7000, I'm still alive :). weeeeeee
+cycle:        7100, I'm still alive :). weeeeeee
+cycle:        7200, I'm still alive :). weeeeeee
+cycle:        7300, I'm still alive :). weeeeeee
+cycle:        7400, I'm still alive :). weeeeeee
+cycle:        7500, I'm still alive :). weeeeeee
+cycle:        7600, I'm still alive :). weeeeeee
+cycle:        7700, I'm still alive :). weeeeeee
+cycle:        7800, I'm still alive :). weeeeeee
+cycle:        7900, I'm still alive :). weeeeeee
+cycle:        8000, I'm still alive :). weeeeeee
+cycle:        8100, I'm still alive :). weeeeeee
+cycle:        8200, I'm still alive :). weeeeeee
+cycle:        8300, I'm still alive :). weeeeeee
+cycle:        8400, I'm still alive :). weeeeeee
+cycle:        8500, I'm still alive :). weeeeeee
+cycle:        8600, I'm still alive :). weeeeeee
+cycle:        8700, I'm still alive :). weeeeeee
+cycle:        8800, I'm still alive :). weeeeeee
+cycle:        8900, I'm still alive :). weeeeeee
+cycle:        9000, I'm still alive :). weeeeeee
+cycle:        9100, I'm still alive :). weeeeeee
+cycle:        9200, I'm still alive :). weeeeeee
+cycle:        9300, I'm still alive :). weeeeeee
+cycle:        9400, I'm still alive :). weeeeeee
+cycle:        9500, I'm still alive :). weeeeeee
+cycle:        9600, I'm still alive :). weeeeeee
+cycle:        9700, I'm still alive :). weeeeeee
+cycle:        9800, I'm still alive :). weeeeeee
+cycle:        9900, I'm still alive :). weeeeeee
+cycle:       10000, I'm still alive :). weeeeeee
+cycle:       10100, I'm still alive :). weeeeeee
+cycle:       10200, I'm still alive :). weeeeeee
+cycle:       10300, I'm still alive :). weeeeeee
+cycle:       10400, I'm still alive :). weeeeeee
+cycle:       10500, I'm still alive :). weeeeeee
+cycle:       10600, I'm still alive :). weeeeeee
+cycle:       10700, I'm still alive :). weeeeeee
+cycle:       10800, I'm still alive :). weeeeeee
+cycle:       10900, I'm still alive :). weeeeeee
+cycle:       11000, I'm still alive :). weeeeeee
+cycle:       11100, I'm still alive :). weeeeeee
+cycle:       11200, I'm still alive :). weeeeeee
+cycle:       11300, I'm still alive :). weeeeeee
+cycle:       11400, I'm still alive :). weeeeeee
+cycle:       11500, I'm still alive :). weeeeeee
+cycle:       11600, I'm still alive :). weeeeeee
+cycle:       11700, I'm still alive :). weeeeeee
+cycle:       11800, I'm still alive :). weeeeeee
+cycle:       11900, I'm still alive :). weeeeeee
+cycle:       12000, I'm still alive :). weeeeeee
+cycle:       12100, I'm still alive :). weeeeeee
+cycle:       12200, I'm still alive :). weeeeeee
+cycle:       12300, I'm still alive :). weeeeeee
+cycle:       12400, I'm still alive :). weeeeeee
+cycle:       12500, I'm still alive :). weeeeeee
+cycle:       12600, I'm still alive :). weeeeeee
+cycle:       12700, I'm still alive :). weeeeeee
+cycle:       12800, I'm still alive :). weeeeeee
+cycle:       12900, I'm still alive :). weeeeeee
+cycle:       13000, I'm still alive :). weeeeeee
+cycle:       13100, I'm still alive :). weeeeeee
+cycle:       13200, I'm still alive :). weeeeeee
+cycle:       13300, I'm still alive :). weeeeeee
+cycle:       13400, I'm still alive :). weeeeeee
+cycle:       13500, I'm still alive :). weeeeeee
+cycle:       13600, I'm still alive :). weeeeeee
+cycle:       13700, I'm still alive :). weeeeeee
+cycle:       13800, I'm still alive :). weeeeeee
+cycle:       13900, I'm still alive :). weeeeeee
+cycle:       14000, I'm still alive :). weeeeeee
+cycle:       14100, I'm still alive :). weeeeeee
+cycle:       14200, I'm still alive :). weeeeeee
+cycle:       14300, I'm still alive :). weeeeeee
+cycle:       14400, I'm still alive :). weeeeeee
+cycle:       14500, I'm still alive :). weeeeeee
+cycle:       14600, I'm still alive :). weeeeeee
+cycle:       14700, I'm still alive :). weeeeeee
+cycle:       14800, I'm still alive :). weeeeeee
+cycle:       14900, I'm still alive :). weeeeeee
+cycle:       15000, I'm still alive :). weeeeeee
+cycle:       15100, I'm still alive :). weeeeeee
+cycle:       15200, I'm still alive :). weeeeeee
+cycle:       15300, I'm still alive :). weeeeeee
+cycle:       15400, I'm still alive :). weeeeeee
+cycle:       15500, I'm still alive :). weeeeeee
+cycle:       15600, I'm still alive :). weeeeeee
+cycle:       15700, I'm still alive :). weeeeeee
+cycle:       15800, I'm still alive :). weeeeeee
+cycle:       15900, I'm still alive :). weeeeeee
+cycle:       16000, I'm still alive :). weeeeeee
+cycle:       16100, I'm still alive :). weeeeeee
+cycle:       16200, I'm still alive :). weeeeeee
+cycle:       16300, I'm still alive :). weeeeeee
+cycle:       16400, I'm still alive :). weeeeeee
+cycle:       16500, I'm still alive :). weeeeeee
+cycle:       16600, I'm still alive :). weeeeeee
+cycle:       16700, I'm still alive :). weeeeeee
+cycle:       16800, I'm still alive :). weeeeeee
+cycle:       16900, I'm still alive :). weeeeeee
+cycle:       17000, I'm still alive :). weeeeeee
+cycle:       17100, I'm still alive :). weeeeeee
+cycle:       17200, I'm still alive :). weeeeeee
+cycle:       17300, I'm still alive :). weeeeeee
+cycle:       17400, I'm still alive :). weeeeeee
+cycle:       17500, I'm still alive :). weeeeeee
+cycle:       17600, I'm still alive :). weeeeeee
+cycle:       17700, I'm still alive :). weeeeeee
+cycle:       17800, I'm still alive :). weeeeeee
+cycle:       17900, I'm still alive :). weeeeeee
+cycle:       18000, I'm still alive :). weeeeeee
+cycle:       18100, I'm still alive :). weeeeeee
+cycle:       18200, I'm still alive :). weeeeeee
+cycle:       18300, I'm still alive :). weeeeeee
+cycle:       18400, I'm still alive :). weeeeeee
+cycle:       18500, I'm still alive :). weeeeeee
+cycle:       18600, I'm still alive :). weeeeeee
+cycle:       18700, I'm still alive :). weeeeeee
+cycle:       18800, I'm still alive :). weeeeeee
+cycle:       18900, I'm still alive :). weeeeeee
+cycle:       19000, I'm still alive :). weeeeeee
+cycle:       19100, I'm still alive :). weeeeeee
+cycle:       19200, I'm still alive :). weeeeeee
+cycle:       19300, I'm still alive :). weeeeeee
+cycle:       19400, I'm still alive :). weeeeeee
+cycle:       19500, I'm still alive :). weeeeeee
+cycle:       19600, I'm still alive :). weeeeeee
+cycle:       19700, I'm still alive :). weeeeeee
+cycle:       19800, I'm still alive :). weeeeeee
+cycle:       19900, I'm still alive :). weeeeeee
+cycle:       20000, I'm still alive :). weeeeeee
+cycle:       20100, I'm still alive :). weeeeeee
+cycle:       20200, I'm still alive :). weeeeeee
+cycle:       20300, I'm still alive :). weeeeeee
+cycle:       20400, I'm still alive :). weeeeeee
+cycle:       20500, I'm still alive :). weeeeeee
+cycle:       20600, I'm still alive :). weeeeeee
+cycle:       20700, I'm still alive :). weeeeeee
+cycle:       20800, I'm still alive :). weeeeeee
+cycle:       20900, I'm still alive :). weeeeeee
+cycle:       21000, I'm still alive :). weeeeeee
+cycle:       21100, I'm still alive :). weeeeeee
+cycle:       21200, I'm still alive :). weeeeeee
+cycle:       21300, I'm still alive :). weeeeeee
+cycle:       21400, I'm still alive :). weeeeeee
+cycle:       21500, I'm still alive :). weeeeeee
+cycle:       21600, I'm still alive :). weeeeeee
+cycle:       21700, I'm still alive :). weeeeeee
+cycle:       21800, I'm still alive :). weeeeeee
+cycle:       21900, I'm still alive :). weeeeeee
+cycle:       22000, I'm still alive :). weeeeeee
+cycle:       22100, I'm still alive :). weeeeeee
+cycle:       22200, I'm still alive :). weeeeeee
+cycle:       22300, I'm still alive :). weeeeeee
+cycle:       22400, I'm still alive :). weeeeeee
+cycle:       22500, I'm still alive :). weeeeeee
+cycle:       22600, I'm still alive :). weeeeeee
+cycle:       22700, I'm still alive :). weeeeeee
+cycle:       22800, I'm still alive :). weeeeeee
+cycle:       22900, I'm still alive :). weeeeeee
+cycle:       23000, I'm still alive :). weeeeeee
+cycle:       23100, I'm still alive :). weeeeeee
+cycle:       23200, I'm still alive :). weeeeeee
+cycle:       23300, I'm still alive :). weeeeeee
+cycle:       23400, I'm still alive :). weeeeeee
+cycle:       23500, I'm still alive :). weeeeeee
+cycle:       23600, I'm still alive :). weeeeeee
+cycle:       23700, I'm still alive :). weeeeeee
+cycle:       23800, I'm still alive :). weeeeeee
+cycle:       23900, I'm still alive :). weeeeeee
+cycle:       24000, I'm still alive :). weeeeeee
+cycle:       24100, I'm still alive :). weeeeeee
+cycle:       24200, I'm still alive :). weeeeeee
+cycle:       24300, I'm still alive :). weeeeeee
+cycle:       24400, I'm still alive :). weeeeeee
+cycle:       24500, I'm still alive :). weeeeeee
+cycle:       24600, I'm still alive :). weeeeeee
+cycle:       24700, I'm still alive :). weeeeeee
+cycle:       24800, I'm still alive :). weeeeeee
+cycle:       24900, I'm still alive :). weeeeeee
+cycle:       25000, I'm still alive :). weeeeeee
+cycle:       25100, I'm still alive :). weeeeeee
+cycle:       25200, I'm still alive :). weeeeeee
+cycle:       25300, I'm still alive :). weeeeeee
+cycle:       25400, I'm still alive :). weeeeeee
+cycle:       25500, I'm still alive :). weeeeeee
+cycle:       25600, I'm still alive :). weeeeeee
+cycle:       25700, I'm still alive :). weeeeeee
+cycle:       25800, I'm still alive :). weeeeeee
+cycle:       25900, I'm still alive :). weeeeeee
+cycle:       26000, I'm still alive :). weeeeeee
+cycle:       26100, I'm still alive :). weeeeeee
+cycle:       26200, I'm still alive :). weeeeeee
+cycle:       26300, I'm still alive :). weeeeeee
+cycle:       26400, I'm still alive :). weeeeeee
+cycle:       26500, I'm still alive :). weeeeeee
+cycle:       26600, I'm still alive :). weeeeeee
+cycle:       26700, I'm still alive :). weeeeeee
+cycle:       26800, I'm still alive :). weeeeeee
+cycle:       26900, I'm still alive :). weeeeeee
+cycle:       27000, I'm still alive :). weeeeeee
+cycle:       27100, I'm still alive :). weeeeeee
+cycle:       27200, I'm still alive :). weeeeeee
+cycle:       27300, I'm still alive :). weeeeeee
+cycle:       27400, I'm still alive :). weeeeeee
+cycle:       27500, I'm still alive :). weeeeeee
+cycle:       27600, I'm still alive :). weeeeeee
+cycle:       27700, I'm still alive :). weeeeeee
+cycle:       27800, I'm still alive :). weeeeeee
+cycle:       27900, I'm still alive :). weeeeeee
+cycle:       28000, I'm still alive :). weeeeeee
+cycle:       28100, I'm still alive :). weeeeeee
+cycle:       28200, I'm still alive :). weeeeeee
+cycle:       28300, I'm still alive :). weeeeeee
+cycle:       28400, I'm still alive :). weeeeeee
+cycle:       28500, I'm still alive :). weeeeeee
+cycle:       28600, I'm still alive :). weeeeeee
+cycle:       28700, I'm still alive :). weeeeeee
+cycle:       28800, I'm still alive :). weeeeeee
+cycle:       28900, I'm still alive :). weeeeeee
+cycle:       29000, I'm still alive :). weeeeeee
+cycle:       29100, I'm still alive :). weeeeeee
+cycle:       29200, I'm still alive :). weeeeeee
+cycle:       29300, I'm still alive :). weeeeeee
+cycle:       29400, I'm still alive :). weeeeeee
+cycle:       29500, I'm still alive :). weeeeeee
+cycle:       29600, I'm still alive :). weeeeeee
+cycle:       29700, I'm still alive :). weeeeeee
+cycle:       29800, I'm still alive :). weeeeeee
+cycle:       29900, I'm still alive :). weeeeeee
+cycle:       30000, I'm still alive :). weeeeeee
+cycle:       30100, I'm still alive :). weeeeeee
+cycle:       30200, I'm still alive :). weeeeeee
+cycle:       30300, I'm still alive :). weeeeeee
+cycle:       30400, I'm still alive :). weeeeeee
+cycle:       30500, I'm still alive :). weeeeeee
+cycle:       30600, I'm still alive :). weeeeeee
+cycle:       30700, I'm still alive :). weeeeeee
+cycle:       30800, I'm still alive :). weeeeeee
+cycle:       30900, I'm still alive :). weeeeeee
+cycle:       31000, I'm still alive :). weeeeeee
+cycle:       31100, I'm still alive :). weeeeeee
+cycle:       31200, I'm still alive :). weeeeeee
+cycle:       31300, I'm still alive :). weeeeeee
+cycle:       31400, I'm still alive :). weeeeeee
+cycle:       31500, I'm still alive :). weeeeeee
+cycle:       31600, I'm still alive :). weeeeeee
+cycle:       31700, I'm still alive :). weeeeeee
+cycle:       31800, I'm still alive :). weeeeeee
+cycle:       31900, I'm still alive :). weeeeeee
+cycle:       32000, I'm still alive :). weeeeeee
+cycle:       32100, I'm still alive :). weeeeeee
+cycle:       32200, I'm still alive :). weeeeeee
+cycle:       32300, I'm still alive :). weeeeeee
+cycle:       32400, I'm still alive :). weeeeeee
+cycle:       32500, I'm still alive :). weeeeeee
+cycle:       32600, I'm still alive :). weeeeeee
+cycle:       32700, I'm still alive :). weeeeeee
+cycle:       32800, I'm still alive :). weeeeeee
+cycle:       32900, I'm still alive :). weeeeeee
+PRESIM_PASS: HA HA HA, 3D Model mesh to 2D screen buffer success!!
+$finish called from file "test_Graphic_3Dto2D_top.v", line 451.
+$finish at simulation time              3295800
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 329580000 ps
+CPU Time:      1.520 seconds;       Data structure size:  45.6Mb
+Wed Dec 25 14:33:34 2024
+CPU time: .507 seconds to compile + .260 seconds to elab + .292 seconds to link + 1.544 seconds in simulation

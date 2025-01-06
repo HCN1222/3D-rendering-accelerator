@@ -1,0 +1,272 @@
+                          CONFORMAL (R)
+                   Version 20.10-p100 (01-May-2020) (64 bit executable)
+   Copyright (c) Cadence Design Systems, Inc., 1997-2019. All Rights Reserved
+
+
+This program is proprietary and confidential information belonging to
+Cadence Design Systems, Inc., and may be used and disclosed only as authorized
+in a license agreement controlling such use and disclosure.
+
+// Warning: This version is 1698 days old. You can download the latest version from http://downloads.cadence.com.
+
+// Command: set parallel option -threads 8
+// Number of threads is set to 8,8.
+// Command: setenv TOP_DESIGN Graphic_3Dto2D_top
+Set variable 'TOP_DESIGN' as 'Graphic_3Dto2D_top'
+// Command: setenv RESRC_FILE ../syn/report/report_resources_Graphic_3Dto2D_top.out
+Set variable 'RESRC_FILE' as '../syn/report/report_resources_Graphic_3Dto2D_top.out'
+// Command: read design -file golden.f -golden -verilog2k
+// Note: Process verilog command file golden.f
+// Parsing file ../hdl/Graphic_3Dto2D_top.v ...
+// Parsing file ../hdl/controller.v ...
+// Parsing file ../hdl/cross_product.v ...
+// Parsing file ../hdl/divider.v ...
+// Parsing file ../hdl/divider_unit.v ...
+// Parsing file ../hdl/divider_unit_last.v ...
+// Parsing file ../hdl/getColorDepth.v ...
+// Parsing file ../hdl/inv_sqrt.v ...
+// Parsing file ../hdl/inv_sqrt_LUT.v ...
+// Parsing file ../hdl/neg_dot_product.v ...
+// Parsing file ../hdl/Rasterizer.v ...
+// Parsing file ../hdl/vertex_shader.v ...
+// Golden root module is set to 'Graphic_3Dto2D_top'
+// Warning: (RTL1.4) Assignment with LHS bit width is greater than RHS bit width (occurrence:27)
+// Warning: (RTL1.5a) Assignment with RHS bit width is greater than LHS bit width (occurrence:30)
+// Warning: (RTL1.5b) Potential loss of RHS msb or carry-out bit (occurrence:112)
+// Warning: (RTL5.3) Case expressions/items are resized (occurrence:7)
+// Warning: (RTL7.3) Array index in RHS might be out of range (occurrence:24)
+// Warning: (RTL7.4) Array index in LHS might be out of range (occurrence:12)
+// Warning: (RTL7.10) Comparison with signed and unsigned operands (occurrence:4)
+// Warning: (RTL7.10d) Comparison with positive constant of different signedness (occurrence:6)
+// Warning: (RTL7.11) Implicit signed expression is converted to unsigned (occurrence:29)
+// Warning: (RTL7.11b) Unsigned reference with index/part selection to a signed variable (occurrence:63)
+// Note: (RTL8.1) Multiple multipliers/dividers are in module/entity (occurrence:6)
+// Warning: (RTL8.3) Unreachable DFF/DLAT is removed (occurrence:1656)
+// Warning: (RTL14.1) Fanout load of the signal is removed (occurrence:40)
+// Note: (VLG2.2) Non-binary case item is used in casex/casez statement (occurrence:1)
+// Warning: (HRC3.10a) An input port is declared, but it is not completely used in the module (occurrence:1)
+// Warning: (HRC3.16) A wire is declared, but not used in the module (occurrence:5)
+// Note: Read VERILOG design successfully
+CPU time     : 1.07    seconds
+Elapse time  : 3       seconds
+Memory usage : 382.04  M bytes
+// Command: read design -file revised.f -revised
+// Note: Process verilog command file revised.f
+// Parsing file ../syn/netlist/Graphic_3Dto2D_top_syn.v ...
+// Parsing file /usr/cadtool/GPDK45/gsclib045_svt_v4.4/gsclib045/verilog/slow_vdd1v2_basicCells.v ...
+// Revised root module is set to 'Graphic_3Dto2D_top'
+// Warning: (RTL14) Signal has input but it has no output (occurrence:120)
+// Note: (HRC3.5b) Open output port connection is detected (occurrence:36093)
+// Note: Read VERILOG design successfully
+CPU time     : 11.53   seconds
+Elapse time  : 13      seconds
+Memory usage : 760.86  M bytes
+// Command: report design data
+============================================
+Summary           Golden         Revised
+============================================
+Design-modules      1495             268
+Library-cells       6356          456390
+============================================
+Primitives      Golden              Revised
+============================================
+INPUT              731                  731
+OUTPUT             810                  810
+--------------------------------------------
+AND        *    947573               602060
+BUF        *      6112                 5613
+DFF        *     52566                51362
+DLAT       *         0                  168
+INV        *     87372               396584
+MUX        *     83744                    0
+NAND       *      1131                    0
+NOR        *     22581                    0
+OR         *    255680               320978
+WIRE       *     14529                    0
+XNOR       *     26420                    0
+XOR        *    468629               102339
+------ word-level --------------------------
+ADD        *       701                    0
+DIV        *         1                    0
+EQ         *       192                    0
+GE         *        16                    0
+GT         *      1058                    0
+LE         *        30                    0
+LT         *       112                    0
+MULT       *       542                    0
+SUBTRACT   *      1345                    0
+WINV       *        75                    0
+WMUX       *      3402                    0
+WSEL       *       277                    0
+------ don't care --------------------------
+X-assignments      584                    0
+--------------------------------------------
+Total          1966921              1479104
+
+CPU time     : 11.65   seconds
+Elapse time  : 14      seconds
+Memory usage : 760.86  M bytes
+// Command: report black box -detail
+// Command: add renaming rule rule1 "%w_mydesign_%d$" "@1" -module -revised
+// Command: add renaming rule rule2 "%d_reg\[%d\]" "reg[@1][@2]" -revised
+// Command: uniquify -nolib -all -use_renaming_rule
+Uniquified 16 instance(s) referring to module 'GetColorDepth' in Golden
+Uniquified 16 instance(s) referring to module 'InTriangle' in Golden
+Uniquified 48 instance(s) referring to module 'div_pipe' in Golden
+Uniquified 3 instance(s) referring to module 'divider' in Golden
+Uniquified 3 instance(s) referring to module 'divider_unit_last' in Golden
+Uniquified 6 instance(s) referring to module 'divider_unit' in Golden
+Uniquified 6 module(s)
+CPU time     : 12.61   seconds
+Elapse time  : 15      seconds
+Memory usage : 858.74  M bytes
+// Command: set flatten model -gated_clock
+// Command: set flatten model -seq_constant
+// Command: set flatten model -seq_redundant
+// Command: set undriven signal 0 -both
+// Command: set analyze option -effort_analyze_abort high
+// Command: set root module $TOP_DESIGN -golden
+// Warning: Golden root module is already at 'Graphic_3Dto2D_top'
+// Command: set root module $TOP_DESIGN -revised
+// Warning: Revised root module is already at 'Graphic_3Dto2D_top'
+// Command: dofile lec_compare.do
+// Command: set system mode lec
+// Processing Golden ...
+// Modeling Golden ...
+// Warning: (F34) Converted 584 X assignment(s) as don't care(s)
+// Processing Revised ...
+// Modeling Revised ...
+// Balanced modeling (auto) mapped 102724 out of 104096 DFF/DLATs
+// (F18) Converted 1152 DFF/DLAT(s) in (G) to ZERO/ONE
+// Output MSB in 3 multiplier(s) is inferred to constant 0.
+// (F14) Remodeled 1560 gated-clock DFF/DLAT(s)
+CPU time     : 41.31   seconds
+Elapse time  : 43      seconds
+Memory usage : 1651.38 M bytes
+// Warning: Golden and Revised have different numbers of key points:
+// Golden  key points = 54107
+// Revised key points = 53071
+// Mapping key points ...
+================================================================================
+Mapped points: SYSTEM class
+--------------------------------------------------------------------------------
+Mapped points     PI     PO     DFF       Total   
+--------------------------------------------------------------------------------
+Golden            731    810    51236     52777   
+--------------------------------------------------------------------------------
+Revised           731    810    51236     52777   
+================================================================================
+Unmapped points:
+================================================================================
+Golden:
+--------------------------------------------------------------------------------
+Unmapped points   DFF       Total   
+--------------------------------------------------------------------------------
+Unreachable       1330      1330    
+================================================================================
+Revised:
+--------------------------------------------------------------------------------
+Unmapped points   DFF    DLAT      Total   
+--------------------------------------------------------------------------------
+Unreachable       126    168       294     
+================================================================================
+CPU time     : 49.01   seconds
+Elapse time  : 51      seconds
+Memory usage : 1678.48 M bytes
+// Command: map key point
+// Mapping key points ...
+================================================================================
+Mapped points: SYSTEM class
+--------------------------------------------------------------------------------
+Mapped points     PI     PO     DFF       Total   
+--------------------------------------------------------------------------------
+Golden            731    810    51236     52777   
+--------------------------------------------------------------------------------
+Revised           731    810    51236     52777   
+================================================================================
+Unmapped points:
+================================================================================
+Golden:
+--------------------------------------------------------------------------------
+Unmapped points   DFF       Total   
+--------------------------------------------------------------------------------
+Unreachable       1330      1330    
+================================================================================
+Revised:
+--------------------------------------------------------------------------------
+Unmapped points   DFF    DLAT      Total   
+--------------------------------------------------------------------------------
+Unreachable       126    168       294     
+================================================================================
+CPU time     : 51.16   seconds
+Elapse time  : 53      seconds
+Memory usage : 1710.37 M bytes
+// Command: analyze setup -verbose
+// Converted 480 DFF/DLAT(s) in (G) to ZERO/ONE
+// Converted 480 DFF/DLAT(s) in (R) to ZERO/ONE
+CPU time     : 115.64  seconds
+Elapse time  : 118     seconds
+Memory usage : 1678.49 M bytes
+// Command: analyze datapath -module -resourcefile $RESRC_FILE -verbose -effort high -flowgraph -isolate_abort_module
+// Warning: -wdfg option is ignored because -module option is specified.
+// Note: Multithreaded module datapath analysis (MDP) is enabled
+// Warning: No eligible datapath module in the design. Skip ...
+// Command: add compare point -all
+// 51566 compared points added to compare list
+CPU time     : 115.90  seconds
+Elapse time  : 118     seconds
+Memory usage : 1678.49 M bytes
+// Command: compare
+================================================================================
+Compared points      PO     DFF       Total   
+--------------------------------------------------------------------------------
+Equivalent           810    45937     46747   
+--------------------------------------------------------------------------------
+Abort                0      4819      4819    
+================================================================================
+CPU time     : 30698.65 seconds
+Elapse time  : 8002    seconds
+Memory usage : 1775.30 M bytes
+// Command: report unmap point -notmapped 
+
+0 unmapped points reported
+// Command: report compare data -nonequivalent
+0 Non-equivalent point(s) reported
+0 compared point(s) reported
+================================================================================
+Compared points      PO     DFF       Total   
+--------------------------------------------------------------------------------
+Equivalent           810    45937     46747   
+--------------------------------------------------------------------------------
+Abort                0      4819      4819    
+================================================================================
+// Command: report verification
+================================================================================
+                            Verification Report
+--------------------------------------------------------------------------------
+Category                                                                  Count
+--------------------------------------------------------------------------------
+1. Non-standard modeling options used:                                      1
+     Floating signals tied to Z:                               no
+--------------------------------------------------------------------------------
+2. Incomplete verification:                                                 0
+--------------------------------------------------------------------------------
+3. User modification to design:                                             0
+--------------------------------------------------------------------------------
+4. Conformal Constraint Designer clock domain crossing checks recommended:  0
+--------------------------------------------------------------------------------
+5. Design ambiguity:                                                        0
+--------------------------------------------------------------------------------
+6. Compare Results:                                                       ABORT
+================================================================================
+CPU time     : 30698.95 seconds
+Elapse time  : 8002    seconds
+Memory usage : 1775.30 M bytes
+// Command: save session DBS/lec_compare
+// Warning: Save session command only saves design data and will be obsolete in the future. Use the new "checkpoint" command to save complete process data.
+
+// Note: Session saved
+CPU time     : 30749.96 seconds
+Elapse time  : 8053    seconds
+Memory usage : 1819.47 M bytes
+// Command: exit -force

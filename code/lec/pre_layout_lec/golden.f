@@ -1,0 +1,12 @@
+../hdl/Graphic_3Dto2D_top.v
+../hdl/controller.v
+../hdl/cross_product.v
+../hdl/divider.v
+../hdl/divider_unit.v
+../hdl/divider_unit_last.v
+../hdl/getColorDepth.v
+../hdl/inv_sqrt.v
+../hdl/inv_sqrt_LUT.v
+../hdl/neg_dot_product.v
+../hdl/Rasterizer.v
+../hdl/vertex_shader.v

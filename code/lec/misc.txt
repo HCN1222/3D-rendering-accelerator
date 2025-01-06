@@ -1,0 +1,6 @@
+我們在pre_layout lec中，有嘗試使用過多種指令，例如
+analyze x、analyze datapath -effort high、analyze -diagnosis等等，甚至我也有嘗試使用formality並成功打開GUI，
+會想嘗試使用formality的原因是svf檔只能給formality讀，而這應該會讓26bit乘法比較容易分析而不會一直abort，
+不過最終因為不太會formality的操作而作罷。
+
+而post_layout lec中，我則是直接使用lab13的指令，並在蠻短的時間就得到比對成功的結果。

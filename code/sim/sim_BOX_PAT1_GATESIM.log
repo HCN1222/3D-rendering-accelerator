@@ -1,0 +1,303 @@
+Command: vcs -R +v2k -full64 -f gatesim.f -debug_acc -l sim_BOX_PAT1_GATESIM.log \
++define+BOX +define+PAT1 +define+GATESIM +define+DUMPFILE +warn=none
+*** Using c compiler gcc instead of cc ...
+                         Chronologic VCS (TM)
+         Version N-2017.12_Full64 -- Wed Dec 25 19:20:45 2024
+               Copyright (c) 1991-2017 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+Parsing design file 'test_Graphic_3Dto2D_top.v'
+Parsing design file 'sram_model/sram_depth.v'
+Parsing design file 'sram_model/sram_face.v'
+Parsing design file 'sram_model/sram_screen_buffer_color.v'
+Parsing design file 'sram_model/sram_vertex_color.v'
+Parsing design file 'sram_model/sram_vertex_position.v'
+Parsing design file '../syn/netlist/Graphic_3Dto2D_top_syn.v'
+Parsing library file '/usr/cadtool/GPDK45/gsclib045_svt_v4.4/gsclib045/verilog/slow_vdd1v2_basicCells.v'
+Top Level Modules:
+       test_Graphic_3Dto2D_top
+TimeScale is 1 ns / 1 ps
+
+   ***   $sdf_annotate() version 1.2R
+   ***    SDF file: "../syn/netlist/Graphic_3Dto2D_top_syn.sdf"
+   ***    Annotation scope: test_Graphic_3Dto2D_top.Graphic_3Dto2D_top_U0
+   ***    No MTM selection argument specified
+   ***    No SCALE FACTORS argument specified
+   ***    No SCALE TYPE argument specified
+   ***    MTM selection defaulted to "TOOL_CONTROL":
+               (+maxdelays compiled, MAXIMUM delays selected)
+   ***    SCALE FACTORS defaulted to "1.0:1.0:1.0":
+   ***    SCALE TYPE defaulted to: "FROM_MTM"
+   ***    Turnoff delay: "FROM_FILE"
+   ***    Approximation (mipd) policy: "MAXIMUM"
+
+   ***    SDF annotation begin: Wed Dec 25 19:21:02 2024
+
+
+SDF Info: +pulse_r/100, +pulse_e/100 in effect
+
+          Total errors: 0
+          Total warnings: 0
+   ***    SDF annotation completed: Wed Dec 25 19:21:09 2024
+
+
+Starting vcs inline pass...
+166 modules and 3 UDPs read.
+recompiling module test_Graphic_3Dto2D_top
+recompiling module sram_depth
+recompiling module sram_face
+recompiling module sram_screen_buffer_color
+recompiling module sram_vertex_color
+recompiling module sram_vertex_position
+recompiling module inv_sqrt_LUT
+recompiling module inv_sqrt
+recompiling module neg_dot_product
+recompiling module cross_product
+recompiling module divider_unit_mydesign_5
+recompiling module divider_unit_mydesign_4
+recompiling module divider_unit_last_mydesign_2
+recompiling module divider_mydesign_2
+recompiling module divider_unit_mydesign_3
+recompiling module divider_unit_mydesign_2
+recompiling module divider_unit_last_mydesign_1
+recompiling module divider_mydesign_1
+recompiling module divider_unit_mydesign_1
+recompiling module divider_unit_mydesign_0
+recompiling module divider_unit_last_mydesign_0
+recompiling module divider_mydesign_0
+recompiling module SNPS_CLOCK_GATE_HIGH_vertex_shader_mydesign_9
+recompiling module vertex_shader
+recompiling module SNPS_CLOCK_GATE_HIGH_controller_mydesign_9
+recompiling module controller
+recompiling module div_pipe_mydesign_47
+recompiling module div_pipe_mydesign_46
+recompiling module div_pipe_mydesign_45
+recompiling module InTriangle_mydesign_15
+recompiling module GetColorDepth_mydesign_15
+recompiling module div_pipe_mydesign_44
+recompiling module div_pipe_mydesign_43
+recompiling module div_pipe_mydesign_42
+recompiling module InTriangle_mydesign_14
+recompiling module GetColorDepth_mydesign_14
+recompiling module div_pipe_mydesign_41
+recompiling module div_pipe_mydesign_40
+recompiling module div_pipe_mydesign_39
+recompiling module InTriangle_mydesign_13
+recompiling module GetColorDepth_mydesign_13
+recompiling module div_pipe_mydesign_38
+recompiling module div_pipe_mydesign_37
+recompiling module div_pipe_mydesign_36
+recompiling module InTriangle_mydesign_12
+recompiling module GetColorDepth_mydesign_12
+recompiling module div_pipe_mydesign_35
+recompiling module div_pipe_mydesign_34
+recompiling module div_pipe_mydesign_33
+recompiling module InTriangle_mydesign_11
+50 of 166 modules done
+recompiling module GetColorDepth_mydesign_11
+recompiling module div_pipe_mydesign_32
+recompiling module div_pipe_mydesign_31
+recompiling module div_pipe_mydesign_30
+recompiling module InTriangle_mydesign_10
+recompiling module GetColorDepth_mydesign_10
+recompiling module div_pipe_mydesign_29
+recompiling module div_pipe_mydesign_28
+recompiling module div_pipe_mydesign_27
+recompiling module InTriangle_mydesign_9
+recompiling module GetColorDepth_mydesign_9
+recompiling module div_pipe_mydesign_26
+recompiling module div_pipe_mydesign_25
+recompiling module div_pipe_mydesign_24
+recompiling module InTriangle_mydesign_8
+recompiling module GetColorDepth_mydesign_8
+recompiling module div_pipe_mydesign_23
+recompiling module div_pipe_mydesign_22
+recompiling module div_pipe_mydesign_21
+recompiling module InTriangle_mydesign_7
+recompiling module GetColorDepth_mydesign_7
+recompiling module div_pipe_mydesign_20
+recompiling module div_pipe_mydesign_19
+recompiling module div_pipe_mydesign_18
+recompiling module InTriangle_mydesign_6
+recompiling module GetColorDepth_mydesign_6
+recompiling module div_pipe_mydesign_17
+recompiling module div_pipe_mydesign_16
+recompiling module div_pipe_mydesign_15
+recompiling module InTriangle_mydesign_5
+recompiling module GetColorDepth_mydesign_5
+recompiling module div_pipe_mydesign_14
+recompiling module div_pipe_mydesign_13
+recompiling module div_pipe_mydesign_12
+recompiling module InTriangle_mydesign_4
+recompiling module GetColorDepth_mydesign_4
+recompiling module div_pipe_mydesign_11
+recompiling module div_pipe_mydesign_10
+recompiling module div_pipe_mydesign_9
+recompiling module InTriangle_mydesign_3
+recompiling module GetColorDepth_mydesign_3
+recompiling module div_pipe_mydesign_8
+recompiling module div_pipe_mydesign_7
+recompiling module div_pipe_mydesign_6
+recompiling module InTriangle_mydesign_2
+recompiling module GetColorDepth_mydesign_2
+recompiling module div_pipe_mydesign_5
+recompiling module div_pipe_mydesign_4
+recompiling module div_pipe_mydesign_3
+recompiling module InTriangle_mydesign_1
+100 of 166 modules done
+recompiling module GetColorDepth_mydesign_1
+recompiling module div_pipe_mydesign_2
+recompiling module div_pipe_mydesign_1
+recompiling module div_pipe_mydesign_0
+recompiling module InTriangle_mydesign_0
+recompiling module GetColorDepth_mydesign_0
+recompiling module SNPS_CLOCK_GATE_HIGH_Rasterizer_mydesign_4
+recompiling module Rasterizer
+recompiling module Graphic_3Dto2D_top
+recompiling module ADDFXL
+recompiling module ADDHXL
+recompiling module AND3XL
+recompiling module AND4XL
+recompiling module AO21XL
+recompiling module AO22XL
+recompiling module AOI211XL
+recompiling module AOI21XL
+recompiling module AOI221XL
+recompiling module AOI222XL
+recompiling module AOI22XL
+recompiling module AOI2BB1XL
+recompiling module AOI2BB2XL
+recompiling module AOI31XL
+recompiling module AOI32XL
+recompiling module AOI33XL
+recompiling module CLKAND2X2
+recompiling module DFFTRXL
+recompiling module DLY1X1
+recompiling module INVXL
+recompiling module MDFFHQX1
+recompiling module MX2XL
+recompiling module MXI2XL
+recompiling module NAND2BXL
+recompiling module NAND2XL
+recompiling module NAND3BXL
+recompiling module NAND3XL
+recompiling module NAND4BXL
+recompiling module NAND4XL
+recompiling module NOR2BXL
+recompiling module NOR2XL
+recompiling module NOR3BXL
+recompiling module NOR3XL
+recompiling module NOR4BBX1
+recompiling module NOR4BX1
+recompiling module NOR4X1
+recompiling module OA21X1
+recompiling module OA22X1
+recompiling module OAI211XL
+recompiling module OAI21XL
+recompiling module OAI221XL
+150 of 166 modules done
+recompiling module OAI222XL
+recompiling module OAI22XL
+recompiling module OAI2BB1XL
+recompiling module OAI31XL
+recompiling module OAI32XL
+recompiling module OAI33X1
+recompiling module OR2XL
+recompiling module OR3XL
+recompiling module OR4X1
+recompiling module SMDFFHQX4
+recompiling module TIEHI
+recompiling module TIELO
+recompiling module TLATNXL
+recompiling module XNOR2XL
+recompiling module XOR2XL
+recompiling module XOR3XL
+All of 166 modules done
+rm -f _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+if [ -x ../simv ]; then chmod -x ../simv; fi
+g++  -o ../simv   -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ \
+-Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -rdynamic   objs/amcQw_d.o   _13184_archive_1.so \
+objs/udps/zrRAN.o objs/udps/mICBD.o objs/udps/aHiUc.o  SIM_l.o       rmapats_mop.o \
+rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o          /usr/cad/synopsys/vcs/2017.12/linux64/lib/libzerosoft_rt_stubs.so \
+/usr/cad/synopsys/vcs/2017.12/linux64/lib/libvirsim.so /usr/cad/synopsys/vcs/2017.12/linux64/lib/liberrorinf.so \
+/usr/cad/synopsys/vcs/2017.12/linux64/lib/libsnpsmalloc.so /usr/cad/synopsys/vcs/2017.12/linux64/lib/libvfs.so \
+/usr/cad/synopsys/vcs/2017.12/linux64/lib/libvcsnew.so /usr/cad/synopsys/vcs/2017.12/linux64/lib/libsimprofile.so \
+/usr/cad/synopsys/vcs/2017.12/linux64/lib/libuclinative.so /usr/cad/synopsys/vcs/2017.12/linux64/lib/vcs_tls.o \
+-Wl,-whole-archive /usr/cad/synopsys/vcs/2017.12/linux64/lib/libvcsucli.so -Wl,-no-whole-archive \
+_vcs_pli_stub_.o   /usr/cad/synopsys/vcs/2017.12/linux64/lib/vcs_save_restore_new.o \
+/usr/cad/synopsys/verdi/2019.06/share/PLI/VCS/LINUX64/pli.a -ldl  -lc -lm -lpthread \
+-ldl 
+../simv up to date
+Command: /home/u110/u110060035/ICLAB/final_project/3D-rendering-accelerator/code/sim/./simv +v2k -a sim_BOX_PAT1_GATESIM.log +define+BOX +define+PAT1 +define+GATESIM +define+DUMPFILE +warn=none
+Chronologic VCS simulator copyright 1991-2017
+Contains Synopsys proprietary information.
+Compiler version N-2017.12_Full64; Runtime version N-2017.12_Full64;  Dec 25 19:21 2024
+Doing SDF annotation ...... Done
+*Verdi* Loading libsscore_vcs201712.so
+FSDB Dumper for VCS, Release Verdi_P-2019.06, Linux x86_64/64bit, 05/26/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* : Create FSDB file 'gatesim.fsdb'
+*Verdi* : Begin traversing the scope (test_Graphic_3Dto2D_top.Graphic_3Dto2D_top_U0), layer (0).
+*Verdi* : Enable +mda dumping.
+*Verdi* : End of traversing.
+cycle:         100, I'm still alive :). weeeeeee
+*Verdi* FSDB: For performance reasons, the Memory Size Limit has been increased to 128M.
+cycle:         200, I'm still alive :). weeeeeee
+cycle:         300, I'm still alive :). weeeeeee
+cycle:         400, I'm still alive :). weeeeeee
+cycle:         500, I'm still alive :). weeeeeee
+cycle:         600, I'm still alive :). weeeeeee
+cycle:         700, I'm still alive :). weeeeeee
+cycle:         800, I'm still alive :). weeeeeee
+cycle:         900, I'm still alive :). weeeeeee
+cycle:        1000, I'm still alive :). weeeeeee
+cycle:        1100, I'm still alive :). weeeeeee
+cycle:        1200, I'm still alive :). weeeeeee
+cycle:        1300, I'm still alive :). weeeeeee
+cycle:        1400, I'm still alive :). weeeeeee
+cycle:        1500, I'm still alive :). weeeeeee
+cycle:        1600, I'm still alive :). weeeeeee
+cycle:        1700, I'm still alive :). weeeeeee
+cycle:        1800, I'm still alive :). weeeeeee
+cycle:        1900, I'm still alive :). weeeeeee
+cycle:        2000, I'm still alive :). weeeeeee
+cycle:        2100, I'm still alive :). weeeeeee
+cycle:        2200, I'm still alive :). weeeeeee
+cycle:        2300, I'm still alive :). weeeeeee
+cycle:        2400, I'm still alive :). weeeeeee
+cycle:        2500, I'm still alive :). weeeeeee
+cycle:        2600, I'm still alive :). weeeeeee
+cycle:        2700, I'm still alive :). weeeeeee
+cycle:        2800, I'm still alive :). weeeeeee
+cycle:        2900, I'm still alive :). weeeeeee
+cycle:        3000, I'm still alive :). weeeeeee
+cycle:        3100, I'm still alive :). weeeeeee
+cycle:        3200, I'm still alive :). weeeeeee
+cycle:        3300, I'm still alive :). weeeeeee
+cycle:        3400, I'm still alive :). weeeeeee
+cycle:        3500, I'm still alive :). weeeeeee
+cycle:        3600, I'm still alive :). weeeeeee
+cycle:        3700, I'm still alive :). weeeeeee
+cycle:        3800, I'm still alive :). weeeeeee
+cycle:        3900, I'm still alive :). weeeeeee
+cycle:        4000, I'm still alive :). weeeeeee
+cycle:        4100, I'm still alive :). weeeeeee
+cycle:        4200, I'm still alive :). weeeeeee
+cycle:        4300, I'm still alive :). weeeeeee
+cycle:        4400, I'm still alive :). weeeeeee
+cycle:        4500, I'm still alive :). weeeeeee
+cycle:        4600, I'm still alive :). weeeeeee
+cycle:        4700, I'm still alive :). weeeeeee
+cycle:        4800, I'm still alive :). weeeeeee
+GATESIM_PASS: HA HA HA, 3D Model mesh to 2D screen buffer success!!
+$finish called from file "test_Graphic_3Dto2D_top.v", line 451.
+$finish at simulation time             48710000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 48710000 ps
+CPU Time:    763.650 seconds;       Data structure size: 207.1Mb
+Wed Dec 25 19:29:44 2024
+CPU time: 38.355 seconds to compile + 17.544 seconds to elab + 1.426 seconds to link + 763.736 seconds in simulation

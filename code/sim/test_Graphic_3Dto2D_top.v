@@ -463,6 +463,17 @@ initial begin
     $finish;
 end
 
+integer current_cycle;
+initial begin
+	current_cycle = 0;
+	while (1) begin
+		@(posedge clk);
+		current_cycle = current_cycle + 1;
+		if (current_cycle % 100 == 0)
+			$display("cycle: %d, I'm still alive :). weeeeeee", current_cycle);
+	end
+end
+
 initial begin
 
     `ifdef POSTSIM

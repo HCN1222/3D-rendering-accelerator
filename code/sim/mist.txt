@@ -1,0 +1,12 @@
+請助教們直接到final project --> 3D-rendering-accelerator --> code --> sim，然後
+再這個資料夾中執行bash ./run_sim.sh，會先跑presim，然後再跑gatesim，gatesim需要跑的時間至少需要7小時
+
+假如助教們想要跑postsim，則需要到final project --> 3D-rendering-accelerator --> code --> post_sim_85，
+然後執行bash ./run_postsim_85.sh，則可以開始postsim，不過與postsim一樣，postsim需要跑的時間需要至少10小時，並且
+由於生成的log檔案太大，所以不會附在checklist之中。
+
+我們的testbench會讀入軟體生成的face、vertice、color等等的資訊，並且開始等待Graphic_3Dto2D_top運算完並讓finish訊號為1，
+當finish為1時，testbench會進到verification的task中，然後他會呼叫我們寫在sram_screen_buffer內的task，並去比對(1280*720)/16
+個address是否與由軟體生成的golden data完全相同，假如相同則會印出success訊息，並且由於gatesim、postsim需要跑的時間太長，我們
+每100個cycle就會印出一個程式依舊存活的訊息。我們在這次的final project中總共測試6個3D model，每個3D model兩張圖，總計12張圖，
+並且為了之後做power分析方便，我們testbench有參考HW2和HW4用sh跑多次的寫法，並且只有BOX時會dumpwave (大概7000個cycle，蠻適合做power分析)

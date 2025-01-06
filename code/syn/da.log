@@ -129,25 +129,25 @@ Inferred memory devices in process
 ================================================================================
 |    Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ================================================================================
-|    enable_reg_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|    eye_x_reg_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|    eye_y_reg_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|    eye_z_reg_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|   center_x_reg_reg   | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|   center_y_reg_reg   | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|   center_z_reg_reg   | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|     up_x_reg_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|     up_y_reg_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|     up_z_reg_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|  vertice_x_reg_reg   | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|  vertice_y_reg_reg   | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|  vertice_z_reg_reg   | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|   face_v1_reg_reg    | Flip-flop |  20   |  Y  | N  | N  | N  | N  | N  | N  |
-|   face_v2_reg_reg    | Flip-flop |  20   |  Y  | N  | N  | N  | N  | N  | N  |
-|   face_v3_reg_reg    | Flip-flop |  20   |  Y  | N  | N  | N  | N  | N  | N  |
-|   Color_v_reg_reg    | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|  depth_org_reg_reg   | Flip-flop |  336  |  Y  | N  | N  | N  | N  | N  | N  |
-| num_of_faces_reg_reg | Flip-flop |  20   |  Y  | N  | N  | N  | N  | N  | N  |
+|  depth_org_reg_reg   | Flip-flop |  336  |  Y  | N  | N  | N  | Y  | N  | N  |
+| num_of_faces_reg_reg | Flip-flop |  20   |  Y  | N  | N  | N  | Y  | N  | N  |
+|    enable_reg_reg    | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|    eye_x_reg_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|    eye_y_reg_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|    eye_z_reg_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   center_x_reg_reg   | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   center_y_reg_reg   | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   center_z_reg_reg   | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     up_x_reg_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     up_y_reg_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     up_z_reg_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|  vertice_x_reg_reg   | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|  vertice_y_reg_reg   | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|  vertice_z_reg_reg   | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   face_v1_reg_reg    | Flip-flop |  20   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   face_v2_reg_reg    | Flip-flop |  20   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   face_v3_reg_reg    | Flip-flop |  20   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   Color_v_reg_reg    | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
 ================================================================================
 Presto compilation completed successfully. (Graphic_3Dto2D_top)
 Elaborated 1 design.
@@ -220,28 +220,28 @@ Inferred memory devices in process
 ====================================================================================
 |      Register Name       |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ====================================================================================
-|    product_quant_reg     | Flip-flop |  384  |  Y  | N  | N  | N  | N  | N  | N  |
+|         CamY_reg         | Flip-flop |  78   |  Y  | N  | N  | N  | Y  | N  | N  |
+|         MVP_reg          | Flip-flop |  384  |  Y  | N  | N  | N  | Y  | N  | N  |
 |        state_reg         | Flip-flop |   4   |  Y  | N  | N  | N  | Y  | N  | N  |
-| vertex1_depth_update_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertex2_depth_update_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertex3_depth_update_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-|   screen_x1_update_reg   | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|   screen_y1_update_reg   | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|   screen_x2_update_reg   | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|   screen_y2_update_reg   | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|   screen_x3_update_reg   | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|   screen_y3_update_reg   | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|      MVP_ready_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|      data_ready_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|         cnt_reg          | Flip-flop |   5   |  Y  | N  | N  | N  | N  | N  | N  |
-|         sum_reg          | Flip-flop |  96   |  Y  | N  | N  | N  | N  | N  | N  |
-|         CamZ_reg         | Flip-flop |  78   |  Y  | N  | N  | N  | N  | N  | N  |
-|    neg_Y_dot_eye_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|    neg_X_dot_eye_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|    neg_Z_dot_eye_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|         CamX_reg         | Flip-flop |  78   |  Y  | N  | N  | N  | N  | N  | N  |
-|         CamY_reg         | Flip-flop |  78   |  Y  | N  | N  | N  | N  | N  | N  |
-|         MVP_reg          | Flip-flop |  384  |  Y  | N  | N  | N  | N  | N  | N  |
+|    product_quant_reg     | Flip-flop |  384  |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertex1_depth_update_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertex2_depth_update_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertex3_depth_update_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   screen_x1_update_reg   | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   screen_y1_update_reg   | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   screen_x2_update_reg   | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   screen_y2_update_reg   | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   screen_x3_update_reg   | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   screen_y3_update_reg   | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      MVP_ready_reg       | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|      data_ready_reg      | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|         cnt_reg          | Flip-flop |   5   |  Y  | N  | N  | N  | Y  | N  | N  |
+|         sum_reg          | Flip-flop |  96   |  Y  | N  | N  | N  | Y  | N  | N  |
+|         CamZ_reg         | Flip-flop |  78   |  Y  | N  | N  | N  | Y  | N  | N  |
+|    neg_Y_dot_eye_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|    neg_X_dot_eye_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|    neg_Z_dot_eye_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|         CamX_reg         | Flip-flop |  78   |  Y  | N  | N  | N  | Y  | N  | N  |
 ====================================================================================
 Statistics for MUX_OPs
 =======================================================
@@ -272,75 +272,75 @@ Inferred memory devices in process
 =============================================================================================
 |           Register Name           |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 =============================================================================================
-|              cnt_reg              | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
-|     address_sram_get_face_reg     | Flip-flop |  20   |  Y  | N  | N  | N  | N  | N  | N  |
-|            finish_reg             | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-| address_sram_get_vertice_info_reg | Flip-flop |  20   |  Y  | N  | N  | N  | N  | N  | N  |
-|      start_doing_shading_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|      to_shader_vertex_x_reg       | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|      to_shader_vertex_y_reg       | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|      to_shader_vertex_z_reg       | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|          vertice1_x_reg           | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|          vertice1_y_reg           | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|        vertice1_depth_reg         | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-|          vertice2_x_reg           | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|          vertice2_y_reg           | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|        vertice2_depth_reg         | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-|          vertice3_x_reg           | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|          vertice3_y_reg           | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|        vertice3_depth_reg         | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-|        vertice1_color_reg         | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|        vertice2_color_reg         | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|        vertice3_color_reg         | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|         vertice_ready_reg         | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|            VS_v1_x_reg            | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|            VS_v1_y_reg            | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|            VS_v1_z_reg            | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|            VS_v2_x_reg            | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|            VS_v2_y_reg            | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|            VS_v2_z_reg            | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|            VS_v3_x_reg            | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|            VS_v3_y_reg            | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|            VS_v3_z_reg            | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|          VS_v1_color_reg          | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|          VS_v2_color_reg          | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|          VS_v3_color_reg          | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|        buffer_v1_color_reg        | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|        buffer_v2_color_reg        | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|        buffer_v3_color_reg        | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
 |             state_reg             | Flip-flop |   3   |  Y  | N  | N  | N  | Y  | N  | N  |
+|              cnt_reg              | Flip-flop |   4   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        buffer_v3_color_reg        | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     address_sram_get_face_reg     | Flip-flop |  20   |  Y  | N  | N  | N  | Y  | N  | N  |
+|            finish_reg             | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+| address_sram_get_vertice_info_reg | Flip-flop |  20   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      start_doing_shading_reg      | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|      to_shader_vertex_x_reg       | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      to_shader_vertex_y_reg       | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      to_shader_vertex_z_reg       | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|          vertice1_x_reg           | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|          vertice1_y_reg           | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        vertice1_depth_reg         | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+|          vertice2_x_reg           | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|          vertice2_y_reg           | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        vertice2_depth_reg         | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+|          vertice3_x_reg           | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|          vertice3_y_reg           | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        vertice3_depth_reg         | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        vertice1_color_reg         | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        vertice2_color_reg         | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        vertice3_color_reg         | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|         vertice_ready_reg         | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|            VS_v1_x_reg            | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|            VS_v1_y_reg            | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|            VS_v1_z_reg            | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|            VS_v2_x_reg            | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|            VS_v2_y_reg            | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|            VS_v2_z_reg            | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|            VS_v3_x_reg            | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|            VS_v3_y_reg            | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|            VS_v3_z_reg            | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|          VS_v1_color_reg          | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|          VS_v2_color_reg          | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|          VS_v3_color_reg          | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        buffer_v1_color_reg        | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        buffer_v2_color_reg        | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
 =============================================================================================
 Information:  Complex logic will not be considered for set/reset inference. (ELAB-2008)
 Presto compilation completed successfully. (controller)
 Information: Building the design 'Rasterizer'. (HDL-193)
-Warning:  ../hdl/Rasterizer.v:551: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/Rasterizer.v:552: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/Rasterizer.v:553: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/Rasterizer.v:584: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/Rasterizer.v:585: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/Rasterizer.v:586: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/Rasterizer.v:617: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/Rasterizer.v:618: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/Rasterizer.v:620: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/Rasterizer.v:621: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/Rasterizer.v:657: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/Rasterizer.v:658: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/Rasterizer.v:702: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/Rasterizer.v:703: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/Rasterizer.v:721: signed to unsigned conversion occurs. (VER-318)
-Warning:  ../hdl/Rasterizer.v:722: signed to unsigned conversion occurs. (VER-318)
-Warning:  ../hdl/Rasterizer.v:681: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+Warning:  ../hdl/Rasterizer.v:240: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/Rasterizer.v:241: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/Rasterizer.v:242: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/Rasterizer.v:273: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/Rasterizer.v:274: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/Rasterizer.v:275: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/Rasterizer.v:306: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/Rasterizer.v:307: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/Rasterizer.v:309: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/Rasterizer.v:310: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/Rasterizer.v:346: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/Rasterizer.v:347: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/Rasterizer.v:391: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/Rasterizer.v:392: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/Rasterizer.v:410: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../hdl/Rasterizer.v:411: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../hdl/Rasterizer.v:370: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
 
-Statistics for case statements in always block at line 679 in file
+Statistics for case statements in always block at line 368 in file
 	'../hdl/Rasterizer.v'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
-|           681            |    auto/auto     |
+|           370            |    auto/auto     |
 ===============================================
 
 Inferred memory devices in process
-	in routine Rasterizer line 504 in file
+	in routine Rasterizer line 168 in file
 		'../hdl/Rasterizer.v'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
@@ -354,116 +354,116 @@ Inferred memory devices in process
 ===============================================================================
 
 Inferred memory devices in process
-	in routine Rasterizer line 523 in file
+	in routine Rasterizer line 187 in file
 		'../hdl/Rasterizer.v'.
 ======================================================================================
 |       Register Name        |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ======================================================================================
-|       addr_pipe9_reg       | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
-|       addr_pipe8_reg       | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
-|       addr_pipe7_reg       | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
-|       addr_pipe6_reg       | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
-|       addr_pipe5_reg       | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
-|       addr_pipe4_reg       | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
-|       addr_pipe3_reg       | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
-|       addr_pipe2_reg       | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
-|       addr_pipe1_reg       | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
-|      addr_pipe10_reg       | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
-| write_address_sram_CD_reg  | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
-|  read_address_sram_CD_reg  | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
-|  write_enable_sram_CD_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-| write_wordmask_sram_CD_reg | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
-|        start_x_reg         | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|        start_y_reg         | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|        minus_x_reg         | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|         end_x_reg          | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|         end_y_reg          | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|   get_next_triangle_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|   Color_RGB_combine_reg    | Flip-flop |  384  |  Y  | N  | N  | N  | N  | N  | N  |
-|      depth_after_reg       | Flip-flop |  336  |  Y  | N  | N  | N  | N  | N  | N  |
+|   Color_RGB_combine_reg    | Flip-flop |  384  |  Y  | N  | N  | N  | Y  | N  | N  |
+|      depth_after_reg       | Flip-flop |  336  |  Y  | N  | N  | N  | Y  | N  | N  |
+|       addr_pipe1_reg       | Flip-flop |  16   |  Y  | N  | N  | N  | Y  | N  | N  |
+|       addr_pipe2_reg       | Flip-flop |  16   |  Y  | N  | N  | N  | Y  | N  | N  |
+|       addr_pipe3_reg       | Flip-flop |  16   |  Y  | N  | N  | N  | Y  | N  | N  |
+|       addr_pipe4_reg       | Flip-flop |  16   |  Y  | N  | N  | N  | Y  | N  | N  |
+|       addr_pipe5_reg       | Flip-flop |  16   |  Y  | N  | N  | N  | Y  | N  | N  |
+|       addr_pipe6_reg       | Flip-flop |  16   |  Y  | N  | N  | N  | Y  | N  | N  |
+|       addr_pipe7_reg       | Flip-flop |  16   |  Y  | N  | N  | N  | Y  | N  | N  |
+|       addr_pipe8_reg       | Flip-flop |  16   |  Y  | N  | N  | N  | Y  | N  | N  |
+|       addr_pipe9_reg       | Flip-flop |  16   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      addr_pipe10_reg       | Flip-flop |  16   |  Y  | N  | N  | N  | Y  | N  | N  |
+| write_address_sram_CD_reg  | Flip-flop |  16   |  Y  | N  | N  | N  | Y  | N  | N  |
+|  read_address_sram_CD_reg  | Flip-flop |  16   |  Y  | N  | N  | N  | Y  | N  | N  |
+|  write_enable_sram_CD_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | Y  | N  |
+| write_wordmask_sram_CD_reg | Flip-flop |  16   |  Y  | N  | N  | N  | N  | Y  | N  |
+|        start_x_reg         | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        start_y_reg         | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        minus_x_reg         | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|         end_x_reg          | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|         end_y_reg          | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   get_next_triangle_reg    | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
 ======================================================================================
 Information:  Complex logic will not be considered for set/reset inference. (ELAB-2008)
 Presto compilation completed successfully. (Rasterizer)
 Information: Building the design 'inv_sqrt'. (HDL-193)
-Warning:  ../hdl/inv_sqrt.v:63: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/inv_sqrt.v:143: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:64: signed to unsigned part selection occurs. (VER-318)
 Warning:  ../hdl/inv_sqrt.v:144: signed to unsigned part selection occurs. (VER-318)
 Warning:  ../hdl/inv_sqrt.v:145: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/inv_sqrt.v:157: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/inv_sqrt.v:159: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/inv_sqrt.v:166: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/inv_sqrt.v:168: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/inv_sqrt.v:174: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/inv_sqrt.v:176: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/inv_sqrt.v:182: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/inv_sqrt.v:184: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/inv_sqrt.v:191: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/inv_sqrt.v:193: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/inv_sqrt.v:199: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/inv_sqrt.v:201: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/inv_sqrt.v:207: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/inv_sqrt.v:209: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/inv_sqrt.v:216: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/inv_sqrt.v:218: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/inv_sqrt.v:224: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/inv_sqrt.v:226: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/inv_sqrt.v:228: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:146: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:158: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:160: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:167: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:169: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:175: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:177: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:183: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:185: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:192: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:194: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:200: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:202: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:208: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:210: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:217: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:219: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:225: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:227: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/inv_sqrt.v:229: signed to unsigned conversion occurs. (VER-318)
 
 Inferred memory devices in process
-	in routine inv_sqrt line 232 in file
+	in routine inv_sqrt line 233 in file
 		'../hdl/inv_sqrt.v'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
-| X2_quant_pipe1_reg  | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|    X2_quant_reg     | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-| X1_quant_pipe1_reg  | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|    X1_quant_reg     | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|    X0_pipe1_reg     | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|       X0_reg        | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|      SUM_9_reg      | Flip-flop |  34   |  Y  | N  | N  | N  | N  | N  | N  |
-|      SUM_8_reg      | Flip-flop |  34   |  Y  | N  | N  | N  | N  | N  | N  |
-|      SUM_7_reg      | Flip-flop |  34   |  Y  | N  | N  | N  | N  | N  | N  |
-|      SUM_6_reg      | Flip-flop |  34   |  Y  | N  | N  | N  | N  | N  | N  |
-|      SUM_5_reg      | Flip-flop |  34   |  Y  | N  | N  | N  | N  | N  | N  |
-|      SUM_4_reg      | Flip-flop |  34   |  Y  | N  | N  | N  | N  | N  | N  |
-|      SUM_3_reg      | Flip-flop |  34   |  Y  | N  | N  | N  | N  | N  | N  |
-|    y_2_quant_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
-|    x_2_quant_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
-|    z_2_quant_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
-|     SUM_10_reg      | Flip-flop |  34   |  Y  | N  | N  | N  | N  | N  | N  |
-|    X0_pipe2_reg     | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|   X0_2_quant_reg    | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|  coeff_0_quant_reg  | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-| X1_quant_pipe2_reg  | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|   X1_2_quant_reg    | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|  coeff_1_quant_reg  | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-| X2_quant_pipe2_reg  | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|   X2_2_quant_reg    | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|  coeff_2_quant_reg  | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|       out_reg       | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
+|  coeff_2_quant_reg  | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|       out_reg       | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|    y_2_quant_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | Y  | N  | N  |
+|    x_2_quant_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | Y  | N  | N  |
+|    z_2_quant_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      SUM_3_reg      | Flip-flop |  34   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      SUM_4_reg      | Flip-flop |  34   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      SUM_5_reg      | Flip-flop |  34   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      SUM_6_reg      | Flip-flop |  34   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      SUM_7_reg      | Flip-flop |  34   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      SUM_8_reg      | Flip-flop |  34   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      SUM_9_reg      | Flip-flop |  34   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     SUM_10_reg      | Flip-flop |  34   |  Y  | N  | N  | N  | Y  | N  | N  |
+|       X0_reg        | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|    X0_pipe1_reg     | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|    X0_pipe2_reg     | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   X0_2_quant_reg    | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|  coeff_0_quant_reg  | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|    X1_quant_reg     | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+| X1_quant_pipe1_reg  | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+| X1_quant_pipe2_reg  | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   X1_2_quant_reg    | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|  coeff_1_quant_reg  | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|    X2_quant_reg     | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+| X2_quant_pipe1_reg  | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+| X2_quant_pipe2_reg  | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   X2_2_quant_reg    | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
 ===============================================================================
 Presto compilation completed successfully. (inv_sqrt)
 Information: Building the design 'neg_dot_product'. (HDL-193)
-Warning:  ../hdl/neg_dot_product.v:44: signed to unsigned conversion occurs. (VER-318)
 Warning:  ../hdl/neg_dot_product.v:45: signed to unsigned conversion occurs. (VER-318)
 Warning:  ../hdl/neg_dot_product.v:46: signed to unsigned conversion occurs. (VER-318)
-Warning:  ../hdl/neg_dot_product.v:47: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/neg_dot_product.v:47: signed to unsigned conversion occurs. (VER-318)
 Warning:  ../hdl/neg_dot_product.v:48: signed to unsigned part selection occurs. (VER-318)
 Warning:  ../hdl/neg_dot_product.v:49: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/neg_dot_product.v:53: signed to unsigned conversion occurs. (VER-318)
-Warning:  ../hdl/neg_dot_product.v:54: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/neg_dot_product.v:50: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/neg_dot_product.v:54: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../hdl/neg_dot_product.v:55: signed to unsigned part selection occurs. (VER-318)
 
 Inferred memory devices in process
-	in routine neg_dot_product line 57 in file
+	in routine neg_dot_product line 58 in file
 		'../hdl/neg_dot_product.v'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
-| product_x_quant_reg | Flip-flop |  29   |  Y  | N  | N  | N  | N  | N  | N  |
-| product_y_quant_reg | Flip-flop |  29   |  Y  | N  | N  | N  | N  | N  | N  |
-| product_z_quant_reg | Flip-flop |  29   |  Y  | N  | N  | N  | N  | N  | N  |
-|       out_reg       | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
+| product_z_quant_reg | Flip-flop |  29   |  Y  | N  | N  | N  | Y  | N  | N  |
+|       out_reg       | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+| product_x_quant_reg | Flip-flop |  29   |  Y  | N  | N  | N  | Y  | N  | N  |
+| product_y_quant_reg | Flip-flop |  29   |  Y  | N  | N  | N  | Y  | N  | N  |
 ===============================================================================
 Presto compilation completed successfully. (neg_dot_product)
 Information: Building the design 'cross_product'. (HDL-193)
@@ -473,9 +473,9 @@ Warning:  ../hdl/cross_product.v:47: signed to unsigned assignment occurs. (VER-
 Warning:  ../hdl/cross_product.v:48: signed to unsigned assignment occurs. (VER-318)
 Warning:  ../hdl/cross_product.v:49: signed to unsigned assignment occurs. (VER-318)
 Warning:  ../hdl/cross_product.v:50: signed to unsigned assignment occurs. (VER-318)
-Warning:  ../hdl/cross_product.v:89: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/cross_product.v:90: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/cross_product.v:91: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/cross_product.v:102: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/cross_product.v:103: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/cross_product.v:104: unsigned to signed assignment occurs. (VER-318)
 
 Inferred memory devices in process
 	in routine cross_product line 81 in file
@@ -483,77 +483,76 @@ Inferred memory devices in process
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
-|   UyVz_quant_reg    | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|   UzVx_quant_reg    | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|   UxVy_quant_reg    | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|   UzVy_quant_reg    | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|   UxVz_quant_reg    | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|   UyVx_quant_reg    | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|      out_x_reg      | Flip-flop |  26   |  Y  | N  | N  | N  | N  | N  | N  |
-|      out_y_reg      | Flip-flop |  26   |  Y  | N  | N  | N  | N  | N  | N  |
-|      out_z_reg      | Flip-flop |  26   |  Y  | N  | N  | N  | N  | N  | N  |
+|      out_y_reg      | Flip-flop |  26   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      out_z_reg      | Flip-flop |  26   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   UyVz_quant_reg    | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   UzVx_quant_reg    | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   UxVy_quant_reg    | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   UzVy_quant_reg    | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   UxVz_quant_reg    | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   UyVx_quant_reg    | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      out_x_reg      | Flip-flop |  26   |  Y  | N  | N  | N  | Y  | N  | N  |
 ===============================================================================
 Presto compilation completed successfully. (cross_product)
 Information: Building the design 'divider'. (HDL-193)
-Warning:  ../hdl/divider.v:29: signed to unsigned part selection occurs. (VER-318)
 Warning:  ../hdl/divider.v:30: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/divider.v:111: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/divider.v:115: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/divider.v:118: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/divider.v:31: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/divider.v:137: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/divider.v:141: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/divider.v:144: unsigned to signed assignment occurs. (VER-318)
 
 Inferred memory devices in process
-	in routine divider line 32 in file
+	in routine divider line 33 in file
 		'../hdl/divider.v'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
-|     signbit_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|  abs_dividend_reg   | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|   abs_divisor_reg   | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
+|  abs_dividend_reg   | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   abs_divisor_reg   | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     signbit_reg     | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
 ===============================================================================
 
 Inferred memory devices in process
-	in routine divider line 44 in file
+	in routine divider line 52 in file
 		'../hdl/divider.v'.
 ==================================================================================
 |     Register Name      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ==================================================================================
-| abs_dividend_pipe1_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| abs_divisor_pipe1_reg  | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
+| abs_dividend_pipe1_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+| abs_divisor_pipe1_reg  | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
 ==================================================================================
 
 Inferred memory devices in process
-	in routine divider line 67 in file
+	in routine divider line 81 in file
 		'../hdl/divider.v'.
 ==================================================================================
 |     Register Name      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ==================================================================================
-| abs_dividend_pipe2_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| abs_divisor_pipe2_reg  | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
+| abs_dividend_pipe2_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+| abs_divisor_pipe2_reg  | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
 ==================================================================================
 
 Inferred memory devices in process
-	in routine divider line 90 in file
+	in routine divider line 110 in file
 		'../hdl/divider.v'.
 ==================================================================================
 |     Register Name      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ==================================================================================
-| abs_dividend_pipe3_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| abs_divisor_pipe3_reg  | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
+| abs_dividend_pipe3_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+| abs_divisor_pipe3_reg  | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
 ==================================================================================
 
 Inferred memory devices in process
-	in routine divider line 124 in file
+	in routine divider line 150 in file
 		'../hdl/divider.v'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
-|    quotient_reg     | Flip-flop |  14   |  Y  | N  | N  | N  | N  | N  | N  |
+|    quotient_reg     | Flip-flop |  14   |  Y  | N  | N  | N  | Y  | N  | N  |
 ===============================================================================
 Information:  Complex logic will not be considered for set/reset inference. (ELAB-2008)
 Presto compilation completed successfully. (divider)
 Information: Building the design 'GetColorDepth'. (HDL-193)
-Warning:  ../hdl/getColorDepth.v:404: unsigned to signed assignment occurs. (VER-318)
 Warning:  ../hdl/getColorDepth.v:405: unsigned to signed assignment occurs. (VER-318)
 Warning:  ../hdl/getColorDepth.v:406: unsigned to signed assignment occurs. (VER-318)
 Warning:  ../hdl/getColorDepth.v:407: unsigned to signed assignment occurs. (VER-318)
@@ -561,34 +560,35 @@ Warning:  ../hdl/getColorDepth.v:408: unsigned to signed assignment occurs. (VER
 Warning:  ../hdl/getColorDepth.v:409: unsigned to signed assignment occurs. (VER-318)
 Warning:  ../hdl/getColorDepth.v:410: unsigned to signed assignment occurs. (VER-318)
 Warning:  ../hdl/getColorDepth.v:411: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:471: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:412: unsigned to signed assignment occurs. (VER-318)
 Warning:  ../hdl/getColorDepth.v:472: signed to unsigned conversion occurs. (VER-318)
 Warning:  ../hdl/getColorDepth.v:473: signed to unsigned conversion occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:475: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:474: signed to unsigned conversion occurs. (VER-318)
 Warning:  ../hdl/getColorDepth.v:476: signed to unsigned conversion occurs. (VER-318)
 Warning:  ../hdl/getColorDepth.v:477: signed to unsigned conversion occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:479: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:478: signed to unsigned conversion occurs. (VER-318)
 Warning:  ../hdl/getColorDepth.v:480: signed to unsigned conversion occurs. (VER-318)
 Warning:  ../hdl/getColorDepth.v:481: signed to unsigned conversion occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:499: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:482: signed to unsigned conversion occurs. (VER-318)
 Warning:  ../hdl/getColorDepth.v:500: signed to unsigned conversion occurs. (VER-318)
 Warning:  ../hdl/getColorDepth.v:501: signed to unsigned conversion occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:517: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:502: signed to unsigned conversion occurs. (VER-318)
 Warning:  ../hdl/getColorDepth.v:518: signed to unsigned part selection occurs. (VER-318)
 Warning:  ../hdl/getColorDepth.v:519: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:533: signed to unsigned conversion occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:559: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:600: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:601: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:602: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:740: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:520: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:534: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:560: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:767: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:768: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:769: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:907: signed to unsigned assignment occurs. (VER-318)
 
-Statistics for case statements in always block at line 456 in file
+Statistics for case statements in always block at line 457 in file
 	'../hdl/getColorDepth.v'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
-|           535            |    auto/auto     |
+|           536            |    auto/auto     |
 ===============================================
 
 Inferred memory devices in process
@@ -597,123 +597,123 @@ Inferred memory devices in process
 ====================================================================================
 |      Register Name       |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ====================================================================================
-|  in_triangle_pipe8_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-| vertice3_color_pipe8_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice2_color_pipe8_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice1_color_pipe8_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice3_depth_pipe8_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice2_depth_pipe8_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice1_depth_pipe8_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-|   overlap_v3_pipe8_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|   overlap_v2_pipe8_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|   overlap_v1_pipe8_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|     detect_pipe8_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|  in_triangle_pipe7_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-| vertice3_color_pipe7_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice2_color_pipe7_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice1_color_pipe7_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice3_depth_pipe7_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice2_depth_pipe7_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice1_depth_pipe7_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-|   overlap_v3_pipe7_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|   overlap_v2_pipe7_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|   overlap_v1_pipe7_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|     detect_pipe7_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|  in_triangle_pipe6_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-| vertice3_color_pipe6_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice2_color_pipe6_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice1_color_pipe6_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice3_depth_pipe6_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice2_depth_pipe6_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice1_depth_pipe6_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-|   overlap_v3_pipe6_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|   overlap_v2_pipe6_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|   overlap_v1_pipe6_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|     detect_pipe6_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|  in_triangle_pipe5_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-| vertice3_color_pipe5_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice2_color_pipe5_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice1_color_pipe5_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice3_depth_pipe5_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice2_depth_pipe5_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice1_depth_pipe5_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-|   overlap_v3_pipe5_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|   overlap_v2_pipe5_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|   overlap_v1_pipe5_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|     detect_pipe5_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-| vertice3_color_pipe4_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice2_color_pipe4_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice1_color_pipe4_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice3_depth_pipe4_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice2_depth_pipe4_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice1_depth_pipe4_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-|   overlap_v3_pipe4_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|   overlap_v2_pipe4_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|   overlap_v1_pipe4_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|     detect_pipe4_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-| vertice3_color_pipe3_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice2_color_pipe3_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice1_color_pipe3_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice3_depth_pipe3_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice2_depth_pipe3_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice1_depth_pipe3_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-|   overlap_v3_pipe3_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|   overlap_v2_pipe3_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|   overlap_v1_pipe3_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|     detect_pipe3_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-| vertice3_color_pipe2_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice2_color_pipe2_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice1_color_pipe2_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice3_depth_pipe2_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice2_depth_pipe2_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice1_depth_pipe2_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-|   overlap_v3_pipe2_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|   overlap_v2_pipe2_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|   overlap_v1_pipe2_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|     detect_pipe2_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | Y  | N  |
-|        temp0_reg         | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|        temp1_reg         | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|        temp2_reg         | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|        temp3_reg         | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|        temp4_reg         | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|        temp5_reg         | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|        temp6_reg         | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|        temp7_reg         | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|        temp8_reg         | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|        temp9_reg         | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|        temp10_reg        | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|        temp11_reg        | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|          A1_reg          | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|          A2_reg          | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|          A3_reg          | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|          At_reg          | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|     detect_pipe9_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|   overlap_v1_pipe9_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|   overlap_v2_pipe9_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|   overlap_v3_pipe9_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-| vertice1_depth_pipe9_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice2_depth_pipe9_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice3_depth_pipe9_reg | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice1_color_pipe9_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice2_color_pipe9_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-| vertice3_color_pipe9_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|  in_triangle_pipe9_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|      p1_color_R_reg      | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|      p2_color_R_reg      | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|      p3_color_R_reg      | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|      p1_color_G_reg      | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|      p2_color_G_reg      | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|      p3_color_G_reg      | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|      p1_color_B_reg      | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|      p2_color_B_reg      | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|      p3_color_B_reg      | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
-|       p1_depth_reg       | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|       p2_depth_reg       | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|       p3_depth_reg       | Flip-flop |  25   |  Y  | N  | N  | N  | N  | N  | N  |
-|    current_Color_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-|    current_depth_reg     | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
-|       not_draw_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-|     in_triangle_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       not_draw_reg       | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|     in_triangle_reg      | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|        temp0_reg         | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        temp1_reg         | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        temp2_reg         | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        temp3_reg         | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        temp4_reg         | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        temp5_reg         | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        temp6_reg         | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        temp7_reg         | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        temp8_reg         | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        temp9_reg         | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        temp10_reg        | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        temp11_reg        | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     detect_pipe2_reg     | Flip-flop |   1   |  N  | N  | N  | N  | Y  | Y  | N  |
+|   overlap_v1_pipe2_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v2_pipe2_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v3_pipe2_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+| vertice1_depth_pipe2_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice2_depth_pipe2_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice3_depth_pipe2_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice1_color_pipe2_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice2_color_pipe2_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice3_color_pipe2_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|          A1_reg          | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|          A2_reg          | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|          A3_reg          | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|          At_reg          | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     detect_pipe3_reg     | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v1_pipe3_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v2_pipe3_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v3_pipe3_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+| vertice1_depth_pipe3_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice2_depth_pipe3_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice3_depth_pipe3_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice1_color_pipe3_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice2_color_pipe3_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice3_color_pipe3_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     detect_pipe4_reg     | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v1_pipe4_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v2_pipe4_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v3_pipe4_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+| vertice1_depth_pipe4_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice2_depth_pipe4_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice3_depth_pipe4_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice1_color_pipe4_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice2_color_pipe4_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice3_color_pipe4_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     detect_pipe5_reg     | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v1_pipe5_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v2_pipe5_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v3_pipe5_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+| vertice1_depth_pipe5_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice2_depth_pipe5_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice3_depth_pipe5_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice1_color_pipe5_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice2_color_pipe5_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice3_color_pipe5_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|  in_triangle_pipe5_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|     detect_pipe6_reg     | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v1_pipe6_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v2_pipe6_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v3_pipe6_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+| vertice1_depth_pipe6_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice2_depth_pipe6_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice3_depth_pipe6_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice1_color_pipe6_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice2_color_pipe6_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice3_color_pipe6_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|  in_triangle_pipe6_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|     detect_pipe7_reg     | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v1_pipe7_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v2_pipe7_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v3_pipe7_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+| vertice1_depth_pipe7_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice2_depth_pipe7_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice3_depth_pipe7_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice1_color_pipe7_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice2_color_pipe7_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice3_color_pipe7_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|  in_triangle_pipe7_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|     detect_pipe8_reg     | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v1_pipe8_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v2_pipe8_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v3_pipe8_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+| vertice1_depth_pipe8_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice2_depth_pipe8_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice3_depth_pipe8_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice1_color_pipe8_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice2_color_pipe8_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice3_color_pipe8_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|  in_triangle_pipe8_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|     detect_pipe9_reg     | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v1_pipe9_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v2_pipe9_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|   overlap_v3_pipe9_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+| vertice1_depth_pipe9_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice2_depth_pipe9_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice3_depth_pipe9_reg | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice1_color_pipe9_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice2_color_pipe9_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+| vertice3_color_pipe9_reg | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|  in_triangle_pipe9_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|      p1_color_R_reg      | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      p2_color_R_reg      | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      p3_color_R_reg      | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      p1_color_G_reg      | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      p2_color_G_reg      | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      p3_color_G_reg      | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      p1_color_B_reg      | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      p2_color_B_reg      | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      p3_color_B_reg      | Flip-flop |  12   |  Y  | N  | N  | N  | Y  | N  | N  |
+|       p1_depth_reg       | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|       p2_depth_reg       | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|       p3_depth_reg       | Flip-flop |  25   |  Y  | N  | N  | N  | Y  | N  | N  |
+|    current_Color_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | Y  | N  | N  |
+|    current_depth_reg     | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
 ====================================================================================
 Information:  Complex logic will not be considered for set/reset inference. (ELAB-2008)
 Presto compilation completed successfully. (GetColorDepth)
@@ -724,105 +724,105 @@ Statistics for case statements in always block at line 6 in file
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
-|            8             |     no/auto      |
+|            8             |    auto/auto     |
 ===============================================
 Presto compilation completed successfully. (inv_sqrt_LUT)
 Information: Building the design 'divider_unit'. (HDL-193)
 
 Inferred memory devices in process
-	in routine divider_unit line 32 in file
+	in routine divider_unit line 33 in file
 		'../hdl/divider_unit.v'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
-|  remainder_out_reg  | Flip-flop |  35   |  Y  | N  | N  | N  | N  | N  | N  |
-|  remainder_out_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | Y  | N  |
-|   divisor_out_reg   | Flip-flop |  23   |  Y  | N  | N  | N  | N  | N  | N  |
-|   signbit_out_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   divisor_out_reg   | Flip-flop |  23   |  Y  | N  | N  | N  | Y  | N  | N  |
+|   signbit_out_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|  remainder_out_reg  | Flip-flop |  35   |  Y  | N  | N  | N  | Y  | N  | N  |
+|  remainder_out_reg  | Flip-flop |   1   |  N  | N  | N  | N  | Y  | Y  | N  |
 ===============================================================================
 Information:  Complex logic will not be considered for set/reset inference. (ELAB-2008)
 Presto compilation completed successfully. (divider_unit)
 Information: Building the design 'divider_unit_last'. (HDL-193)
 
 Inferred memory devices in process
-	in routine divider_unit_last line 31 in file
+	in routine divider_unit_last line 32 in file
 		'../hdl/divider_unit_last.v'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
-|  remainder_out_reg  | Flip-flop |  35   |  Y  | N  | N  | N  | N  | N  | N  |
-|  remainder_out_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | Y  | N  |
-|   signbit_out_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|  remainder_out_reg  | Flip-flop |  35   |  Y  | N  | N  | N  | Y  | N  | N  |
+|  remainder_out_reg  | Flip-flop |   1   |  N  | N  | N  | N  | Y  | Y  | N  |
+|   signbit_out_reg   | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
 ===============================================================================
 Information:  Complex logic will not be considered for set/reset inference. (ELAB-2008)
 Presto compilation completed successfully. (divider_unit_last)
 Information: Building the design 'div_pipe'. (HDL-193)
-Warning:  ../hdl/getColorDepth.v:874: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:877: signed to unsigned conversion occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:876: signed to unsigned conversion occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:885: signed to unsigned conversion occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:884: signed to unsigned conversion occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:893: signed to unsigned conversion occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:892: signed to unsigned conversion occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:901: signed to unsigned conversion occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:900: signed to unsigned conversion occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:908: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:910: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:957: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:1004: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:1051: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:1095: signed to unsigned part selection occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:1121: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1047: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1050: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1049: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1058: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1057: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1066: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1065: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1074: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1073: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1081: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1083: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1130: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1177: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1224: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1268: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1314: signed to unsigned assignment occurs. (VER-318)
 
 Inferred memory devices in process
-	in routine div_pipe line 1103 in file
+	in routine div_pipe line 1276 in file
 		'../hdl/getColorDepth.v'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
-|     Apipe2_reg      | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|     Lpipe2_reg      | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
-|     Lpipe2_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | Y  | N  |
-|     Atpipe2_reg     | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|     Apipe3_reg      | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|     Lpipe3_reg      | Flip-flop |   9   |  Y  | N  | N  | N  | N  | N  | N  |
-|     Atpipe3_reg     | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|     Apipe4_reg      | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|     Lpipe4_reg      | Flip-flop |  13   |  Y  | N  | N  | N  | N  | N  | N  |
-|     Atpipe4_reg     | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|     Apipe5_reg      | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|     Lpipe5_reg      | Flip-flop |  17   |  Y  | N  | N  | N  | N  | N  | N  |
-|     Atpipe5_reg     | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|        L_reg        | Flip-flop |  21   |  Y  | N  | N  | N  | N  | N  | N  |
+|     Atpipe5_reg     | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|        L_reg        | Flip-flop |  21   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     Apipe2_reg      | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     Lpipe2_reg      | Flip-flop |   4   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     Lpipe2_reg      | Flip-flop |   1   |  N  | N  | N  | N  | Y  | Y  | N  |
+|     Atpipe2_reg     | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     Apipe3_reg      | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     Lpipe3_reg      | Flip-flop |   9   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     Atpipe3_reg     | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     Apipe4_reg      | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     Lpipe4_reg      | Flip-flop |  13   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     Atpipe4_reg     | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     Apipe5_reg      | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|     Lpipe5_reg      | Flip-flop |  17   |  Y  | N  | N  | N  | Y  | N  | N  |
 ===============================================================================
 Information:  Complex logic will not be considered for set/reset inference. (ELAB-2008)
 Presto compilation completed successfully. (div_pipe)
 Information: Building the design 'InTriangle'. (HDL-193)
-Warning:  ../hdl/getColorDepth.v:1183: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:1184: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:1185: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:1186: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:1187: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:1188: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:1189: unsigned to signed assignment occurs. (VER-318)
-Warning:  ../hdl/getColorDepth.v:1190: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1377: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1378: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1379: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1380: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1381: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1382: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1383: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../hdl/getColorDepth.v:1384: unsigned to signed assignment occurs. (VER-318)
 
 Inferred memory devices in process
-	in routine InTriangle line 1212 in file
+	in routine InTriangle line 1406 in file
 		'../hdl/getColorDepth.v'.
 ================================================================================
 |    Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ================================================================================
-|      temp1_reg       | Flip-flop |  26   |  Y  | N  | N  | N  | N  | N  | N  |
-|      temp2_reg       | Flip-flop |  26   |  Y  | N  | N  | N  | N  | N  | N  |
-|      temp3_reg       | Flip-flop |  26   |  Y  | N  | N  | N  | N  | N  | N  |
-|      temp4_reg       | Flip-flop |  26   |  Y  | N  | N  | N  | N  | N  | N  |
-|      temp5_reg       | Flip-flop |  26   |  Y  | N  | N  | N  | N  | N  | N  |
-|      temp6_reg       | Flip-flop |  26   |  Y  | N  | N  | N  | N  | N  | N  |
-|      cross1_reg      | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|      cross2_reg      | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-|      cross3_reg      | Flip-flop |  27   |  Y  | N  | N  | N  | N  | N  | N  |
-| in_triangle_flag_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      cross3_reg      | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+| in_triangle_flag_reg | Flip-flop |   1   |  N  | N  | N  | N  | Y  | N  | N  |
+|      temp1_reg       | Flip-flop |  26   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      temp2_reg       | Flip-flop |  26   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      temp3_reg       | Flip-flop |  26   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      temp4_reg       | Flip-flop |  26   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      temp5_reg       | Flip-flop |  26   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      temp6_reg       | Flip-flop |  26   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      cross1_reg      | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      cross2_reg      | Flip-flop |  27   |  Y  | N  | N  | N  | Y  | N  | N  |
 ================================================================================
 Presto compilation completed successfully. (InTriangle)
 1
@@ -4005,8 +4005,8 @@ Information: The register 'vertex_shader/MVP_reg[3][0]' will be removed. (OPT-12
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:11:50 1458269.1      0.39     566.9   10740.9                           63527108.0000
-    0:12:14 1454476.0      1.11     582.6   17958.5                           63304016.0000
+    0:14:26 1593124.4      0.50    1169.3   10706.4                           68873048.0000
+    0:14:56 1589268.0      0.53    1170.3   17797.8                           68645992.0000
 
   Beginning Constant Register Removal
   -----------------------------------
@@ -4049,94 +4049,105 @@ Information: The register 'vertex_shader/MVP_reg[3][0]' will be removed. (OPT-12
   Global Optimization (Phase 32)
   Global Optimization (Phase 33)
   Global Optimization (Phase 34)
+  Global Optimization (Phase 35)
+  Global Optimization (Phase 36)
+  Global Optimization (Phase 37)
+  Global Optimization (Phase 38)
   Selecting critical implementations
-  Mapping 'div_pipe_mydesign_8_DW01_sub_0'
-  Mapping 'div_pipe_mydesign_8_DW01_sub_1'
-  Mapping 'div_pipe_mydesign_8_DW01_sub_2'
-  Mapping 'div_pipe_mydesign_8_DW01_sub_3'
-  Mapping 'div_pipe_mydesign_8_DW_cmp_0'
-  Mapping 'div_pipe_mydesign_8_DW_cmp_1'
-  Mapping 'div_pipe_mydesign_8_DW_cmp_2'
-  Mapping 'div_pipe_mydesign_8_DW_cmp_3'
+  Mapping 'div_pipe_mydesign_41_DW01_sub_0'
+  Mapping 'div_pipe_mydesign_41_DW01_sub_1'
+  Mapping 'div_pipe_mydesign_41_DW01_sub_2'
+  Mapping 'div_pipe_mydesign_41_DW01_sub_3'
+  Mapping 'div_pipe_mydesign_41_DW_cmp_0'
+  Mapping 'div_pipe_mydesign_41_DW_cmp_1'
+  Mapping 'div_pipe_mydesign_41_DW_cmp_2'
+  Mapping 'div_pipe_mydesign_41_DW_cmp_3'
 
   Beginning Isolate Ports
   -----------------------
 
   Beginning Delay Optimization
   ----------------------------
-    0:16:33 1272266.8      0.53     176.2    3358.9                           42578756.0000
-    0:20:36 1275931.9      0.02       1.5    3358.9                           42774636.0000
-    0:20:36 1275931.9      0.02       1.5    3358.9                           42774636.0000
-    0:20:36 1275931.9      0.02       1.5    3358.9                           42774636.0000
-    0:21:53 1275633.7      0.02       1.5    3496.0                           42765088.0000
-    0:22:17 1275335.4      0.02       1.5    4124.7                           42753380.0000
+    0:21:22 1382969.2      0.59     209.0    2868.1                           44688936.0000
+    0:24:35 1384647.3      0.18      42.3    2873.1                           44783672.0000
+    0:24:35 1384647.3      0.18      42.3    2873.1                           44783672.0000
+    0:24:35 1384647.3      0.18      42.3    2873.1                           44783672.0000
+    0:25:59 1384468.8      0.18      42.2    2880.7                           44779560.0000
+    0:26:30 1384175.3      0.23      43.1    3480.1                           44768004.0000
 
   Beginning WLM Backend Optimization
   --------------------------------------
-    0:23:59 1275291.7      0.02       1.5    4124.7                           42730568.0000
-    0:24:03 1275507.1      0.02       1.5    4114.8                           42696896.0000
-    0:24:06 1275530.4      0.02       1.5    4109.6                           42679180.0000
-    0:24:10 1275609.0      0.02       1.5    4108.0                           42643936.0000
-    0:24:14 1275701.0      0.02       1.4    4046.2                           42606828.0000
-    0:24:21 1275843.6      0.02       1.4    4043.4                           42567620.0000
-    0:24:24 1275821.8      0.02       1.4    3986.8                           42522888.0000
-    0:24:29 1275929.1      0.02       1.4    3970.3                           42482816.0000
-    0:24:33 1276021.5      0.02       1.4    3941.4                           42438192.0000
-    0:24:37 1276117.6      0.02       1.4    3922.6                           42396976.0000
-    0:24:40 1276246.9      0.02       1.3    3912.4                           42354840.0000
-    0:24:44 1276329.3      0.02       1.3    3894.1                           42314884.0000
-    0:24:48 1276391.5      0.02       1.3    3884.0                           42274368.0000
-    0:24:51 1276365.5      0.02       1.3    3877.5                           42233432.0000
-    0:24:55 1276408.3      0.02       1.3    3859.6                           42191140.0000
-    0:25:00 1276429.5      0.02       1.2    3847.3                           42149672.0000
-    0:25:06 1276507.8      0.02       1.2    3839.0                           42118688.0000
-    0:25:10 1275978.1      0.02       1.2    3839.0                           42090084.0000
-    0:25:12 1275782.1      0.02       1.1    3839.0                           42078328.0000
-    0:25:14 1275372.0      0.02       1.1    3839.0                           42055524.0000
-    0:25:16 1275238.7      0.02       1.2    3839.0                           42047304.0000
-    0:25:19 1274854.2      0.02       1.2    3839.0                           42026172.0000
-    0:25:23 1274448.6      0.02       1.2    3779.8                           42002712.0000
-    0:25:26 1273940.1      0.02       1.1    3777.8                           41973324.0000
-    0:25:29 1272864.1      0.02       1.1    3777.8                           41917172.0000
-    0:25:32 1271582.7      0.02       1.1    3777.8                           41849232.0000
-    0:25:35 1270158.6      0.02       1.2    3777.8                           41773684.0000
-    0:25:39 1269006.0      0.02       1.2    3777.8                           41712984.0000
-    0:25:42 1267860.0      0.02       1.3    3777.8                           41652540.0000
-    0:25:46 1266797.7      0.02       1.4    3777.8                           41597648.0000
-    0:25:49 1265881.9      0.02       1.2    3774.5                           41549216.0000
-    0:25:52 1264960.5      0.02       1.2    3773.5                           41502504.0000
-    0:25:55 1264491.3      0.02       1.2    3770.3                           41476228.0000
-    0:25:57 1264219.8      0.02       1.2    3768.8                           41460444.0000
-    0:25:59 1263903.4      0.02       1.2    3768.8                           41443144.0000
-    0:26:00 1263846.6      0.02       1.2    3768.8                           41439396.0000
-    0:26:03 1263182.1      0.02       1.2    3767.0                           41400692.0000
-    0:26:06 1262746.4      0.02       1.2    3767.0                           41375220.0000
-    0:26:07 1262601.7      0.02       1.2    3767.0                           41364616.0000
-    0:26:09 1262512.8      0.02       1.2    3767.0                           41357464.0000
-    0:26:11 1261159.5      0.02       1.4    3767.0                           41287476.0000
-    0:26:14 1259806.9      0.02       1.4    3767.0                           41217908.0000
-    0:26:14 1259689.6      0.02       1.5    3767.0                           41211432.0000
-    0:26:16 1259702.6      0.00       0.0    3767.0                           41209232.0000
-    0:26:17 1259702.6      0.00       0.0    3767.0                           41209232.0000
-    0:30:01 1264672.8      0.00       0.0    1977.8                           34975272.0000
-    0:30:02 1264672.8      0.00       0.0    1977.8                           34975272.0000
-    0:30:02 1264672.8      0.00       0.0    1977.8                           34975272.0000
-    0:30:02 1264672.8      0.00       0.0    1977.8                           34975272.0000
-    0:30:02 1264672.8      0.00       0.0    1977.8                           34975272.0000
-    0:30:02 1264672.8      0.00       0.0    1977.8                           34975272.0000
-    0:30:02 1264672.8      0.00       0.0    1977.8                           34975272.0000
-    0:30:02 1264672.8      0.00       0.0    1977.8                           34975272.0000
-    0:30:02 1264672.8      0.00       0.0    1977.8                           34975272.0000
-    0:30:02 1264672.8      0.00       0.0    1977.8                           34975272.0000
-    0:30:02 1264672.8      0.00       0.0    1977.8                           34975272.0000
-    0:30:02 1264672.8      0.00       0.0    1977.8                           34975272.0000
-    0:30:02 1264672.8      0.00       0.0    1977.8                           34975272.0000
-    0:30:02 1264672.8      0.00       0.0    1977.8                           34975272.0000
-    0:30:02 1264672.8      0.00       0.0    1977.8                           34975272.0000
-    0:30:02 1264672.8      0.00       0.0    1977.8                           34975272.0000
-    0:30:02 1264672.8      0.00       0.0    1977.8                           34975272.0000
-    0:30:03 1264672.8      0.00       0.0    1977.8                           34975272.0000
-    0:30:03 1264672.8      0.00       0.0    1977.8                           34975272.0000
+    0:28:27 1384307.7      0.23      43.1    3479.8                           44746924.0000
+    0:28:32 1384511.9      0.23      43.1    3464.3                           44715632.0000
+    0:28:37 1384565.9      0.23      43.0    3459.7                           44690044.0000
+    0:28:42 1384627.5      0.23      43.0    3426.2                           44654536.0000
+    0:28:48 1384723.6      0.22      42.9    3392.1                           44618848.0000
+    0:28:55 1384819.0      0.22      42.9    3375.3                           44578532.0000
+    0:29:00 1384821.0      0.22      42.8    3323.4                           44539320.0000
+    0:29:06 1384923.6      0.22      42.8    3312.1                           44497848.0000
+    0:29:11 1384991.7      0.22      42.7    3283.2                           44455996.0000
+    0:29:17 1385094.6      0.22      42.7    3267.9                           44414752.0000
+    0:29:21 1385200.0      0.22      42.6    3255.8                           44372668.0000
+    0:29:26 1385278.3      0.22      42.6    3243.5                           44330532.0000
+    0:29:31 1385327.2      0.22      42.6    3235.8                           44289948.0000
+    0:29:35 1385333.0      0.21      42.6    3230.8                           44249164.0000
+    0:29:40 1385332.3      0.21      42.6    3227.4                           44208288.0000
+    0:29:47 1385328.6      0.21      40.9    3216.7                           44164744.0000
+    0:29:53 1385402.1      0.21      40.9    3212.4                           44139460.0000
+    0:29:56 1384991.3      0.21      40.9    3211.9                           44117476.0000
+    0:29:58 1384886.7      0.21      40.9    3211.9                           44112128.0000
+    0:30:01 1384135.3      0.21      40.9    3211.9                           44073864.0000
+    0:30:06 1383600.8      0.21      41.0    3211.9                           44046344.0000
+    0:30:10 1383428.7      0.21      41.0    3211.9                           44036700.0000
+    0:30:28 1383256.0      0.21      41.1    3211.9                           44027668.0000
+    0:30:36 1382819.2      0.21      40.8    3207.7                           44005160.0000
+    0:30:39 1381771.0      0.21      40.8    3207.7                           43953512.0000
+    0:30:42 1381245.3      0.21      40.8    3206.7                           43927244.0000
+    0:30:45 1380333.6      0.21      40.8    3205.7                           43883080.0000
+    0:30:48 1378996.0      0.21      41.0    3205.7                           43819096.0000
+    0:30:50 1377373.6      0.21      41.3    3202.7                           43742128.0000
+    0:30:54 1375850.3      0.21      41.2    3202.6                           43669340.0000
+    0:30:58 1374263.8      0.21      41.3    3202.6                           43596260.0000
+    0:31:01 1372807.9      0.21      40.8    3202.6                           43524696.0000
+    0:31:05 1372030.8      0.20      40.7    3175.7                           43486672.0000
+    0:31:08 1371521.9      0.20      40.7    3173.9                           43463004.0000
+    0:31:12 1370678.6      0.20      40.4    3173.9                           43419980.0000
+    0:31:14 1370370.4      0.18      39.4    3170.1                           43402308.0000
+    0:31:17 1369968.6      0.18      37.9    3169.1                           43383304.0000
+    0:31:19 1369721.0      0.18      36.3    3168.6                           43371736.0000
+    0:31:22 1369525.7      0.18      35.6    3140.5                           43359896.0000
+    0:31:24 1369359.1      0.18      34.3    3140.5                           43348400.0000
+    0:31:28 1368138.9      0.18      34.5    3140.5                           43289272.0000
+    0:31:31 1366612.2      0.18      34.7    3140.5                           43215560.0000
+    0:31:33 1365597.8      0.18      34.9    3140.5                           43165548.0000
+    0:31:38 1365546.9      0.11      26.4    3125.7                           43149004.0000
+    0:31:42 1366025.7      0.08      18.7    3120.7                           43137380.0000
+    0:31:46 1366224.7      0.07      13.7    3120.7                           43123952.0000
+    0:31:50 1366888.2      0.05       8.4    3120.7                           43103324.0000
+    0:31:55 1367682.3      0.03       4.5    3120.7                           43083680.0000
+    0:32:00 1368773.3      0.01       0.5    3120.4                           43056948.0000
+    0:32:02 1368987.0      0.00       0.0    3120.4                           43050280.0000
+    0:32:03 1369007.2      0.00       0.0    3120.4                           43048656.0000
+    0:32:04 1369007.2      0.00       0.0    3120.4                           43048656.0000
+    0:37:07 1374434.1      0.00       0.0    1457.0                           36930760.0000
+    0:37:09 1374434.1      0.00       0.0    1457.0                           36930760.0000
+    0:37:21 1374511.0      0.00       0.0    1457.0                           36935840.0000
+    0:37:22 1374511.0      0.00       0.0    1457.0                           36935840.0000
+    0:37:22 1374511.0      0.00       0.0    1457.0                           36935840.0000
+    0:37:22 1374511.0      0.00       0.0    1457.0                           36935840.0000
+    0:37:32 1374511.0      0.00       0.0    1457.0                           36935840.0000
+    0:37:33 1374511.0      0.00       0.0    1457.0                           36935840.0000
+    0:38:04 1374511.0      0.00       0.0    1457.0                           36936164.0000
+    0:38:05 1374511.0      0.00       0.0    1457.0                           36936164.0000
+    0:38:05 1374511.0      0.00       0.0    1457.0                           36936164.0000
+    0:38:05 1374511.0      0.00       0.0    1457.0                           36936164.0000
+    0:38:05 1374511.0      0.00       0.0    1457.0                           36936164.0000
+    0:38:05 1374511.0      0.00       0.0    1457.0                           36936164.0000
+    0:38:05 1374511.0      0.00       0.0    1457.0                           36936164.0000
+    0:38:05 1374511.0      0.00       0.0    1457.0                           36936164.0000
+    0:38:05 1374511.0      0.00       0.0    1457.0                           36936164.0000
+    0:38:05 1374511.0      0.00       0.0    1457.0                           36936164.0000
+    0:38:05 1374511.0      0.00       0.0    1457.0                           36936164.0000
 
 
   Beginning Design Rule Fixing  (max_transition)  (max_fanout)
@@ -4146,14 +4157,14 @@ Information: The register 'vertex_shader/MVP_reg[3][0]' will be removed. (OPT-12
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:30:03 1264672.8      0.00       0.0    1977.8                           34975272.0000
-  Global Optimization (Phase 35)
-  Global Optimization (Phase 36)
-  Global Optimization (Phase 37)
-    0:30:23 1266522.3      0.00       0.0     196.0 Rasterizer/GetColorDepth_03/L3[6] 34945936.0000
-    0:30:24 1266559.3      0.00       0.0      92.0 vertex_shader/View[6][11] 34946824.0000
-    0:30:25 1266584.8      0.00       0.0      30.0                           34947220.0000
-    0:30:25 1266584.8      0.00       0.0      30.0                           34947220.0000
+    0:38:05 1374511.0      0.00       0.0    1457.0                           36936164.0000
+  Global Optimization (Phase 39)
+  Global Optimization (Phase 40)
+  Global Optimization (Phase 41)
+    0:38:27 1375801.4      0.00       0.0     194.0 Rasterizer/GetColorDepth_10/L1[18] 36921108.0000
+    0:38:28 1375839.0      0.00       0.0     104.0 Rasterizer/GetColorDepth_13/L3[20] 36921952.0000
+    0:38:29 1375862.3      0.00       0.0      70.0                           36922520.0000
+    0:38:29 1375862.3      0.00       0.0      70.0                           36922520.0000
 
 
   Beginning Leakage Power Optimization  (max_leakage_power 0)
@@ -4163,11 +4174,7 @@ Information: The register 'vertex_shader/MVP_reg[3][0]' will be removed. (OPT-12
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:30:25 1266584.8      0.00       0.0      30.0                           34947220.0000
-  Global Optimization (Phase 38)
-  Global Optimization (Phase 39)
-  Global Optimization (Phase 40)
-  Global Optimization (Phase 41)
+    0:38:29 1375862.3      0.00       0.0      70.0                           36922520.0000
   Global Optimization (Phase 42)
   Global Optimization (Phase 43)
   Global Optimization (Phase 44)
@@ -4180,79 +4187,87 @@ Information: The register 'vertex_shader/MVP_reg[3][0]' will be removed. (OPT-12
   Global Optimization (Phase 51)
   Global Optimization (Phase 52)
   Global Optimization (Phase 53)
-    0:32:08 1282380.7      0.00       0.0       0.1                           33683372.0000
-    0:32:08 1282380.7      0.00       0.0       0.1                           33683372.0000
-    0:32:09 1282380.7      0.00       0.0       0.1                           33683372.0000
-    0:33:17 1263656.2      0.00       0.0       0.1                           34549576.0000
-    0:33:18 1263656.2      0.00       0.0       0.1                           34549576.0000
-    0:33:18 1263656.2      0.00       0.0       0.1                           34549576.0000
-    0:33:18 1263656.2      0.00       0.0       0.1                           34549576.0000
-    0:33:18 1263656.2      0.00       0.0       0.1                           34549576.0000
-    0:33:18 1263656.2      0.00       0.0       0.1                           34549576.0000
-    0:33:18 1263656.2      0.00       0.0       0.1                           34549576.0000
-    0:33:18 1263656.2      0.00       0.0       0.1                           34549576.0000
-    0:33:18 1263656.2      0.00       0.0       0.1                           34549576.0000
-    0:33:18 1263656.2      0.00       0.0       0.1                           34549576.0000
-    0:33:18 1263656.2      0.00       0.0       0.1                           34549576.0000
-    0:33:18 1263656.2      0.00       0.0       0.1                           34549576.0000
-    0:33:18 1263656.2      0.00       0.0       0.1                           34549576.0000
-    0:33:18 1263656.2      0.00       0.0       0.1                           34549576.0000
-    0:33:18 1263656.2      0.00       0.0       0.1                           34549576.0000
-    0:33:19 1263656.2      0.00       0.0       0.1                           34549576.0000
-    0:33:19 1263656.2      0.00       0.0       0.1                           34549576.0000
-    0:33:19 1263656.2      0.00       0.0       0.1                           34549576.0000
-    0:33:19 1263656.2      0.00       0.0       0.1                           34549576.0000
+  Global Optimization (Phase 54)
+  Global Optimization (Phase 55)
+  Global Optimization (Phase 56)
+  Global Optimization (Phase 57)
+  Global Optimization (Phase 58)
+    0:40:52 1392600.8      0.00       0.1       0.0 Rasterizer/GetColorDepth_21/div_pipe_1/Apipe3_reg[26]/D1 35735504.0000
+    0:40:54 1392681.1      0.00       0.0       0.0 Rasterizer/GetColorDepth_12/div_pipe_2/Apipe2_reg[26]/D1 35741976.0000
+    0:40:54 1392681.1      0.00       0.0       0.0                           35741976.0000
+    0:41:09 1392718.8      0.00       0.0       0.0                           35744800.0000
+    0:41:10 1392718.8      0.00       0.0       0.0                           35744800.0000
+    0:42:49 1373979.6      0.00       0.0       0.0                           36611124.0000
+    0:42:51 1373979.6      0.00       0.0       0.0                           36611124.0000
+    0:43:22 1374092.1      0.00       0.0       0.0                           36618008.0000
+    0:43:22 1374092.1      0.00       0.0       0.0                           36618008.0000
+    0:43:23 1374092.1      0.00       0.0       0.0                           36618008.0000
+    0:43:23 1374092.1      0.00       0.0       0.0                           36618008.0000
+    0:43:47 1374092.1      0.00       0.0       0.0                           36618008.0000
+    0:43:48 1374092.1      0.00       0.0       0.0                           36618008.0000
+    0:45:20 1374090.4      0.00       0.0       0.0                           36618656.0000
+    0:45:20 1374090.4      0.00       0.0       0.0                           36618656.0000
+    0:45:54 1374090.4      0.00       0.0       0.0                           36618656.0000
+    0:45:54 1374090.4      0.00       0.0       0.0                           36618656.0000
+    0:46:41 1374090.4      0.00       0.0       0.0                           36618656.0000
+    0:46:42 1374090.4      0.00       0.0       0.0                           36618656.0000
+    0:47:15 1374090.4      0.00       0.0       0.0                           36618656.0000
+    0:47:15 1374090.4      0.00       0.0       0.0                           36618656.0000
+    0:48:03 1374090.4      0.00       0.0       0.0                           36618656.0000
+    0:48:03 1374090.4      0.00       0.0       0.0                           36618656.0000
+    0:48:37 1374090.4      0.00       0.0       0.0                           36618656.0000
 
                                   TOTAL                                                
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:33:33 1263656.2      0.00       0.0       0.1                           34549576.0000
-    0:34:26 1249117.7      0.06       7.2       0.8                           35598648.0000
-    0:34:31 1249456.0      0.03       4.4    1559.8 Rasterizer/GetColorDepth_03/div_pipe_1/Apipe5_reg[26]/SI 35617016.0000
-    0:34:35 1249787.0      0.02       2.0    2070.8 Rasterizer/GetColorDepth_33/div_pipe_2/Apipe5_reg[26]/SI 35614072.0000
-    0:34:39 1250141.4      0.00       0.2    2165.8 Rasterizer/GetColorDepth_20/div_pipe_1/Apipe5_reg[26]/SI 35608532.0000
-    0:34:40 1250283.3      0.00       0.0    2278.8                           35607576.0000
-    0:34:41 1250283.3      0.00       0.0    2278.8                           35607576.0000
-    0:35:52 1260331.6      0.00       0.0    2278.1                           34723816.0000
-    0:35:56 1260329.9      0.00       0.0    2278.1                           34723732.0000
-    0:35:58 1260304.6      0.00       0.0    2269.1                           34722468.0000
-    0:36:00 1260278.6      0.00       0.0    2266.1                           34721168.0000
-    0:36:05 1260265.6      0.00       0.0    2266.1                           34720504.0000
-    0:36:07 1260239.6      0.00       0.0    2263.1                           34719224.0000
-    0:36:09 1260171.9      0.00       0.0    2257.1                           34715804.0000
-    0:36:18 1260162.6      0.00       0.0    2257.1                           34715448.0000
-    0:36:21 1260161.3      0.00       0.0    2257.1                           34715416.0000
-    0:36:23 1260159.6      0.00       0.0    2257.1                           34715332.0000
-    0:36:25 1260154.4      0.00       0.0    2257.1                           34715064.0000
-    0:36:26 1260102.4      0.00       0.0    2257.1                           34709020.0000
-    0:36:27 1260159.2      0.00       0.0    2257.1                           34703720.0000
-    0:36:29 1260283.4      0.00       0.0    2257.1                           34695732.0000
-    0:36:30 1260364.1      0.00       0.0    2257.1                           34690512.0000
-    0:36:32 1260512.8      0.00       0.0    2257.1                           34683772.0000
-    0:36:34 1260832.3      0.00       0.0    2257.1                           34667076.0000
-    0:36:37 1261117.2      0.00       0.0    2257.1                           34653952.0000
-    0:36:39 1261533.7      0.00       0.0    2257.1                           34634920.0000
-    0:36:41 1261815.2      0.00       0.0    2257.1                           34622332.0000
-    0:36:43 1262241.7      0.00       0.0    2257.1                           34603372.0000
-    0:36:46 1262566.2      0.00       0.0    2257.1                           34588844.0000
-    0:36:48 1263049.5      0.00       0.0    2257.1                           34565260.0000
-    0:36:51 1263354.5      0.00       0.0    2257.1                           34549968.0000
-    0:36:53 1263667.8      0.00       0.0    2257.1                           34533868.0000
-    0:36:57 1263958.8      0.00       0.0    2257.1                           34516788.0000
-    0:36:59 1264049.5      0.00       0.0    2257.1                           34511216.0000
-    0:37:04 1264238.6      0.00       0.0    1248.0 Rasterizer/GetColorDepth_32/div_pipe_3/net721357 34509480.0000
-    0:37:05 1264288.9      0.00       0.0       0.0                           34504180.0000
-    0:37:05 1264288.9      0.00       0.0       0.0                           34504180.0000
-    0:37:05 1264288.9      0.00       0.0       0.0                           34504180.0000
-    0:37:05 1264288.9      0.00       0.0       0.0                           34504180.0000
-    0:37:08 1264288.9      0.00       0.0       0.0                           34504180.0000
-    0:37:08 1264288.9      0.00       0.0       0.0                           34504180.0000
-    0:37:36 1264012.9      0.00       0.0       0.0                           34514088.0000
-    0:38:03 1263962.6      0.00       0.0       0.0                           34515788.0000
-    0:38:26 1263622.0      0.00       0.0       0.0                           34528048.0000
-    0:39:35 1263576.1      0.00       0.0       0.0                           34529728.0000
-    0:39:48 1263572.4      0.00       0.0       0.0                           34529840.0000
+    0:48:59 1374090.4      0.00       0.0       0.0                           36618656.0000
+    0:50:01 1359645.3      0.05       7.4       0.4                           37661816.0000
+    0:50:07 1359888.9      0.03       5.4     178.4 Rasterizer/GetColorDepth_31/div_pipe_2/Apipe2_reg[26]/D1 37658800.0000
+    0:50:11 1360074.9      0.03       4.1     258.4 Rasterizer/GetColorDepth_32/div_pipe_2/Apipe3_reg[26]/D1 37655360.0000
+    0:50:14 1360327.6      0.02       2.9     309.4 Rasterizer/GetColorDepth_11/div_pipe_2/Apipe2_reg[26]/D1 37650544.0000
+    0:50:18 1360643.3      0.01       1.5     360.4 Rasterizer/GetColorDepth_33/div_pipe_2/Apipe4_reg[26]/D1 37644140.0000
+    0:50:21 1360975.4      0.00       0.2     423.4 Rasterizer/GetColorDepth_01/div_pipe_2/Apipe5_reg[26]/D1 37638668.0000
+    0:50:24 1361109.4      0.00       0.0     433.4 Rasterizer/GetColorDepth_22/div_pipe_1/Apipe3_reg[26]/D1 37636864.0000
+    0:50:24 1361110.8      0.00       0.0     433.4                           37636796.0000
+    0:50:25 1361110.8      0.00       0.0     433.4                           37636796.0000
+    0:52:01 1371070.8      0.00       0.0     433.0                           36746616.0000
+    0:52:04 1371069.1      0.00       0.0     433.0                           36746528.0000
+    0:52:08 1371056.1      0.00       0.0     424.0                           36745896.0000
+    0:52:15 1371044.9      0.00       0.0     418.0                           36745344.0000
+    0:52:39 1371044.2      0.00       0.0     418.0                           36745328.0000
+    0:52:42 1371025.7      0.00       0.0     415.0                           36744484.0000
+    0:52:45 1371015.1      0.00       0.0     412.0                           36743976.0000
+    0:52:50 1371008.3      0.00       0.0     412.0                           36743808.0000
+    0:52:57 1371004.8      0.00       0.0     412.0                           36743724.0000
+    0:53:02 1371002.1      0.00       0.0     412.0                           36743660.0000
+    0:53:05 1370999.0      0.00       0.0     412.0                           36735324.0000
+    0:53:07 1371021.3      0.00       0.0     412.0                           36730408.0000
+    0:53:09 1371192.9      0.00       0.0     412.0                           36720560.0000
+    0:53:11 1371317.1      0.00       0.0     412.0                           36714152.0000
+    0:53:14 1371519.2      0.00       0.0     412.0                           36704624.0000
+    0:53:16 1371743.2      0.00       0.0     412.0                           36693368.0000
+    0:53:20 1372067.1      0.00       0.0     412.0                           36678248.0000
+    0:53:22 1372376.3      0.00       0.0     412.0                           36663700.0000
+    0:53:25 1372584.5      0.00       0.0     412.0                           36653980.0000
+    0:53:28 1373052.4      0.00       0.0     412.0                           36632712.0000
+    0:53:31 1373331.8      0.00       0.0     412.0                           36619484.0000
+    0:53:34 1373803.1      0.00       0.0     412.0                           36596652.0000
+    0:53:37 1374222.0      0.00       0.0     412.0                           36575816.0000
+    0:53:40 1374538.7      0.00       0.0     412.0                           36558400.0000
+    0:53:42 1374678.3      0.00       0.0     412.0                           36550284.0000
+    0:53:45 1374775.4      0.00       0.0     412.0                           36544636.0000
+    0:53:48 1374904.7      0.00       0.0     200.0 Rasterizer/GetColorDepth_13/div_pipe_1/net1528249 36541520.0000
+    0:53:52 1374980.3      0.00       0.0       0.0                           36543532.0000
+    0:53:52 1374980.3      0.00       0.0       0.0                           36543532.0000
+    0:53:52 1374980.3      0.00       0.0       0.0                           36543532.0000
+    0:53:52 1374980.3      0.00       0.0       0.0                           36543532.0000
+    0:53:56 1374980.3      0.00       0.0       0.0                           36543532.0000
+    0:53:56 1374980.3      0.00       0.0       0.0                           36543532.0000
+    0:54:32 1374648.9      0.00       0.0       0.0                           36554996.0000
+    0:55:10 1374500.8      0.00       0.0       0.0                           36559648.0000
+    0:56:42 1374303.1      0.00       0.0       0.0                           36566104.0000
+    0:57:15 1374257.6      0.00       0.0       0.0                           36567568.0000
 Loading db file '/usr/cadtool/GPDK45/gsclib045_svt_v4.4/gsclib045/db/slow_vdd1v2_basicCells_wl.db'
 
 
@@ -4290,24 +4305,24 @@ Information: The target library(s) contains cell(s), other than black boxes, tha
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:37 1263572.4      0.00       0.0       0.0                           34529840.0000
-    0:00:37 1263572.4      0.00       0.0       0.0                           34529840.0000
+    0:00:47 1374257.6      0.00       0.0       0.0                           36567568.0000
+    0:00:47 1374257.6      0.00       0.0       0.0                           36567568.0000
 
   Beginning Mapping Optimizations  (Ultra High effort)  (Incremental)
   -------------------------------
 
   Beginning Incremental Implementation Selection
   ----------------------------------------------
-    0:01:35 1263572.4      0.00       0.0       0.0                           34529840.0000
-    0:01:35 1263572.4      0.00       0.0       0.0                           34529840.0000
-    0:01:35 1263572.4      0.00       0.0       0.0                           34529840.0000
-    0:01:35 1263572.4      0.00       0.0       0.0                           34529840.0000
-  Global Optimization (Phase 54)
-  Global Optimization (Phase 55)
-  Global Optimization (Phase 56)
-  Global Optimization (Phase 57)
-  Global Optimization (Phase 58)
+    0:02:09 1374257.6      0.00       0.0       0.0                           36567568.0000
+    0:02:09 1374257.6      0.00       0.0       0.0                           36567568.0000
+    0:02:09 1374257.6      0.00       0.0       0.0                           36567568.0000
+    0:02:09 1374257.6      0.00       0.0       0.0                           36567568.0000
   Global Optimization (Phase 59)
+  Global Optimization (Phase 60)
+  Global Optimization (Phase 61)
+  Global Optimization (Phase 62)
+  Global Optimization (Phase 63)
+  Global Optimization (Phase 64)
 
 
 
@@ -4318,33 +4333,33 @@ Information: The target library(s) contains cell(s), other than black boxes, tha
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:02:03 1263320.3      0.06       0.5       0.0                           34521476.0000
-    0:02:04 1263320.3      0.06       0.5       0.0                           34521476.0000
-    0:02:46 1258828.8      0.06       0.5       0.0                           34745832.0000
-    0:02:47 1258828.8      0.06       0.5       0.0                           34745832.0000
-    0:02:47 1258829.9      0.02       0.4       0.0                           34745944.0000
-    0:02:47 1258829.9      0.02       0.4       0.0                           34745944.0000
-    0:02:54 1258872.6      0.02       0.4       0.0                           34748360.0000
+    0:02:51 1374093.4      0.02       0.2       0.0                           36560032.0000
+    0:02:52 1374093.4      0.02       0.2       0.0                           36560032.0000
+    0:03:45 1369178.2      0.02       0.4       0.0                           36815924.0000
+    0:03:46 1369178.2      0.02       0.4       0.0                           36815924.0000
+    0:03:46 1369178.2      0.02       0.4       0.0                           36815924.0000
+    0:03:46 1369178.2      0.02       0.4       0.0                           36815924.0000
+    0:05:08 1369731.9      0.00       0.0       0.0                           36848992.0000
 
   Beginning Delay Optimization
   ----------------------------
-    0:02:54 1258872.6      0.02       0.4       0.0                           34748360.0000
-    0:02:56 1258872.6      0.02       0.4       0.0                           34748360.0000
-    0:02:56 1258872.6      0.02       0.4       0.0                           34748360.0000
-    0:02:57 1258872.6      0.02       0.4       0.0                           34748360.0000
-    0:02:57 1258872.6      0.02       0.4       0.0                           34748360.0000
-    0:02:57 1258872.6      0.02       0.4       0.0                           34748360.0000
-    0:02:58 1258872.6      0.02       0.4       0.0                           34748360.0000
-    0:03:25 1258830.2      0.02       0.3       0.0                           34748284.0000
-    0:03:26 1258830.2      0.02       0.3       0.0                           34748284.0000
-    0:03:26 1258830.2      0.02       0.3       0.0                           34748284.0000
-    0:03:26 1258830.2      0.02       0.3       0.0                           34748284.0000
-    0:03:29 1258837.4      0.02       0.3       0.0                           34748816.0000
-    0:03:29 1258837.4      0.02       0.3       0.0                           34748816.0000
-    0:03:30 1258837.4      0.02       0.3       0.0                           34748816.0000
-    0:03:30 1258837.4      0.02       0.3       0.0                           34748816.0000
-    0:03:32 1258837.4      0.02       0.3       0.0                           34748816.0000
-    0:03:33 1258920.8      0.00       0.0       0.0                           34748772.0000
+    0:05:08 1369731.9      0.00       0.0       0.0                           36848992.0000
+    0:05:38 1369731.9      0.00       0.0       0.0                           36848992.0000
+    0:05:38 1369731.9      0.00       0.0       0.0                           36848992.0000
+    0:06:08 1369731.9      0.00       0.0       0.0                           36848992.0000
+    0:06:08 1369731.9      0.00       0.0       0.0                           36848992.0000
+    0:06:08 1369731.9      0.00       0.0       0.0                           36848992.0000
+    0:06:09 1369731.9      0.00       0.0       0.0                           36848992.0000
+    0:06:43 1369467.6      0.00       0.0       0.0                           36835332.0000
+    0:06:44 1369467.6      0.00       0.0       0.0                           36835332.0000
+    0:06:44 1369467.6      0.00       0.0       0.0                           36835332.0000
+    0:06:44 1369467.6      0.00       0.0       0.0                           36835332.0000
+    0:07:38 1369473.7      0.00       0.0       0.0                           36836448.0000
+    0:07:38 1369473.7      0.00       0.0       0.0                           36836448.0000
+    0:08:25 1369473.7      0.00       0.0       0.0                           36836448.0000
+    0:08:26 1369473.7      0.00       0.0       0.0                           36836448.0000
+    0:09:14 1369473.7      0.00       0.0       0.0                           36836448.0000
+    0:09:14 1369474.7      0.00       0.0       0.0                           36836432.0000
 
 
   Beginning Leakage Power Optimization  (max_leakage_power 0)
@@ -4354,51 +4369,67 @@ Information: The target library(s) contains cell(s), other than black boxes, tha
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:03:33 1258920.8      0.00       0.0       0.0                           34748772.0000
-    0:03:35 1258920.2      0.00       0.0       0.0                           34748756.0000
-    0:03:37 1258913.7      0.00       0.0       0.0                           34748556.0000
-    0:03:39 1258910.2      0.00       0.0       0.0                           34748472.0000
-    0:03:44 1258908.2      0.00       0.0       0.0                           34748420.0000
-    0:03:54 1258899.3      0.00       0.0       0.0                           34748136.0000
-    0:04:02 1258898.6      0.00       0.0       0.0                           34748116.0000
-    0:04:10 1258897.9      0.00       0.0       0.0                           34748100.0000
-    0:04:21 1258896.2      0.00       0.0       0.0                           34748016.0000
-    0:04:47 1258837.0      0.00       0.0       0.0                           34749108.0000
-    0:04:48 1258837.0      0.00       0.0       0.0                           34749108.0000
-    0:04:48 1258837.0      0.00       0.0       0.0                           34749108.0000
-    0:04:48 1258837.0      0.00       0.0       0.0                           34749108.0000
-    0:04:48 1258837.0      0.00       0.0       0.0                           34749108.0000
-    0:04:48 1258837.0      0.00       0.0       0.0                           34749108.0000
-    0:04:48 1258837.0      0.00       0.0       0.0                           34749108.0000
-    0:04:48 1258837.0      0.00       0.0       0.0                           34749108.0000
-    0:04:48 1258837.0      0.00       0.0       0.0                           34749108.0000
-    0:04:57 1258837.0      0.00       0.0       0.0                           34749108.0000
+    0:09:14 1369474.7      0.00       0.0       0.0                           36836432.0000
+    0:09:17 1369474.1      0.00       0.0       0.0                           36836400.0000
+    0:09:19 1369427.2      0.00       0.0       0.0                           36834096.0000
+    0:09:46 1369420.4      0.00       0.0       0.0                           36833912.0000
+    0:09:48 1369390.9      0.00       0.0       0.0                           36832812.0000
+    0:09:50 1369385.1      0.00       0.0       0.0                           36832560.0000
+    0:09:53 1369370.4      0.00       0.0       0.0                           36832192.0000
+    0:09:55 1369356.4      0.00       0.0       0.0                           36831804.0000
+    0:09:57 1369349.2      0.00       0.0       0.0                           36831740.0000
+    0:10:01 1369347.2      0.00       0.0       0.0                           36831724.0000
+    0:10:06 1369341.4      0.00       0.0       0.0                           36831604.0000
+    0:10:09 1369339.0      0.00       0.0       0.0                           36831504.0000
+    0:10:37 1369337.3      0.00       0.0       0.0                           36831420.0000
+    0:10:52 1369336.6      0.00       0.0       0.0                           36831400.0000
+    0:11:23 1369330.4      0.00       0.0       0.0                           36830680.0000
+    0:11:25 1369330.4      0.00       0.0       0.0                           36830680.0000
+    0:11:25 1369330.4      0.00       0.0       0.0                           36830680.0000
+    0:11:25 1369330.4      0.00       0.0       0.0                           36830680.0000
+    0:14:18 1369332.8      0.00       0.0       0.0                           36831216.0000
+    0:14:18 1369332.8      0.00       0.0       0.0                           36831216.0000
+    0:15:24 1369332.8      0.00       0.0       0.0                           36831216.0000
+    0:15:25 1369332.8      0.00       0.0       0.0                           36831216.0000
+    0:16:31 1369332.8      0.00       0.0       0.0                           36831216.0000
+    0:16:43 1369332.8      0.00       0.0       0.0                           36831216.0000
 
                                   TOTAL                                                
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:04:58 1258837.0      0.00       0.0       0.0                           34749108.0000
-    0:05:24 1258835.7      0.00       0.0       0.0                           34749168.0000
-    0:05:42 1258834.0      0.00       0.0       0.0                           34749084.0000
-    0:05:49 1258833.6      0.00       0.0       0.0                           34749068.0000
-    0:05:52 1258951.3      0.00       0.0       0.0                           34737428.0000
-    0:05:57 1259386.0      0.00       0.0       0.0                           34712836.0000
-    0:06:01 1260019.0      0.00       0.0       0.0                           34681088.0000
-    0:06:06 1260592.5      0.00       0.0       0.0                           34655360.0000
-    0:06:08 1261210.5      0.00       0.0       0.0                           34626244.0000
-    0:06:12 1261768.7      0.00       0.0       0.0                           34601324.0000
-    0:06:15 1262243.4      0.00       0.0       0.0                           34579472.0000
-    0:06:18 1262778.6      0.00       0.0       0.0                           34551852.0000
-    0:06:21 1263323.4      0.00       0.0       0.0                           34522712.0000
-    0:06:24 1263642.1      0.00       0.0       0.0                           34503516.0000
-    0:06:27 1263892.8      0.00       0.0       0.0                           34487952.0000
-    0:06:30 1264074.8      0.00       0.0       0.0                           34477272.0000
-    0:06:40 1264052.2      0.00       0.0       0.0                           34475908.0000
-    0:06:40 1264052.2      0.00       0.0       0.0                           34475908.0000
-    0:06:43 1264052.2      0.00       0.0       0.0                           34475908.0000
-    0:06:43 1264052.2      0.00       0.0       0.0                           34475908.0000
-    0:09:55 1264031.3      0.00       0.0       0.0                           34476716.0000
+    0:16:45 1369332.8      0.00       0.0       0.0                           36831216.0000
+    0:17:18 1369330.8      0.00       0.0       0.0                           36830792.0000
+    0:17:22 1369329.0      0.00       0.0       0.0                           36830704.0000
+    0:17:23 1369325.6      0.00       0.0       0.0                           36830536.0000
+    0:17:53 1369323.2      0.00       0.0       0.0                           36830436.0000
+    0:18:00 1369322.5      0.00       0.0       0.0                           36830416.0000
+    0:18:07 1369322.2      0.00       0.0       0.0                           36830384.0000
+    0:18:11 1369337.3      0.00       0.0       0.0                           36823436.0000
+    0:18:17 1369824.3      0.00       0.0       0.0                           36795960.0000
+    0:18:23 1370309.6      0.00       0.0       0.0                           36768392.0000
+    0:18:29 1370904.3      0.00       0.0       0.0                           36741536.0000
+    0:18:33 1371391.3      0.00       0.0       0.0                           36717276.0000
+    0:18:37 1371917.6      0.00       0.0       0.0                           36693328.0000
+    0:18:41 1372402.9      0.00       0.0       0.0                           36671316.0000
+    0:18:44 1372923.5      0.00       0.0       0.0                           36645104.0000
+    0:18:48 1373502.8      0.00       0.0       0.0                           36614620.0000
+    0:18:51 1373863.6      0.00       0.0       0.0                           36593088.0000
+    0:18:55 1374161.5      0.00       0.0       0.0                           36575040.0000
+    0:18:58 1374358.5      0.00       0.0       0.0                           36563224.0000
+    0:19:00 1374378.0      0.00       0.0       0.0                           36562092.0000
+    0:20:09 1359063.4      0.07      11.7       0.3                           37664900.0000
+    0:20:18 1359365.7      0.04       6.9     100.3 Rasterizer/GetColorDepth_01/div_pipe_2/Apipe2_reg[26]/D1 37663680.0000
+    0:20:23 1359634.5      0.03       4.9     131.3 Rasterizer/GetColorDepth_22/div_pipe_1/Apipe5_reg[26]/D1 37659612.0000
+    0:20:29 1359863.7      0.02       3.4     172.3 Rasterizer/GetColorDepth_31/div_pipe_3/Apipe4_reg[26]/D1 37656460.0000
+    0:20:34 1360214.9      0.01       1.6     185.3 Rasterizer/GetColorDepth_20/div_pipe_1/Apipe5_reg[26]/D1 37651872.0000
+    0:20:38 1360633.2      0.00       0.2     209.3 Rasterizer/GetColorDepth_23/div_pipe_2/Apipe5_reg[26]/D1 37647160.0000
+    0:20:40 1360756.3      0.00       0.0     217.3                           37645676.0000
+    0:20:40 1360756.3      0.00       0.0     217.3                           37645676.0000
+    0:20:40 1360756.3      0.00       0.0     217.3                           37645676.0000
+    0:20:45 1360756.3      0.00       0.0     217.3                           37645676.0000
+    0:20:45 1360756.3      0.00       0.0     217.3                           37645676.0000
+    0:21:02 1359959.6      0.00       0.0     270.8                           37668024.0000
 Loading db file '/usr/cadtool/GPDK45/gsclib045_svt_v4.4/gsclib045/db/slow_vdd1v2_basicCells_wl.db'
 
 
@@ -4408,7 +4439,7 @@ Note: Symbol # after min delay cost means estimated hold TNS across all active s
   Optimization Complete
   ---------------------
 Warning: Design 'Graphic_3Dto2D_top' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
-     Net 'vertex_shader/clk_gate_vertex1_depth_update_reg_0/net392864': 50138 load(s), 1 driver(s)
+     Net 'vertex_shader/clk_gate_CamY_reg[0]_1/net393002': 50138 load(s), 1 driver(s)
 Information: State dependent leakage is now switched from off to on.
 Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
 1
@@ -4559,9 +4590,9 @@ report_constraint -all_violators > ./report/report_violation_${TOPLEVEL}.out
 # ===== resources =====
 report_resources -hierarchy > ./report/report_resources_${TOPLEVEL}.outexit
 
-Memory usage for this session 2008 Mbytes.
-Memory usage for this session including child processes 2008 Mbytes.
-CPU usage for this session 3166 seconds ( 0.88 hours ).
-Elapsed time for this session 3254 seconds ( 0.90 hours ).
+Memory usage for this session 2009 Mbytes.
+Memory usage for this session including child processes 2009 Mbytes.
+CPU usage for this session 4886 seconds ( 1.36 hours ).
+Elapsed time for this session 5018 seconds ( 1.39 hours ).
 
 Thank you...
