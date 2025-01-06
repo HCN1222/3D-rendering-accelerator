@@ -10,10 +10,6 @@ code/sim/simv
 /mesh/others
 .venv
 .vs
-/code/SW/mesh
-/code/SW/TP
-/code/SW/TPOLD
-/code/SW/TP_FIND
 /code/syn
 code/syn/synopsys_dc.setup
 code/syn/default.svf
@@ -21,3 +17,4 @@ code/syn/default.svf
 *.list
 *.docx
 *.pptx
+
