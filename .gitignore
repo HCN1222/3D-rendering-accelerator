@@ -15,7 +15,6 @@ code/syn/synopsys_dc.setup
 code/syn/default.svf
 *.db
 *.list
-*.docx
-*.pptx
 
+*.pptx
 *.gif
