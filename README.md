@@ -67,13 +67,30 @@ The output format of the pixel is in RGB. _24-bits unsigned fixed point each, pa
 ### Algorithm
 
 Please refer to the behavioral model written in jupyter notebook.
-[Numpy verion]()
-[Quantized verion]()
+[Numpy verion](Renderer.ipynb)
+[Quantized verion](Testbench_generator.ipynb)
 
 ### Hardware Implementation
 
-Top module
+- Top module
 ![image](/images/top_module.png)
 
-Graphic_3D_to_2D_top
-![image](/images/Graphic_3D_to_2D_topt.png)
+- Graphic_3D_to_2D_top
+![image](/images/Graphic_3D_to_2D_top.png)
+
+### Execute
+
+To run the simulation, execute the following command.
+```
+cd ./code/sim
+bash run_sim.sh
+```
+
+### Custom dataset
+
+**Note that the input mesh should be a `.ply` file, which contains x, y, z, r, g, b.**
+
+Use `./code/SW/mesh/scale.ipynb` to scale the mesh.  
+( We only support coordinates within -7~7 (signed 4Q20) )
+
+Use the behaior model`./code/SW/Testbench_generator.ipynb` to generate the golden datasets.
