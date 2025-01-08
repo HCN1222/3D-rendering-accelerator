@@ -2,7 +2,7 @@
 
 [![hackmd-github-sync-badge](https://hackmd.io/m76AxNVjS-CTZnnKD7nPEw/badge)](https://hackmd.io/m76AxNVjS-CTZnnKD7nPEw)
 
-Huang, Cheng-Ning, 曾偉博( to be filled )
+Huang Cheng-Ning, Tseng Wei-Bo
 
 ![image](/images/teasor.png)
 
