@@ -67,8 +67,8 @@ The output format of the pixel is in RGB. _24-bits unsigned fixed point each, pa
 ### Algorithm
 
 Please refer to the behavioral model written in jupyter notebook.
-[Numpy verion](Renderer.ipynb)
-[Quantized verion](Testbench_generator.ipynb)
+[Numpy verion](./code/SW/Renderer.ipynb)
+[Quantized verion](./code/SW/Testbench_generator.ipynb)
 
 ### Hardware Implementation
 
